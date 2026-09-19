@@ -1,0 +1,79 @@
+"ord","bloco","verificacao","resultado"
+1,municipio,linhas (COUNT real),"5599"
+2,municipio,codigos distintos (dv),"5599"
+3,municipio,amostra codigo_municipio_dv,"1100015 | 1100023 | 1100031"
+4,municipio,amostra codigo_municipio,"110001 | 110002 | 110003"
+5,municipio,comprimentos distintos de codigo_municipio_dv,"7"
+6,municipio,comprimentos distintos de codigo_municipio,"6"
+10,chave,municipios distintos no Censo (7 digitos),"3551"
+11,chave,ORFAOS usando codigo_municipio_dv  (0 = chave certa),"0"
+12,chave,ORFAOS usando codigo_municipio     (0 = chave certa),"3551"
+13,chave,ORFAOS sede de IES vs municipio (dv),"0"
+20,coordenadas,lat OU long nulos,"0"
+21,coordenadas,lat fora do Brasil (-34..6),"2"
+22,coordenadas,long fora do Brasil (-74..-34),"3"
+23,coordenadas,"amostra lat,long","Abadia de Goiás (-16.7588120,-49.4405480) | Abadia dos Dourados (-18.4875650,-47.3968320) | Abadiânia (-16.1826720,-48.7188120)"
+30,populacao,anos disponiveis,"2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2024,2025,2026"
+31,populacao,municipios no ano mais recente,"5568"
+32,populacao,populacao total no ano mais recente,"214131050"
+33,populacao,comprimentos de cod_municipio,"6"
+Finalize GroupAggregate  (cost=84363.76..85005.50 rows=2484 width=24) (actual time=862.037..864.168 rows=1121 loops=1)
+  Group Key: co_municipio
+  Buffers: shared hit=3707 read=74197
+  I/O Timings: shared read=265.981
+  ->  Gather Merge  (cost=84363.76..84943.40 rows=4968 width=24) (actual time=862.026..863.657 rows=1368 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=3707 read=74197
+        I/O Timings: shared read=265.981
+        ->  Sort  (cost=83363.73..83369.94 rows=2484 width=24) (actual time=854.313..854.360 rows=456 loops=3)
+              Sort Key: co_municipio
+              Sort Method: quicksort  Memory: 45kB
+              Buffers: shared hit=3707 read=74197
+              I/O Timings: shared read=265.981
+              Worker 0:  Sort Method: quicksort  Memory: 41kB
+              Worker 1:  Sort Method: quicksort  Memory: 42kB
+              ->  Partial HashAggregate  (cost=83198.82..83223.66 rows=2484 width=24) (actual time=852.361..852.609 rows=456 loops=3)
+                    Group Key: co_municipio
+                    Batches: 1  Memory Usage: 177kB
+                    Buffers: shared hit=3691 read=74197
+                    I/O Timings: shared read=265.981
+                    Worker 0:  Batches: 1  Memory Usage: 177kB
+                    Worker 1:  Batches: 1  Memory Usage: 177kB
+                    ->  Parallel Seq Scan on inep_educacao_superior_cursos  (cost=0.00..83100.79 rows=13070 width=14) (actual time=14.649..828.564 rows=11608 loops=3)
+                          Filter: (((co_municipio)::text ~ '^[0-9]{7}$'::text) AND ((nu_ano_censo)::text = '2024'::text) AND ((tp_dimensao)::text = 'Cursos presenciais ofertados no Brasil'::text))
+                          Rows Removed by Filter: 228508
+                          Buffers: shared hit=3691 read=74197
+                          I/O Timings: shared read=265.981
+Planning Time: 0.241 ms
+Execution Time: 864.310 ms
+Finalize GroupAggregate  (cost=85661.25..86290.57 rows=2484 width=16) (actual time=1487.145..1491.691 rows=3524 loops=1)
+  Group Key: co_municipio
+  Buffers: shared hit=3803 read=74101
+  I/O Timings: shared read=381.558
+  ->  Gather Merge  (cost=85661.25..86240.89 rows=4968 width=16) (actual time=1487.135..1490.310 rows=4909 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=3803 read=74101
+        I/O Timings: shared read=381.558
+        ->  Sort  (cost=84661.22..84667.43 rows=2484 width=16) (actual time=1480.433..1480.587 rows=1636 loops=3)
+              Sort Key: co_municipio
+              Sort Method: quicksort  Memory: 100kB
+              Buffers: shared hit=3803 read=74101
+              I/O Timings: shared read=381.558
+              Worker 0:  Sort Method: quicksort  Memory: 102kB
+              Worker 1:  Sort Method: quicksort  Memory: 97kB
+              ->  Partial HashAggregate  (cost=84496.31..84521.15 rows=2484 width=16) (actual time=1471.721..1473.496 rows=1636 loops=3)
+                    Group Key: co_municipio
+                    Batches: 1  Memory Usage: 241kB
+                    Buffers: shared hit=3787 read=74101
+                    I/O Timings: shared read=381.558
+                    Worker 0:  Batches: 1  Memory Usage: 241kB
+                    Worker 1:  Batches: 1  Memory Usage: 241kB
+                    ->  Parallel Seq Scan on inep_educacao_superior_cursos  (cost=0.00..83100.79 rows=279103 width=12) (actual time=0.580..1114.172 rows=224582 loops=3)
+                          Filter: (((co_municipio)::text ~ '^[0-9]{7}$'::text) AND ((nu_ano_censo)::text = '2024'::text) AND ((tp_modalidade_ensino)::text = 'Curso a distância'::text))
+                          Rows Removed by Filter: 15534
+                          Buffers: shared hit=3787 read=74101
+                          I/O Timings: shared read=381.558
+Planning Time: 0.232 ms
+Execution Time: 1491.951 ms

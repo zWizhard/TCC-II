@@ -1,0 +1,306 @@
+tabela,pos,coluna,tipo,tam_texto,precisao,aceita_null
+inep_educacao_superior_cursos,1,nu_ano_censo,character varying,4,,NO
+inep_educacao_superior_cursos,2,no_regiao,character varying,18,,NO
+inep_educacao_superior_cursos,3,co_regiao,character varying,18,,NO
+inep_educacao_superior_cursos,4,no_uf,character varying,19,,NO
+inep_educacao_superior_cursos,5,sg_uf,character varying,18,,NO
+inep_educacao_superior_cursos,6,co_uf,character varying,18,,NO
+inep_educacao_superior_cursos,7,no_municipio,character varying,32,,NO
+inep_educacao_superior_cursos,8,co_municipio,character varying,18,,NO
+inep_educacao_superior_cursos,9,in_capital,character varying,18,,NO
+inep_educacao_superior_cursos,10,tp_dimensao,character varying,69,,NO
+inep_educacao_superior_cursos,11,tp_organizacao_academica,character varying,51,,NO
+inep_educacao_superior_cursos,12,tp_rede,character varying,7,,NO
+inep_educacao_superior_cursos,13,tp_categoria_administrativa,character varying,27,,NO
+inep_educacao_superior_cursos,14,in_comunitaria,smallint,,16,NO
+inep_educacao_superior_cursos,15,in_confessional,smallint,,16,NO
+inep_educacao_superior_cursos,16,co_ies,integer,,32,NO
+inep_educacao_superior_cursos,17,no_curso,character varying,158,,NO
+inep_educacao_superior_cursos,18,co_curso,integer,,32,NO
+inep_educacao_superior_cursos,19,no_cine_rotulo,character varying,121,,NO
+inep_educacao_superior_cursos,20,co_cine_rotulo,character varying,9,,NO
+inep_educacao_superior_cursos,21,co_cine_area_geral,smallint,,16,NO
+inep_educacao_superior_cursos,22,no_cine_area_geral,character varying,58,,NO
+inep_educacao_superior_cursos,23,co_cine_area_especifica,smallint,,16,NO
+inep_educacao_superior_cursos,24,no_cine_area_especifica,character varying,105,,NO
+inep_educacao_superior_cursos,25,co_cine_area_detalhada,smallint,,16,NO
+inep_educacao_superior_cursos,26,no_cine_area_detalhada,character varying,121,,NO
+inep_educacao_superior_cursos,27,tp_grau_academico,character varying,13,,NO
+inep_educacao_superior_cursos,28,in_gratuito,character varying,3,,NO
+inep_educacao_superior_cursos,29,tp_modalidade_ensino,character varying,17,,NO
+inep_educacao_superior_cursos,30,tp_nivel_academico,character varying,33,,NO
+inep_educacao_superior_cursos,31,qt_curso,smallint,,16,NO
+inep_educacao_superior_cursos,32,qt_vg_total,integer,,32,NO
+inep_educacao_superior_cursos,33,qt_vg_total_diurno,smallint,,16,NO
+inep_educacao_superior_cursos,34,qt_vg_total_noturno,smallint,,16,NO
+inep_educacao_superior_cursos,35,qt_vg_total_ead,integer,,32,NO
+inep_educacao_superior_cursos,36,qt_vg_nova,integer,,32,NO
+inep_educacao_superior_cursos,37,qt_vg_proc_seletivo,smallint,,16,NO
+inep_educacao_superior_cursos,38,qt_vg_remanesc,integer,,32,NO
+inep_educacao_superior_cursos,39,qt_vg_prog_especial,smallint,,16,NO
+inep_educacao_superior_cursos,40,qt_inscrito_total,integer,,32,NO
+inep_educacao_superior_cursos,41,qt_inscrito_total_diurno,integer,,32,NO
+inep_educacao_superior_cursos,42,qt_inscrito_total_noturno,integer,,32,NO
+inep_educacao_superior_cursos,43,qt_inscrito_total_ead,integer,,32,NO
+inep_educacao_superior_cursos,44,qt_insc_vg_nova,integer,,32,NO
+inep_educacao_superior_cursos,45,qt_insc_proc_seletivo,smallint,,16,NO
+inep_educacao_superior_cursos,46,qt_insc_vg_remanesc,integer,,32,NO
+inep_educacao_superior_cursos,47,qt_insc_vg_prog_especial,smallint,,16,NO
+inep_educacao_superior_cursos,48,qt_ing,smallint,,16,NO
+inep_educacao_superior_cursos,49,qt_ing_fem,smallint,,16,NO
+inep_educacao_superior_cursos,50,qt_ing_masc,smallint,,16,NO
+inep_educacao_superior_cursos,51,qt_ing_diurno,smallint,,16,NO
+inep_educacao_superior_cursos,52,qt_ing_noturno,smallint,,16,NO
+inep_educacao_superior_cursos,53,qt_ing_vg_nova,smallint,,16,NO
+inep_educacao_superior_cursos,54,qt_ing_vestibular,smallint,,16,NO
+inep_educacao_superior_cursos,55,qt_ing_enem,smallint,,16,NO
+inep_educacao_superior_cursos,56,qt_ing_avaliacao_seriada,smallint,,16,NO
+inep_educacao_superior_cursos,57,qt_ing_selecao_simplifica,smallint,,16,NO
+inep_educacao_superior_cursos,58,qt_ing_egr,smallint,,16,NO
+inep_educacao_superior_cursos,59,qt_ing_outro_tipo_selecao,smallint,,16,NO
+inep_educacao_superior_cursos,60,qt_ing_proc_seletivo,smallint,,16,NO
+inep_educacao_superior_cursos,61,qt_ing_vg_remanesc,smallint,,16,NO
+inep_educacao_superior_cursos,62,qt_ing_vg_prog_especial,smallint,,16,NO
+inep_educacao_superior_cursos,63,qt_ing_outra_forma,smallint,,16,NO
+inep_educacao_superior_cursos,64,qt_ing_0_17,smallint,,16,NO
+inep_educacao_superior_cursos,65,qt_ing_18_24,smallint,,16,NO
+inep_educacao_superior_cursos,66,qt_ing_25_29,smallint,,16,NO
+inep_educacao_superior_cursos,67,qt_ing_30_34,smallint,,16,NO
+inep_educacao_superior_cursos,68,qt_ing_35_39,smallint,,16,NO
+inep_educacao_superior_cursos,69,qt_ing_40_49,smallint,,16,NO
+inep_educacao_superior_cursos,70,qt_ing_50_59,smallint,,16,NO
+inep_educacao_superior_cursos,71,qt_ing_60_mais,smallint,,16,NO
+inep_educacao_superior_cursos,72,qt_ing_branca,smallint,,16,NO
+inep_educacao_superior_cursos,73,qt_ing_preta,smallint,,16,NO
+inep_educacao_superior_cursos,74,qt_ing_parda,smallint,,16,NO
+inep_educacao_superior_cursos,75,qt_ing_amarela,smallint,,16,NO
+inep_educacao_superior_cursos,76,qt_ing_indigena,smallint,,16,NO
+inep_educacao_superior_cursos,77,qt_ing_cornd,smallint,,16,NO
+inep_educacao_superior_cursos,78,qt_mat,integer,,32,NO
+inep_educacao_superior_cursos,79,qt_mat_fem,integer,,32,NO
+inep_educacao_superior_cursos,80,qt_mat_masc,smallint,,16,NO
+inep_educacao_superior_cursos,81,qt_mat_diurno,smallint,,16,NO
+inep_educacao_superior_cursos,82,qt_mat_noturno,smallint,,16,NO
+inep_educacao_superior_cursos,83,qt_mat_0_17,smallint,,16,NO
+inep_educacao_superior_cursos,84,qt_mat_18_24,smallint,,16,NO
+inep_educacao_superior_cursos,85,qt_mat_25_29,smallint,,16,NO
+inep_educacao_superior_cursos,86,qt_mat_30_34,smallint,,16,NO
+inep_educacao_superior_cursos,87,qt_mat_35_39,smallint,,16,NO
+inep_educacao_superior_cursos,88,qt_mat_40_49,smallint,,16,NO
+inep_educacao_superior_cursos,89,qt_mat_50_59,smallint,,16,NO
+inep_educacao_superior_cursos,90,qt_mat_60_mais,smallint,,16,NO
+inep_educacao_superior_cursos,91,qt_mat_branca,smallint,,16,NO
+inep_educacao_superior_cursos,92,qt_mat_preta,smallint,,16,NO
+inep_educacao_superior_cursos,93,qt_mat_parda,smallint,,16,NO
+inep_educacao_superior_cursos,94,qt_mat_amarela,smallint,,16,NO
+inep_educacao_superior_cursos,95,qt_mat_indigena,smallint,,16,NO
+inep_educacao_superior_cursos,96,qt_mat_cornd,smallint,,16,NO
+inep_educacao_superior_cursos,97,qt_conc,smallint,,16,NO
+inep_educacao_superior_cursos,98,qt_conc_fem,smallint,,16,NO
+inep_educacao_superior_cursos,99,qt_conc_masc,smallint,,16,NO
+inep_educacao_superior_cursos,100,qt_conc_diurno,smallint,,16,NO
+inep_educacao_superior_cursos,101,qt_conc_noturno,smallint,,16,NO
+inep_educacao_superior_cursos,102,qt_conc_0_17,smallint,,16,NO
+inep_educacao_superior_cursos,103,qt_conc_18_24,smallint,,16,NO
+inep_educacao_superior_cursos,104,qt_conc_25_29,smallint,,16,NO
+inep_educacao_superior_cursos,105,qt_conc_30_34,smallint,,16,NO
+inep_educacao_superior_cursos,106,qt_conc_35_39,smallint,,16,NO
+inep_educacao_superior_cursos,107,qt_conc_40_49,smallint,,16,NO
+inep_educacao_superior_cursos,108,qt_conc_50_59,smallint,,16,NO
+inep_educacao_superior_cursos,109,qt_conc_60_mais,smallint,,16,NO
+inep_educacao_superior_cursos,110,qt_conc_branca,smallint,,16,NO
+inep_educacao_superior_cursos,111,qt_conc_preta,smallint,,16,NO
+inep_educacao_superior_cursos,112,qt_conc_parda,smallint,,16,NO
+inep_educacao_superior_cursos,113,qt_conc_amarela,smallint,,16,NO
+inep_educacao_superior_cursos,114,qt_conc_indigena,smallint,,16,NO
+inep_educacao_superior_cursos,115,qt_conc_cornd,smallint,,16,NO
+inep_educacao_superior_cursos,116,qt_ing_nacbras,smallint,,16,NO
+inep_educacao_superior_cursos,117,qt_ing_nacestrang,smallint,,16,NO
+inep_educacao_superior_cursos,118,qt_mat_nacbras,integer,,32,NO
+inep_educacao_superior_cursos,119,qt_mat_nacestrang,smallint,,16,NO
+inep_educacao_superior_cursos,120,qt_conc_nacbras,smallint,,16,NO
+inep_educacao_superior_cursos,121,qt_conc_nacestrang,smallint,,16,NO
+inep_educacao_superior_cursos,122,qt_aluno_deficiente,smallint,,16,NO
+inep_educacao_superior_cursos,123,qt_ing_deficiente,smallint,,16,NO
+inep_educacao_superior_cursos,124,qt_mat_deficiente,smallint,,16,NO
+inep_educacao_superior_cursos,125,qt_conc_deficiente,smallint,,16,NO
+inep_educacao_superior_cursos,126,qt_ing_financ,smallint,,16,NO
+inep_educacao_superior_cursos,127,qt_ing_financ_reemb,smallint,,16,NO
+inep_educacao_superior_cursos,128,qt_ing_fies,smallint,,16,NO
+inep_educacao_superior_cursos,129,qt_ing_rpfies,smallint,,16,NO
+inep_educacao_superior_cursos,130,qt_ing_financ_reemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,131,qt_ing_financ_nreemb,smallint,,16,NO
+inep_educacao_superior_cursos,132,qt_ing_prounii,smallint,,16,NO
+inep_educacao_superior_cursos,133,qt_ing_prounip,smallint,,16,NO
+inep_educacao_superior_cursos,134,qt_ing_nrpfies,smallint,,16,NO
+inep_educacao_superior_cursos,135,qt_ing_financ_nreemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,136,qt_mat_financ,smallint,,16,NO
+inep_educacao_superior_cursos,137,qt_mat_financ_reemb,smallint,,16,NO
+inep_educacao_superior_cursos,138,qt_mat_fies,smallint,,16,NO
+inep_educacao_superior_cursos,139,qt_mat_rpfies,smallint,,16,NO
+inep_educacao_superior_cursos,140,qt_mat_financ_reemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,141,qt_mat_financ_nreemb,smallint,,16,NO
+inep_educacao_superior_cursos,142,qt_mat_prounii,smallint,,16,NO
+inep_educacao_superior_cursos,143,qt_mat_prounip,smallint,,16,NO
+inep_educacao_superior_cursos,144,qt_mat_nrpfies,smallint,,16,NO
+inep_educacao_superior_cursos,145,qt_mat_financ_nreemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,146,qt_conc_financ,smallint,,16,NO
+inep_educacao_superior_cursos,147,qt_conc_financ_reemb,smallint,,16,NO
+inep_educacao_superior_cursos,148,qt_conc_fies,smallint,,16,NO
+inep_educacao_superior_cursos,149,qt_conc_rpfies,smallint,,16,NO
+inep_educacao_superior_cursos,150,qt_conc_financ_reemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,151,qt_conc_financ_nreemb,smallint,,16,NO
+inep_educacao_superior_cursos,152,qt_conc_prounii,smallint,,16,NO
+inep_educacao_superior_cursos,153,qt_conc_prounip,smallint,,16,NO
+inep_educacao_superior_cursos,154,qt_conc_nrpfies,smallint,,16,NO
+inep_educacao_superior_cursos,155,qt_conc_financ_nreemb_outros,smallint,,16,NO
+inep_educacao_superior_cursos,156,qt_ing_reserva_vaga,smallint,,16,NO
+inep_educacao_superior_cursos,157,qt_ing_rvredepublica,smallint,,16,NO
+inep_educacao_superior_cursos,158,qt_ing_rvppi,smallint,,16,NO
+inep_educacao_superior_cursos,159,qt_ing_rvquilo,smallint,,16,NO
+inep_educacao_superior_cursos,160,qt_ing_rvrefu,smallint,,16,NO
+inep_educacao_superior_cursos,161,qt_ing_rvpovt,smallint,,16,NO
+inep_educacao_superior_cursos,162,qt_ing_rvpdef,smallint,,16,NO
+inep_educacao_superior_cursos,163,qt_ing_rvsocial_rf,smallint,,16,NO
+inep_educacao_superior_cursos,164,qt_ing_rvidoso,smallint,,16,NO
+inep_educacao_superior_cursos,165,qt_ing_rvintern,smallint,,16,NO
+inep_educacao_superior_cursos,166,qt_ing_rvmedal,smallint,,16,NO
+inep_educacao_superior_cursos,167,qt_ing_rvtrans,smallint,,16,NO
+inep_educacao_superior_cursos,168,qt_ing_rvoutros,smallint,,16,NO
+inep_educacao_superior_cursos,169,qt_mat_reserva_vaga,smallint,,16,NO
+inep_educacao_superior_cursos,170,qt_mat_rvredepublica,smallint,,16,NO
+inep_educacao_superior_cursos,171,qt_mat_rvppi,smallint,,16,NO
+inep_educacao_superior_cursos,172,qt_mat_rvquilo,smallint,,16,NO
+inep_educacao_superior_cursos,173,qt_mat_rvrefu,smallint,,16,NO
+inep_educacao_superior_cursos,174,qt_mat_rvpovt,smallint,,16,NO
+inep_educacao_superior_cursos,175,qt_mat_rvpdef,smallint,,16,NO
+inep_educacao_superior_cursos,176,qt_mat_rvsocial_rf,smallint,,16,NO
+inep_educacao_superior_cursos,177,qt_mat_rvidoso,smallint,,16,NO
+inep_educacao_superior_cursos,178,qt_mat_rvintern,smallint,,16,NO
+inep_educacao_superior_cursos,179,qt_mat_rvmedal,smallint,,16,NO
+inep_educacao_superior_cursos,180,qt_mat_rvtrans,smallint,,16,NO
+inep_educacao_superior_cursos,181,qt_mat_rvoutros,smallint,,16,NO
+inep_educacao_superior_cursos,182,qt_conc_reserva_vaga,smallint,,16,NO
+inep_educacao_superior_cursos,183,qt_conc_rvredepublica,smallint,,16,NO
+inep_educacao_superior_cursos,184,qt_conc_rvppi,smallint,,16,NO
+inep_educacao_superior_cursos,185,qt_conc_rvquilo,smallint,,16,NO
+inep_educacao_superior_cursos,186,qt_conc_rvrefu,smallint,,16,NO
+inep_educacao_superior_cursos,187,qt_conc_rvpovt,smallint,,16,NO
+inep_educacao_superior_cursos,188,qt_conc_rvpdef,smallint,,16,NO
+inep_educacao_superior_cursos,189,qt_conc_rvsocial_rf,smallint,,16,NO
+inep_educacao_superior_cursos,190,qt_conc_rvidoso,smallint,,16,NO
+inep_educacao_superior_cursos,191,qt_conc_rvintern,smallint,,16,NO
+inep_educacao_superior_cursos,192,qt_conc_rvmedal,smallint,,16,NO
+inep_educacao_superior_cursos,193,qt_conc_rvtrans,smallint,,16,NO
+inep_educacao_superior_cursos,194,qt_conc_rvoutros,smallint,,16,NO
+inep_educacao_superior_cursos,195,qt_sit_trancada,smallint,,16,NO
+inep_educacao_superior_cursos,196,qt_sit_desvinculado,smallint,,16,NO
+inep_educacao_superior_cursos,197,qt_sit_transferido,smallint,,16,NO
+inep_educacao_superior_cursos,198,qt_sit_falecido,smallint,,16,NO
+inep_educacao_superior_cursos,199,qt_ing_procescpublica,smallint,,16,NO
+inep_educacao_superior_cursos,200,qt_ing_procescprivada,smallint,,16,NO
+inep_educacao_superior_cursos,201,qt_ing_procnaoinformada,smallint,,16,NO
+inep_educacao_superior_cursos,202,qt_mat_procescpublica,integer,,32,NO
+inep_educacao_superior_cursos,203,qt_mat_procescprivada,smallint,,16,NO
+inep_educacao_superior_cursos,204,qt_mat_procnaoinformada,smallint,,16,NO
+inep_educacao_superior_cursos,205,qt_conc_procescpublica,smallint,,16,NO
+inep_educacao_superior_cursos,206,qt_conc_procescprivada,smallint,,16,NO
+inep_educacao_superior_cursos,207,qt_conc_procnaoinformada,smallint,,16,NO
+inep_educacao_superior_cursos,208,qt_parfor,smallint,,16,NO
+inep_educacao_superior_cursos,209,qt_ing_parfor,smallint,,16,NO
+inep_educacao_superior_cursos,210,qt_mat_parfor,smallint,,16,NO
+inep_educacao_superior_cursos,211,qt_conc_parfor,smallint,,16,NO
+inep_educacao_superior_cursos,212,qt_apoio_social,smallint,,16,NO
+inep_educacao_superior_cursos,213,qt_ing_apoio_social,smallint,,16,NO
+inep_educacao_superior_cursos,214,qt_mat_apoio_social,smallint,,16,NO
+inep_educacao_superior_cursos,215,qt_conc_apoio_social,smallint,,16,NO
+inep_educacao_superior_cursos,216,qt_ativ_extracurricular,integer,,32,NO
+inep_educacao_superior_cursos,217,qt_ing_ativ_extracurricular,smallint,,16,NO
+inep_educacao_superior_cursos,218,qt_mat_ativ_extracurricular,integer,,32,NO
+inep_educacao_superior_cursos,219,qt_conc_ativ_extracurricular,smallint,,16,NO
+inep_educacao_superior_cursos,220,qt_mob_academica,smallint,,16,NO
+inep_educacao_superior_cursos,221,qt_ing_mob_academica,smallint,,16,NO
+inep_educacao_superior_cursos,222,qt_mat_mob_academica,smallint,,16,NO
+inep_educacao_superior_cursos,223,qt_conc_mob_academica,smallint,,16,NO
+inep_educacao_superior_ies,1,nu_ano_censo,character,4,,NO
+inep_educacao_superior_ies,2,no_regiao_ies,character varying,12,,NO
+inep_educacao_superior_ies,3,co_regiao_ies,smallint,,16,NO
+inep_educacao_superior_ies,4,no_uf_ies,character varying,20,,NO
+inep_educacao_superior_ies,5,sg_uf_ies,character varying,2,,NO
+inep_educacao_superior_ies,6,co_uf_ies,character,2,,NO
+inep_educacao_superior_ies,7,no_municipio_ies,character varying,40,,NO
+inep_educacao_superior_ies,8,co_municipio_ies,character,7,,NO
+inep_educacao_superior_ies,9,in_capital_ies,character,3,,NO
+inep_educacao_superior_ies,10,no_mesorregiao_ies,character varying,54,,NO
+inep_educacao_superior_ies,11,co_mesorregiao_ies,smallint,,16,NO
+inep_educacao_superior_ies,12,no_microrregiao_ies,character varying,54,,NO
+inep_educacao_superior_ies,13,co_microrregiao_ies,smallint,,16,NO
+inep_educacao_superior_ies,14,tp_organizacao_academica,character varying,54,,NO
+inep_educacao_superior_ies,15,tp_rede,integer,,32,NO
+inep_educacao_superior_ies,16,tp_categoria_administrativa,character varying,27,,NO
+inep_educacao_superior_ies,17,in_comunitaria,smallint,,16,NO
+inep_educacao_superior_ies,18,in_confessional,smallint,,16,NO
+inep_educacao_superior_ies,19,no_mantenedora,character varying,100,,NO
+inep_educacao_superior_ies,20,co_mantenedora,smallint,,16,NO
+inep_educacao_superior_ies,21,co_ies,smallint,,16,NO
+inep_educacao_superior_ies,22,no_ies,character varying,100,,NO
+inep_educacao_superior_ies,23,sg_ies,character varying,20,,NO
+inep_educacao_superior_ies,24,ds_endereco_ies,character varying,137,,NO
+inep_educacao_superior_ies,25,nu_cep_ies,character,12,,NO
+inep_educacao_superior_ies,26,qt_tec_total,integer,,32,YES
+inep_educacao_superior_ies,27,qt_tec_fundamental_incomp_fem,integer,,32,NO
+inep_educacao_superior_ies,28,qt_tec_fundamental_incomp_masc,integer,,32,NO
+inep_educacao_superior_ies,29,qt_tec_fundamental_comp_fem,integer,,32,NO
+inep_educacao_superior_ies,30,qt_tec_fundamental_comp_masc,integer,,32,NO
+inep_educacao_superior_ies,31,qt_tec_medio_fem,integer,,32,NO
+inep_educacao_superior_ies,32,qt_tec_medio_masc,integer,,32,NO
+inep_educacao_superior_ies,33,qt_tec_superior_fem,integer,,32,NO
+inep_educacao_superior_ies,34,qt_tec_superior_masc,integer,,32,NO
+inep_educacao_superior_ies,35,qt_tec_especializacao_fem,integer,,32,NO
+inep_educacao_superior_ies,36,qt_tec_especializacao_masc,integer,,32,NO
+inep_educacao_superior_ies,37,qt_tec_mestrado_fem,integer,,32,NO
+inep_educacao_superior_ies,38,qt_tec_mestrado_masc,integer,,32,NO
+inep_educacao_superior_ies,39,qt_tec_doutorado_fem,integer,,32,NO
+inep_educacao_superior_ies,40,qt_tec_doutorado_masc,integer,,32,NO
+inep_educacao_superior_ies,41,in_acesso_portal_capes,character,3,,NO
+inep_educacao_superior_ies,42,in_acesso_outras_bases,character,3,,NO
+inep_educacao_superior_ies,43,in_assina_outra_base,character,3,,NO
+inep_educacao_superior_ies,44,in_repositorio_institucional,character,3,,NO
+inep_educacao_superior_ies,45,in_busca_integrada,character,3,,NO
+inep_educacao_superior_ies,46,in_servico_internet,character,3,,NO
+inep_educacao_superior_ies,47,in_participa_rede_social,character,3,,NO
+inep_educacao_superior_ies,48,in_catalogo_online,character,3,,NO
+inep_educacao_superior_ies,49,qt_periodico_eletronico,integer,,32,NO
+inep_educacao_superior_ies,50,qt_livro_eletronico,integer,,32,NO
+inep_educacao_superior_ies,51,qt_doc_total,integer,,32,NO
+inep_educacao_superior_ies,52,qt_doc_exe,integer,,32,NO
+inep_educacao_superior_ies,53,qt_doc_ex_femi,integer,,32,NO
+inep_educacao_superior_ies,54,qt_doc_ex_masc,integer,,32,NO
+inep_educacao_superior_ies,55,qt_doc_ex_sem_grad,integer,,32,NO
+inep_educacao_superior_ies,56,qt_doc_ex_grad,integer,,32,NO
+inep_educacao_superior_ies,57,qt_doc_ex_esp,integer,,32,NO
+inep_educacao_superior_ies,58,qt_doc_ex_mest,integer,,32,NO
+inep_educacao_superior_ies,59,qt_doc_ex_dout,integer,,32,NO
+inep_educacao_superior_ies,60,qt_doc_ex_int,integer,,32,NO
+inep_educacao_superior_ies,61,qt_doc_ex_int_de,integer,,32,NO
+inep_educacao_superior_ies,62,qt_doc_ex_int_sem_de,integer,,32,NO
+inep_educacao_superior_ies,63,qt_doc_ex_parc,integer,,32,NO
+inep_educacao_superior_ies,64,qt_doc_ex_hor,integer,,32,NO
+inep_educacao_superior_ies,65,qt_doc_ex_0_29,integer,,32,NO
+inep_educacao_superior_ies,66,qt_doc_ex_30_34,integer,,32,NO
+inep_educacao_superior_ies,67,qt_doc_ex_35_39,integer,,32,NO
+inep_educacao_superior_ies,68,qt_doc_ex_40_44,integer,,32,NO
+inep_educacao_superior_ies,69,qt_doc_ex_45_49,integer,,32,NO
+inep_educacao_superior_ies,70,qt_doc_ex_50_54,integer,,32,NO
+inep_educacao_superior_ies,71,qt_doc_ex_55_59,integer,,32,NO
+inep_educacao_superior_ies,72,qt_doc_ex_60_mais,integer,,32,NO
+inep_educacao_superior_ies,73,qt_doc_ex_branca,integer,,32,NO
+inep_educacao_superior_ies,74,qt_doc_ex_preta,integer,,32,NO
+inep_educacao_superior_ies,75,qt_doc_ex_parda,integer,,32,NO
+inep_educacao_superior_ies,76,qt_doc_ex_amarela,integer,,32,NO
+inep_educacao_superior_ies,77,qt_doc_ex_indigena,integer,,32,NO
+inep_educacao_superior_ies,78,qt_doc_ex_cor_nd,integer,,32,NO
+inep_educacao_superior_ies,79,qt_doc_ex_bra,integer,,32,NO
+inep_educacao_superior_ies,80,qt_doc_ex_est,integer,,32,NO
+inep_educacao_superior_ies,81,qt_doc_ex_com_deficiencia,integer,,32,NO
+inep_educacao_superior_ies,82,ds_rede,character varying,7,,NO

@@ -1,0 +1,83 @@
+# === Segredos (nunca versionar) ===
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+secrets.json
+secrets.yaml
+secrets.yml
+credentials
+credentials.json
+service-account*.json
+.claude/settings.local.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# === Node / frontend ===
+node_modules/
+.next/
+.turbo/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# === Dados (grandes / brutos — nao versionar) ===
+*.csv
+*.parquet
+*.xlsx
+*.dbf
+*.shp
+*.shx
+*.zip
+*.7z
+
+# **/ para pegar tambem docs/data/raw/, onde os CSVs do Censo estao hoje.
+# SEM barra final de proposito: git nao consegue re-incluir um arquivo que esta
+# dentro de um diretorio excluido, e a excecao das evidencias abaixo nao funcionaria.
+**/data/raw/*
+**/data/interim/
+**/data/processed/
+**/data/external/
+
+# GeoJSON pequeno de referencia pode ser versionado explicitamente com `git add -f`
+*.geojson
+!data/reference/**/*.geojson
+
+# Excecao: evidencias das auditorias do banco (KB, nao MB) sustentam a metodologia
+# do TCC e sao versionadas. Precisa vir DEPOIS de `*.csv`: vence a ultima regra que casa.
+!**/data/raw/diagnostics/
+**/data/raw/diagnostics/*
+!**/data/raw/diagnostics/*.csv
+
+# === Notebooks ===
+.ipynb_checkpoints/
+
+# === Logs e temporarios ===
+*.log
+logs/
+tmp/
+.cache/
+
+# === SO / editor ===
+Thumbs.db
+desktop.ini
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

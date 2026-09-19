@@ -1,0 +1,30 @@
+ord,bloco,verificacao,resultado
+1,nulos_ies,co_ies NULL,0
+2,nulos_ies,co_municipio_ies NULL,0
+3,nulos_ies,sg_ies NULL,0
+4,nulos_ies,sg_ies string vazia,459
+5,nulos_ies,nu_cep_ies NULL,0
+6,nulos_ies,nu_cep_ies string vazia,26
+10,padding,comprimentos distintos de co_municipio_ies (bruto),7
+11,padding,comprimentos distintos de co_municipio_ies (btrim),7
+12,padding,comprimentos distintos de nu_ano_censo em IES (bruto),4
+13,padding,linhas de IES que casam com o literal 2024 sem btrim,2561
+20,nulos_cursos,contagens de NULL (uma varredura),linhas=720349 | co_curso=0 | co_ies=0 | co_municipio=0 | co_uf=0 | co_regiao=0 | tp_dimensao=0 | qt_curso=0 | qt_mat=0 | co_cine_area_geral=0
+30,contaminacao,linhas nao numericas por coluna territorial,co_municipio=11778 | co_uf=11778 | co_regiao=11778 | in_capital fora de Sim/Nao=11778
+31,contaminacao,valores distintos nao numericos de co_uf,Cursos a distância
+40,grain,COUNT(*) cursos,720349
+41,grain,"distinct (ano, co_curso, co_municipio, tp_dimensao)",720349
+42,grain,co_curso que aparecem com mais de um co_ies,0
+50,ds_rede,"pares (tp_rede, ds_rede) em IES",1=Pública:317 | 2=Privada:2244
+51,ds_rede,rotulos distintos de cursos.tp_rede,Privada | Pública
+60,mesorregiao,"distintos: co_meso / no_meso / (uf, co_meso)",15 / 131 / 131
+61,mesorregiao,"distintos: co_micro / no_micro / (uf, co_micro)",65 / 382 / 383
+70,docentes,linhas onde qt_doc_total <> qt_doc_exe,0
+80,privilegio,SELECT nas auxiliares,municipio=true | ibge_populacao_estimada=true | pib_municipios=true | ibge_munic_2024=true | ibge_densidade_populacional_area_municipios_2010=true | regiao=true | unidade_federacao=true | IBGE_agregados_por_municipio_basico=true
+81,privilegio,escrita continua bloqueada nas duas do Censo,inep_educacao_superior_ies:INSERT=false | inep_educacao_superior_ies:UPDATE=false | inep_educacao_superior_ies:DELETE=false | inep_educacao_superior_cursos:INSERT=false | inep_educacao_superior_cursos:UPDATE=false | inep_educacao_superior_cursos:DELETE=false
+90,pendencia,municipio: linhas / codigos distintos,5599 / 5599
+91,pendencia,municipio: latitudes fora do envelope do Brasil,"Exterior ou EAD(9999999): -38.6658523,-17.9995682 | MUNICIPIO IGNORADO - EXTERIOR(9900000): 48.8606000,2.3364000"
+92,pendencia,municipio: longitudes fora do envelope,"Exterior ou EAD(9999999): -38.6658523,-17.9995682 | MUNICIPIO IGNORADO - EXTERIOR(9900000): 48.8606000,2.3364000"
+93,pendencia,municipio: codigos que NAO parecem IBGE de 7 digitos,2
+94,pendencia,"ibge_populacao_estimada: duplicata por (ano, municipio)?",144678 linhas / 144628 pares distintos
+95,pendencia,pib_municipios / densidade: digitos do codigo,pib=7 | densidade=7

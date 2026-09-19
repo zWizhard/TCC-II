@@ -1,0 +1,19 @@
+ord,bloco,verificacao,resultado
+1,populacao,"pares (ano, municipio) duplicados",50
+2,populacao,"desses, quantos tem populacao DIVERGENTE",50
+3,populacao,anos em que a duplicata ocorre,"2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020"
+4,populacao,amostra de duplicata (municipio: valores),150680 em 2006: 276074/2606 | 210920 em 2000: 8162/6723 | 251380 em 2013: 4612/10423 | 412040 em 2003: 4512/2015 | 240350 em 2000: 8723/4219
+10,municipio,linhas totais,5599
+11,municipio,codigos sentinela (prefixo 9),9999999=Exterior ou EAD | 9900000=MUNICIPIO IGNORADO - EXTERIOR
+12,municipio,linhas com codigo IBGE plausivel (prefixo 1-5),5597
+13,municipio,UFs distintas (cd_uf),28
+14,municipio,"pares (nome, cd_uf) duplicados",0
+15,municipio,linhas por prefixo de UF (2 primeiros digitos),11:52 | 12:23 | 13:63 | 14:16 | 15:145 | 16:17 | 17:140 | 21:218 | 22:225 | 23:185 | 24:168 | 25:224 | 26:186 | 27:103 | 28:76 | 29:418 | 31:854 | 32:79 | 33:93 | 35:646 | 41:400 | 42:296 | 43:498 | 50:80 | 51:143 | 52:247 | 53:2
+20,ead_9,linhas EAD-ofertado-no-Brasil sem territorio,9
+21,ead_9,soma de qt_mat / qt_curso nessas linhas,qt_mat=41 | qt_curso=0
+22,ead_9,cursos e IES envolvidos,10/5001649 | 1326/50017079 | 1490/5001691 | 275/50017183 | 417/5001662 | 423/5001615 | 482/50017101 | 5520/50017281 | 953/50017193
+23,ead_9,esses cursos tambem tem linha COM territorio?,291
+30,territorio,municipios distintos: sede de IES,698
+31,territorio,municipios distintos: oferta de curso (validos),3551
+32,territorio,orfaos: sede de IES sem linha em municipio,0
+33,territorio,orfaos: oferta de curso sem linha em municipio,0
