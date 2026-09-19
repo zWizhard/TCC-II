@@ -125,6 +125,11 @@ Um JOIN não está correto só porque executou.
 Métrica derivada relevante precisa de: definição, fórmula, unidade, grain, fonte, pressupostos, limitações.
 Cálculo numérico é feito em SQL/Python — **nunca** delegado ao LLM. Correlação ≠ causalidade.
 
+Tarefa que envolva indicador ou metodologia de métrica: as referências oficiais são
+`docs/tcc/methodology/INDICADORES.md` (fichas dos indicadores diretos, derivados e em quarentena)
+e a [ADR-0009](docs/tcc/decisions/ADR-0009-criterio-de-admissibilidade-de-indicadores.md)
+(critério de admissibilidade). Não propor indicador fora delas sem passar pelo critério.
+
 ## Segurança
 
 - Conexão do Analista IA é **READ ONLY**. Defesa em profundidade: usuário somente-leitura,
@@ -192,6 +197,8 @@ Não chamar para perguntas, explicações ou exploração sem conclusão. Nunca 
 | ETL e camada analítica DuckDB | `docs/data/ETL_DUCKDB.md` |
 | Grain das tabelas | `docs/data/DATA_GRAIN.md` |
 | Estratégia de JOIN | `docs/data/JOIN_STRATEGY.md` |
+| **Indicadores — definição formal** | `docs/tcc/methodology/INDICADORES.md` |
+| Scripts de auditoria sobre o DuckDB local | `scripts/analise/` |
 | Analista IA / Text-to-SQL | `docs/tcc/architecture/AI_ANALYST.md` |
 | Índice do devlog | `docs/tcc/DEVLOG_INDEX.md` |
 | Decisões (ADR) | `docs/tcc/decisions/` |

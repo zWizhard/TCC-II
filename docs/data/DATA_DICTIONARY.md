@@ -448,12 +448,23 @@ As duas pendências abertas — as coordenadas fora do Brasil e o excedente de ~
 | `Município Ignorado - <UF>` | **26** | termina em `00000` | `3500000 = Município Ignorado - SP` |
 | `MUNICIPIO IGNORADO - EXTERIOR` | 1 | `9900000` | coordenada de **Paris** (48,86 / 2,34) |
 | `Exterior ou EAD` | 1 | `9999999` | coordenada (−38,67 / −18,00) |
-| **Municípios reais** | **5.571** | prefixo `1`–`5` | — |
+| **Municípios e equivalentes** | **5.571** | prefixo `1`–`5` | — |
 | **Total da tabela** | **5.599** | | |
 
-**5.571 é exatamente a contagem oficial** de unidades municipais do Brasil. O "excedente" era
-uma linha-sentinela de *município ignorado* por UF (26 UFs — Rondônia não tem a sua), mais as
+As **5.571** unidades territoriais de nível municipal são o universo real da tabela. O "excedente"
+era uma linha-sentinela de *município ignorado* por UF (26 UFs — Rondônia não tem a sua), mais as
 duas de exterior. As coordenadas absurdas eram só as das sentinelas de exterior.
+
+> ⚠️ **Correção de denominação, 2026-09-19 (Fase 4).** Este bloco dizia "Municípios reais" e
+> "5.571 é exatamente a contagem oficial". **O número está certo; a palavra estava errada.**
+> Verificado na Fase 4: excluindo `2605459` restam **5.570** — Fernando de Noronha é
+> **distrito estadual de Pernambuco**, não município, e por isso PE aparece na tabela com 185
+> unidades. O Distrito Federal entra com uma única unidade (Brasília, `5300108`).
+>
+> **5.571 = 5.570 municípios + Fernando de Noronha.** A denominação correta é
+> **"municípios e equivalentes"** ou "unidades territoriais de nível municipal"; escrever
+> "5.571 municípios" é incorreto. Ver
+> [`../tcc/methodology/INDICADORES.md`](../tcc/methodology/INDICADORES.md) (IND-R-02).
 
 Filtro para uso como denominador ou para plotagem:
 
@@ -464,7 +475,8 @@ WHERE right(codigo_municipio_dv::text, 5) <> '00000'
 
 ✅ **O Censo não usa nenhuma sentinela:** `0` IES sediadas e `0` linhas de cursos apontam para
 esses códigos. O mapa não herda o problema — mas **o denominador sim**, se a tabela for contada
-inteira. "X de 5.570 municípios" deve usar **5.571** como universo, ou declarar o critério.
+inteira. O universo do denominador é **5.571 municípios e equivalentes** (5.570 municípios mais
+Fernando de Noronha) — ou outro critério, desde que declarado.
 
 ### ⚠️ `ibge_populacao_estimada` tem 50 pares (ano, município) **duplicados e divergentes**
 
@@ -565,7 +577,8 @@ Conexão direta via `scripts/db/run_sql.py` (sessão somente-leitura). Evidênci
 - [x] ~~`qt_doc_total` = `qt_doc_exe`~~ — confirmado, 0 linhas divergentes.
 - [x] ~~`SELECT` nas oito auxiliares~~ — `true` nas oito. Escrita segue `false` nas duas do Censo.
 - [x] ~~Coordenadas fora do Brasil em `municipio`~~ — são as 2 sentinelas de exterior.
-- [x] ~~Excedente de municípios~~ — 5.599 = 5.571 reais + 26 "Município Ignorado - UF" + 2 exterior.
+- [x] ~~Excedente de municípios~~ — 5.599 = 5.571 municípios e equivalentes + 26 "Município
+  Ignorado - UF" + 2 exterior.
 - [x] ~~Duplicata em `ibge_populacao_estimada`~~ — **existe**: 50 pares divergentes, anos 2000–2020.
   2024 está limpo; o JOIN precisa filtrar o ano.
 - [x] ~~As 9 linhas de EAD sem território~~ — 41 matrículas residuais de 9 cursos que também

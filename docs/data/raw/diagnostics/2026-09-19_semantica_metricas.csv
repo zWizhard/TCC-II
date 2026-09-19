@@ -1,0 +1,20 @@
+bloco,teste,resultado,detalhe
+1. replicacao x distribuicao,qt_mat na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=8,395 constantes=71 variaveis=8,324 soma_na_dimensao=5,031,642 soma_atribuivel_a_constantes=270"
+1. replicacao x distribuicao,qt_vg_total na dimensao 'Cursos a distância ofertados no Brasil',DISTRIBUIDA (varia entre polos) -> SUM e valido,"cursos_multi_linha_com_valor=5 constantes=0 variaveis=5 soma_na_dimensao=6,925 soma_atribuivel_a_constantes=0"
+1. replicacao x distribuicao,qt_inscrito_total na dimensao 'Cursos a distância ofertados no Brasil',DISTRIBUIDA (varia entre polos) -> SUM e valido,"cursos_multi_linha_com_valor=5 constantes=0 variaveis=5 soma_na_dimensao=3,590 soma_atribuivel_a_constantes=0"
+1. replicacao x distribuicao,qt_ing na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=7,786 constantes=56 variaveis=7,730 soma_na_dimensao=3,252,938 soma_atribuivel_a_constantes=221"
+1. replicacao x distribuicao,qt_conc na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=6,109 constantes=23 variaveis=6,086 soma_na_dimensao=588,777 soma_atribuivel_a_constantes=76"
+1. replicacao x distribuicao,qt_mat_financ na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=4,950 constantes=13 variaveis=4,937 soma_na_dimensao=1,785,907 soma_atribuivel_a_constantes=54"
+1. replicacao x distribuicao,qt_mat_reserva_vaga na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=444 constantes=1 variaveis=443 soma_na_dimensao=21,309 soma_atribuivel_a_constantes=24"
+1. replicacao x distribuicao,qt_sit_desvinculado na dimensao 'Cursos a distância ofertados no Brasil',MISTA -> SUM suspeito,"cursos_multi_linha_com_valor=8,087 constantes=48 variaveis=8,039 soma_na_dimensao=2,498,888 soma_atribuivel_a_constantes=136"
+1. replicacao x distribuicao,soma de qt_vg_total por tp_dimensao,"nacional=23,665,419","Cursos a distância com dimensão de dados somente a nível Brasil=18,583,348; Cursos presenciais ofertados no Brasil=5,075,146; Cursos a distância ofertados no Brasil=6,925; Cursos a distância ofertados por instituições brasileiras no exterior=0"
+1. replicacao x distribuicao,soma de qt_inscrito_total por tp_dimensao,"nacional=15,723,085","Cursos presenciais ofertados no Brasil=8,658,561; Cursos a distância com dimensão de dados somente a nível Brasil=7,060,934; Cursos a distância ofertados no Brasil=3,590; Cursos a distância ofertados por instituições brasileiras no exterior=0"
+1. replicacao x distribuicao,turno: residuo de qt_mat == EAD?,SIM — turno so existe no presencial,"residuo=5,189,391 soma_EAD=5,189,391 turno_declarado_em_EAD=0"
+1. replicacao x distribuicao,turno: residuo de qt_ing == EAD?,SIM — turno so existe no presencial,"residuo=3,347,573 soma_EAD=3,347,573 turno_declarado_em_EAD=0"
+1. replicacao x distribuicao,turno: residuo de qt_conc == EAD?,SIM — turno so existe no presencial,"residuo=604,742 soma_EAD=604,742 turno_declarado_em_EAD=0"
+2. cursos com qt_curso = 0,perfil dos 374 cursos nao contados,374 cursos,"qt_mat=61,053 qt_ing=44,421 qt_conc=0 qt_vg_total=89,269 qt_inscrito_total=184,350 situacoes=38,282"
+2. cursos com qt_curso = 0,composicao dos nao contados,sem vaga/inscrito/ingressante/matricula=14 de 374,com concluintes=0 com matriculas=339
+3. unidades territoriais,decomposicao de `municipio`,"reais=5,571 'Municipio Ignorado - UF'=26 exterior(99*)=2 total=5,599","filtro publicado no DATA_DICTIONARY devolve 5,571 — confere (9900000 ja cai na condicao de '00000')"
+3. unidades territoriais,unidades reais excluindo Fernando de Noronha (2605459),"5,570",5.571 unidades = 5.570 + Fernando de Noronha; PE aparece com 185 unidades
+3. unidades territoriais,PE (26) e DF (53),UF 26=185; UF 53=1,DF tem uma unica unidade de nivel municipal (Brasilia)
+3. unidades territoriais,o Censo referencia alguma sentinela?,NAO,linhas de IES=0 linhas de cursos=0

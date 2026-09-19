@@ -48,6 +48,13 @@ valores.
   fora do envelope do Brasil e o excedente de ~29 municípios. O Censo não referencia nenhuma sentinela
   (0 IES, 0 linhas de cursos), então o mapa não herda o problema — o denominador, sim.
   > A confirmar: se o denominador municipal do projeto adota 5.571 explicitamente.
+  >
+  > **Correção posterior — 2026-09-19 (Fase 4).** A contagem de 5.571 permanece correta, mas a
+  > denominação usada acima ("5.571 municípios") não. Excluindo `2605459` restam 5.570:
+  > Fernando de Noronha é distrito estadual de Pernambuco, não município. O universo é
+  > **5.571 municípios e equivalentes**. A pendência acima foi fechada: o projeto adota 5.571
+  > explicitamente como denominador — ver
+  > [`../methodology/INDICADORES.md`](../methodology/INDICADORES.md) (IND-R-02).
 - **`ibge_populacao_estimada` tem 50 pares `(ano, município)` duplicados**, todos com população
   divergente (até 100×: município 150680 em 2006, 276.074 vs 2.606), nos anos 2000–2009 e 2011–2020.
   2022, 2024, 2025 e 2026 estão limpos, mas todo JOIN deve filtrar o ano explicitamente.

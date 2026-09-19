@@ -8,15 +8,17 @@ Mapa da documentação. Carregue apenas o arquivo relevante à tarefa em curso.
 | [`data/DATA_DICTIONARY.md`](data/DATA_DICTIONARY.md) | Tabelas e colunas **verificadas** do Big Data IESB | Antes de escrever SQL |
 | [`data/DATA_GRAIN.md`](data/DATA_GRAIN.md) | Grain de cada tabela e como foi provado | Antes de agregar ou juntar |
 | [`data/JOIN_STRATEGY.md`](data/JOIN_STRATEGY.md) | JOINs validados, chaves, cardinalidade | Antes de qualquer JOIN |
+| [`tcc/methodology/INDICADORES.md`](tcc/methodology/INDICADORES.md) | Definição formal dos indicadores — diretos, derivados e quarentena | Antes de calcular, exibir ou nomear qualquer métrica |
 | [`tcc/architecture/AI_ANALYST.md`](tcc/architecture/AI_ANALYST.md) | Pipeline Text-to-SQL, QueryPlan, segurança | Tarefas de IA |
 | [`tcc/DEVLOG_INDEX.md`](tcc/DEVLOG_INDEX.md) | Índice cronológico do desenvolvimento | Retomar contexto, escrever o artigo |
 | [`tcc/devlog/`](tcc/devlog/) | Registros curtos por tarefa | Detalhe de uma etapa específica |
 | [`tcc/decisions/`](tcc/decisions/) | ADRs — decisões estruturantes | Entender ou revisar uma escolha |
 
 Scripts de banco (execução manual): [`../scripts/db/`](../scripts/db/).
+Scripts de auditoria analítica sobre o DuckDB local: [`../scripts/analise/`](../scripts/analise/).
 Dados brutos, não versionados: `data/raw/`.
 
-`tcc/methodology/` e `tcc/data/` serão criados quando houver conteúdo verificado — não antecipadamente.
+`tcc/data/` será criado quando houver conteúdo verificado — não antecipadamente.
 
 ## Convenção
 
