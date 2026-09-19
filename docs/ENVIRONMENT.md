@@ -24,10 +24,40 @@ Verificado em **2026-09-05** na máquina do autor.
 | git | 2.55.0.3 — instalado em 2026-09-05 |
 | ruff | 0.16.6 — via `uv tool install` (fora do OneDrive, em `~/.local/bin`) |
 | **psycopg** | **3.3.5 (`psycopg[binary]`)** — instalado em 2026-09-05, no `.venv` |
+| **duckdb** | **1.5.5** — instalado em 2026-09-19, no `.venv` (ver abaixo) |
+| **extensão `postgres` do DuckDB** | **1.5.5** — baixada em 2026-09-19, **fora do repositório** (ver abaixo) |
 | **Node.js / npm** | **ausente** |
 | **Ollama** | **ausente** |
 
 As ausências restantes são bloqueantes para etapas futuras e todas se resolvem com software gratuito.
+
+### DuckDB: pacote Python e extensão são coisas distintas
+
+A camada analítica da [ADR-0003](tcc/decisions/ADR-0003-camada-analitica-local-duckdb.md) depende de
+duas peças com ciclos de vida diferentes. Confundi-las quebra a reprodutibilidade da Fase 3.
+
+| Peça | O que é | Como é controlada |
+|---|---|---|
+| Pacote Python `duckdb` | a biblioteca importada pelo ETL | **`pyproject.toml` + `uv.lock`** (`duckdb>=1.5.5`, resolvido em 1.5.5). `uv sync` reproduz |
+| Extensão `postgres` | binário nativo (`postgres_scanner`) que o ETL usa para ler o PostgreSQL ([ADR-0008](tcc/decisions/ADR-0008-transporte-do-etl-pela-extensao-postgres.md)) | **não** vem no pacote Python e **não** é declarada no `uv.lock`; o DuckDB a busca e guarda sozinho |
+
+**Numa máquina limpa, o primeiro uso da extensão exige internet.** O DuckDB baixa ~26,8 MB do
+repositório oficial de extensões e guarda em
+`~/.duckdb/extensions/<versão do DuckDB>/<plataforma>/postgres_scanner.duckdb_extension`
+(nesta máquina: `v1.5.5/windows_amd64/`). Execuções seguintes carregam do cache local e não usam rede.
+Trocar a versão do pacote `duckdb` faz o DuckDB procurar a extensão da nova versão — ou seja, um novo
+download.
+
+**A extensão não é versionada no repositório.** É binário de ~26,8 MB, específico de versão e de
+plataforma, e o DuckDB o guarda no perfil do usuário, fora da árvore do projeto — nenhuma regra de
+`.gitignore` é necessária para mantê-la de fora.
+
+**Não há passo manual.** `scripts/etl/pg_to_duckdb.py` executa `INSTALL postgres` seguido de
+`LOAD postgres` a cada execução, antes do `ATTACH`. `INSTALL` é idempotente: baixa na primeira vez e
+não faz nada nas seguintes. Rodar o ETL é o procedimento — não existe etapa de preparação separada.
+
+> Se a máquina estiver sem rede e sem o cache, o ETL falha no `INSTALL postgres`, antes de qualquer
+> acesso ao banco. O validador com `--sem-origem` não usa a extensão e continua funcionando.
 
 ## Implicações
 

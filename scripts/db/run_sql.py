@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Executa SQL SOMENTE-LEITURA contra o PostgreSQL do IESB e grava o resultado em CSV.
 
-Substitui o fluxo manual do DBeaver (rodar, exportar, colar). Aplica em TODA conexao as
-travas de sessao da ADR-0002, que valem mesmo se a validacao do cliente falhar.
+Substitui o fluxo manual do DBeaver (rodar, exportar, colar). As travas de sessao da
+ADR-0002 — que valem mesmo se a validacao do cliente aqui falhar — vivem em conexao.py.
 
 Uso:
     python scripts/db/run_sql.py scripts/db/06_auditoria_fase2.sql --out docs/data/raw/diagnostics --prefix 2026-09-05_06
@@ -22,8 +22,7 @@ from pathlib import Path
 from typing import Any
 
 import psycopg
-
-RAIZ = Path(__file__).resolve().parents[2]
+from conexao import RAIZ, carregar_env, conectar
 
 # Defesa em profundidade: o servidor ja recusa escrita (ADR-0002 + conta sem privilegio),
 # mas barrar aqui evita gastar uma ida ao banco e deixa o motivo explicito no terminal.
@@ -31,27 +30,6 @@ PROIBIDO = re.compile(
     r"\b(DROP|DELETE|UPDATE|INSERT|ALTER|TRUNCATE|CREATE|GRANT|REVOKE|COPY|VACUUM|REINDEX)\b",
     re.IGNORECASE,
 )
-
-
-def carregar_env(caminho: Path) -> dict[str, str]:
-    """Le KEY=VALUE do .env. Nao imprime nada: o valor da senha nao pode vazar no transcript."""
-    if not caminho.exists():
-        sys.exit(
-            f"ERRO: {caminho.name} nao encontrado em {caminho.parent}.\n"
-            "Copie .env.example para .env e preencha PGHOST, PGPORT, PGDATABASE, PGUSER e PGPASSWORD.\n"
-            "O .env esta no .gitignore e nao vai para o GitHub."
-        )
-    env: dict[str, str] = {}
-    for linha in caminho.read_text(encoding="utf-8").splitlines():
-        linha = linha.strip()
-        if not linha or linha.startswith("#") or "=" not in linha:
-            continue
-        chave, _, valor = linha.partition("=")
-        env[chave.strip()] = valor.strip().strip("\"'")
-    faltando = [k for k in ("PGHOST", "PGDATABASE", "PGUSER", "PGPASSWORD") if not env.get(k)]
-    if faltando:
-        sys.exit(f"ERRO: variaveis sem valor no .env: {', '.join(faltando)}")
-    return env
 
 
 def remover_comentarios_e_textos(sql: str) -> str:
@@ -142,32 +120,6 @@ def dividir_statements(sql: str) -> list[str]:
         i += 1
     saida.append("".join(atual))
     return [s.strip() for s in saida if s.strip()]
-
-
-def conectar(env: dict[str, str]) -> psycopg.Connection[Any]:
-    """Abre a conexao e aplica as travas de sessao da ADR-0002 antes de qualquer consulta."""
-    conn = psycopg.connect(
-        host=env["PGHOST"],
-        port=int(env.get("PGPORT", "5432")),
-        dbname=env["PGDATABASE"],
-        user=env["PGUSER"],
-        password=env["PGPASSWORD"],
-        sslmode=env.get("PGSSLMODE", "prefer"),
-        connect_timeout=15,
-        autocommit=True,
-    )
-    timeout = env.get("PG_STATEMENT_TIMEOUT", "60s")
-    idle = env.get("PG_IDLE_TX_TIMEOUT", "60s")
-    with conn.cursor() as cur:
-        cur.execute("SET default_transaction_read_only = on")
-        cur.execute(f"SET statement_timeout = '{timeout}'")
-        cur.execute(f"SET idle_in_transaction_session_timeout = '{idle}'")
-        cur.execute("SHOW default_transaction_read_only")
-        linha = cur.fetchone()
-        if not linha or linha[0] != "on":
-            conn.close()
-            sys.exit("ERRO: a sessao nao ficou somente-leitura. Abortado.")
-    return conn
 
 
 def executar(

@@ -13,6 +13,7 @@ version = "0.0.0"
 description = "Plataforma de exploracao dos dados do Censo da Educacao Superior brasileira"
 requires-python = ">=3.12"
 dependencies = [
+    "duckdb>=1.5.5",
     "psycopg[binary]>=3.3.5",
 ]
 

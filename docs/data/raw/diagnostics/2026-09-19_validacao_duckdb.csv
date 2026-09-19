@@ -1,0 +1,31 @@
+tabela,verificacao,esperado,obtido,situacao,detalhe
+inep_educacao_superior_ies,COUNT(*) vs catalogo,2561,2561,OK,contagem medida na origem em 2026-09-05
+inep_educacao_superior_ies,COUNT(*) vs origem,2561,2561,OK,
+inep_educacao_superior_ies,n colunas vs catalogo,82,82,OK,
+inep_educacao_superior_ies,n colunas vs origem,82,82,OK,
+inep_educacao_superior_ies,"unicidade de (nu_ano_censo, co_ies)",2561,2561,OK,chave natural deve ser unica
+inep_educacao_superior_ies,tipo de nu_ano_censo,VARCHAR,VARCHAR,OK,"filtrar com '2024', nunca 2024"
+municipio,COUNT(*) vs catalogo,5599,5599,OK,contagem medida na origem em 2026-09-05
+municipio,COUNT(*) vs origem,5599,5599,OK,
+municipio,n colunas vs origem,7,7,OK,
+municipio,unicidade de (codigo_municipio_dv),5599,5599,OK,chave natural deve ser unica
+ibge_populacao_estimada,COUNT(*) vs catalogo,144678,144678,OK,contagem medida na origem em 2026-09-05
+ibge_populacao_estimada,COUNT(*) vs origem,144678,144678,OK,
+ibge_populacao_estimada,n colunas vs origem,6,6,OK,
+ibge_populacao_estimada,"unicidade de (ano, cod_municipio)",50 linhas excedentes (duplicatas da origem),50 linhas excedentes (144628 chaves distintas em 144678 linhas),ESPERADO,divergencia conhecida da origem (anos 2000-2020); copia fiel tem de reproduzi-la
+inep_educacao_superior_cursos,COUNT(*) vs catalogo,720349,720349,OK,contagem medida na origem em 2026-09-05
+inep_educacao_superior_cursos,COUNT(*) vs origem,720349,720349,OK,
+inep_educacao_superior_cursos,n colunas vs catalogo,223,223,OK,
+inep_educacao_superior_cursos,n colunas vs origem,223,223,OK,
+inep_educacao_superior_cursos,"unicidade de (nu_ano_censo, co_curso, co_municipio, tp_dimensao)",720349,720349,OK,chave natural deve ser unica
+inep_educacao_superior_cursos,SUM(qt_curso) vs constante,45776,45776,OK,"medido no Censo 2024, unico ano da tabela"
+inep_educacao_superior_cursos,SUM(qt_curso) vs origem,45776,45776,OK,
+inep_educacao_superior_cursos,SUM(qt_mat) vs constante,10227266,10227266,OK,"medido no Censo 2024, unico ano da tabela"
+inep_educacao_superior_cursos,SUM(qt_mat) vs origem,10227266,10227266,OK,
+inep_educacao_superior_cursos,SUM(qt_ing) vs constante,5010613,5010613,OK,"medido no Censo 2024, unico ano da tabela"
+inep_educacao_superior_cursos,SUM(qt_ing) vs origem,5010613,5010613,OK,
+inep_educacao_superior_cursos,SUM(qt_conc) vs constante,1333988,1333988,OK,"medido no Censo 2024, unico ano da tabela"
+inep_educacao_superior_cursos,SUM(qt_conc) vs origem,1333988,1333988,OK,
+inep_educacao_superior_cursos,COUNT(DISTINCT co_curso) vs constante,46150,46150,OK,"medido no Censo 2024, unico ano da tabela"
+inep_educacao_superior_cursos,COUNT(DISTINCT co_curso) vs origem,46150,46150,OK,
+inep_educacao_superior_cursos,tipo de nu_ano_censo,VARCHAR,VARCHAR,OK,"filtrar com '2024', nunca 2024"

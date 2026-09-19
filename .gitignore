@@ -47,6 +47,13 @@ coverage/
 *.zip
 *.7z
 
+# Camada analitica local (ADR-0003): regerada por scripts/etl/pg_to_duckdb.py a partir
+# do PostgreSQL do IESB. Centenas de MB e derivada — o que se versiona e o ETL e o
+# manifesto (docs/data/ETL_MANIFEST.json), nao o arquivo.
+*.duckdb
+*.duckdb.wal
+data/analytics/
+
 # **/ para pegar tambem docs/data/raw/, onde os CSVs do Censo estao hoje.
 # SEM barra final de proposito: git nao consegue re-incluir um arquivo que esta
 # dentro de um diretorio excluido, e a excecao das evidencias abaixo nao funcionaria.

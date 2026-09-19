@@ -1,0 +1,66 @@
+{
+  "gerado_em": "2026-09-19T02:25:32",
+  "arquivo_destino": "data/analytics/censo_2024.duckdb",
+  "origem": {
+    "sgbd": "PostgreSQL 17.9",
+    "schema": "public"
+  },
+  "duckdb_versao": "1.5.5",
+  "transporte": "extensao postgres do DuckDB (ATTACH READ_ONLY + CREATE TABLE AS)",
+  "copia_completa": true,
+  "tabelas_ausentes_ou_incompletas": [],
+  "tabelas": {
+    "inep_educacao_superior_ies": {
+      "situacao": "ok",
+      "extraido_em": "2026-09-19T02:24:54",
+      "segundos": 1.0,
+      "linhas_origem": 2561,
+      "linhas_copia": 2561,
+      "colunas": 82,
+      "colunas_not_null_na_origem": 81,
+      "linhas_com_null_indevido": 0,
+      "linhas_esperadas_catalogo": 2561,
+      "confere_com_catalogo": true,
+      "tipos_divergentes_mesma_classe": []
+    },
+    "municipio": {
+      "situacao": "ok",
+      "extraido_em": "2026-09-19T02:24:56",
+      "segundos": 0.9,
+      "linhas_origem": 5599,
+      "linhas_copia": 5599,
+      "colunas": 7,
+      "colunas_not_null_na_origem": 6,
+      "linhas_com_null_indevido": 0,
+      "linhas_esperadas_catalogo": 5599,
+      "confere_com_catalogo": true,
+      "tipos_divergentes_mesma_classe": []
+    },
+    "ibge_populacao_estimada": {
+      "situacao": "ok",
+      "extraido_em": "2026-09-19T02:24:57",
+      "segundos": 2.2,
+      "linhas_origem": 144678,
+      "linhas_copia": 144678,
+      "colunas": 6,
+      "colunas_not_null_na_origem": 6,
+      "linhas_com_null_indevido": 0,
+      "linhas_esperadas_catalogo": 144678,
+      "confere_com_catalogo": true,
+      "tipos_divergentes_mesma_classe": []
+    },
+    "inep_educacao_superior_cursos": {
+      "situacao": "ok",
+      "extraido_em": "2026-09-19T02:25:01",
+      "segundos": 31.2,
+      "linhas_origem": 720349,
+      "linhas_copia": 720349,
+      "colunas": 223,
+      "colunas_not_null_na_origem": 223,
+      "linhas_com_null_indevido": 0,
+      "linhas_esperadas_catalogo": 720349,
+      "confere_com_catalogo": true,
+      "tipos_divergentes_mesma_classe": []
+    }
+  }
+}

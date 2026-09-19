@@ -30,11 +30,23 @@ API (FastAPI + Pydantic) ← Frontend (React + TypeScript)
   Dialeto SQL do SQLGlot = **duckdb**.
 - Não trocar biblioteca já adequada por preferência. Sem Kubernetes/microservices/filas.
 
-## Estado atual (2026-09-05)
+## Estado atual (2026-09-19)
 
-Repositório em setup. **Nenhum código de produto ainda** — só o executor de SQL da auditoria.
+**Camada analítica local pronta e validada** (ADR-0003). ETL em `scripts/etl/`, cópia em
+`data/analytics/censo_2024.duckdb` (72 MB, não versionado), regerável em ~35 s:
+
+```
+.venv/Scripts/python.exe scripts/etl/pg_to_duckdb.py [--recriar]
+.venv/Scripts/python.exe scripts/etl/validar_duckdb.py
+```
+
+As 4 tabelas do escopo (`ies`, `cursos`, `municipio`, `ibge_populacao_estimada`) são cópia
+**integral e literal** — nada é filtrado, agregado ou corrigido no ETL. 30/30 verificações,
+somas de controle batendo com a origem ao vivo. Consultas de mapa: 864 ms → **10 ms**.
+Detalhe em `docs/data/ETL_DUCKDB.md`. **Ainda sem API, frontend ou Analista IA.**
+
 uv, ruff e git 2.55 presentes; **Node/npm e Ollama ausentes** (ver `docs/ENVIRONMENT.md`).
-Git local inicializado em `main`: **sem nenhum commit e sem remoto**.
+Git em `main` com 1 commit (estrutura inicial), **sem remoto**.
 
 **Conexão direta ao banco funciona desde 2026-09-05.** `.env` preenchido pelo autor (não versionado,
 e o agente não pode lê-lo — hook `protect_secrets`), `psycopg[binary]` em `pyproject.toml`,
@@ -177,6 +189,7 @@ Não chamar para perguntas, explicações ou exploração sem conclusão. Nunca 
 |---|---|
 | Ambiente/máquina, ferramentas ausentes | `docs/ENVIRONMENT.md` |
 | Dicionário de dados verificado | `docs/data/DATA_DICTIONARY.md` |
+| ETL e camada analítica DuckDB | `docs/data/ETL_DUCKDB.md` |
 | Grain das tabelas | `docs/data/DATA_GRAIN.md` |
 | Estratégia de JOIN | `docs/data/JOIN_STRATEGY.md` |
 | Analista IA / Text-to-SQL | `docs/tcc/architecture/AI_ANALYST.md` |
