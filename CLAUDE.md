@@ -30,7 +30,7 @@ API (FastAPI + Pydantic) ← Frontend (React + TypeScript)
   Dialeto SQL do SQLGlot = **duckdb**.
 - Não trocar biblioteca já adequada por preferência. Sem Kubernetes/microservices/filas.
 
-## Estado atual (2026-09-19)
+## Estado atual (2026-10-06)
 
 **Camada analítica local pronta e validada** (ADR-0003). ETL em `scripts/etl/`, cópia em
 `data/analytics/censo_2024.duckdb` (72 MB, não versionado), regerável em ~35 s:
@@ -49,9 +49,19 @@ Detalhe em `docs/data/ETL_DUCKDB.md`.
 por brasil/região/UF/município, só do DuckDB (read-only + travas), sem consulta livre. A API não
 lê `.env`. 70 testes (`.venv/Scripts/python.exe -m pytest`). Rodar:
 `.venv/Scripts/python.exe -m uvicorn api.main:app`. Detalhe em `docs/tcc/architecture/API.md`.
-**Ainda sem frontend ou Analista IA.**
 
-uv, ruff e git 2.55 presentes; **Node/npm e Ollama ausentes** (ver `docs/ENVIRONMENT.md`).
+**Frontend (Fase 6, 2026-10-06)** em `frontend/`: veio do Lovable (`zWizhard/tcc-2`), mas **este
+repositório é a fonte oficial** ([ADR-0011](docs/tcc/decisions/ADR-0011-integracao-do-frontend.md)).
+TanStack Start/Router + React 19 + Tailwind 4 + shadcn + React Query + Zod — não trocar. Rotas:
+`/` (landing **ilustrativa**, não consulta a API) e `/painel` (Visão Geral, **só dados reais**).
+Toda chamada passa por `src/lib/api/` (contrato zod espelhando `api/schemas.py`; `recorte` vem do
+catálogo). Dentro de `frontend/`: `npm run dev` (fixo em `localhost:5173`, a origem do CORS da API),
+`npm run lint | typecheck | test | build`. 35 testes; fixtures são respostas reais da API.
+`npm run build` mira Cloudflare (padrão do template): local exige `NITRO_PRESET=node-server`.
+Detalhe em `frontend/README.md`. **Ainda sem mapa real nem Analista IA.**
+
+uv, ruff, git 2.55 e **Node 24.21 / npm 11.19** (desde 2026-10-06, em `%LOCALAPPDATA%\Programs\nodejs`)
+presentes; **Ollama ausente** (ver `docs/ENVIRONMENT.md`).
 Git em `main`, remoto `origin` = `https://github.com/zWizhard/TCC-II.git` (desde 2026-10-06).
 
 **Conexão direta ao banco funciona desde 2026-09-05.** `.env` preenchido pelo autor (não versionado,
@@ -206,6 +216,7 @@ Não chamar para perguntas, explicações ou exploração sem conclusão. Nunca 
 | **Indicadores — definição formal** | `docs/tcc/methodology/INDICADORES.md` |
 | Scripts de auditoria sobre o DuckDB local | `scripts/analise/` |
 | API (endpoints, regras, segurança) | `docs/tcc/architecture/API.md` |
+| Frontend (estrutura, comandos, regras) | `frontend/README.md` |
 | Analista IA / Text-to-SQL | `docs/tcc/architecture/AI_ANALYST.md` |
 | Índice do devlog | `docs/tcc/DEVLOG_INDEX.md` |
 | Decisões (ADR) | `docs/tcc/decisions/` |

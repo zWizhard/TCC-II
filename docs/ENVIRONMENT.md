@@ -26,7 +26,7 @@ Verificado em **2026-09-05** na máquina do autor.
 | **psycopg** | **3.3.5 (`psycopg[binary]`)** — instalado em 2026-09-05, no `.venv` |
 | **duckdb** | **1.5.5** — instalado em 2026-09-19, no `.venv` (ver abaixo) |
 | **extensão `postgres` do DuckDB** | **1.5.5** — baixada em 2026-09-19, **fora do repositório** (ver abaixo) |
-| **Node.js / npm** | **ausente** |
+| **Node.js / npm** | **24.21.0 / 11.19.0** (desde 2026-10-06) |
 | **Ollama** | **ausente** |
 
 As ausências restantes são bloqueantes para etapas futuras e todas se resolvem com software gratuito.
@@ -65,7 +65,7 @@ não faz nada nas seguintes. Rodar o ETL é o procedimento — não existe etapa
 (`git init`, branch `main`, `core.longpaths=true`). **Ainda sem commits e sem remoto.**
 O `release-check` deixa de depender de conferência manual dos arquivos alterados.
 
-**Node/npm ausentes.** Necessários para o frontend React + TypeScript e para código exportado do Lovable.
+**Node 24.21.0 / npm 11.19.0 instalados em 2026-10-06** em `%LOCALAPPDATA%\Programs\nodejs` (zip oficial do nodejs.org, SHA-256 conferido, sem administrador; no PATH do usuário). Não aparece em "Aplicativos instalados": para atualizar ou remover, troque ou apague a pasta. Necessários para o frontend React + TypeScript (`frontend/`).
 Não bloqueiam o trabalho de backend/dados. → **Adiado** até o frontend entrar em pauta.
 
 **Ollama ausente.** Necessário para o Analista IA. → **Adiado** até o Analista IA entrar em pauta.

@@ -1,0 +1,230 @@
+{
+  "indicador": {
+    "slug": "ies",
+    "codigo": "IND-D-01",
+    "nome": "Instituições de ensino superior instaladas",
+    "unidade": "instituições",
+    "recorte": "sede",
+    "exige_dimensao": false,
+    "dimensoes_territoriais": [],
+    "limitacoes": [
+      "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+      "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+    ]
+  },
+  "ano_censo": "2024",
+  "recorte": "sede",
+  "nivel": "uf",
+  "filtros": { "dimensoes": [], "rede": "Pública", "uf": null },
+  "total": 317,
+  "unidades": 27,
+  "truncado": false,
+  "valor_sem_territorio": 0,
+  "notas": [
+    "A rede Pública inclui as 28 IES de categoria administrativa Especial; não é sinônimo de pública em sentido estrito."
+  ],
+  "linhas": [
+    {
+      "codigo": "35",
+      "nome": "São Paulo",
+      "uf": "SP",
+      "valor": 110,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "33",
+      "nome": "Rio de Janeiro",
+      "uf": "RJ",
+      "valor": 29,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "26",
+      "nome": "Pernambuco",
+      "uf": "PE",
+      "valor": 26,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "31",
+      "nome": "Minas Gerais",
+      "uf": "MG",
+      "valor": 22,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "41",
+      "nome": "Paraná",
+      "uf": "PR",
+      "valor": 14,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "52",
+      "nome": "Goiás",
+      "uf": "GO",
+      "valor": 14,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "43",
+      "nome": "Rio Grande do Sul",
+      "uf": "RS",
+      "valor": 11,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "29",
+      "nome": "Bahia",
+      "uf": "BA",
+      "valor": 10,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "42",
+      "nome": "Santa Catarina",
+      "uf": "SC",
+      "valor": 9,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "23",
+      "nome": "Ceará",
+      "uf": "CE",
+      "valor": 7,
+      "latitude": null,
+      "longitude": null
+    },
+    { "codigo": "15", "nome": "Pará", "uf": "PA", "valor": 6, "latitude": null, "longitude": null },
+    {
+      "codigo": "17",
+      "nome": "Tocantins",
+      "uf": "TO",
+      "valor": 5,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "24",
+      "nome": "Rio Grande do Norte",
+      "uf": "RN",
+      "valor": 5,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "32",
+      "nome": "Espírito Santo",
+      "uf": "ES",
+      "valor": 5,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "53",
+      "nome": "Distrito Federal",
+      "uf": "DF",
+      "valor": 5,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "21",
+      "nome": "Maranhão",
+      "uf": "MA",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "22",
+      "nome": "Piauí",
+      "uf": "PI",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "25",
+      "nome": "Paraíba",
+      "uf": "PB",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "27",
+      "nome": "Alagoas",
+      "uf": "AL",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "50",
+      "nome": "Mato Grosso do Sul",
+      "uf": "MS",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "51",
+      "nome": "Mato Grosso",
+      "uf": "MT",
+      "valor": 4,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "13",
+      "nome": "Amazonas",
+      "uf": "AM",
+      "valor": 3,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "14",
+      "nome": "Roraima",
+      "uf": "RR",
+      "valor": 3,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "16",
+      "nome": "Amapá",
+      "uf": "AP",
+      "valor": 3,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "11",
+      "nome": "Rondônia",
+      "uf": "RO",
+      "valor": 2,
+      "latitude": null,
+      "longitude": null
+    },
+    { "codigo": "12", "nome": "Acre", "uf": "AC", "valor": 2, "latitude": null, "longitude": null },
+    {
+      "codigo": "28",
+      "nome": "Sergipe",
+      "uf": "SE",
+      "valor": 2,
+      "latitude": null,
+      "longitude": null
+    }
+  ]
+}

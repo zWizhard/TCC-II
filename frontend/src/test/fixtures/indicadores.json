@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "ies",
+    "codigo": "IND-D-01",
+    "nome": "Instituições de ensino superior instaladas",
+    "unidade": "instituições",
+    "recorte": "sede",
+    "exige_dimensao": false,
+    "dimensoes_territoriais": [],
+    "limitacoes": [
+      "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+      "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+    ]
+  },
+  {
+    "slug": "cursos",
+    "codigo": "IND-D-02",
+    "nome": "Cursos contabilizados na oferta",
+    "unidade": "cursos",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["presencial"],
+    "limitacoes": [
+      "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+      "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+    ]
+  },
+  {
+    "slug": "matriculas",
+    "codigo": "IND-D-03",
+    "nome": "Matrículas",
+    "unidade": "matrículas",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["ead_polo", "presencial"],
+    "limitacoes": [
+      "Conta vínculos, não pessoas distintas.",
+      "Contadas no local de oferta; em EAD, no polo."
+    ]
+  },
+  {
+    "slug": "ingressantes",
+    "codigo": "IND-D-04",
+    "nome": "Ingressantes",
+    "unidade": "ingressos",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["ead_polo", "presencial"],
+    "limitacoes": ["Conta vínculos, não pessoas distintas."]
+  },
+  {
+    "slug": "concluintes",
+    "codigo": "IND-D-05",
+    "nome": "Concluintes",
+    "unidade": "concluintes",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["ead_polo", "presencial"],
+    "limitacoes": [
+      "Conta vínculos, não pessoas distintas.",
+      "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+    ]
+  },
+  {
+    "slug": "vagas",
+    "codigo": "IND-D-06",
+    "nome": "Vagas ofertadas",
+    "unidade": "vagas",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["presencial"],
+    "limitacoes": [
+      "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+    ]
+  },
+  {
+    "slug": "inscricoes",
+    "codigo": "IND-D-07",
+    "nome": "Inscrições em processo seletivo",
+    "unidade": "inscrições",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["presencial"],
+    "limitacoes": [
+      "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+      "Territorializável só no presencial."
+    ]
+  },
+  {
+    "slug": "docentes",
+    "codigo": "IND-D-08",
+    "nome": "Docentes em exercício",
+    "unidade": "docentes",
+    "recorte": "sede",
+    "exige_dimensao": false,
+    "dimensoes_territoriais": [],
+    "limitacoes": [
+      "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+      "Agregado na tabela de IES; nunca após JOIN com cursos."
+    ]
+  },
+  {
+    "slug": "tecnicos",
+    "codigo": "IND-D-09",
+    "nome": "Técnicos administrativos",
+    "unidade": "funcionários",
+    "recorte": "sede",
+    "exige_dimensao": false,
+    "dimensoes_territoriais": [],
+    "limitacoes": ["Atribuído ao município de sede da IES, não aos campi nem aos polos."]
+  }
+]

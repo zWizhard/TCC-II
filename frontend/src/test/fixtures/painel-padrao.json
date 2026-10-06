@@ -1,0 +1,825 @@
+{
+  "/api/v1/metadados": {
+    "ano_censo": "2024",
+    "fonte": "Censo da Educação Superior 2024 (INEP), cópia local do Big Data IESB",
+    "extraido_em": "2026-09-19T02:25:32",
+    "recortes": ["sede", "oferta"],
+    "niveis": ["brasil", "regiao", "uf", "municipio"],
+    "dimensoes_oferta": [
+      {
+        "slug": "presencial",
+        "rotulo": "Cursos presenciais ofertados no Brasil",
+        "territorializavel": true
+      },
+      {
+        "slug": "ead_polo",
+        "rotulo": "Cursos a distância ofertados no Brasil",
+        "territorializavel": true
+      },
+      {
+        "slug": "ead_nacional",
+        "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "territorializavel": false
+      },
+      {
+        "slug": "ead_exterior",
+        "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "territorializavel": false
+      }
+    ],
+    "aviso": "Retrato transversal de um único ano: não há série temporal."
+  },
+  "/api/v1/indicadores": [
+    {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    {
+      "slug": "docentes",
+      "codigo": "IND-D-08",
+      "nome": "Docentes em exercício",
+      "unidade": "docentes",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Agregado na tabela de IES; nunca após JOIN com cursos."
+      ]
+    },
+    {
+      "slug": "tecnicos",
+      "codigo": "IND-D-09",
+      "nome": "Técnicos administrativos",
+      "unidade": "funcionários",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": ["Atribuído ao município de sede da IES, não aos campi nem aos polos."]
+    }
+  ],
+  "/api/v1/indicadores/ies?nivel=brasil&recorte=sede": {
+    "indicador": {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "sede",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [],
+      "rede": null,
+      "uf": null
+    },
+    "total": 2561,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 0,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 2561,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/cursos?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 45776,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 11297,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 45776,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 10227266,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 2580,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 10227266,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 5010613,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 1497,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 5010613,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/concluintes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 1333988,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 473,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 1333988,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/vagas?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 23665419,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 18590273,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 23665419,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/inscricoes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "uf": null
+    },
+    "total": 15723085,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 7064524,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 15723085,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/docentes?nivel=brasil&recorte=sede": {
+    "indicador": {
+      "slug": "docentes",
+      "codigo": "IND-D-08",
+      "nome": "Docentes em exercício",
+      "unidade": "docentes",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Agregado na tabela de IES; nunca após JOIN com cursos."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "sede",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [],
+      "rede": null,
+      "uf": null
+    },
+    "total": 374501,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 0,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 374501,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/tecnicos?nivel=brasil&recorte=sede": {
+    "indicador": {
+      "slug": "tecnicos",
+      "codigo": "IND-D-09",
+      "nome": "Técnicos administrativos",
+      "unidade": "funcionários",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": ["Atribuído ao município de sede da IES, não aos campi nem aos polos."]
+    },
+    "ano_censo": "2024",
+    "recorte": "sede",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [],
+      "rede": null,
+      "uf": null
+    },
+    "total": 350752,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 0,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 350752,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/ies?nivel=regiao&recorte=sede": {
+    "indicador": {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "sede",
+    "nivel": "regiao",
+    "filtros": {
+      "dimensoes": [],
+      "rede": null,
+      "uf": null
+    },
+    "total": 2561,
+    "unidades": 5,
+    "truncado": false,
+    "valor_sem_territorio": 0,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "3",
+        "nome": "Sudeste",
+        "uf": null,
+        "valor": 1076,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "2",
+        "nome": "Nordeste",
+        "uf": null,
+        "valor": 604,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "4",
+        "nome": "Sul",
+        "uf": null,
+        "valor": 389,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "5",
+        "nome": "Centro-Oeste",
+        "uf": null,
+        "valor": 296,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "1",
+        "nome": "Norte",
+        "uf": null,
+        "valor": 196,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/ies?nivel=uf&recorte=sede": {
+    "indicador": {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "sede",
+    "nivel": "uf",
+    "filtros": {
+      "dimensoes": [],
+      "rede": null,
+      "uf": null
+    },
+    "total": 2561,
+    "unidades": 27,
+    "truncado": false,
+    "valor_sem_territorio": 0,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "35",
+        "nome": "São Paulo",
+        "uf": "SP",
+        "valor": 580,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "31",
+        "nome": "Minas Gerais",
+        "uf": "MG",
+        "valor": 303,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "41",
+        "nome": "Paraná",
+        "uf": "PR",
+        "valor": 171,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "29",
+        "nome": "Bahia",
+        "uf": "BA",
+        "valor": 145,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "52",
+        "nome": "Goiás",
+        "uf": "GO",
+        "valor": 128,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "33",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ",
+        "valor": 126,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "26",
+        "nome": "Pernambuco",
+        "uf": "PE",
+        "valor": 118,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "43",
+        "nome": "Rio Grande do Sul",
+        "uf": "RS",
+        "valor": 118,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "23",
+        "nome": "Ceará",
+        "uf": "CE",
+        "valor": 102,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "42",
+        "nome": "Santa Catarina",
+        "uf": "SC",
+        "valor": 100,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "15",
+        "nome": "Pará",
+        "uf": "PA",
+        "valor": 76,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "51",
+        "nome": "Mato Grosso",
+        "uf": "MT",
+        "valor": 74,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "32",
+        "nome": "Espírito Santo",
+        "uf": "ES",
+        "valor": 67,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "21",
+        "nome": "Maranhão",
+        "uf": "MA",
+        "valor": 66,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "53",
+        "nome": "Distrito Federal",
+        "uf": "DF",
+        "valor": 63,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "22",
+        "nome": "Piauí",
+        "uf": "PI",
+        "valor": 48,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "25",
+        "nome": "Paraíba",
+        "uf": "PB",
+        "valor": 46,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "13",
+        "nome": "Amazonas",
+        "uf": "AM",
+        "valor": 32,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "11",
+        "nome": "Rondônia",
+        "uf": "RO",
+        "valor": 31,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "50",
+        "nome": "Mato Grosso do Sul",
+        "uf": "MS",
+        "valor": 31,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "27",
+        "nome": "Alagoas",
+        "uf": "AL",
+        "valor": 30,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "24",
+        "nome": "Rio Grande do Norte",
+        "uf": "RN",
+        "valor": 28,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "17",
+        "nome": "Tocantins",
+        "uf": "TO",
+        "valor": 23,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "28",
+        "nome": "Sergipe",
+        "uf": "SE",
+        "valor": 21,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "16",
+        "nome": "Amapá",
+        "uf": "AP",
+        "valor": 15,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "12",
+        "nome": "Acre",
+        "uf": "AC",
+        "valor": 10,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "codigo": "14",
+        "nome": "Roraima",
+        "uf": "RR",
+        "valor": 9,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ano_censo": "2024",
+  "fonte": "Censo da Educação Superior 2024 (INEP), cópia local do Big Data IESB",
+  "extraido_em": "2026-09-19T02:25:32",
+  "recortes": ["sede", "oferta"],
+  "niveis": ["brasil", "regiao", "uf", "municipio"],
+  "dimensoes_oferta": [
+    {
+      "slug": "presencial",
+      "rotulo": "Cursos presenciais ofertados no Brasil",
+      "territorializavel": true
+    },
+    {
+      "slug": "ead_polo",
+      "rotulo": "Cursos a distância ofertados no Brasil",
+      "territorializavel": true
+    },
+    {
+      "slug": "ead_nacional",
+      "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
+      "territorializavel": false
+    },
+    {
+      "slug": "ead_exterior",
+      "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
+      "territorializavel": false
+    }
+  ],
+  "aviso": "Retrato transversal de um único ano: não há série temporal."
+}

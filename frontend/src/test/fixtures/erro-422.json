@@ -1,0 +1,6 @@
+{
+  "erro": {
+    "codigo": "parametro_invalido",
+    "mensagem": "IND-D-06 não é territorializável nas dimensões ['ead_polo']; no nível 'uf' admite apenas ['presencial']."
+  }
+}

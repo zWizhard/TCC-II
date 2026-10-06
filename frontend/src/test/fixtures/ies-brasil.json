@@ -1,0 +1,34 @@
+{
+  "indicador": {
+    "slug": "ies",
+    "codigo": "IND-D-01",
+    "nome": "Instituições de ensino superior instaladas",
+    "unidade": "instituições",
+    "recorte": "sede",
+    "exige_dimensao": false,
+    "dimensoes_territoriais": [],
+    "limitacoes": [
+      "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+      "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+    ]
+  },
+  "ano_censo": "2024",
+  "recorte": "sede",
+  "nivel": "brasil",
+  "filtros": { "dimensoes": [], "rede": null, "uf": null },
+  "total": 2561,
+  "unidades": 1,
+  "truncado": false,
+  "valor_sem_territorio": 0,
+  "notas": [],
+  "linhas": [
+    {
+      "codigo": "BR",
+      "nome": "Brasil",
+      "uf": null,
+      "valor": 2561,
+      "latitude": null,
+      "longitude": null
+    }
+  ]
+}

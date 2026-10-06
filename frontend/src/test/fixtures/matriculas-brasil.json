@@ -1,0 +1,43 @@
+{
+  "indicador": {
+    "slug": "matriculas",
+    "codigo": "IND-D-03",
+    "nome": "Matrículas",
+    "unidade": "matrículas",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["ead_polo", "presencial"],
+    "limitacoes": [
+      "Conta vínculos, não pessoas distintas.",
+      "Contadas no local de oferta; em EAD, no polo."
+    ]
+  },
+  "ano_censo": "2024",
+  "recorte": "oferta",
+  "nivel": "brasil",
+  "filtros": {
+    "dimensoes": [
+      "Cursos a distância ofertados por instituições brasileiras no exterior",
+      "Cursos a distância com dimensão de dados somente a nível Brasil",
+      "Cursos a distância ofertados no Brasil",
+      "Cursos presenciais ofertados no Brasil"
+    ],
+    "rede": null,
+    "uf": null
+  },
+  "total": 10227266,
+  "unidades": 1,
+  "truncado": false,
+  "valor_sem_territorio": 2580,
+  "notas": [],
+  "linhas": [
+    {
+      "codigo": "BR",
+      "nome": "Brasil",
+      "uf": null,
+      "valor": 10227266,
+      "latitude": null,
+      "longitude": null
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "indicador": {
+    "slug": "matriculas",
+    "codigo": "IND-D-03",
+    "nome": "Matrículas",
+    "unidade": "matrículas",
+    "recorte": "oferta",
+    "exige_dimensao": true,
+    "dimensoes_territoriais": ["ead_polo", "presencial"],
+    "limitacoes": [
+      "Conta vínculos, não pessoas distintas.",
+      "Contadas no local de oferta; em EAD, no polo."
+    ]
+  },
+  "ano_censo": "2024",
+  "recorte": "oferta",
+  "nivel": "regiao",
+  "filtros": {
+    "dimensoes": [
+      "Cursos a distância ofertados no Brasil",
+      "Cursos presenciais ofertados no Brasil"
+    ],
+    "rede": null,
+    "uf": null
+  },
+  "total": 10224686,
+  "unidades": 5,
+  "truncado": false,
+  "valor_sem_territorio": 41,
+  "notas": [],
+  "linhas": [
+    {
+      "codigo": "3",
+      "nome": "Sudeste",
+      "uf": null,
+      "valor": 4518942,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "2",
+      "nome": "Nordeste",
+      "uf": null,
+      "valor": 2186521,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "4",
+      "nome": "Sul",
+      "uf": null,
+      "valor": 1750161,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "5",
+      "nome": "Centro-Oeste",
+      "uf": null,
+      "valor": 905093,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "codigo": "1",
+      "nome": "Norte",
+      "uf": null,
+      "valor": 863969,
+      "latitude": null,
+      "longitude": null
+    }
+  ]
+}
