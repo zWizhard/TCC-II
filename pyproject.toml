@@ -1,10 +1,9 @@
 # Observatorio Inteligente da Educacao Superior — TCC-II
 #
-# Este arquivo configura APENAS ferramentas de desenvolvimento (lint, testes, tipos).
-# Nenhuma dependencia de produto (FastAPI, DuckDB, SQLGlot, psycopg...) e declarada aqui
-# ainda: elas entram quando a feature correspondente for implementada.
+# Dependencias de produto entram quando a feature correspondente e implementada:
+# duckdb/psycopg (ETL, Fase 3), fastapi/uvicorn/pydantic-settings (API, Fase 5).
 #
-#   uv sync --group dev     instala as ferramentas no .venv do projeto
+#   uv sync --group dev     instala produto + ferramentas no .venv do projeto
 #   uv tool install ruff    alternativa que deixa o ruff no PATH global
 
 [project]
@@ -14,7 +13,10 @@ description = "Plataforma de exploracao dos dados do Censo da Educacao Superior 
 requires-python = ">=3.12"
 dependencies = [
     "duckdb>=1.5.5",
+    "fastapi>=0.115",
     "psycopg[binary]>=3.3.5",
+    "pydantic-settings>=2.6",
+    "uvicorn>=0.32",
 ]
 
 [dependency-groups]
@@ -22,6 +24,7 @@ dev = [
     "ruff>=0.14",
     "pytest>=8.3",
     "mypy>=1.13",
+    "httpx>=0.28",
 ]
 
 [tool.uv]
@@ -44,6 +47,11 @@ ignore = ["E501"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
+testpaths = ["tests"]
+# A API e um pacote de aplicacao (package = false): a raiz entra no sys.path dos testes.
+pythonpath = ["."]
+# Starlette 1.x avisa sobre o httpx no TestClient; o substituto sugerido nao esta no indice.
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient` is deprecated"]
 
 [tool.mypy]
 python_version = "3.12"

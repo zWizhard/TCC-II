@@ -351,9 +351,10 @@ As 9 foram investigadas no banco (2026-09-05): são **9 cursos de 9 IES distinta
 inteiros perdidos.
 
 **Consequência prática:** filtrar `tp_dimensao` **não** elimina essas 9 linhas — é preciso filtrar
-a coluna territorial. E o filtro territorial descarta **41 matrículas** de 10.227.266
-(0,0004%): irrelevante para o número, mas o total do mapa não fecha com o total nacional,
-e a diferença deve ser declarada em vez de parecer erro.
+a coluna territorial. Dentro das dimensões com território, o filtro descarta **41 matrículas**;
+sobre o universo total descarta **2.580** (as 41 + 2.539 da dimensão "exterior", sem município
+em nenhuma linha — medido em 2026-09-26). Irrelevante para o número, mas o total do mapa não
+fecha com o total nacional, e a diferença deve ser declarada em vez de parecer erro.
 
 **`tp_dimensao` determina `tp_modalidade_ensino`** — as três dimensões de EAD dão sempre
 `'Curso a distância'` e a presencial sempre `'Presencial'`, sem uma única exceção nas 720.349

@@ -77,9 +77,13 @@ Violar qualquer uma delas produz número errado **sem gerar erro de execução**
 7. **Rede.** Comparar `ies.ds_rede` ↔ `cursos.tp_rede`, nunca os `tp_rede` crus
    ([ADR-0007](../decisions/ADR-0007-comparacao-de-rede-via-ds-rede.md)). `Pública` inclui as
    28 IES de categoria *Especial*.
-8. **Perda declarada.** O filtro territorial descarta 41 matrículas de 10.227.266 (0,0004%),
-   residuais de 9 cursos EAD sem polo identificado. Total territorializável de matrículas:
+8. **Perda declarada.** Sobre o universo total, o filtro territorial descarta **2.580**
+   matrículas de 10.227.266 (0,025%): **2.539** da dimensão "exterior", que não tem município em
+   nenhuma linha, e **41** residuais de 9 cursos EAD sem polo identificado — estas, as únicas
+   perdidas *dentro* das dimensões com território. Total territorializável de matrículas:
    **10.224.686**. A diferença deve ser declarada, não escondida.
+   *(Corrigido em 2026-09-26: o texto da Fase 4 dizia "41", o que só vale dentro da dimensão de
+   polo; o próprio total territorializável citado implica 2.580.)*
 
 ### Fato transversal descoberto nesta fase: turno é dimensão presencial
 
@@ -170,7 +174,7 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
   (0,005%). `SUM` é, portanto, válido.
 - **Limitações:** conta **vínculos**, não estudantes — uma pessoa em dois cursos conta duas
   vezes, e a base não permite deduplicar por pessoa (não existe tabela de aluno). O filtro
-  territorial descarta 41 matrículas.
+  territorial descarta 2.580 matrículas (41 de polo + 2.539 do exterior).
 - **Validação possível:** soma de controle nacional = **10.227.266**; territorializável =
   **10.224.686**; por dimensão = 5.186.852 + 5.037.875 + 0 + 2.539; fechamento com as seis
   decomposições de perfil (todas exatas, 0 divergências em 720.349 linhas).

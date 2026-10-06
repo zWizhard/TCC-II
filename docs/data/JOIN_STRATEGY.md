@@ -171,3 +171,5 @@ JOIN ibge_populacao_estimada p ON p.cod_municipio::text       = m.codigo_municip
 | `cursos → municipio` | `co_municipio = codigo_municipio_dv` | N:1 | **0** | 2026-09-05 |
 | `ies → municipio` | `co_municipio_ies = codigo_municipio_dv` | N:1 | **0** | 2026-09-05 |
 | `municipio → ibge_populacao_estimada` | `codigo_municipio = cod_municipio` | 1:N (por ano) | a confirmar | — |
+| agregado de `cursos` por `co_municipio` → `municipio` (mapa da API, presencial + polo) | `codigo = codigo_municipio_dv` | N:1 pós-agregação | **0** — 3.551 linhas antes e depois, `SUM(qt_mat)` 10.224.686 preservada, 0 sentinelas | 2026-09-26 |
+| agregado de `ies` por `co_municipio_ies` → `municipio` (mapa da API) | `codigo = codigo_municipio_dv` | N:1 pós-agregação | **0** — 698 antes e depois, 2.561 IES / 374.501 docentes preservados | 2026-09-26 |

@@ -43,10 +43,16 @@ API (FastAPI + Pydantic) ← Frontend (React + TypeScript)
 As 4 tabelas do escopo (`ies`, `cursos`, `municipio`, `ibge_populacao_estimada`) são cópia
 **integral e literal** — nada é filtrado, agregado ou corrigido no ETL. 30/30 verificações,
 somas de controle batendo com a origem ao vivo. Consultas de mapa: 864 ms → **10 ms**.
-Detalhe em `docs/data/ETL_DUCKDB.md`. **Ainda sem API, frontend ou Analista IA.**
+Detalhe em `docs/data/ETL_DUCKDB.md`.
+
+**API FastAPI (Fase 5, 2026-09-26)** em `api/`: serve os 9 indicadores diretos (IND-D-01 a D-09)
+por brasil/região/UF/município, só do DuckDB (read-only + travas), sem consulta livre. A API não
+lê `.env`. 70 testes (`.venv/Scripts/python.exe -m pytest`). Rodar:
+`.venv/Scripts/python.exe -m uvicorn api.main:app`. Detalhe em `docs/tcc/architecture/API.md`.
+**Ainda sem frontend ou Analista IA.**
 
 uv, ruff e git 2.55 presentes; **Node/npm e Ollama ausentes** (ver `docs/ENVIRONMENT.md`).
-Git em `main` com 1 commit (estrutura inicial), **sem remoto**.
+Git em `main`, remoto `origin` = `https://github.com/zWizhard/TCC-II.git` (desde 2026-10-06).
 
 **Conexão direta ao banco funciona desde 2026-09-05.** `.env` preenchido pelo autor (não versionado,
 e o agente não pode lê-lo — hook `protect_secrets`), `psycopg[binary]` em `pyproject.toml`,
@@ -199,6 +205,7 @@ Não chamar para perguntas, explicações ou exploração sem conclusão. Nunca 
 | Estratégia de JOIN | `docs/data/JOIN_STRATEGY.md` |
 | **Indicadores — definição formal** | `docs/tcc/methodology/INDICADORES.md` |
 | Scripts de auditoria sobre o DuckDB local | `scripts/analise/` |
+| API (endpoints, regras, segurança) | `docs/tcc/architecture/API.md` |
 | Analista IA / Text-to-SQL | `docs/tcc/architecture/AI_ANALYST.md` |
 | Índice do devlog | `docs/tcc/DEVLOG_INDEX.md` |
 | Decisões (ADR) | `docs/tcc/decisions/` |
