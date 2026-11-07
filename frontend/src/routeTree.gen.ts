@@ -10,11 +10,41 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompararRouteImport } from './routes/comparar'
+import { Route as CursosRouteImport } from './routes/cursos'
+import { Route as InstituicoesRouteImport } from './routes/instituicoes'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as MatriculasRouteImport } from './routes/matriculas'
 import { Route as PainelRouteImport } from './routes/painel'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompararRoute = CompararRouteImport.update({
+  id: '/comparar',
+  path: '/comparar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CursosRoute = CursosRouteImport.update({
+  id: '/cursos',
+  path: '/cursos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstituicoesRoute = InstituicoesRouteImport.update({
+  id: '/instituicoes',
+  path: '/instituicoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatriculasRoute = MatriculasRouteImport.update({
+  id: '/matriculas',
+  path: '/matriculas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelRoute = PainelRouteImport.update({
@@ -25,27 +55,69 @@ const PainelRoute = PainelRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/comparar': typeof CompararRoute
+  '/cursos': typeof CursosRoute
+  '/instituicoes': typeof InstituicoesRoute
+  '/mapa': typeof MapaRoute
+  '/matriculas': typeof MatriculasRoute
   '/painel': typeof PainelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/comparar': typeof CompararRoute
+  '/cursos': typeof CursosRoute
+  '/instituicoes': typeof InstituicoesRoute
+  '/mapa': typeof MapaRoute
+  '/matriculas': typeof MatriculasRoute
   '/painel': typeof PainelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/comparar': typeof CompararRoute
+  '/cursos': typeof CursosRoute
+  '/instituicoes': typeof InstituicoesRoute
+  '/mapa': typeof MapaRoute
+  '/matriculas': typeof MatriculasRoute
   '/painel': typeof PainelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/painel'
+  fullPaths:
+    | '/'
+    | '/comparar'
+    | '/cursos'
+    | '/instituicoes'
+    | '/mapa'
+    | '/matriculas'
+    | '/painel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/painel'
-  id: '__root__' | '/' | '/painel'
+  to:
+    | '/'
+    | '/comparar'
+    | '/cursos'
+    | '/instituicoes'
+    | '/mapa'
+    | '/matriculas'
+    | '/painel'
+  id:
+    | '__root__'
+    | '/'
+    | '/comparar'
+    | '/cursos'
+    | '/instituicoes'
+    | '/mapa'
+    | '/matriculas'
+    | '/painel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompararRoute: typeof CompararRoute
+  CursosRoute: typeof CursosRoute
+  InstituicoesRoute: typeof InstituicoesRoute
+  MapaRoute: typeof MapaRoute
+  MatriculasRoute: typeof MatriculasRoute
   PainelRoute: typeof PainelRoute
 }
 
@@ -56,6 +128,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comparar': {
+      id: '/comparar'
+      path: '/comparar'
+      fullPath: '/comparar'
+      preLoaderRoute: typeof CompararRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cursos': {
+      id: '/cursos'
+      path: '/cursos'
+      fullPath: '/cursos'
+      preLoaderRoute: typeof CursosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instituicoes': {
+      id: '/instituicoes'
+      path: '/instituicoes'
+      fullPath: '/instituicoes'
+      preLoaderRoute: typeof InstituicoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/matriculas': {
+      id: '/matriculas'
+      path: '/matriculas'
+      fullPath: '/matriculas'
+      preLoaderRoute: typeof MatriculasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel': {
@@ -70,6 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompararRoute: CompararRoute,
+  CursosRoute: CursosRoute,
+  InstituicoesRoute: InstituicoesRoute,
+  MapaRoute: MapaRoute,
+  MatriculasRoute: MatriculasRoute,
   PainelRoute: PainelRoute,
 }
 export const routeTree = rootRouteImport

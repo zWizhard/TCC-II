@@ -9,23 +9,124 @@
       {
         "slug": "presencial",
         "rotulo": "Cursos presenciais ofertados no Brasil",
-        "territorializavel": true
+        "territorializavel": true,
+        "modalidade": "Presencial"
       },
       {
         "slug": "ead_polo",
         "rotulo": "Cursos a distância ofertados no Brasil",
-        "territorializavel": true
+        "territorializavel": true,
+        "modalidade": "Curso a distância"
       },
       {
         "slug": "ead_nacional",
         "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
-        "territorializavel": false
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
       },
       {
         "slug": "ead_exterior",
         "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
-        "territorializavel": false
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
       }
+    ],
+    "regioes": [
+      { "slug": "norte", "nome": "Norte" },
+      { "slug": "nordeste", "nome": "Nordeste" },
+      { "slug": "sudeste", "nome": "Sudeste" },
+      { "slug": "sul", "nome": "Sul" },
+      { "slug": "centro_oeste", "nome": "Centro-Oeste" }
+    ],
+    "ufs": [
+      { "sigla": "AC", "nome": "Acre", "regiao": "norte" },
+      { "sigla": "AM", "nome": "Amazonas", "regiao": "norte" },
+      { "sigla": "AP", "nome": "Amapá", "regiao": "norte" },
+      { "sigla": "PA", "nome": "Pará", "regiao": "norte" },
+      { "sigla": "RO", "nome": "Rondônia", "regiao": "norte" },
+      { "sigla": "RR", "nome": "Roraima", "regiao": "norte" },
+      { "sigla": "TO", "nome": "Tocantins", "regiao": "norte" },
+      { "sigla": "AL", "nome": "Alagoas", "regiao": "nordeste" },
+      { "sigla": "BA", "nome": "Bahia", "regiao": "nordeste" },
+      { "sigla": "CE", "nome": "Ceará", "regiao": "nordeste" },
+      { "sigla": "MA", "nome": "Maranhão", "regiao": "nordeste" },
+      { "sigla": "PB", "nome": "Paraíba", "regiao": "nordeste" },
+      { "sigla": "PE", "nome": "Pernambuco", "regiao": "nordeste" },
+      { "sigla": "PI", "nome": "Piauí", "regiao": "nordeste" },
+      { "sigla": "RN", "nome": "Rio Grande do Norte", "regiao": "nordeste" },
+      { "sigla": "SE", "nome": "Sergipe", "regiao": "nordeste" },
+      { "sigla": "ES", "nome": "Espírito Santo", "regiao": "sudeste" },
+      { "sigla": "MG", "nome": "Minas Gerais", "regiao": "sudeste" },
+      { "sigla": "RJ", "nome": "Rio de Janeiro", "regiao": "sudeste" },
+      { "sigla": "SP", "nome": "São Paulo", "regiao": "sudeste" },
+      { "sigla": "PR", "nome": "Paraná", "regiao": "sul" },
+      { "sigla": "RS", "nome": "Rio Grande do Sul", "regiao": "sul" },
+      { "sigla": "SC", "nome": "Santa Catarina", "regiao": "sul" },
+      { "sigla": "DF", "nome": "Distrito Federal", "regiao": "centro_oeste" },
+      { "sigla": "GO", "nome": "Goiás", "regiao": "centro_oeste" },
+      { "sigla": "MS", "nome": "Mato Grosso do Sul", "regiao": "centro_oeste" },
+      { "sigla": "MT", "nome": "Mato Grosso", "regiao": "centro_oeste" }
+    ],
+    "categorias": [
+      { "slug": "publica_federal", "rotulo": "Pública Federal", "rede": "publica" },
+      { "slug": "publica_estadual", "rotulo": "Pública Estadual", "rede": "publica" },
+      { "slug": "publica_municipal", "rotulo": "Pública Municipal", "rede": "publica" },
+      {
+        "slug": "privada_com_fins_lucrativos",
+        "rotulo": "Privada com fins lucrativos",
+        "rede": "privada"
+      },
+      {
+        "slug": "privada_sem_fins_lucrativos",
+        "rotulo": "Privada sem fins lucrativos",
+        "rede": "privada"
+      },
+      { "slug": "especial", "rotulo": "Especial", "rede": "publica" }
+    ],
+    "organizacoes": [
+      { "slug": "universidade", "rotulo": "Universidade" },
+      { "slug": "centro_universitario", "rotulo": "Centro Universitário" },
+      { "slug": "faculdade", "rotulo": "Faculdade" },
+      {
+        "slug": "instituto_federal",
+        "rotulo": "Instituto Federal de Educação, Ciência e Tecnologia"
+      },
+      { "slug": "cefet", "rotulo": "Centro Federal de Educação Tecnológica" }
+    ],
+    "areas_cine": [
+      { "slug": "programas_basicos", "codigo": 0, "nome": "Programas básicos" },
+      { "slug": "educacao", "codigo": 1, "nome": "Educação" },
+      { "slug": "artes_humanidades", "codigo": 2, "nome": "Artes e humanidades" },
+      {
+        "slug": "ciencias_sociais",
+        "codigo": 3,
+        "nome": "Ciências sociais, comunicação e informação"
+      },
+      { "slug": "negocios_direito", "codigo": 4, "nome": "Negócios, administração e direito" },
+      {
+        "slug": "ciencias_naturais",
+        "codigo": 5,
+        "nome": "Ciências naturais, matemática e estatística"
+      },
+      {
+        "slug": "computacao_tic",
+        "codigo": 6,
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)"
+      },
+      { "slug": "engenharia", "codigo": 7, "nome": "Engenharia, produção e construção" },
+      {
+        "slug": "agricultura_veterinaria",
+        "codigo": 8,
+        "nome": "Agricultura, silvicultura, pesca e veterinária"
+      },
+      { "slug": "saude", "codigo": 9, "nome": "Saúde e bem-estar" },
+      { "slug": "servicos", "codigo": 10, "nome": "Serviços" }
+    ],
+    "graus": [
+      { "slug": "bacharelado", "rotulo": "Bacharelado" },
+      { "slug": "licenciatura", "rotulo": "Licenciatura" },
+      { "slug": "tecnologico", "rotulo": "Tecnológico" },
+      { "slug": "nao_aplicavel", "rotulo": "Não aplicável" }
     ],
     "aviso": "Retrato transversal de um único ano: não há série temporal."
   },
@@ -161,7 +262,11 @@
     "filtros": {
       "dimensoes": [],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 2561,
     "unidades": 1,
@@ -204,7 +309,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 45776,
     "unidades": 1,
@@ -247,7 +356,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 10227266,
     "unidades": 1,
@@ -287,7 +400,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 5010613,
     "unidades": 1,
@@ -330,7 +447,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 1333988,
     "unidades": 1,
@@ -372,7 +493,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 23665419,
     "unidades": 1,
@@ -415,7 +540,11 @@
         "Cursos presenciais ofertados no Brasil"
       ],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 15723085,
     "unidades": 1,
@@ -453,7 +582,11 @@
     "filtros": {
       "dimensoes": [],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 374501,
     "unidades": 1,
@@ -488,7 +621,11 @@
     "filtros": {
       "dimensoes": [],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 350752,
     "unidades": 1,
@@ -526,7 +663,11 @@
     "filtros": {
       "dimensoes": [],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 2561,
     "unidades": 5,
@@ -596,7 +737,11 @@
     "filtros": {
       "dimensoes": [],
       "rede": null,
-      "uf": null
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
     },
     "total": 2561,
     "unidades": 27,

@@ -1,0 +1,13 @@
+caso,categoria,pergunta,situacao_ideal,situacao,llm_chamado,abstencao_correta,situacao_exata
+J1,join,matrículas por 100 mil habitantes por UF,nao_suportada,nao_suportada,False,True,True
+J2,join,Quantas matrículas presenciais e quantos docentes há por UF?,nao_suportada,requer_esclarecimento,False,True,False
+J3,join,docentes por matrícula por UF,recusada,recusada,False,True,True
+T1,evolucao_temporal,crescimento das matrículas presenciais entre 2020 e 2024,recusada,recusada,False,True,True
+T2,evolucao_temporal,matrículas presenciais em 2019,recusada,recusada,False,True,True
+T3,evolucao_temporal,Como evoluíram as matrículas presenciais?,recusada,nao_mapeada,False,True,False
+B1,ambiguidade,Quantas universidades existem no Brasil?,requer_esclarecimento,requer_esclarecimento,False,True,True
+B2,ambiguidade,Quantas IES públicas existem?,requer_esclarecimento,requer_esclarecimento,False,True,True
+B3,ambiguidade,Quantas matrículas EAD existem?,requer_esclarecimento,requer_esclarecimento,False,True,True
+B4,ambiguidade,matrículas presenciais em São Paulo,requer_esclarecimento,requer_esclarecimento,False,True,True
+B5,ambiguidade,Quantas matrículas existem no Brasil?,requer_esclarecimento,requer_esclarecimento,False,True,True
+X1,fora_de_escopo,taxa de evasão dos cursos presenciais,recusada,recusada,False,True,True

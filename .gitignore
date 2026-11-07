@@ -11,6 +11,14 @@ secrets.yaml
 secrets.yml
 credentials
 credentials.json
+credentials.txt
+# Acesso AWS (Bedrock/EC2) entregue pelo orientador em 2026-10-19: chave SSH, credenciais e
+# dados da instancia. Nunca versionar; o lugar certo desses arquivos e FORA do repositorio.
+Nova pasta/
+ec2.txt
+# Scripts de referencia do orientador (SSO + Bedrock): preservados localmente, fora do projeto.
+# Nada do sistema depende deles; a integracao vive em api/ e scripts/aws/.
+bedrock-users-main/
 service-account*.json
 .claude/settings.local.json
 
@@ -71,6 +79,10 @@ data/analytics/
 !**/data/raw/diagnostics/
 **/data/raw/diagnostics/*
 !**/data/raw/diagnostics/*.csv
+
+# Excecao: tabelas do benchmark de modelos (Fase 14), geradas por benchmark/relatorio.py.
+# Sao resultados do TCC, de poucos KB.
+!docs/tcc/benchmark/*.csv
 
 # === Notebooks ===
 .ipynb_checkpoints/

@@ -8,6 +8,7 @@ import indicadores from "@/test/fixtures/indicadores.json";
 import matriculasBrasil from "@/test/fixtures/matriculas-brasil.json";
 import matriculasRegiao from "@/test/fixtures/matriculas-regiao.json";
 import metadados from "@/test/fixtures/metadados.json";
+import municipiosDf from "@/test/fixtures/municipios-df.json";
 
 import {
   ApiContratoError,
@@ -15,16 +16,21 @@ import {
   ApiIndisponivelError,
   API_BASE_URL_PADRAO,
   consultarIndicador,
+  listarMunicipios,
   montarParametrosIndicador,
   obterMetadados,
 } from "./client";
 import { resolverDimensoes } from "./dimensoes";
 import {
+  CATEGORIAS,
   catalogoSchema,
   DIMENSOES,
   envelopeErroSchema,
   metadadosSchema,
+  ORGANIZACOES,
+  REGIOES,
   respostaIndicadorSchema,
+  respostaMunicipiosSchema,
   saudeSchema,
   type IndicadorInfo,
 } from "./schemas";
@@ -59,6 +65,7 @@ describe("contrato (zod) contra as respostas reais", () => {
       expect(respostaIndicadorSchema.safeParse(resposta).success).toBe(true);
     }
     expect(envelopeErroSchema.safeParse(erro422).success).toBe(true);
+    expect(respostaMunicipiosSchema.safeParse(municipiosDf).success).toBe(true);
   });
 
   it("recusa resposta de indicador sem o recorte territorial", () => {
@@ -68,6 +75,14 @@ describe("contrato (zod) contra as respostas reais", () => {
 
   it("as dimensões do frontend são as mesmas que a API publica", () => {
     expect(metadados.dimensoes_oferta.map((d) => d.slug).sort()).toEqual([...DIMENSOES].sort());
+  });
+
+  it("regiões, categorias e organizações do frontend são as que a API publica", () => {
+    expect(metadados.regioes.map((r) => r.slug).sort()).toEqual([...REGIOES].sort());
+    expect(metadados.categorias.map((c) => c.slug).sort()).toEqual([...CATEGORIAS].sort());
+    expect(metadados.organizacoes.map((o) => o.slug).sort()).toEqual([...ORGANIZACOES].sort());
+    // Toda UF aponta para uma região publicada.
+    for (const uf of metadados.ufs) expect(REGIOES).toContain(uf.regiao);
   });
 });
 
@@ -131,6 +146,29 @@ describe("montarParametrosIndicador", () => {
     });
     expect(municipal.get("uf")).toBe("GO");
   });
+
+  it("só envia cada filtro territorial nos níveis em que a API o aceita", () => {
+    const ies = indicador("ies");
+    const territorio = { regiao: "sul", uf: "PR", municipio: "4106902" } as const;
+    const enviados = (nivel: "brasil" | "regiao" | "uf" | "municipio") => {
+      const p = montarParametrosIndicador(ies, { nivel, ...territorio });
+      return ["regiao", "uf", "municipio"].filter((chave) => p.has(chave));
+    };
+    expect(enviados("brasil")).toEqual([]);
+    expect(enviados("regiao")).toEqual(["regiao"]);
+    expect(enviados("uf")).toEqual(["regiao", "uf"]);
+    expect(enviados("municipio")).toEqual(["regiao", "uf", "municipio"]);
+  });
+
+  it("envia categoria administrativa e organização acadêmica em qualquer nível", () => {
+    const p = montarParametrosIndicador(indicador("ies"), {
+      nivel: "brasil",
+      categoria: "publica_federal",
+      organizacao: "universidade",
+    });
+    expect(p.get("categoria")).toBe("publica_federal");
+    expect(p.get("organizacao")).toBe("universidade");
+  });
 });
 
 describe("cliente HTTP", () => {
@@ -149,6 +187,17 @@ describe("cliente HTTP", () => {
     expect(url.searchParams.get("recorte")).toBe("oferta");
     expect(dados.total).toBe(matriculasRegiao.total);
     expect(dados.linhas).toHaveLength(matriculasRegiao.linhas.length);
+  });
+
+  it("lista os municípios de uma UF pela rota de territórios", async () => {
+    const fetchMock = responder(municipiosDf);
+    vi.stubGlobal("fetch", fetchMock);
+
+    const resposta = await listarMunicipios("DF");
+
+    const url = urlChamada(fetchMock);
+    expect(url.pathname + url.search).toBe("/api/v1/territorios/municipios?uf=DF");
+    expect(resposta.municipios).toEqual(municipiosDf.municipios);
   });
 
   it("converte o envelope de erro da API em ApiError", async () => {

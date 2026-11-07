@@ -27,7 +27,8 @@ Verificado em **2026-09-05** na máquina do autor.
 | **duckdb** | **1.5.5** — instalado em 2026-09-19, no `.venv` (ver abaixo) |
 | **extensão `postgres` do DuckDB** | **1.5.5** — baixada em 2026-09-19, **fora do repositório** (ver abaixo) |
 | **Node.js / npm** | **24.21.0 / 11.19.0** (desde 2026-10-06) |
-| **Ollama** | **ausente** |
+| **Ollama** | 0.40.1 ainda instalado na máquina (4 modelos, ~37 GB), mas **removido do projeto** em 2026-11-06; desinstalação a decidir pelo autor |
+| **AWS CLI** | **2.38.1** (desde 2026-10-19; perfil SSO `tcc-bedrock`, ver "Acesso AWS") |
 
 As ausências restantes são bloqueantes para etapas futuras e todas se resolvem com software gratuito.
 
@@ -68,8 +69,14 @@ O `release-check` deixa de depender de conferência manual dos arquivos alterado
 **Node 24.21.0 / npm 11.19.0 instalados em 2026-10-06** em `%LOCALAPPDATA%\Programs\nodejs` (zip oficial do nodejs.org, SHA-256 conferido, sem administrador; no PATH do usuário). Não aparece em "Aplicativos instalados": para atualizar ou remover, troque ou apague a pasta. Necessários para o frontend React + TypeScript (`frontend/`).
 Não bloqueiam o trabalho de backend/dados. → **Adiado** até o frontend entrar em pauta.
 
-**Ollama ausente.** Necessário para o Analista IA. → **Adiado** até o Analista IA entrar em pauta.
-Ver seleção de modelo abaixo.
+**Ollama 0.40.1 instalado em 2026-10-09** (`winget install Ollama.Ollama`, sem administrador, em
+`%LOCALAPPDATA%\Programs\Ollama`; serviço em `http://localhost:11434`). Instalado para o benchmark
+da Fase 14. Modelos baixados (~37 GB em `%USERPROFILE%\.ollama\models`): `qwen3:8b` (5,2 GB),
+`qwen3:14b` (9,3 GB), `qwen2.5-coder:14b` (9,0 GB) — os três em `Q4_K_M` — e `gpt-oss:20b`
+(13 GB, `MXFP4`). São as quantizações padrão das tags do Ollama.
+Para liberar o disco: `ollama rm <modelo>`; para remover o servidor: `winget uninstall Ollama.Ollama`.
+O `ollama.exe` não fica no PATH da sessão em que foi instalado: abrir um terminal novo ou usar o
+caminho completo. Ver seleção de modelo abaixo.
 
 **Projeto fora do OneDrive — resolvido em 2026-09-05.** O risco era real: a sincronização pode
 corromper ou travar `node_modules`, `.venv` e o diretório `.git`, e arquivos "Disponíveis online"
@@ -91,10 +98,54 @@ Modelos de 14B rodam parcialmente em CPU e ficam lentos; 32B+ é inviável.
 Para Text-to-SQL com structured output, a recomendação é um modelo de **7–8B** em `Q4_K_M`.
 Candidatos gratuitos: família Qwen2.5 (variantes coder/instruct) e Llama 3.1 8B Instruct.
 
-> **A confirmar.** A escolha final deve ser feita empiricamente após instalar o Ollama,
-> comparando os candidatos em um conjunto de perguntas reais do domínio, medindo
-> aderência ao schema do QueryPlan e latência. O modelo é configurável por `OLLAMA_MODEL`,
-> então a troca não afeta a lógica da aplicação.
+**Medido em 2026-10-09 (Fase 14)** — ocupação de memória com a janela padrão de 4.096 tokens:
+
+| Modelo | Memória | Fração na GPU | Velocidade de geração | Raciocina (`thinking`) |
+|---|---|---|---|---|
+| `qwen3:8b` | 5,6 GB | 100% | ~62 tokens/s | sim (desliga com `think: false`) |
+| `qwen3:14b` | 10,2 GB | 63% | ~9 tokens/s | sim (desliga com `think: false`) |
+| `qwen2.5-coder:14b` | 10,0 GB | 64% | ~9 tokens/s | não |
+| `gpt-oss:20b` | 14,0 GB | 44% | ~29 tokens/s | sim (não desliga) |
+
+A previsão acima se confirmou: só o modelo de 8B cabe inteiro na GPU. O `gpt-oss:20b` gera mais
+rápido que os de 14B mesmo com menos da metade na GPU. A comparação de qualidade está em
+[`tcc/benchmark/RESULTADOS.md`](tcc/benchmark/RESULTADOS.md).
+
+> **Decisão do autor em 2026-10-09:** o Analista IA usará um modelo via **AWS Bedrock**,
+> disponibilizado pelo orientador, e não um modelo local. Modelo no Bedrock: **A confirmar**.
+> **Atualização em 2026-11-06:** o autor determinou a remoção completa do Ollama do projeto
+> (código, configuração, testes e ferramental). O servidor e os modelos seguem instalados nesta
+> máquina até o autor decidir desinstalá-los; nada no repositório depende deles.
+
+## Acesso AWS (desde 2026-10-19)
+
+Material entregue pelo orientador. Decisões e mecanismo em
+[ADR-0022](tcc/decisions/ADR-0022-credenciais-aws-por-perfil-sso-fora-do-repositorio.md).
+
+- **Chave SSH, credenciais e dados da EC2:** retirados do repositório pelo autor em 2026-10-19 (a
+  chave teve antes a permissão restrita ao usuário com `icacls`, o equivalente do `chmod 600`).
+  Nenhum arquivo de acesso fica dentro do projeto; o `.gitignore` mantém exclusões defensivas.
+- **`bedrock-users-main/`** — scripts de referência do orientador, preservados localmente e
+  **ignorados pelo git** (nada do sistema depende deles).
+
+| Item | Estado |
+|---|---|
+| AWS CLI | **2.38.1** (desde 2026-10-19; `winget install Amazon.AWSCLI`, MSI oficial assinado pela Amazon, em `C:\Program Files\Amazon\AWSCLIV2`) |
+| `boto3` / `botocore` | **1.43.115** no `.venv` (dependência do projeto via `uv add`) |
+| Perfil da CLI | `tcc-bedrock` em `%USERPROFILE%\.aws\config` — **sem credencial**, só conta, papel e portal; nenhum perfil `default` |
+| Credenciais | temporárias (~8 h), geradas pelo login SSO e guardadas pela CLI em `%USERPROFILE%\.aws\sso\cache` |
+| EC2 do aluno | entregue **desligada**; reservada para hospedagem/demonstração; **não ligar sem decisão do autor** |
+
+Login (o autor, no navegador; o terminal mostra um código a confirmar):
+
+```
+aws sso login --profile tcc-bedrock --use-device-code
+aws sts get-caller-identity --profile tcc-bedrock
+```
+
+`--use-device-code` é o fluxo que os scripts do orientador comprovadamente usam; o fluxo padrão da
+CLI (PKCE, com retorno para `localhost`) não foi testado com o portal do IESB. O executável fica
+no PATH do sistema só em terminais abertos depois da instalação.
 
 ## Banco de dados
 

@@ -1,0 +1,87 @@
+{
+ "rotulo": "_piloto_qwen3-8b",
+ "inicio": "2026-10-09T13:17:29+00:00",
+ "ambiente": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.6",
+  "cpu_e_ram_gb": [
+   "AMD Ryzen 7 5700X 8-Core Processor             ",
+   "32"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2070 SUPER, 8192 MiB, 617.14",
+  "git_commit": "5706a386b12c3096c89003e60b857fd21690dd41",
+  "git_alteracoes_nao_commitadas": true
+ },
+ "ollama": "0.40.1",
+ "configuracao": {
+  "provedor": "ollama",
+  "temperatura": 0,
+  "opcoes_do_protocolo": {
+   "seed": 20241007
+  },
+  "max_tokens": 1024,
+  "timeout_s": 120.0,
+  "repeticoes": 1,
+  "semente_da_ordem": 20241007,
+  "casos_restritos_a": [
+   "A1",
+   "G1",
+   "H1",
+   "R1",
+   "M1",
+   "G4"
+  ],
+  "saida_estruturada": "format = JSON Schema do QueryPlan"
+ },
+ "prompt_de_sistema_sha256": "b0dd042db466655e714c630c7630953ff8be4b416580409d42efd95bb01186dc",
+ "schema_do_plano_sha256": "318a4d40b6f0de4039c46bda52b67eb6bc107f1b98cad801ca86ff891fcc0cf0",
+ "conjunto_sha256": "959bf1193c8e2d3ccc48a69744a747a6f7856bcb4c50cdd999c051e6721f6a2d",
+ "referencias_sha256": "f2a916535ea191453dd34e51afd81b710c6e640b8c045de5d7a643bb849bba56",
+ "prompt_de_exemplo_chars": 2670,
+ "casos": {
+  "modelo": 28,
+  "sistema": 12
+ },
+ "modelos": [
+  {
+   "modelo": "qwen3:8b",
+   "instalado": {
+    "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "bytes": 5225388164,
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen3",
+    "families": [
+     "qwen3"
+    ],
+    "parameter_size": "8.2B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 40960,
+    "embedding_length": 4096,
+    "runner": "ggml"
+   },
+   "carga_s": 41.4,
+   "memoria": {
+    "bytes_em_memoria": 5578204118,
+    "bytes_em_vram": 5578204118,
+    "fracao_na_gpu": 1.0,
+    "janela_de_contexto": 4096
+   },
+   "aquecimento": "ok",
+   "aquecimento_s": 34.6,
+   "opcoes_enviadas": {
+    "temperature": 0,
+    "num_predict": 1024,
+    "seed": 20241007
+   },
+   "memoria_ao_final": {
+    "bytes_em_memoria": 5578204118,
+    "bytes_em_vram": 5578204118,
+    "fracao_na_gpu": 1.0,
+    "janela_de_contexto": 4096
+   },
+   "situacao": "medido"
+  }
+ ],
+ "fim": "2026-10-09T13:20:14+00:00"
+}

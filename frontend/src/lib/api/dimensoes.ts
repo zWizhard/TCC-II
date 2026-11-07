@@ -1,4 +1,4 @@
-import type { Dimensao, IndicadorInfo, Nivel } from "./schemas";
+import type { Dimensao, IndicadorInfo, Nivel, RazaoInfo } from "./schemas";
 
 export type DimensoesEfetivas = {
   /** `false` quando o indicador não usa dimensão de oferta (indicadores da tabela de IES). */
@@ -36,4 +36,26 @@ export function resolverDimensoes(
   const efetivas = unicas.filter((d) => admitidas.has(d));
   const excluidas = unicas.filter((d) => !admitidas.has(d));
   return { aplicavel: true, efetivas, excluidas, consultavel: efetivas.length > 0 };
+}
+
+/**
+ * Dimensões que uma razão admite entre as selecionadas. Além da regra territorial, cada razão só
+ * existe onde numerador e denominador coexistem (`razao.dimensoes`); `fixa` restringe a consulta
+ * a uma única dimensão, para as razões que não podem somar dimensões diferentes.
+ */
+export function resolverDimensoesRazao(
+  razao: Pick<RazaoInfo, "dimensoes" | "dimensoes_territoriais">,
+  nivel: Nivel,
+  selecionadas: readonly Dimensao[],
+  fixa?: Dimensao | undefined,
+): Pick<DimensoesEfetivas, "efetivas" | "excluidas" | "consultavel"> {
+  const admitidas = new Set<Dimensao>(
+    nivel === "brasil"
+      ? razao.dimensoes
+      : razao.dimensoes.filter((d) => razao.dimensoes_territoriais.includes(d)),
+  );
+  const unicas = [...new Set(selecionadas)];
+  const efetivas = unicas.filter((d) => admitidas.has(d) && (fixa === undefined || d === fixa));
+  const excluidas = unicas.filter((d) => !efetivas.includes(d));
+  return { efetivas, excluidas, consultavel: efetivas.length > 0 };
 }

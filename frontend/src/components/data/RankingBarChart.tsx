@@ -16,6 +16,8 @@ type RankingBarChartProps = {
   unidade: string;
   /** Descrição textual do gráfico. Os mesmos dados devem estar em uma tabela próxima. */
   descricao: string;
+  /** Formatação do valor na dica e no eixo; padrão = inteiro (contagens). */
+  formatarValor?: (valor: number) => string;
 };
 
 const ALTURA_BARRA = 26;
@@ -25,7 +27,12 @@ const ALTURA_EIXO = 44;
  * Barras horizontais, uma por unidade territorial, na ordem recebida.
  * Só desenha os valores devolvidos pela API — não calcula participação nem razão.
  */
-export function RankingBarChart({ itens, unidade, descricao }: RankingBarChartProps) {
+export function RankingBarChart({
+  itens,
+  unidade,
+  descricao,
+  formatarValor,
+}: RankingBarChartProps) {
   const config = { valor: { label: unidade, color: "var(--primary)" } } satisfies ChartConfig;
   const larguraRotulo = Math.min(
     150,
@@ -52,7 +59,7 @@ export function RankingBarChart({ itens, unidade, descricao }: RankingBarChartPr
             type="number"
             tickLine={false}
             axisLine={false}
-            tickFormatter={(valor: number) => formatarCompacto(valor)}
+            tickFormatter={(valor: number) => (formatarValor ?? formatarCompacto)(valor)}
           />
           <YAxis
             type="category"
@@ -68,7 +75,7 @@ export function RankingBarChart({ itens, unidade, descricao }: RankingBarChartPr
               <ChartTooltipContent
                 formatter={(valor) => (
                   <span className="font-medium tabular-nums text-foreground">
-                    {formatarInteiro(Number(valor))} {unidade}
+                    {(formatarValor ?? formatarInteiro)(Number(valor))} {unidade}
                   </span>
                 )}
               />

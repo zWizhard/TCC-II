@@ -1,0 +1,4 @@
+comparacao,condicao,a,b,casos,so_a_acerta,so_b_acerta,p_mcnemar_exato,p_holm
+entre_modelos,P,gpt-oss:20b,qwen2.5-coder:14b,28,7,2,0.1797,0.375
+entre_modelos,P,gpt-oss:20b,qwen3:8b,28,4,0,0.125,0.375
+entre_modelos,P,qwen2.5-coder:14b,qwen3:8b,28,2,3,1.0,1.0

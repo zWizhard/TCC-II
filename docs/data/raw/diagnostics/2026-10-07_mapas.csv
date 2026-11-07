@@ -1,0 +1,28 @@
+bloco,teste,resultado,detalhe
+coordenadas,municipio: unidades reais com coordenada valida,VALIDAS,unidades=5.571 nulas=0 zero=0 fora do Brasil=0
+coordenadas,"municipio: pares (latitude, longitude) repetidos entre unidades",NENHUM,pares repetidos=0
+coordenadas,sentinelas com coordenada fora do Brasil (por isso sao excluidas do mapa),2,28 sentinelas no total; o Censo nao referencia nenhuma
+coordenadas,municipios do Censo (sede de IES) com coordenada,TODOS,unidades=698 sem coordenada=0 em sentinela=0
+coordenadas,municipios do Censo (local de oferta) com coordenada,TODOS,unidades=3.551 sem coordenada=0 em sentinela=0
+coordenadas,IES: existe coluna de coordenada propria?,NAO,so ds_endereco_ies e nu_cep_ies; o ponto de uma IES e o do municipio de sede
+coordenadas,IES por ponto: quantas IES dividem a mesma coordenada,2.561 IES em 698 pontos,"maior ponto reune 172 IES: um ponto por IES seria sobreposicao, nao localizacao"
+malha,feicoes municipais e unicidade de codarea,"5.571 feicoes, 5.571 codigos distintos","tipo=str, 7 digitos; UFs=27"
+malha,"municipio <-> malha pela chave de 7 digitos (texto, sem nome)",1:1,municipio sem poligono=[] poligono sem municipio=[]
+malha,municipios do Censo (sede de IES) sem poligono,0,de 698 unidades
+malha,municipios do Censo (local de oferta) sem poligono,0,de 3.551 unidades
+malha,coordenada de `municipio` dentro do proprio poligono (ponto-em-poligono),5.509 de 5.571; 62 fora,"fora e sede de IES=['Barracão', 'Cabedelo', 'Guarapari', 'Guarujá', 'Maceió', 'Rio Grande', 'Salvador']; ponto e poligono vem de fontes diferentes e a malha e simplificada"
+malha,UFs: codarea (2 digitos) <-> municipio.cd_uf,1:1,27 UFs
+populacao,"ibge_populacao_estimada, ano = '2024' (texto): linhas x municipios distintos",SEM DUPLICATA,linhas=5.571 distintos=5.571 soma=212.583.750 menor=854 nula ou <= 0=0
+populacao,ponte municipio.codigo_municipio (6 digitos): unica entre as unidades reais,UNICA,unidades=5.571 codigos de 6 digitos=5.571 diferentes do prefixo do codigo de 7=0
+populacao,municipio <-> populacao 2024: orfaos nos dois sentidos,1:1,unidade sem populacao=0 populacao sem unidade=0
+populacao,JOIN agregado de cursos -> municipio -> populacao 2024 (presencial + polo),PRESERVA,linhas 3.551 -> 3.551; matriculas 10.224.686 -> 10.224.686; populacao das unidades com oferta=200.295.471 de 212.583.750
+ind_r_01,universo: unidades com e sem registro de oferta (ausente != zero),"3.551 com registro, 2.020 sem",de 5.571; com registro e 0 matriculas=135
+ind_r_01,"Brasil, presencial + polo: matriculas territorializaveis / populacao 2024 x 100 mil","4.809,7",numerador=10.224.686 denominador=212.583.750
+ind_r_01,UF: denominador reagregado (populacao de TODAS as unidades da UF),"de 3.305,4 (UF 21) a 8.325,4 (UF 53)",27 UFs
+ind_r_01,"municipio, presencial + polo: distribuicao da razao entre unidades com registro","mediana 1.173,1; maximo 30.106,4","unidades=3.551 min=0,0 p20=234,8 p40=795,9 p60=1.712,1 p80=3.762,7 p95=7.738,8 p99=11.924,2"
+ind_r_01,"municipio, so presencial: distribuicao da razao entre unidades com registro","mediana 1.491,8; maximo 26.888,5","unidades=1.121 min=0,0 p20=365,0 p40=996,4 p60=2.192,1 p80=3.857,8 p95=6.955,2 p99=12.010,3"
+ind_r_01,"municipio, so polo EAD: distribuicao da razao entre unidades com registro","mediana 1.042,2; maximo 20.041,1","unidades=3.524 min=0,0 p20=212,5 p40=712,6 p60=1.477,0 p80=2.632,1 p95=4.280,0 p99=5.852,1"
+ind_r_01,cinco maiores razoes municipais (presencial + polo),"Urutaí (52) 30.106,4; Ivatuba (41) 25.988,9; Almenara (31) 22.148,8; Vassouras (33) 20.426,7; Viçosa (31) 19.546,6",Urutaí: 1.104 matriculas / 3.667 hab.; Ivatuba: 703 matriculas / 2.705 hab.; Almenara: 9.279 matriculas / 41.894 hab.; Vassouras: 7.334 matriculas / 35.904 hab.; Viçosa: 15.485 matriculas / 79.221 hab.
+ind_r_01,denominador pequeno: unidades com menos de 10 mil habitantes,"2.468 unidades, 757 com registro de oferta",unidades com razao acima do valor nacional=534 de 3.551
+heatmap,concentracao do peso: matriculas por local de oferta (presencial + polo),"26,7% do total nos 10 maiores pontos","pontos=3.551 total=10.224.686 maior=859.026 (8,4%)"
+heatmap,concentracao do peso: IES por municipio de sede,"24,0% do total nos 10 maiores pontos","pontos=698 total=2.561 maior=172 (6,7%)"

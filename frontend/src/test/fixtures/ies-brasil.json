@@ -15,7 +15,15 @@
   "ano_censo": "2024",
   "recorte": "sede",
   "nivel": "brasil",
-  "filtros": { "dimensoes": [], "rede": null, "uf": null },
+  "filtros": {
+    "dimensoes": [],
+    "rede": null,
+    "categoria": null,
+    "organizacao": null,
+    "regiao": null,
+    "uf": null,
+    "municipio": null
+  },
   "total": 2561,
   "unidades": 1,
   "truncado": false,

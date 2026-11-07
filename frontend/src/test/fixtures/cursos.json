@@ -1,0 +1,2068 @@
+{
+  "/api/v1/metadados": {
+    "ano_censo": "2024",
+    "fonte": "Censo da Educação Superior 2024 (INEP), cópia local do Big Data IESB",
+    "extraido_em": "2026-09-19T02:25:32",
+    "recortes": ["sede", "oferta"],
+    "niveis": ["brasil", "regiao", "uf", "municipio"],
+    "dimensoes_oferta": [
+      {
+        "slug": "presencial",
+        "rotulo": "Cursos presenciais ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Presencial"
+      },
+      {
+        "slug": "ead_polo",
+        "rotulo": "Cursos a distância ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_nacional",
+        "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_exterior",
+        "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      }
+    ],
+    "regioes": [
+      { "slug": "norte", "nome": "Norte" },
+      { "slug": "nordeste", "nome": "Nordeste" },
+      { "slug": "sudeste", "nome": "Sudeste" },
+      { "slug": "sul", "nome": "Sul" },
+      { "slug": "centro_oeste", "nome": "Centro-Oeste" }
+    ],
+    "ufs": [
+      { "sigla": "AC", "nome": "Acre", "regiao": "norte" },
+      { "sigla": "AM", "nome": "Amazonas", "regiao": "norte" },
+      { "sigla": "AP", "nome": "Amapá", "regiao": "norte" },
+      { "sigla": "PA", "nome": "Pará", "regiao": "norte" },
+      { "sigla": "RO", "nome": "Rondônia", "regiao": "norte" },
+      { "sigla": "RR", "nome": "Roraima", "regiao": "norte" },
+      { "sigla": "TO", "nome": "Tocantins", "regiao": "norte" },
+      { "sigla": "AL", "nome": "Alagoas", "regiao": "nordeste" },
+      { "sigla": "BA", "nome": "Bahia", "regiao": "nordeste" },
+      { "sigla": "CE", "nome": "Ceará", "regiao": "nordeste" },
+      { "sigla": "MA", "nome": "Maranhão", "regiao": "nordeste" },
+      { "sigla": "PB", "nome": "Paraíba", "regiao": "nordeste" },
+      { "sigla": "PE", "nome": "Pernambuco", "regiao": "nordeste" },
+      { "sigla": "PI", "nome": "Piauí", "regiao": "nordeste" },
+      { "sigla": "RN", "nome": "Rio Grande do Norte", "regiao": "nordeste" },
+      { "sigla": "SE", "nome": "Sergipe", "regiao": "nordeste" },
+      { "sigla": "ES", "nome": "Espírito Santo", "regiao": "sudeste" },
+      { "sigla": "MG", "nome": "Minas Gerais", "regiao": "sudeste" },
+      { "sigla": "RJ", "nome": "Rio de Janeiro", "regiao": "sudeste" },
+      { "sigla": "SP", "nome": "São Paulo", "regiao": "sudeste" },
+      { "sigla": "PR", "nome": "Paraná", "regiao": "sul" },
+      { "sigla": "RS", "nome": "Rio Grande do Sul", "regiao": "sul" },
+      { "sigla": "SC", "nome": "Santa Catarina", "regiao": "sul" },
+      { "sigla": "DF", "nome": "Distrito Federal", "regiao": "centro_oeste" },
+      { "sigla": "GO", "nome": "Goiás", "regiao": "centro_oeste" },
+      { "sigla": "MS", "nome": "Mato Grosso do Sul", "regiao": "centro_oeste" },
+      { "sigla": "MT", "nome": "Mato Grosso", "regiao": "centro_oeste" }
+    ],
+    "categorias": [
+      { "slug": "publica_federal", "rotulo": "Pública Federal", "rede": "publica" },
+      { "slug": "publica_estadual", "rotulo": "Pública Estadual", "rede": "publica" },
+      { "slug": "publica_municipal", "rotulo": "Pública Municipal", "rede": "publica" },
+      {
+        "slug": "privada_com_fins_lucrativos",
+        "rotulo": "Privada com fins lucrativos",
+        "rede": "privada"
+      },
+      {
+        "slug": "privada_sem_fins_lucrativos",
+        "rotulo": "Privada sem fins lucrativos",
+        "rede": "privada"
+      },
+      { "slug": "especial", "rotulo": "Especial", "rede": "publica" }
+    ],
+    "organizacoes": [
+      { "slug": "universidade", "rotulo": "Universidade" },
+      { "slug": "centro_universitario", "rotulo": "Centro Universitário" },
+      { "slug": "faculdade", "rotulo": "Faculdade" },
+      {
+        "slug": "instituto_federal",
+        "rotulo": "Instituto Federal de Educação, Ciência e Tecnologia"
+      },
+      { "slug": "cefet", "rotulo": "Centro Federal de Educação Tecnológica" }
+    ],
+    "areas_cine": [
+      { "slug": "programas_basicos", "codigo": 0, "nome": "Programas básicos" },
+      { "slug": "educacao", "codigo": 1, "nome": "Educação" },
+      { "slug": "artes_humanidades", "codigo": 2, "nome": "Artes e humanidades" },
+      {
+        "slug": "ciencias_sociais",
+        "codigo": 3,
+        "nome": "Ciências sociais, comunicação e informação"
+      },
+      { "slug": "negocios_direito", "codigo": 4, "nome": "Negócios, administração e direito" },
+      {
+        "slug": "ciencias_naturais",
+        "codigo": 5,
+        "nome": "Ciências naturais, matemática e estatística"
+      },
+      {
+        "slug": "computacao_tic",
+        "codigo": 6,
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)"
+      },
+      { "slug": "engenharia", "codigo": 7, "nome": "Engenharia, produção e construção" },
+      {
+        "slug": "agricultura_veterinaria",
+        "codigo": 8,
+        "nome": "Agricultura, silvicultura, pesca e veterinária"
+      },
+      { "slug": "saude", "codigo": 9, "nome": "Saúde e bem-estar" },
+      { "slug": "servicos", "codigo": 10, "nome": "Serviços" }
+    ],
+    "graus": [
+      { "slug": "bacharelado", "rotulo": "Bacharelado" },
+      { "slug": "licenciatura", "rotulo": "Licenciatura" },
+      { "slug": "tecnologico", "rotulo": "Tecnológico" },
+      { "slug": "nao_aplicavel", "rotulo": "Não aplicável" }
+    ],
+    "aviso": "Retrato transversal de um único ano: não há série temporal."
+  },
+  "/api/v1/indicadores": [
+    {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    {
+      "slug": "docentes",
+      "codigo": "IND-D-08",
+      "nome": "Docentes em exercício",
+      "unidade": "docentes",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Agregado na tabela de IES; nunca após JOIN com cursos."
+      ]
+    },
+    {
+      "slug": "tecnicos",
+      "codigo": "IND-D-09",
+      "nome": "Técnicos administrativos",
+      "unidade": "funcionários",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": ["Atribuído ao município de sede da IES, não aos campi nem aos polos."]
+    }
+  ],
+  "/api/v1/territorios/municipios?uf=DF": {
+    "ano_censo": "2024",
+    "uf": "DF",
+    "municipios": [{ "codigo": "5300108", "nome": "Brasília", "sede": true, "oferta": true }]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=grau&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "grau",
+    "eixo_nome": "Grau acadêmico",
+    "ficha": "IND-R-05",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 4,
+    "truncado": false,
+    "notas": ["'Não aplicável' é uma categoria real da base e permanece no denominador."],
+    "linhas": [
+      {
+        "codigo": "bacharelado",
+        "nome": "Bacharelado",
+        "grupo": null,
+        "valor": 6392793,
+        "participacao": 62.50735044927941
+      },
+      {
+        "codigo": "tecnologico",
+        "nome": "Tecnológico",
+        "grupo": null,
+        "valor": 2054437,
+        "participacao": 20.087841657780288
+      },
+      {
+        "codigo": "licenciatura",
+        "nome": "Licenciatura",
+        "grupo": null,
+        "valor": 1718590,
+        "participacao": 16.80400216441031
+      },
+      {
+        "codigo": "nao_aplicavel",
+        "nome": "Não aplicável",
+        "grupo": null,
+        "valor": 61446,
+        "participacao": 0.6008057285299904
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=dimensao&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "dimensao",
+    "eixo_nome": "Dimensão de oferta",
+    "ficha": "IND-R-04",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 4,
+    "truncado": false,
+    "notas": [
+      "A modalidade é medida por tp_dimensao: vaga e matrícula de EAD não coexistem na mesma dimensão, e a participação da EAD muda conforme as dimensões incluídas."
+    ],
+    "linhas": [
+      {
+        "codigo": "ead_polo",
+        "nome": "Cursos a distância ofertados no Brasil",
+        "grupo": null,
+        "valor": 5186852,
+        "participacao": 50.715919582027105
+      },
+      {
+        "codigo": "presencial",
+        "nome": "Cursos presenciais ofertados no Brasil",
+        "grupo": null,
+        "valor": 5037875,
+        "participacao": 49.25925462386526
+      },
+      {
+        "codigo": "ead_exterior",
+        "nome": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "grupo": null,
+        "valor": 2539,
+        "participacao": 0.02482579410763346
+      },
+      {
+        "codigo": "ead_nacional",
+        "nome": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "grupo": null,
+        "valor": 0,
+        "participacao": 0.0
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=area&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "area",
+    "eixo_nome": "Área geral (CINE)",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 11,
+    "truncado": false,
+    "notas": [
+      "'Programas básicos' reúne as Áreas Básicas de Ingresso (ABI): têm matrículas, mas não entram na contagem de cursos (marcador qt_curso = 0)."
+    ],
+    "linhas": [
+      {
+        "codigo": "4",
+        "nome": "Negócios, administração e direito",
+        "grupo": null,
+        "valor": 2755740,
+        "participacao": 26.94503105717598
+      },
+      {
+        "codigo": "9",
+        "nome": "Saúde e bem-estar",
+        "grupo": null,
+        "valor": 2345749,
+        "participacao": 22.93622753138522
+      },
+      {
+        "codigo": "1",
+        "nome": "Educação",
+        "grupo": null,
+        "valor": 1758512,
+        "participacao": 17.19435086561746
+      },
+      {
+        "codigo": "7",
+        "nome": "Engenharia, produção e construção",
+        "grupo": null,
+        "valor": 887521,
+        "participacao": 8.677988819299312
+      },
+      {
+        "codigo": "6",
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "grupo": null,
+        "valor": 800222,
+        "participacao": 7.824398035604041
+      },
+      {
+        "codigo": "3",
+        "nome": "Ciências sociais, comunicação e informação",
+        "grupo": null,
+        "valor": 604893,
+        "participacao": 5.914513223768698
+      },
+      {
+        "codigo": "8",
+        "nome": "Agricultura, silvicultura, pesca e veterinária",
+        "grupo": null,
+        "valor": 356020,
+        "participacao": 3.481086734225941
+      },
+      {
+        "codigo": "10",
+        "nome": "Serviços",
+        "grupo": null,
+        "valor": 271985,
+        "participacao": 2.6594106381901086
+      },
+      {
+        "codigo": "2",
+        "nome": "Artes e humanidades",
+        "grupo": null,
+        "valor": 257128,
+        "participacao": 2.514142098191247
+      },
+      {
+        "codigo": "5",
+        "nome": "Ciências naturais, matemática e estatística",
+        "grupo": null,
+        "valor": 128443,
+        "participacao": 1.2558879372062877
+      },
+      {
+        "codigo": "0",
+        "nome": "Programas básicos",
+        "grupo": null,
+        "valor": 61053,
+        "participacao": 0.5969630593357013
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=rotulo_cine&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&limite=20": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "rotulo_cine",
+    "eixo_nome": "Rótulo CINE",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 353,
+    "truncado": true,
+    "notas": [
+      "O rótulo CINE é a classificação do INEP, não o nome do curso dado pela IES; são 353 rótulos, e a lista pode estar truncada pelo limite."
+    ],
+    "linhas": [
+      {
+        "codigo": "0113P01",
+        "nome": "Pedagogia",
+        "grupo": "Educação",
+        "valor": 887695,
+        "participacao": 8.679690153751746
+      },
+      {
+        "codigo": "0413A01",
+        "nome": "Administração",
+        "grupo": "Negócios, administração e direito",
+        "valor": 653126,
+        "participacao": 6.38612508954006
+      },
+      {
+        "codigo": "0421D01",
+        "nome": "Direito",
+        "grupo": "Negócios, administração e direito",
+        "valor": 652996,
+        "participacao": 6.384853977592838
+      },
+      {
+        "codigo": "0913E01",
+        "nome": "Enfermagem",
+        "grupo": "Saúde e bem-estar",
+        "valor": 478008,
+        "participacao": 4.673859074360635
+      },
+      {
+        "codigo": "0613S01",
+        "nome": "Sistemas de informação",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 420479,
+        "participacao": 4.111352926578814
+      },
+      {
+        "codigo": "0313P01",
+        "nome": "Psicologia",
+        "grupo": "Ciências sociais, comunicação e informação",
+        "valor": 375574,
+        "participacao": 3.672281526656293
+      },
+      {
+        "codigo": "0411C01",
+        "nome": "Contabilidade",
+        "grupo": "Negócios, administração e direito",
+        "valor": 322837,
+        "participacao": 3.156630520805854
+      },
+      {
+        "codigo": "0915E01",
+        "nome": "Educação física",
+        "grupo": "Saúde e bem-estar",
+        "valor": 303939,
+        "participacao": 2.971849954816859
+      },
+      {
+        "codigo": "0912M01",
+        "nome": "Medicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 283594,
+        "participacao": 2.7729209350768818
+      },
+      {
+        "codigo": "0915F01",
+        "nome": "Fisioterapia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 227223,
+        "participacao": 2.22173746140953
+      },
+      {
+        "codigo": "0916F01",
+        "nome": "Farmácia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 226992,
+        "participacao": 2.219478793257162
+      },
+      {
+        "codigo": "0413G07",
+        "nome": "Gestão de pessoas",
+        "grupo": "Negócios, administração e direito",
+        "valor": 221319,
+        "participacao": 2.1640094234373097
+      },
+      {
+        "codigo": "0914B01",
+        "nome": "Biomedicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 202323,
+        "participacao": 1.978270634595795
+      },
+      {
+        "codigo": "0915N01",
+        "nome": "Nutrição",
+        "grupo": "Saúde e bem-estar",
+        "valor": 191376,
+        "participacao": 1.8712332308556363
+      },
+      {
+        "codigo": "0732E01",
+        "nome": "Engenharia civil",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 166889,
+        "participacao": 1.6318046289203783
+      },
+      {
+        "codigo": "0911O01",
+        "nome": "Odontologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 162750,
+        "participacao": 1.5913343800777258
+      },
+      {
+        "codigo": "0841M01",
+        "nome": "Medicina veterinária",
+        "grupo": "Agricultura, silvicultura, pesca e veterinária",
+        "valor": 161502,
+        "participacao": 1.5791317053844105
+      },
+      {
+        "codigo": "0811A04",
+        "nome": "Agronomia",
+        "grupo": "Agricultura, silvicultura, pesca e veterinária",
+        "valor": 149939,
+        "participacao": 1.4660711865712694
+      },
+      {
+        "codigo": "0413L01",
+        "nome": "Logística",
+        "grupo": "Negócios, administração e direito",
+        "valor": 139620,
+        "participacao": 1.3651742313146056
+      },
+      {
+        "codigo": "0613C01",
+        "nome": "Ciência da computação",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 127190,
+        "participacao": 1.2436363735919256
+      }
+    ]
+  },
+  "/api/v1/indicadores/cursos/composicao?por=grau&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    "eixo": "grau",
+    "eixo_nome": "Grau acadêmico",
+    "ficha": "IND-R-05",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 45776,
+    "categorias": 4,
+    "truncado": false,
+    "notas": ["'Não aplicável' é uma categoria real da base e permanece no denominador."],
+    "linhas": [
+      {
+        "codigo": "bacharelado",
+        "nome": "Bacharelado",
+        "grupo": null,
+        "valor": 27453,
+        "participacao": 59.972474659210064
+      },
+      {
+        "codigo": "tecnologico",
+        "nome": "Tecnológico",
+        "grupo": null,
+        "valor": 10530,
+        "participacao": 23.003320517301642
+      },
+      {
+        "codigo": "licenciatura",
+        "nome": "Licenciatura",
+        "grupo": null,
+        "valor": 7789,
+        "participacao": 17.015466620062917
+      },
+      {
+        "codigo": "nao_aplicavel",
+        "nome": "Não aplicável",
+        "grupo": null,
+        "valor": 4,
+        "participacao": 0.008738203425375742
+      }
+    ]
+  },
+  "/api/v1/indicadores/cursos/composicao?por=dimensao&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    "eixo": "dimensao",
+    "eixo_nome": "Dimensão de oferta",
+    "ficha": "IND-R-04",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 45776,
+    "categorias": 4,
+    "truncado": false,
+    "notas": [
+      "A modalidade é medida por tp_dimensao: vaga e matrícula de EAD não coexistem na mesma dimensão, e a participação da EAD muda conforme as dimensões incluídas."
+    ],
+    "linhas": [
+      {
+        "codigo": "presencial",
+        "nome": "Cursos presenciais ofertados no Brasil",
+        "grupo": null,
+        "valor": 34479,
+        "participacao": 75.32112897588256
+      },
+      {
+        "codigo": "ead_nacional",
+        "nome": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "grupo": null,
+        "valor": 11297,
+        "participacao": 24.67887102411744
+      },
+      {
+        "codigo": "ead_polo",
+        "nome": "Cursos a distância ofertados no Brasil",
+        "grupo": null,
+        "valor": 0,
+        "participacao": 0.0
+      },
+      {
+        "codigo": "ead_exterior",
+        "nome": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "grupo": null,
+        "valor": 0,
+        "participacao": 0.0
+      }
+    ]
+  },
+  "/api/v1/indicadores/cursos/composicao?por=area&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    "eixo": "area",
+    "eixo_nome": "Área geral (CINE)",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 45776,
+    "categorias": 11,
+    "truncado": false,
+    "notas": [
+      "'Programas básicos' reúne as Áreas Básicas de Ingresso (ABI): têm matrículas, mas não entram na contagem de cursos (marcador qt_curso = 0)."
+    ],
+    "linhas": [
+      {
+        "codigo": "4",
+        "nome": "Negócios, administração e direito",
+        "grupo": null,
+        "valor": 11358,
+        "participacao": 24.812128626354422
+      },
+      {
+        "codigo": "9",
+        "nome": "Saúde e bem-estar",
+        "grupo": null,
+        "valor": 7980,
+        "participacao": 17.432715833624606
+      },
+      {
+        "codigo": "1",
+        "nome": "Educação",
+        "grupo": null,
+        "valor": 7859,
+        "participacao": 17.16838518000699
+      },
+      {
+        "codigo": "7",
+        "nome": "Engenharia, produção e construção",
+        "grupo": null,
+        "valor": 6467,
+        "participacao": 14.127490387976232
+      },
+      {
+        "codigo": "6",
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "grupo": null,
+        "valor": 3540,
+        "participacao": 7.733310031457533
+      },
+      {
+        "codigo": "3",
+        "nome": "Ciências sociais, comunicação e informação",
+        "grupo": null,
+        "valor": 2588,
+        "participacao": 5.6536176162181055
+      },
+      {
+        "codigo": "2",
+        "nome": "Artes e humanidades",
+        "grupo": null,
+        "valor": 2064,
+        "participacao": 4.508912967493883
+      },
+      {
+        "codigo": "8",
+        "nome": "Agricultura, silvicultura, pesca e veterinária",
+        "grupo": null,
+        "valor": 1521,
+        "participacao": 3.3227018524991263
+      },
+      {
+        "codigo": "10",
+        "nome": "Serviços",
+        "grupo": null,
+        "valor": 1445,
+        "participacao": 3.1566759874169867
+      },
+      {
+        "codigo": "5",
+        "nome": "Ciências naturais, matemática e estatística",
+        "grupo": null,
+        "valor": 954,
+        "participacao": 2.0840615169521146
+      },
+      { "codigo": "0", "nome": "Programas básicos", "grupo": null, "valor": 0, "participacao": 0.0 }
+    ]
+  },
+  "/api/v1/indicadores/cursos/composicao?por=rotulo_cine&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&limite=20": {
+    "indicador": {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    "eixo": "rotulo_cine",
+    "eixo_nome": "Rótulo CINE",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 45776,
+    "categorias": 353,
+    "truncado": true,
+    "notas": [
+      "O rótulo CINE é a classificação do INEP, não o nome do curso dado pela IES; são 353 rótulos, e a lista pode estar truncada pelo limite."
+    ],
+    "linhas": [
+      {
+        "codigo": "0413A01",
+        "nome": "Administração",
+        "grupo": "Negócios, administração e direito",
+        "valor": 2179,
+        "participacao": 4.760136315973436
+      },
+      {
+        "codigo": "0421D01",
+        "nome": "Direito",
+        "grupo": "Negócios, administração e direito",
+        "valor": 1868,
+        "participacao": 4.080740999650472
+      },
+      {
+        "codigo": "0113P01",
+        "nome": "Pedagogia",
+        "grupo": "Educação",
+        "valor": 1803,
+        "participacao": 3.938745193988116
+      },
+      {
+        "codigo": "0613S01",
+        "nome": "Sistemas de informação",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 1500,
+        "participacao": 3.276826284515903
+      },
+      {
+        "codigo": "0411C01",
+        "nome": "Contabilidade",
+        "grupo": "Negócios, administração e direito",
+        "valor": 1497,
+        "participacao": 3.2702726319468716
+      },
+      {
+        "codigo": "0913E01",
+        "nome": "Enfermagem",
+        "grupo": "Saúde e bem-estar",
+        "valor": 1316,
+        "participacao": 2.8748689269486194
+      },
+      {
+        "codigo": "0313P01",
+        "nome": "Psicologia",
+        "grupo": "Ciências sociais, comunicação e informação",
+        "valor": 1258,
+        "participacao": 2.748164977280671
+      },
+      {
+        "codigo": "0732E01",
+        "nome": "Engenharia civil",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 1165,
+        "participacao": 2.545001747640685
+      },
+      {
+        "codigo": "0915F01",
+        "nome": "Fisioterapia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 1032,
+        "participacao": 2.2544564837469414
+      },
+      {
+        "codigo": "0915E01",
+        "nome": "Educação física",
+        "grupo": "Saúde e bem-estar",
+        "valor": 902,
+        "participacao": 1.9704648724222298
+      },
+      {
+        "codigo": "0413G07",
+        "nome": "Gestão de pessoas",
+        "grupo": "Negócios, administração e direito",
+        "valor": 878,
+        "participacao": 1.9180356518699755
+      },
+      {
+        "codigo": "0915N01",
+        "nome": "Nutrição",
+        "grupo": "Saúde e bem-estar",
+        "valor": 871,
+        "participacao": 1.902743795875568
+      },
+      {
+        "codigo": "0725E02",
+        "nome": "Engenharia de produção",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 853,
+        "participacao": 1.8634218804613774
+      },
+      {
+        "codigo": "0916F01",
+        "nome": "Farmácia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 841,
+        "participacao": 1.83720727018525
+      },
+      {
+        "codigo": "0914B01",
+        "nome": "Biomedicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 806,
+        "participacao": 1.7607479902132122
+      },
+      {
+        "codigo": "0731A02",
+        "nome": "Arquitetura e urbanismo",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 730,
+        "participacao": 1.594722125131073
+      },
+      {
+        "codigo": "0114E03",
+        "nome": "Educação física formação de professor",
+        "grupo": "Educação",
+        "valor": 697,
+        "participacao": 1.522631946871723
+      },
+      {
+        "codigo": "0715E02",
+        "nome": "Engenharia mecânica",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 665,
+        "participacao": 1.4527263194687172
+      },
+      {
+        "codigo": "0911O01",
+        "nome": "Odontologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 650,
+        "participacao": 1.4199580566235583
+      },
+      {
+        "codigo": "0713E05",
+        "nome": "Engenharia elétrica",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 638,
+        "participacao": 1.393743446347431
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=grau&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&area=saude": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "grau",
+    "eixo_nome": "Grau acadêmico",
+    "ficha": "IND-R-05",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": "Saúde e bem-estar",
+      "grau": null
+    },
+    "total": 2345749,
+    "categorias": 2,
+    "truncado": false,
+    "notas": ["'Não aplicável' é uma categoria real da base e permanece no denominador."],
+    "linhas": [
+      {
+        "codigo": "bacharelado",
+        "nome": "Bacharelado",
+        "grupo": null,
+        "valor": 2265874,
+        "participacao": 96.59490422888382
+      },
+      {
+        "codigo": "tecnologico",
+        "nome": "Tecnológico",
+        "grupo": null,
+        "valor": 79875,
+        "participacao": 3.405095771116177
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=dimensao&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&area=saude": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "dimensao",
+    "eixo_nome": "Dimensão de oferta",
+    "ficha": "IND-R-04",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": "Saúde e bem-estar",
+      "grau": null
+    },
+    "total": 2345749,
+    "categorias": 4,
+    "truncado": false,
+    "notas": [
+      "A modalidade é medida por tp_dimensao: vaga e matrícula de EAD não coexistem na mesma dimensão, e a participação da EAD muda conforme as dimensões incluídas."
+    ],
+    "linhas": [
+      {
+        "codigo": "presencial",
+        "nome": "Cursos presenciais ofertados no Brasil",
+        "grupo": null,
+        "valor": 1323461,
+        "participacao": 56.419548724096224
+      },
+      {
+        "codigo": "ead_polo",
+        "nome": "Cursos a distância ofertados no Brasil",
+        "grupo": null,
+        "valor": 1022109,
+        "participacao": 43.572820450951916
+      },
+      {
+        "codigo": "ead_exterior",
+        "nome": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "grupo": null,
+        "valor": 179,
+        "participacao": 0.007630824951859726
+      },
+      {
+        "codigo": "ead_nacional",
+        "nome": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "grupo": null,
+        "valor": 0,
+        "participacao": 0.0
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=area&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&area=saude": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "area",
+    "eixo_nome": "Área geral (CINE)",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": "Saúde e bem-estar",
+      "grau": null
+    },
+    "total": 2345749,
+    "categorias": 1,
+    "truncado": false,
+    "notas": [
+      "'Programas básicos' reúne as Áreas Básicas de Ingresso (ABI): têm matrículas, mas não entram na contagem de cursos (marcador qt_curso = 0)."
+    ],
+    "linhas": [
+      {
+        "codigo": "9",
+        "nome": "Saúde e bem-estar",
+        "grupo": null,
+        "valor": 2345749,
+        "participacao": 100.0
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=rotulo_cine&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior&area=saude&limite=20": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "rotulo_cine",
+    "eixo_nome": "Rótulo CINE",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": "Saúde e bem-estar",
+      "grau": null
+    },
+    "total": 2345749,
+    "categorias": 23,
+    "truncado": true,
+    "notas": [
+      "O rótulo CINE é a classificação do INEP, não o nome do curso dado pela IES; são 353 rótulos, e a lista pode estar truncada pelo limite."
+    ],
+    "linhas": [
+      {
+        "codigo": "0913E01",
+        "nome": "Enfermagem",
+        "grupo": "Saúde e bem-estar",
+        "valor": 478008,
+        "participacao": 20.377627785410972
+      },
+      {
+        "codigo": "0915E01",
+        "nome": "Educação física",
+        "grupo": "Saúde e bem-estar",
+        "valor": 303939,
+        "participacao": 12.957012877336835
+      },
+      {
+        "codigo": "0912M01",
+        "nome": "Medicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 283594,
+        "participacao": 12.089699281551436
+      },
+      {
+        "codigo": "0915F01",
+        "nome": "Fisioterapia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 227223,
+        "participacao": 9.686586246013533
+      },
+      {
+        "codigo": "0916F01",
+        "nome": "Farmácia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 226992,
+        "participacao": 9.676738645098006
+      },
+      {
+        "codigo": "0914B01",
+        "nome": "Biomedicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 202323,
+        "participacao": 8.625091601872152
+      },
+      {
+        "codigo": "0915N01",
+        "nome": "Nutrição",
+        "grupo": "Saúde e bem-estar",
+        "valor": 191376,
+        "participacao": 8.158417631212886
+      },
+      {
+        "codigo": "0911O01",
+        "nome": "Odontologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 162750,
+        "participacao": 6.9380824632132425
+      },
+      {
+        "codigo": "0923S01",
+        "nome": "Serviço social",
+        "grupo": "Saúde e bem-estar",
+        "valor": 117130,
+        "participacao": 4.993287858163853
+      },
+      {
+        "codigo": "0915T01",
+        "nome": "Terapia ocupacional",
+        "grupo": "Saúde e bem-estar",
+        "valor": 36916,
+        "participacao": 1.573740412976836
+      },
+      {
+        "codigo": "0914R01",
+        "nome": "Radiologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 33444,
+        "participacao": 1.4257279870949535
+      },
+      {
+        "codigo": "0915F02",
+        "nome": "Fonoaudiologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 22996,
+        "participacao": 0.9803265396255099
+      },
+      {
+        "codigo": "0917P01",
+        "nome": "Práticas integrativas",
+        "grupo": "Saúde e bem-estar",
+        "valor": 16171,
+        "participacao": 0.6893746943939867
+      },
+      {
+        "codigo": "0915P01",
+        "nome": "Podologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 15971,
+        "participacao": 0.6808486329952608
+      },
+      {
+        "codigo": "0914O02",
+        "nome": "Optometria",
+        "grupo": "Saúde e bem-estar",
+        "valor": 8517,
+        "participacao": 0.3630823246647446
+      },
+      {
+        "codigo": "0921G01",
+        "nome": "Gerontologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 6765,
+        "participacao": 0.2883940268119053
+      },
+      {
+        "codigo": "0988P01",
+        "nome": "Programas interdisciplinares abrangendo saúde e bem-estar",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5675,
+        "participacao": 0.24192699218884886
+      },
+      {
+        "codigo": "0918S01",
+        "nome": "Saúde coletiva",
+        "grupo": "Saúde e bem-estar",
+        "valor": 3636,
+        "participacao": 0.15500379622883778
+      },
+      {
+        "codigo": "0918S02",
+        "nome": "Saúde pública",
+        "grupo": "Saúde e bem-estar",
+        "valor": 1402,
+        "participacao": 0.059767690405068914
+      },
+      {
+        "codigo": "0917M01",
+        "nome": "Musicoterapia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 397,
+        "participacao": 0.016924231876471012
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=grau&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "grau",
+    "eixo_nome": "Grau acadêmico",
+    "ficha": "IND-R-05",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 4,
+    "truncado": false,
+    "notas": ["'Não aplicável' é uma categoria real da base e permanece no denominador."],
+    "linhas": [
+      {
+        "codigo": "bacharelado",
+        "nome": "Bacharelado",
+        "grupo": null,
+        "valor": 152146,
+        "participacao": 61.26692787507098
+      },
+      {
+        "codigo": "tecnologico",
+        "nome": "Tecnológico",
+        "grupo": null,
+        "valor": 66213,
+        "participacao": 26.66298880938095
+      },
+      {
+        "codigo": "licenciatura",
+        "nome": "Licenciatura",
+        "grupo": null,
+        "valor": 26488,
+        "participacao": 10.66632304204435
+      },
+      {
+        "codigo": "nao_aplicavel",
+        "nome": "Não aplicável",
+        "grupo": null,
+        "valor": 3486,
+        "participacao": 1.403760273503723
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=dimensao&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "dimensao",
+    "eixo_nome": "Dimensão de oferta",
+    "ficha": "IND-R-04",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 2,
+    "truncado": false,
+    "notas": [
+      "A modalidade é medida por tp_dimensao: vaga e matrícula de EAD não coexistem na mesma dimensão, e a participação da EAD muda conforme as dimensões incluídas."
+    ],
+    "linhas": [
+      {
+        "codigo": "presencial",
+        "nome": "Cursos presenciais ofertados no Brasil",
+        "grupo": null,
+        "valor": 135051,
+        "participacao": 54.383026017484596
+      },
+      {
+        "codigo": "ead_polo",
+        "nome": "Cursos a distância ofertados no Brasil",
+        "grupo": null,
+        "valor": 113282,
+        "participacao": 45.61697398251541
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=area&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "area",
+    "eixo_nome": "Área geral (CINE)",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 11,
+    "truncado": false,
+    "notas": [
+      "'Programas básicos' reúne as Áreas Básicas de Ingresso (ABI): têm matrículas, mas não entram na contagem de cursos (marcador qt_curso = 0)."
+    ],
+    "linhas": [
+      {
+        "codigo": "4",
+        "nome": "Negócios, administração e direito",
+        "grupo": null,
+        "valor": 65877,
+        "participacao": 26.527686614344447
+      },
+      {
+        "codigo": "9",
+        "nome": "Saúde e bem-estar",
+        "grupo": null,
+        "valor": 58361,
+        "participacao": 23.501105370611235
+      },
+      {
+        "codigo": "6",
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "grupo": null,
+        "valor": 35704,
+        "participacao": 14.377468963045589
+      },
+      {
+        "codigo": "1",
+        "nome": "Educação",
+        "grupo": null,
+        "valor": 26960,
+        "participacao": 10.856390411262296
+      },
+      {
+        "codigo": "3",
+        "nome": "Ciências sociais, comunicação e informação",
+        "grupo": null,
+        "valor": 19388,
+        "participacao": 7.807258801689667
+      },
+      {
+        "codigo": "7",
+        "nome": "Engenharia, produção e construção",
+        "grupo": null,
+        "valor": 14219,
+        "participacao": 5.725779497690601
+      },
+      {
+        "codigo": "2",
+        "nome": "Artes e humanidades",
+        "grupo": null,
+        "valor": 7234,
+        "participacao": 2.9130240443275763
+      },
+      {
+        "codigo": "10",
+        "nome": "Serviços",
+        "grupo": null,
+        "valor": 6920,
+        "participacao": 2.78658092158513
+      },
+      {
+        "codigo": "8",
+        "nome": "Agricultura, silvicultura, pesca e veterinária",
+        "grupo": null,
+        "valor": 6757,
+        "participacao": 2.7209432495882546
+      },
+      {
+        "codigo": "0",
+        "nome": "Programas básicos",
+        "grupo": null,
+        "valor": 3486,
+        "participacao": 1.403760273503723
+      },
+      {
+        "codigo": "5",
+        "nome": "Ciências naturais, matemática e estatística",
+        "grupo": null,
+        "valor": 3427,
+        "participacao": 1.3800018523514797
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=rotulo_cine&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&limite=20": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "rotulo_cine",
+    "eixo_nome": "Rótulo CINE",
+    "ficha": "IND-R-06",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 224,
+    "truncado": true,
+    "notas": [
+      "O rótulo CINE é a classificação do INEP, não o nome do curso dado pela IES; são 353 rótulos, e a lista pode estar truncada pelo limite."
+    ],
+    "linhas": [
+      {
+        "codigo": "0421D01",
+        "nome": "Direito",
+        "grupo": "Negócios, administração e direito",
+        "valor": 19552,
+        "participacao": 7.873299158790817
+      },
+      {
+        "codigo": "0613S01",
+        "nome": "Sistemas de informação",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 19206,
+        "participacao": 7.73397011271156
+      },
+      {
+        "codigo": "0913E01",
+        "nome": "Enfermagem",
+        "grupo": "Saúde e bem-estar",
+        "valor": 12267,
+        "participacao": 4.9397381741452
+      },
+      {
+        "codigo": "0113P01",
+        "nome": "Pedagogia",
+        "grupo": "Educação",
+        "valor": 11932,
+        "participacao": 4.804838664212972
+      },
+      {
+        "codigo": "0313P01",
+        "nome": "Psicologia",
+        "grupo": "Ciências sociais, comunicação e informação",
+        "valor": 10929,
+        "participacao": 4.400945504624838
+      },
+      {
+        "codigo": "0413A01",
+        "nome": "Administração",
+        "grupo": "Negócios, administração e direito",
+        "valor": 8814,
+        "participacao": 3.5492665090825626
+      },
+      {
+        "codigo": "0413G12",
+        "nome": "Gestão pública",
+        "grupo": "Negócios, administração e direito",
+        "valor": 7526,
+        "participacao": 3.030608094775966
+      },
+      {
+        "codigo": "0413G07",
+        "nome": "Gestão de pessoas",
+        "grupo": "Negócios, administração e direito",
+        "valor": 6637,
+        "participacao": 2.6726210370752175
+      },
+      {
+        "codigo": "0915E01",
+        "nome": "Educação física",
+        "grupo": "Saúde e bem-estar",
+        "valor": 6579,
+        "participacao": 2.6492653010272496
+      },
+      {
+        "codigo": "0914B01",
+        "nome": "Biomedicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5989,
+        "participacao": 2.411681089504818
+      },
+      {
+        "codigo": "0411C01",
+        "nome": "Contabilidade",
+        "grupo": "Negócios, administração e direito",
+        "valor": 5827,
+        "participacao": 2.3464461026122185
+      },
+      {
+        "codigo": "0915F01",
+        "nome": "Fisioterapia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5767,
+        "participacao": 2.3222849963557
+      },
+      {
+        "codigo": "0915N01",
+        "nome": "Nutrição",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5665,
+        "participacao": 2.281211115719618
+      },
+      {
+        "codigo": "0916F01",
+        "nome": "Farmácia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5624,
+        "participacao": 2.264701026444331
+      },
+      {
+        "codigo": "0911O01",
+        "nome": "Odontologia",
+        "grupo": "Saúde e bem-estar",
+        "valor": 5295,
+        "participacao": 2.132217627137755
+      },
+      {
+        "codigo": "0613C01",
+        "nome": "Ciência da computação",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 4862,
+        "participacao": 1.9578549769865463
+      },
+      {
+        "codigo": "0912M01",
+        "nome": "Medicina",
+        "grupo": "Saúde e bem-estar",
+        "valor": 4360,
+        "participacao": 1.7557070546403417
+      },
+      {
+        "codigo": "0841M01",
+        "nome": "Medicina veterinária",
+        "grupo": "Agricultura, silvicultura, pesca e veterinária",
+        "valor": 4242,
+        "participacao": 1.7081902123358557
+      },
+      {
+        "codigo": "0613E01",
+        "nome": "Engenharia de software",
+        "grupo": "Computação e Tecnologias da Informação e Comunicação (TIC)",
+        "valor": 4231,
+        "participacao": 1.703760676188827
+      },
+      {
+        "codigo": "0731A02",
+        "nome": "Arquitetura e urbanismo",
+        "grupo": "Engenharia, produção e construção",
+        "valor": 3442,
+        "participacao": 1.3860421289156093
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=grau&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "grau",
+    "eixo_nome": "Grau acadêmico",
+    "ficha": "IND-R-05",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108",
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 4,
+    "truncado": false,
+    "notas": ["'Não aplicável' é uma categoria real da base e permanece no denominador."],
+    "linhas": [
+      {
+        "codigo": "bacharelado",
+        "nome": "Bacharelado",
+        "grupo": null,
+        "valor": 152146,
+        "participacao": 61.26692787507098
+      },
+      {
+        "codigo": "tecnologico",
+        "nome": "Tecnológico",
+        "grupo": null,
+        "valor": 66213,
+        "participacao": 26.66298880938095
+      },
+      {
+        "codigo": "licenciatura",
+        "nome": "Licenciatura",
+        "grupo": null,
+        "valor": 26488,
+        "participacao": 10.66632304204435
+      },
+      {
+        "codigo": "nao_aplicavel",
+        "nome": "Não aplicável",
+        "grupo": null,
+        "valor": 3486,
+        "participacao": 1.403760273503723
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=dimensao&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "dimensao",
+    "eixo_nome": "Dimensão de oferta",
+    "ficha": "IND-R-04",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108",
+      "area": null,
+      "grau": null
+    },
+    "total": 248333,
+    "categorias": 2,
+    "truncado": false,
+    "notas": [
+      "A modalidade é medida por tp_dimensao: vaga e matrícula de EAD não coexistem na mesma dimensão, e a participação da EAD muda conforme as dimensões incluídas."
+    ],
+    "linhas": [
+      {
+        "codigo": "presencial",
+        "nome": "Cursos presenciais ofertados no Brasil",
+        "grupo": null,
+        "valor": 135051,
+        "participacao": 54.383026017484596
+      },
+      {
+        "codigo": "ead_polo",
+        "nome": "Cursos a distância ofertados no Brasil",
+        "grupo": null,
+        "valor": 113282,
+        "participacao": 45.61697398251541
+      }
+    ]
+  }
+}

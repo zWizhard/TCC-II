@@ -1,0 +1,163 @@
+bloco,teste,resultado,detalhe
+inventario,tabelas presentes no DuckDB,CONFERE,"ibge_populacao_estimada, inep_educacao_superior_cursos, inep_educacao_superior_ies, municipio"
+inventario,inep_educacao_superior_ies: colunas e linhas,CONFERE,colunas=82 (esperado 82) linhas=2.561
+inventario,inep_educacao_superior_cursos: colunas e linhas,CONFERE,colunas=223 (esperado 223) linhas=720.349
+inventario,municipio: colunas e linhas,CONFERE,colunas=7 (esperado 7) linhas=5.599
+inventario,ibge_populacao_estimada: colunas e linhas,CONFERE,colunas=6 (esperado 6) linhas=144.678
+inventario,total de colunas nas quatro tabelas,CONFERE,318 (esperado 318)
+inventario,colunas sem familia,0,
+inventario,inep_educacao_superior_ies: colunas por familia,15 familias,atributo_institucional=6; biblioteca=10; capital=1; chave_entidade=1; chave_municipal=1; docentes_decomposicao=24; docentes_titulacao=5; docentes_total=2; identificacao_textual_endereco=4; mantenedora=2; particao_ano=1; tecnicos_escolaridade_sexo=14; tecnicos_total=1; territorio=6; territorio_meso_micro=4
+inventario,inep_educacao_superior_cursos: colunas por familia,32 familias,apoio_social=4; ativ_extracurricular=4; atributo_curso=3; atributo_institucional=5; capital=1; chave_entidade=2; chave_municipal=1; classificacao_cine=8; deficiencia=4; dimensao_oferta=2; financiamento_agregado=3; financiamento_subtipo=27; identificacao_textual_endereco=1; ingresso_tipo_selecao=6; ingresso_tipo_vaga=5; inscritos=8; marcador_curso=1; metrica_total_fluxo=3; mob_academica=4; parfor=4; particao_ano=1; perfil_cor_raca=18; perfil_faixa_etaria=24; perfil_nacionalidade=6; perfil_procedencia_escolar=9; perfil_sexo=6; reserva_vagas_agregado=3; reserva_vagas_subtipo=36; situacao=4; territorio=6; turno=6; vagas=8
+inventario,municipio: colunas por familia,4 familias,capital=1; chave_municipal=2; geometria=2; territorio=2
+inventario,ibge_populacao_estimada: colunas por familia,4 familias,chave_municipal=1; particao_ano=1; populacao=1; territorio=3
+inventario,auditada = sim,187 colunas,cursos.atributo_curso; cursos.atributo_institucional; cursos.chave_entidade; cursos.chave_municipal; cursos.classificacao_cine; cursos.dimensao_oferta; cursos.financiamento_agregado; cursos.ingresso_tipo_vaga; cursos.inscritos; cursos.marcador_curso; cursos.metrica_total_fluxo; cursos.particao_ano; cursos.perfil_cor_raca; cursos.perfil_faixa_etaria; cursos.perfil_nacionalidade; cursos.perfil_procedencia_escolar; cursos.perfil_sexo; cursos.reserva_vagas_agregado; cursos.territorio; cursos.turno; cursos.vagas; estimada.chave_municipal; estimada.particao_ano; estimada.populacao; ies.atributo_institucional; ies.chave_entidade; ies.chave_municipal; ies.docentes_decomposicao; ies.docentes_titulacao; ies.docentes_total; ies.particao_ano; ies.tecnicos_escolaridade_sexo; ies.tecnicos_total; ies.territorio; municipio.chave_municipal; municipio.geometria; municipio.territorio
+inventario,auditada = sim_nao_fechou,77 colunas,cursos.financiamento_subtipo; cursos.ingresso_tipo_selecao; cursos.reserva_vagas_subtipo; cursos.situacao; ies.territorio_meso_micro
+inventario,auditada = parcial,24 colunas,cursos.atributo_curso; cursos.atributo_institucional; cursos.capital; cursos.classificacao_cine; cursos.identificacao_textual_endereco; estimada.territorio; ies.atributo_institucional; ies.capital; ies.identificacao_textual_endereco; ies.mantenedora; municipio.capital; municipio.territorio
+inventario,auditada = nao,30 colunas,cursos.apoio_social; cursos.ativ_extracurricular; cursos.deficiencia; cursos.mob_academica; cursos.parfor; ies.biblioteca
+inventario,inep_educacao_superior_ies: tipos DuckDB,INTEGER=49; SMALLINT=7; VARCHAR=26,
+inventario,inep_educacao_superior_cursos: tipos DuckDB,INTEGER=18; SMALLINT=182; VARCHAR=23,
+inventario,municipio: tipos DuckDB,"DECIMAL(15,7)=2; VARCHAR=5",
+inventario,ibge_populacao_estimada: tipos DuckDB,"DECIMAL(9,0)=1; VARCHAR=5",
+inventario,colunas com NULL,0,
+inventario,colunas VARCHAR com string vazia,2,inep_educacao_superior_ies.sg_ies=459; inep_educacao_superior_ies.nu_cep_ies=26
+inventario,colunas declaradas NOT NULL no DuckDB,0,a restricao NOT NULL do PostgreSQL nao foi levada pelo ETL; a ausencia de NULL e medida
+tipos,versao do DuckDB,1.5.5,
+tipos,inep_educacao_superior_ies.nu_ano_censo,VARCHAR,comprimentos: 4 car.=2.561
+tipos,inep_educacao_superior_cursos.nu_ano_censo,VARCHAR,comprimentos: 4 car.=720.349
+tipos,inep_educacao_superior_ies.co_ies,SMALLINT,min=1 max=29929
+tipos,inep_educacao_superior_cursos.co_ies,INTEGER,min=1 max=29929
+tipos,inep_educacao_superior_cursos.co_curso,INTEGER,min=1 max=50017393
+tipos,inep_educacao_superior_ies.co_municipio_ies,VARCHAR,comprimentos: 7 car.=2.561
+tipos,inep_educacao_superior_cursos.co_municipio,VARCHAR,comprimentos: 7 car.=708.571; 18 car.=11.778
+tipos,inep_educacao_superior_ies.co_uf_ies,VARCHAR,comprimentos: 2 car.=2.561
+tipos,inep_educacao_superior_cursos.co_uf,VARCHAR,comprimentos: 2 car.=708.571; 18 car.=11.778
+tipos,inep_educacao_superior_ies.co_regiao_ies,SMALLINT,min=1 max=5
+tipos,inep_educacao_superior_cursos.co_regiao,VARCHAR,comprimentos: 1 car.=708.571; 18 car.=11.778
+tipos,inep_educacao_superior_ies.tp_rede,INTEGER,min=1 max=2
+tipos,inep_educacao_superior_cursos.tp_rede,VARCHAR,comprimentos: 7 car.=720.349
+tipos,inep_educacao_superior_ies.ds_rede,VARCHAR,comprimentos: 7 car.=2.561
+tipos,inep_educacao_superior_ies.in_comunitaria,SMALLINT,min=0 max=1
+tipos,inep_educacao_superior_ies.in_confessional,SMALLINT,min=0 max=1
+tipos,inep_educacao_superior_cursos.in_comunitaria,SMALLINT,min=0 max=1
+tipos,inep_educacao_superior_cursos.in_confessional,SMALLINT,min=0 max=1
+tipos,inep_educacao_superior_ies.in_capital_ies,VARCHAR,comprimentos: 3 car.=2.561
+tipos,inep_educacao_superior_cursos.in_capital,VARCHAR,comprimentos: 3 car.=708.571; 18 car.=11.778
+tipos,inep_educacao_superior_cursos.in_gratuito,VARCHAR,comprimentos: 3 car.=720.349
+tipos,inep_educacao_superior_cursos.co_cine_area_geral,SMALLINT,min=0 max=10
+tipos,inep_educacao_superior_cursos.co_cine_rotulo,VARCHAR,comprimentos: 9 car.=720.349
+tipos,municipio.codigo_municipio_dv,VARCHAR,comprimentos: 7 car.=5.599
+tipos,municipio.codigo_municipio,VARCHAR,comprimentos: 6 car.=5.599
+tipos,municipio.cd_uf,VARCHAR,comprimentos: 2 car.=5.599
+tipos,municipio.municipio_capital,VARCHAR,comprimentos: 1 car.=1; 3 car.=5.598
+tipos,ibge_populacao_estimada.ano,VARCHAR,comprimentos: 4 car.=144.678
+tipos,ibge_populacao_estimada.cod_municipio,VARCHAR,comprimentos: 6 car.=144.678
+tipos,ibge_populacao_estimada.cod_uf,VARCHAR,comprimentos: 2 car.=144.678
+tipos,ibge_populacao_estimada.populacao,"DECIMAL(9,0)",min=697 max=12396372
+comparacao,ies.nu_ano_censo (VARCHAR) = '2024',executa -> 2561,
+comparacao,ies.nu_ano_censo (VARCHAR) = 2024 [inteiro],executa -> 2561,
+comparacao,ibge.ano (VARCHAR) = 2024 [inteiro],executa -> 5571,
+comparacao,ies.tp_rede (INTEGER) = 1,executa -> 317,
+comparacao,ies.tp_rede (INTEGER) = '1' [texto],executa -> 317,
+comparacao,ies.tp_rede (INTEGER) = 'Pública' [rotulo],ERRO ConversionException: Conversion Error: Could not convert string 'Pública' to INT32,
+comparacao,ies.in_comunitaria (SMALLINT) = 1,executa -> 86,
+comparacao,ies.in_comunitaria (SMALLINT) = '1' [texto],executa -> 86,
+comparacao,ies.in_comunitaria (SMALLINT) = 'Sim',ERRO ConversionException: Conversion Error: Could not convert string 'Sim' to INT16,
+comparacao,ies.co_regiao_ies (SMALLINT) = 3,executa -> 1076,
+comparacao,ies.co_regiao_ies (SMALLINT) = '3' [texto],executa -> 1076,
+comparacao,cursos.co_regiao (VARCHAR) = '3',executa -> 291176,
+comparacao,cursos.co_regiao (VARCHAR) = 3 [inteiro],ERRO ConversionException: Conversion Error: Could not convert string 'Cursos a distância' to INT32 when casting from source column co_regiao,
+comparacao,cursos.co_uf (VARCHAR) = 35 [inteiro],ERRO ConversionException: Conversion Error: Could not convert string 'Cursos a distância' to INT32 when casting from source column co_uf,
+comparacao,cursos.co_municipio (VARCHAR) = 3550308 [inteiro],ERRO ConversionException: Conversion Error: Could not convert string 'Cursos a distância' to INT32 when casting from source column co_municipio,
+comparacao,ies.co_municipio_ies (VARCHAR) = 3550308 [inteiro],executa -> 172,
+comparacao,ies.co_municipio_ies (VARCHAR) = '3550308',executa -> 172,
+comparacao,coluna a coluna: cursos.co_regiao (VARCHAR) = ies.co_regiao_ies (SMALLINT),ERRO ConversionException: Conversion Error: Could not convert string 'Cursos a distância' to INT16 when casting from source column co_regiao,
+comparacao,"coluna a coluna, forma segura: c.co_regiao = CAST(i.co_regiao_ies AS VARCHAR)",executa -> 5,
+comparacao,coluna a coluna: cursos.co_uf (VARCHAR) = ies.co_uf_ies (VARCHAR),executa -> 27,
+comparacao,coluna a coluna: cursos.co_ies (INTEGER) = ies.co_ies (SMALLINT),executa -> 2561,
+comparacao,coluna a coluna: cursos.tp_rede (VARCHAR) = ies.tp_rede (INTEGER),ERRO ConversionException: Conversion Error: Could not convert string 'Pública' to INT32 when casting from source column tp_rede,
+comparacao,coluna a coluna: cursos.tp_rede (VARCHAR) = ies.ds_rede (VARCHAR),executa -> 2,
+dominio,inep_educacao_superior_ies.tp_organizacao_academica (VARCHAR),5 valores; IDENTICO a api.indicadores.ROTULO_ORGANIZACAO,"'Faculdade': linhas=1.897; 'Centro Universitário': linhas=417; 'Universidade': linhas=206; 'Instituto Federal de Educação, Ciência e Tecnologia': linhas=39; 'Centro Federal de Educação Tecnológica': linhas=2"
+dominio,inep_educacao_superior_ies.tp_categoria_administrativa (VARCHAR),6 valores; IDENTICO a api.indicadores.ROTULO_CATEGORIA,'Privada com fins lucrativos': linhas=1.486; 'Privada sem fins lucrativos': linhas=758; 'Pública Estadual': linhas=139; 'Pública Federal': linhas=122; 'Especial': linhas=28; 'Pública Municipal': linhas=28
+dominio,inep_educacao_superior_ies.tp_rede (INTEGER),2 valores; sem literal no catalogo da API,2: linhas=2.244; 1: linhas=317
+dominio,inep_educacao_superior_ies.ds_rede (VARCHAR),2 valores; IDENTICO a api.indicadores.ROTULO_REDE,'Privada': linhas=2.244; 'Pública': linhas=317
+dominio,inep_educacao_superior_ies.in_capital_ies (VARCHAR),2 valores; sem literal no catalogo da API,'Não': linhas=1.642; 'Sim': linhas=919
+dominio,inep_educacao_superior_ies.in_comunitaria (SMALLINT),2 valores; sem literal no catalogo da API,0: linhas=2.475; 1: linhas=86
+dominio,inep_educacao_superior_ies.in_confessional (SMALLINT),2 valores; sem literal no catalogo da API,0: linhas=2.505; 1: linhas=56
+dominio,inep_educacao_superior_cursos.tp_dimensao (VARCHAR),4 valores; IDENTICO a api.indicadores.ROTULO_DIMENSAO,'Cursos a distância ofertados no Brasil': linhas=673.756 mat=5.186.852 cursos=0; 'Cursos presenciais ofertados no Brasil': linhas=34.824 mat=5.037.875 cursos=34.479; 'Cursos a distância com dimensão de dados somente a nível Brasil': linhas=11.319 mat=0 cursos=11.297; 'Cursos a distância ofertados por instituições brasileiras no exterior': linhas=450 mat=2.539 cursos=0
+dominio,inep_educacao_superior_cursos.tp_modalidade_ensino (VARCHAR),2 valores; IDENTICO a api.indicadores.MODALIDADE_DA_DIMENSAO,'Curso a distância': linhas=685.525 mat=5.189.391 cursos=11.297; 'Presencial': linhas=34.824 mat=5.037.875 cursos=34.479
+dominio,inep_educacao_superior_cursos.tp_grau_academico (VARCHAR),4 valores; IDENTICO a api.indicadores.ROTULO_GRAU,'Tecnológico': linhas=338.574 mat=2.054.437 cursos=10.530; 'Bacharelado': linhas=243.210 mat=6.392.793 cursos=27.453; 'Licenciatura': linhas=136.519 mat=1.718.590 cursos=7.789; 'Não aplicável': linhas=2.046 mat=61.446 cursos=4
+dominio,inep_educacao_superior_cursos.tp_nivel_academico (VARCHAR),2 valores; sem literal no catalogo da API,'Graduação': linhas=720.345 mat=10.226.873 cursos=45.772; 'Sequencial de Formação Específica': linhas=4 mat=393 cursos=4
+dominio,inep_educacao_superior_cursos.tp_rede (VARCHAR),2 valores; IDENTICO a api.indicadores.ROTULO_REDE,'Privada': linhas=700.198 mat=8.162.199 cursos=34.295; 'Pública': linhas=20.151 mat=2.065.067 cursos=11.481
+dominio,inep_educacao_superior_cursos.tp_categoria_administrativa (VARCHAR),6 valores; IDENTICO a api.indicadores.ROTULO_CATEGORIA,'Privada com fins lucrativos': linhas=638.763 mat=6.372.474 cursos=22.363; 'Privada sem fins lucrativos': linhas=61.435 mat=1.789.725 cursos=11.932; 'Pública Federal': linhas=10.352 mat=1.317.548 cursos=7.124; 'Pública Estadual': linhas=8.608 mat=666.980 cursos=3.701; 'Especial': linhas=936 mat=45.400 cursos=416; 'Pública Municipal': linhas=255 mat=35.139 cursos=240
+dominio,inep_educacao_superior_cursos.tp_organizacao_academica (VARCHAR),5 valores; IDENTICO a api.indicadores.ROTULO_ORGANIZACAO,"'Centro Universitário': linhas=370.724 mat=3.447.461 cursos=15.243; 'Universidade': linhas=323.102 mat=5.420.049 cursos=17.893; 'Faculdade': linhas=23.985 mat=1.124.240 cursos=10.635; 'Instituto Federal de Educação, Ciência e Tecnologia': linhas=2.474 mat=221.327 cursos=1.943; 'Centro Federal de Educação Tecnológica': linhas=64 mat=14.189 cursos=62"
+dominio,inep_educacao_superior_cursos.in_gratuito (VARCHAR),2 valores; sem literal no catalogo da API,'Não': linhas=701.299 mat=8.234.211 cursos=34.865; 'Sim': linhas=19.050 mat=1.993.055 cursos=10.911
+dominio,inep_educacao_superior_cursos.in_capital (VARCHAR),3 valores; sem literal no catalogo da API,'Não': linhas=635.171 mat=6.430.606 cursos=21.889; 'Sim': linhas=73.400 mat=3.794.080 cursos=12.590; 'Cursos a distância': linhas=11.778 mat=2.580 cursos=11.297
+dominio,inep_educacao_superior_cursos.in_comunitaria (SMALLINT),2 valores; sem literal no catalogo da API,0: linhas=705.591 mat=9.716.051 cursos=42.151; 1: linhas=14.758 mat=511.215 cursos=3.625
+dominio,inep_educacao_superior_cursos.in_confessional (SMALLINT),2 valores; sem literal no catalogo da API,0: linhas=712.852 mat=9.873.265 cursos=43.806; 1: linhas=7.497 mat=354.001 cursos=1.970
+dominio,municipio.municipio_capital (VARCHAR),3 valores; sem literal no catalogo da API,'Não': linhas=5.571; 'Sim': linhas=27; '0': linhas=1
+dominio,"pares (tp_dimensao, tp_modalidade_ensino) contra MODALIDADE_DA_DIMENSAO",IDENTICO,4 pares na base
+dominio,"ies: (tp_rede, ds_rede, tp_categoria_administrativa)",6 combinacoes,1 | Pública | Especial = 28; 1 | Pública | Pública Estadual = 139; 1 | Pública | Pública Federal = 122; 1 | Pública | Pública Municipal = 28; 2 | Privada | Privada com fins lucrativos = 1.486; 2 | Privada | Privada sem fins lucrativos = 758
+dominio,"cursos: (tp_rede, tp_categoria_administrativa) em linhas",6 combinacoes,Privada | Privada com fins lucrativos = 638.763; Privada | Privada sem fins lucrativos = 61.435; Pública | Especial = 936; Pública | Pública Estadual = 8.608; Pública | Pública Federal = 10.352; Pública | Pública Municipal = 255
+dominio,tp_organizacao_academica: cursos repete o valor da IES?,SIM,"IES com mais de um valor em cursos=0; pares (IES, valor) divergentes de ies=0"
+dominio,tp_categoria_administrativa: cursos repete o valor da IES?,SIM,"IES com mais de um valor em cursos=0; pares (IES, valor) divergentes de ies=0"
+dominio,in_comunitaria: cursos repete o valor da IES?,SIM,"IES com mais de um valor em cursos=0; pares (IES, valor) divergentes de ies=0"
+dominio,in_confessional: cursos repete o valor da IES?,SIM,"IES com mais de um valor em cursos=0; pares (IES, valor) divergentes de ies=0"
+dominio,cursos.tp_rede = ies.ds_rede para toda IES,SIM,divergentes=0
+universidade,IES no total x IES com tp_organizacao_academica = 'Universidade',2.561 x 206,linhas=2.561 co_ies distintos=2.561 razao=12.4x
+universidade,municipios de sede com ao menos 1 IES x com ao menos 1 'Universidade',698 x 130,recorte sede
+universidade,'quantos municipios possuem mais de 20 universidades' — leitura IES em geral (sede),17,São Paulo/SP=172; Rio de Janeiro/RJ=65; Brasília/DF=63; Curitiba/PR=56; Belo Horizonte/MG=55; Goiânia/GO=45; Fortaleza/CE=43; Porto Alegre/RS=40; Salvador/BA=39; Recife/PE=37; São Luís/MA=29; Teresina/PI=29; Belém/PA=26; Manaus/AM=25; Cuiabá/MT=24; João Pessoa/PB=23; Vitória/ES=21
+universidade,'quantos municipios possuem mais de 20 universidades' — leitura organizacao = 'Universidade' (sede),0,maiores: São Paulo/SP=15; Rio de Janeiro/RJ=9; Curitiba/PR=5; Salvador/BA=5; Belo Horizonte/MG=4
+universidade,municipios de sede com mais de 1 — IES em geral x 'Universidade',358 x 36,
+universidade,municipios de sede com mais de 5 — IES em geral x 'Universidade',94 x 2,
+universidade,municipios de sede com mais de 10 — IES em geral x 'Universidade',36 x 1,
+universidade,"mesma pergunta no recorte OFERTA (IES distintas com linha de curso no municipio, presencial + polo)",mais de 20 IES=322; mais de 20 'Universidade'=22,municipios com oferta=3.551; com oferta de ao menos 1 'Universidade'=2.504; maximo de IES=287; maximo de 'Universidade'=44
+universidade,cursos: SUM(qt_mat) total x so organizacao = 'Universidade',10.227.266 x 5.420.049 (53.00%),"Universidade: ies=206 mat=5.420.049 cursos=17.893; Centro Universitário: ies=417 mat=3.447.461 cursos=15.243; Faculdade: ies=1.897 mat=1.124.240 cursos=10.635; Instituto Federal de Educação, Ciência e Tecnologia: ies=39 mat=221.327 cursos=1.943; Centro Federal de Educação Tecnológica: ies=2 mat=14.189 cursos=62"
+universidade,ies por tp_organizacao_academica,5 categorias,"Faculdade=1.897; Centro Universitário=417; Universidade=206; Instituto Federal de Educação, Ciência e Tecnologia=39; Centro Federal de Educação Tecnológica=2"
+publica,"IES: ds_rede = 'Pública' x categoria em (Federal, Estadual, Municipal)",317 x 289,diferenca=28; 'Especial'=28; tp_rede = 1 -> 317
+publica,"matriculas: tp_rede = 'Pública' x categoria em (Federal, Estadual, Municipal)",2.065.067 x 2.019.667,diferenca=45.400 (matriculas em 'Especial'=45.400); cursos: 11.481 x 11.065; total de matriculas=10.227.266
+publica,"cursos: rede x categoria em IES, matriculas e cursos",6 combinacoes,Privada | Privada com fins lucrativos: ies=1.486 mat=6.372.474 cursos=22.363; Privada | Privada sem fins lucrativos: ies=758 mat=1.789.725 cursos=11.932; Pública | Especial: ies=28 mat=45.400 cursos=416; Pública | Pública Estadual: ies=139 mat=666.980 cursos=3.701; Pública | Pública Federal: ies=122 mat=1.317.548 cursos=7.124; Pública | Pública Municipal: ies=28 mat=35.139 cursos=240
+curso,SUM(qt_curso) x COUNT(DISTINCT co_curso) x COUNT(*),45.776 x 46.150 x 720.349,"(co_curso, co_municipio, tp_dimensao) distintos=720.349; cursos sem marcador=374; linhas por curso contado=15.7"
+curso,'curso' como nome: no_curso distintos x rotulos CINE distintos,1.497 x 353,no_curso nao identifica curso; rotulo CINE e classificacao do INEP
+ead,Curso a distância | Cursos a distância com dimensão de dados somente a nível Brasil,mat=0 SUM(qt_curso)=11.297,linhas=11.319 co_curso distintos=11.319 ing=0 vagas=18.583.348 linhas com municipio de 7 digitos=0
+ead,Curso a distância | Cursos a distância ofertados no Brasil,mat=5.186.852 SUM(qt_curso)=0,linhas=673.756 co_curso distintos=11.255 ing=3.346.116 vagas=6.925 linhas com municipio de 7 digitos=673.747
+ead,Curso a distância | Cursos a distância ofertados por instituições brasileiras no exterior,mat=2.539 SUM(qt_curso)=0,linhas=450 co_curso distintos=450 ing=1.457 vagas=0 linhas com municipio de 7 digitos=0
+ead,Presencial | Cursos presenciais ofertados no Brasil,mat=5.037.875 SUM(qt_curso)=34.479,linhas=34.824 co_curso distintos=34.824 ing=1.663.040 vagas=5.075.146 linhas com municipio de 7 digitos=34.824
+ead,matriculas EAD: tp_modalidade_ensino = 'Curso a distância' x so a dimensao de polo,5.189.391 x 5.186.852,participacao no total: 50.74% x 50.72% de 10.227.266
+ead,cursos EAD: SUM(qt_curso) na modalidade x so na dimensao de polo x co_curso distintos,11.297 x 0 x 11.326,"o marcador qt_curso da EAD esta na dimensao 'somente a nível Brasil', sem municipio"
+ead,cursos (co_curso) presentes nas duas modalidades,0,
+municipio,unidades distintas: sede de IES x local de oferta (presencial + polo),698 x 3.551,oferta presencial=1.121; com polo EAD=3.524; com as duas=1.094; sede e oferta=698; sede sem oferta=0; oferta sem sede=2.853; unidades reais em `municipio`=5.571
+gratuito,in_gratuito = 'Não' | Privada | Privada com fins lucrativos,mat=6.372.474,linhas=638.763 SUM(qt_curso)=22.363 co_curso distintos=22.398
+gratuito,in_gratuito = 'Não' | Privada | Privada sem fins lucrativos,mat=1.787.509,linhas=61.422 SUM(qt_curso)=11.919 co_curso distintos=11.992
+gratuito,in_gratuito = 'Não' | Pública | Especial,mat=44.617,linhas=925 SUM(qt_curso)=408 co_curso distintos=410
+gratuito,in_gratuito = 'Não' | Pública | Pública Federal,mat=423,linhas=2 SUM(qt_curso)=0 co_curso distintos=2
+gratuito,in_gratuito = 'Não' | Pública | Pública Municipal,mat=29.188,linhas=187 SUM(qt_curso)=175 co_curso distintos=176
+gratuito,in_gratuito = 'Sim' | Privada | Privada sem fins lucrativos,mat=2.216,linhas=13 SUM(qt_curso)=13 co_curso distintos=13
+gratuito,in_gratuito = 'Sim' | Pública | Especial,mat=783,linhas=11 SUM(qt_curso)=8 co_curso distintos=9
+gratuito,in_gratuito = 'Sim' | Pública | Pública Estadual,mat=666.980,linhas=8.608 SUM(qt_curso)=3.701 co_curso distintos=3.779
+gratuito,in_gratuito = 'Sim' | Pública | Pública Federal,mat=1.317.125,linhas=10.350 SUM(qt_curso)=7.124 co_curso distintos=7.306
+gratuito,in_gratuito = 'Sim' | Pública | Pública Municipal,mat=5.951,linhas=68 SUM(qt_curso)=65 co_curso distintos=65
+gratuito,in_gratuito = 'Sim' x tp_rede = 'Pública' — linhas,19.050 x 20.151,gratuito e publica=19.037; gratuito e privada=13; publica e nao gratuito=1.114
+gratuito,in_gratuito = 'Sim' x tp_rede = 'Pública' — SUM(qt_curso),10.911 x 11.481,gratuito e publica=10.898; gratuito e privada=13; publica e nao gratuito=583
+gratuito,in_gratuito = 'Sim' x tp_rede = 'Pública' — matriculas,1.993.055 x 2.065.067,gratuito e publica=1.990.839; gratuito e privada=2.216; publica e nao gratuito=74.228
+gratuito,por co_curso distinto: in_gratuito e constante? coincide com rede publica?,gratuitos=11.172; nao gratuitos=34.978; com os dois valores=0,gratuito e publica=11.159; gratuito e privada=13; publica e nao gratuito=588; cursos de rede publica=11.747
+capital,dominio de inep_educacao_superior_ies.in_capital_ies,2 valores,'Não': linhas=1.642 municipios distintos=671; 'Sim': linhas=919 municipios distintos=27
+capital,dominio de inep_educacao_superior_cursos.in_capital,3 valores,'Não': linhas=635.171 municipios distintos=3.524; 'Sim': linhas=73.400 municipios distintos=27; 'Cursos a distância': linhas=11.778 municipios distintos=1
+capital,dominio de municipio.municipio_capital,3 valores,'Não': linhas=5.571 municipios distintos=5.571; 'Sim': linhas=27 municipios distintos=27; '0': linhas=1 municipios distintos=1
+capital,municipio.municipio_capital fora de 'Sim'/'Não',1,9999999 'Exterior ou EAD'
+capital,as tres colunas de capital designam os mesmos municipios?,SIM,"municipio_capital = 'Sim': 27 unidades em 27 UFs; sede com in_capital_ies = 'Sim': 27 municipios (inconstantes=0, divergem de municipio=0); oferta com in_capital = 'Sim': 27 municipios (inconstantes=0, divergem de municipio=0)"
+capital,magnitude: IES com sede em capital; matriculas ofertadas em capital,IES=919; matriculas em capital=3.794.080,matriculas fora de capital=6.430.606; matriculas sem territorio (in_capital contaminado)=2.580
+relacao,"cursos -> ies | ON i.co_ies = c.co_ies (INTEGER = SMALLINT, alargamento numerico)",N:1 VALIDA,linhas de cursos antes=720.349 depois=720.349; ies: linhas=2.561 co_ies distintos=2.561; co_ies distintos em cursos=2.561; linhas de cursos sem IES=0; IES sem curso=0; co_curso com mais de um co_ies=0
+relacao,"cursos -> municipio | ON m.codigo_municipio_dv = c.co_municipio WHERE regexp_full_match(co_municipio, '[0-9]{7}')",N:1 VALIDA,linhas de cursos=720.349; com 7 digitos antes=708.571 depois=708.571; municipios distintos=3.551; orfaos=0; linhas que caem em sentinela=0; municipio: linhas=5.599 codigos distintos=5.599; JOIN pela chave de 6 digitos (codigo_municipio) devolve 0 linhas
+relacao,cursos: linhas fora do padrao de 7 digitos em co_municipio,11.778,'Cursos a distância' | Cursos a distância com dimensão de dados somente a nível Brasil = 11.319; 'Cursos a distância' | Cursos a distância ofertados por instituições brasileiras no exterior = 450; 'Cursos a distância' | Cursos a distância ofertados no Brasil = 9
+relacao,cursos.co_uf = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.sg_uf = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.no_uf = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.co_regiao = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.no_regiao = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.no_municipio = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,cursos.in_capital = 'Cursos a distância' nas linhas sem municipio / nas linhas com municipio,11.778 / 0,
+relacao,ies -> municipio | ON m.codigo_municipio_dv = i.co_municipio_ies,N:1 VALIDA,linhas de ies antes=2.561 depois=2.561; com 7 digitos=2.561; municipios de sede distintos=698; orfaos=0; em sentinela=0; m.cd_uf diferente de i.co_uf_ies=0
+relacao,"municipio -> ibge_populacao_estimada | ON p.cod_municipio = m.codigo_municipio AND p.ano = '2024' WHERE right(m.codigo_municipio_dv, 5) <> '00000' AND m.codigo_municipio_dv <> '9999999'",1:1 VALIDA,municipio: linhas=5.599 reais=5.571 sentinelas=28 codigos de 6 digitos distintos entre as reais=5.571; populacao 2024: linhas=5.571 cod_municipio distintos=5.571; reais antes=5.571 depois=5.571; reais sem populacao=0; populacao 2024 sem municipio real=0; sentinelas que casam=0; populacao somada=212.583.750
+relacao,municipio -> populacao: o que acontece sem os cuidados,sem filtro de ano: 144.678 linhas (de 5.571); pela chave de 7 digitos: 0 linhas,"left(codigo_municipio_dv, 6) diferente de codigo_municipio em 0 linhas de municipio"
+relacao,"ibge_populacao_estimada: pares (ano, cod_municipio) duplicados",50 pares; em 2024: 0,"anos dos duplicados: de 2000 a 2020; anos na tabela (26): 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025, 2026"
+relacao,"sentinelas de municipio | NOT (right(m.codigo_municipio_dv, 5) <> '00000' AND m.codigo_municipio_dv <> '9999999')",28 linhas,terminadas em 00000=27 (das quais 'Município Ignorado - UF'=26); 9999999=1; referenciadas pela sede de alguma IES=0

@@ -66,8 +66,9 @@ Logar pergunta, QueryPlan, SQL final e tempo — **sem credenciais**.
 
 ## Modelo
 
-Local via Ollama, configurável por `LLM_PROVIDER` / `OLLAMA_MODEL`. Trocar o modelo não pode exigir
-mudança na lógica. Sem dependência de API paga.
+AWS Bedrock (ADR-0021), atrás da interface `ProvedorLLM`; seleção por `LLM_PROVIDER`. Credenciais só
+pelo perfil SSO da AWS CLI (ADR-0022), nunca no repositório nem no prompt. Modelo: **A confirmar**.
+Trocar o modelo não pode exigir mudança na lógica. Inferência só com autorização do autor.
 
 ## Encerramento
 

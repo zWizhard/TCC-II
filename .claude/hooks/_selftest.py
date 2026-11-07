@@ -54,7 +54,7 @@ SECRETS = [
     ("Read", "secrets.json", None, True),
     ("Read", "key.pem", None, True),
     ("Read", "id_rsa", None, True),
-    ("Write", ".env.example", "DB_PASSWORD=\nOLLAMA_MODEL=", False),
+    ("Write", ".env.example", "DB_PASSWORD=\nLLM_PROVIDER=", False),
     ("Write", ".env.example", "DB_PASSWORD=<sua senha>", False),
     ("Write", ".env.example", "DB_PASSWORD=Xk9!mQ2vLp8w", True),
     ("Read", "src/app.py", None, False),

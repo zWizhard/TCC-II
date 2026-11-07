@@ -1,0 +1,105 @@
+{
+ "rotulo": "P_gpt-oss-20b",
+ "inicio": "2026-10-09T14:17:41+00:00",
+ "ambiente": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.6",
+  "cpu_e_ram_gb": [
+   "AMD Ryzen 7 5700X 8-Core Processor             ",
+   "32"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2070 SUPER, 8192 MiB, 617.14",
+  "vram_em_uso_antes_mib": "1297",
+  "bibliotecas": {
+   "duckdb": "1.5.5",
+   "sqlglot": "30.21.0",
+   "pydantic": "2.13.5",
+   "httpx": "0.28.1"
+  },
+  "variaveis_ollama": {},
+  "codigo_sha256": {
+   "api/analista": "5966b5a5d37e9caac92eec026f8b9a5bcfec31ec08f3d7ca755f9b7a5b127354",
+   "api/semantica": "520c6264b8fb54e5bd4b1dcac36e070be70fe4e6e81d4113b4e397fcaba96fdf",
+   "benchmark": "e958b67f52d9d05420907158a2fdc32bb3d37fd1f70cb8fbf861bda104f38084",
+   "api/indicadores.py": "25fdbdd34a1564b40f6a78a7462854553366a02dd56e3fa3423e02719ec1f994"
+  },
+  "base_duckdb_sha256": "9ed5ffd53308d9d8fbaada3e3b25eb0a36bdf7d9abb147c04e47e9825f6715e0",
+  "git_commit": "5706a386b12c3096c89003e60b857fd21690dd41",
+  "git_alteracoes_nao_commitadas": true
+ },
+ "ollama": "0.40.1",
+ "configuracao": {
+  "provedor": "ollama",
+  "temperatura": 0,
+  "opcoes_do_protocolo": {
+   "seed": 20241007
+  },
+  "campos_do_protocolo": {},
+  "max_tokens": 1024,
+  "timeout_s": 120.0,
+  "repeticoes": 3,
+  "semente_da_ordem": 20241007,
+  "casos_restritos_a": [],
+  "saida_estruturada": "format = JSON Schema do QueryPlan"
+ },
+ "prompt_de_sistema_sha256": "b0dd042db466655e714c630c7630953ff8be4b416580409d42efd95bb01186dc",
+ "schema_do_plano_sha256": "318a4d40b6f0de4039c46bda52b67eb6bc107f1b98cad801ca86ff891fcc0cf0",
+ "conjunto_sha256": "a621f1a11ff905b0672488bc14587e6c85e4970e4c7301f6d5daa533ba53fa43",
+ "referencias_sha256": "b54c1fd4b7856c80936b2a6eff688b1f3a23b6b68c0742a7b4b340180726a359",
+ "prompt_de_exemplo_chars": 2670,
+ "casos": {
+  "modelo": 28,
+  "sistema": 12
+ },
+ "modelos": [
+  {
+   "modelo": "gpt-oss:20b",
+   "instalado": {
+    "digest": "21fd97703fbeb8b4a74b2ef1648aca44c8daeb32dcb019f88ec5ab4c97397892",
+    "bytes": 13793441244,
+    "parent_model": "",
+    "format": "gguf",
+    "family": "gptoss",
+    "families": [
+     "gptoss"
+    ],
+    "parameter_size": "20.9B",
+    "quantization_level": "MXFP4",
+    "context_length": 131072,
+    "embedding_length": 2880,
+    "runner": "ggml"
+   },
+   "carga_s": 13.4,
+   "ficha": {
+    "parametros_do_modelfile": "temperature                    1",
+    "template_sha256": "fa6710a93d78da62641e192361344be7a8c0a1c3737f139cf89f20ce1626b99c",
+    "capacidades": [
+     "completion",
+     "tools",
+     "thinking"
+    ]
+   },
+   "aquecimento": "ok",
+   "aquecimento_s": 17.9,
+   "opcoes_enviadas": {
+    "temperature": 0,
+    "num_predict": 1024,
+    "seed": 20241007
+   },
+   "memoria": {
+    "bytes_em_memoria": 14029485505,
+    "bytes_em_vram": 6208691896,
+    "fracao_na_gpu": 0.443,
+    "janela_de_contexto": 4096
+   },
+   "memoria_ao_final": {
+    "bytes_em_memoria": 14029485505,
+    "bytes_em_vram": 6208691896,
+    "fracao_na_gpu": 0.443,
+    "janela_de_contexto": 4096
+   },
+   "situacao": "medido"
+  }
+ ],
+ "fim": "2026-10-09T15:06:51+00:00"
+}

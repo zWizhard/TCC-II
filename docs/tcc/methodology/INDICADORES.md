@@ -93,6 +93,44 @@ ingressantes (3.347.573) e concluintes (604.742). Qualquer composição por turn
 um indicador **exclusivamente presencial**, e apresentá-la sobre o universo total produz um
 "sem informação" de 50,7% que na verdade é ausência de aplicabilidade, não ausência de dado.
 
+### Comparação entre unidades territoriais (Fase 11, 2026-10-07)
+
+Pôr unidades lado a lado não cria indicador novo: reaproveita as fichas abaixo. O que a
+comparação exige, e que `/api/v1/comparacoes` aplica no servidor:
+
+- **Mesmo nível, mesmo ano, mesmas definições, mesmos filtros.** Região com região, UF com UF,
+  município com município; dimensões de oferta fixas (presencial + polo EAD, as únicas com
+  território); a rede, quando escolhida, vale para todas as colunas.
+- **Valor absoluto e valor relativo são leituras diferentes e ficam separados.** Entre as UFs, a
+  ordem por matrículas e a ordem por matrículas por 100 mil habitantes têm correlação de postos
+  de **0,06**: 15 das 27 mudam cinco posições ou mais; SP é a 1ª em matrículas e a 8ª na razão,
+  o DF é a 1ª na razão e a 12ª em matrículas. A população varia 64× entre UFs e 13.929× entre
+  municípios com oferta. Por isso **a plataforma não ordena nem classifica as unidades
+  comparadas** — a ordem é a escolhida pelo leitor.
+- **Indicadores comparados:** absolutos — IND-D-01, D-02 (só presencial), D-03, D-04, D-05, D-08;
+  relativos — IND-R-01, R-03, R-04 (matrículas em polo EAD ÷ matrículas presenciais e em polo:
+  50,73% no Brasil, exclui o exterior) e a parcela de doutores de IND-R-12 (53,01%).
+- **A comparação é entre unidades, dentro de uma linha.** Linhas de recortes diferentes (sede ×
+  oferta) aparecem na mesma tabela, cada uma rotulada, e não são divididas uma pela outra
+  (IND-Q-03, IND-Q-06). Ingressantes e concluintes aparecem só como absolutos (IND-Q-01).
+- **Dependência da rede:** a participação da EAD é 60,9% na rede privada e 10,4% na pública; os
+  docentes com doutorado, 33,6% e 72,4%. Sem fixar a rede, a diferença entre unidades reflete em
+  grande parte a composição pública/privada de cada uma — a limitação acompanha as duas linhas.
+- **Base pequena no município:** 1.271 das 3.551 unidades com oferta têm de 1 a 99 matrículas
+  (304 têm de 1 a 9; 135 têm zero, e nelas a proporção não se aplica). A API **avisa** quando uma
+  unidade selecionada tem menos de 100 matrículas, menos de 100 docentes (367 das 698 unidades de
+  sede; 47 têm de 1 a 9) ou menos de 10 mil habitantes, e mostra sempre numerador e denominador;
+  **não suprime** — o piso continua na lista de pendências. É mais permissivo que o bloqueio
+  municipal de perfil, financiamento e CINE (ADR-0014): há município com 100% de EAD sobre 4
+  matrículas. **Decisão pendente do autor:** manter o aviso ou estender o bloqueio/piso.
+- **Perda declarada na tela:** o Brasil de referência usa só as dimensões com município
+  (10.224.686 matrículas, 34.479 cursos presenciais), e uma nota fixa o diz.
+- **Fora da comparação:** IES × IES (métricas em dois grains — IND-Q-03), qualquer variação
+  temporal (IND-Q-04) e IND-R-08 a R-11, que já têm comparação territorial própria.
+
+Evidência: `scripts/analise/auditar_comparacoes.py` →
+`docs/data/raw/diagnostics/2026-10-07_comparacoes.csv`.
+
 ---
 
 # Bloco A — Indicadores diretos
@@ -147,10 +185,11 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
     não podem ser usados como sinônimos.** Os **374 cursos** da diferença não são linhas vazias:
     somam **61.053 matrículas, 44.421 ingressantes, 89.269 vagas e 184.350 inscrições — e zero
     concluintes**; apenas 14 deles são totalmente inertes.
-  - **O que distingue esses 374 não existe como coluna nesta base.** Não há `tp_situacao` nem
-    equivalente. A semântica oficial de `qt_curso` é **A confirmar** contra o dicionário de
-    variáveis do INEP; até lá o indicador é publicável, mas o rótulo não pode prometer
-    "todos os cursos".
+  - **Não há `tp_situacao` nem equivalente nesta base.** O que os 374 têm em comum foi medido em
+    2026-10-06: são exatamente os cursos de `co_cine_area_geral = 0` ("Programas básicos", rótulos
+    "ABI …", grau "Não aplicável"). A semântica oficial de `qt_curso` continua **A confirmar**
+    contra o dicionário de variáveis do INEP; até lá o indicador é publicável, mas o rótulo não
+    pode prometer "todos os cursos".
   - Se a interface precisar do outro conceito, ele é um indicador distinto — "cursos com
     registro no Censo" — e não substitui este.
 - **Validação possível:** total nacional = **45.776**; por dimensão = 34.479 + 11.297;
@@ -195,6 +234,20 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
 - **Limitações:** ingresso ≠ pessoa distinta. A decomposição por **forma de ingresso** não foi
   auditada nesta fase e não pode ser publicada como composição até que passe pelo teste de
   fechamento — **A confirmar**.
+  *(Auditado em 2026-10-07, Fase 9 — `scripts/analise/auditar_fluxo.py`. Há **duas** famílias de
+  colunas, com resultados opostos:*
+  - ***Tipo de vaga ocupada** — `qt_ing_vg_nova` (4.349.243) + `qt_ing_vg_remanesc` (645.281) +
+    `qt_ing_vg_prog_especial` (9.877) + `qt_ing_outra_forma` (6.212) = 5.010.613: **partição
+    exata**, 0 linhas divergentes em 720.349. Admissível pela ADR-0009 e publicada pela API como
+    composição de ingressantes (`por=tipo_ingresso`), **ainda sem id no Bloco B**. Os rótulos
+    exibidos são transliteração dos nomes das colunas; a definição oficial de cada tipo é
+    **A confirmar** contra o dicionário do INEP. `qt_ing_proc_seletivo` existe e é zero em todas
+    as linhas.*
+  - ***Tipo de seleção** — `qt_ing_vestibular`, `_enem`, `_avaliacao_seriada`,
+    `_selecao_simplifica`, `_egr`, `_outro_tipo_selecao` somam 4.646.792 e **não fecham** com
+    `qt_ing` (40.050 linhas acima, 130.209 abaixo) nem com `qt_ing_vg_nova` (45.919 acima). Não é
+    partição — um ingresso pode usar mais de um instrumento. **Não publicável**; ver
+    [IND-Q-10](#ind-q-10--composição-dos-ingressos-por-tipo-de-seleção).)*
 - **Validação possível:** total nacional = **5.010.613**; territorializável = 5.009.116;
   por dimensão = 3.346.116 + 1.663.040 + 0 + 1.457; fechamento exato em sexo, cor/raça, faixa
   etária, nacionalidade e procedência escolar.
@@ -369,19 +422,39 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
 - **Unidade:** matrículas por 100 mil habitantes.
 - **Granularidade:** município → UF → região → Brasil. **O denominador precisa ser reagregado
   em cada nível** — não é a média das razões municipais.
-- **Dimensões e filtros permitidos:** `tp_dimensao` (obrigatória), recorte territorial
-  (obrigatório), rede, CINE, grau.
+- **Dimensões e filtros permitidos:** `tp_dimensao` (obrigatória; só presencial e polo EAD, as
+  únicas com município), recorte territorial (obrigatório, sempre `oferta`), rede, categoria
+  administrativa, organização acadêmica, CINE, grau. *(2026-10-07, Fase 10: categoria e
+  organização acrescentadas — são atributos constantes por IES, partição exata, e já filtram
+  IND-D-03 por município. CINE e grau continuam permitidos, mas o mapa não os expõe.)*
+  Todo filtro institucional restringe **só o numerador**; o denominador é sempre a população total.
 - **Pressupostos:** `municipio` é a **tabela-ponte obrigatória** — o Censo usa 7 dígitos e a
   população 6; o JOIN direto devolve zero linhas em silêncio. `ibge_populacao_estimada` deve
-  ser filtrada por `ano = 2024`: a tabela tem 50 pares `(ano, município)` duplicados com valores
-  divergentes (até 100×) nos anos 2000–2020, e 2024 está limpo.
+  ser filtrada por `ano = '2024'` (a coluna é **texto** na camada analítica): a tabela tem 50
+  pares `(ano, município)` duplicados com valores divergentes (até 100×) nos anos 2000–2020, e
+  2024 está limpo. O universo são as **5.571 unidades de `municipio`**, não as 3.551 com oferta.
+- **Representação no mapa (Fase 10, `/api/v1/mapa/coropletico`):** classes por **quantis**
+  (5 por padrão), recalculadas a cada recorte sobre as unidades com registro, com o mínimo e o
+  máximo observados em cada classe. Com mediana municipal de 1.173 e máximo de 30.106,
+  intervalos iguais deixariam ~95% das unidades na primeira cor. O preço é a classe superior
+  larga (3.763 a 30.106) e a não comparabilidade de cores entre mapas com filtros diferentes —
+  os dois avisados na legenda. O nível das unidades (UF ou município) é escolha explícita do
+  leitor, nunca troca automática por zoom.
 - **Limitações:**
   - **A matrícula é contada no local de oferta, e o habitante no local de residência.** Um
     município-polo de EAD que atende a região inteira infla a razão; a métrica **não** mede
     escolarização da população local.
   - Não é taxa de escolarização: o denominador é a população total, não a população em idade
     de cursar ensino superior — essa faixa etária não existe nesta base.
-  - Unidades territoriais sem linha em `cursos` são **ausência**, não zero.
+  - Unidades territoriais sem linha em `cursos` são **ausência**, não zero: 2.020 das 5.571 no
+    recorte padrão, contra 135 com linha e zero matrícula. Com filtro institucional, "sem
+    registro" significa sem matrícula *dessas instituições*, não sem oferta.
+  - **Denominador pequeno:** 757 das 3.551 unidades com oferta têm menos de 10 mil habitantes; a
+    maior razão do país é Urutaí-GO (1.104 matrículas / 3.667 hab. = 30.106).
+  - **Área ≠ população:** no coroplético, unidades extensas e pouco povoadas dominam a mancha.
+- **Valores de controle (2026-10-07, presencial + polo):** Brasil **4.809,7**
+  (10.224.686 / 212.583.750); UF de 3.305,4 (MA) a 8.325,4 (DF); só 534 das 3.551 unidades com
+  oferta ficam acima do valor nacional.
 - **Validação possível:** somar o numerador reagregado por UF e conferir contra 10.224.686;
   verificar que o JOIN não multiplica linhas (`COUNT(*)` antes e depois); conferir que nenhuma
   unidade aparece duas vezes; checar que o total de população usado bate com o ano 2024.
@@ -445,7 +518,7 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
   ([ADR-0007](../decisions/ADR-0007-comparacao-de-rede-via-ds-rede.md)). A partição é binária e
   exaustiva: não há terceira categoria.
 - **Limitações:** ⚠️ **`Pública` inclui as 28 IES de categoria *Especial***, exatamente como
-  `tp_rede = '1'`. Para "pública" em sentido estrito, usar `tp_categoria_administrativa`, que é
+  `tp_rede = 1`. Para "pública" em sentido estrito, usar `tp_categoria_administrativa`, que é
   comparável entre as duas tabelas. O indicador descreve a rede da **IES ofertante**, não o
   financiamento do estudante — para isso existe o IND-R-08.
 - **Validação possível:** as duas parcelas somam 100%; contagem de linhas por rótulo =
@@ -558,6 +631,8 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
   respectivas colunas-total.
 - **Unidade:** percentual.
 - **Granularidade:** Brasil, região, UF, município, IES, curso, rede, CINE.
+  *(Fase 9, 2026-10-07: a API serve Brasil, região e UF. O nível municipal está sob **bloqueio
+  provisório** — mesma pendência do piso de supressão; IES e curso não são servidos.)*
 - **Dimensões e filtros permitidos:** `tp_dimensao` (obrigatória), recorte territorial
   (obrigatório), rede, CINE, grau.
 - **Pressupostos — auditados nesta fase:** `qt_*_financ ≤ qt_*` em **todas** as 720.349 linhas,
@@ -572,6 +647,10 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
   - Consequência direta: **FIES, ProUni e "outros" não formam uma composição.** Publicar essa
     divisão produz percentuais que ultrapassam o total.
   - O indicador não distingue bolsa integral de parcial, nem mede valor financeiro.
+  - ⚠️ **É, na prática, um indicador da rede privada** (medido em 2026-10-07): 37,50% das
+    matrículas privadas contra 0,50% das públicas; federais e estaduais têm **zero**. O valor
+    nacional de 30,03% é a média das duas, e qualquer comparação entre territórios, áreas ou
+    graus sem fixar a rede mostra sobretudo a proporção de oferta privada.
 - **Validação possível:** `qt_mat_financ` = **3.071.136** de 10.227.266 (30,03%);
   `qt_ing_financ` = 1.673.188 de 5.010.613; `qt_conc_financ` = 347.889 de 1.333.988;
   0 violações de contenção nas três.
@@ -588,6 +667,7 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
   `qt_conc_reserva_vaga` e as colunas-total.
 - **Unidade:** percentual.
 - **Granularidade:** Brasil, região, UF, município, IES, curso, rede, CINE.
+  *(Fase 9, 2026-10-07: mesmo bloqueio municipal provisório do IND-R-08.)*
 - **Dimensões e filtros permitidos:** `tp_dimensao` (obrigatória), recorte territorial
   (obrigatório), rede, CINE, grau.
 - **Pressupostos — auditados nesta fase:** `qt_*_reserva_vaga ≤ qt_*` em todas as 720.349 linhas,
@@ -610,7 +690,10 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
 
 - **Definição:** razão entre ingressos e vagas ofertadas, no mesmo recorte e na mesma dimensão
   de oferta.
-- **Finalidade:** indicar quanto da capacidade declarada foi efetivamente preenchida.
+- **Finalidade:** relacionar os ingressos do ano às vagas declaradas no mesmo ano, no mesmo
+  conjunto de cursos. *(Redação corrigida em 2026-10-07: o texto anterior, "quanto da capacidade
+  declarada foi efetivamente preenchida", era linguagem de ocupação e contradizia a limitação
+  abaixo.)*
 - **Fórmula:** `SUM(qt_ing) / NULLIF(SUM(qt_vg_total), 0)`.
 - **Campos de origem:** `cursos.qt_ing`, `cursos.qt_vg_total`, `cursos.tp_dimensao`.
 - **Unidade:** razão adimensional (ingressos por vaga).
@@ -627,6 +710,13 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
     garante que os ingressos do ano provenham das vagas do mesmo ano, nem que vaga não
     preenchida signifique ociosidade. O nome só muda com sustentação metodológica externa.
   - Pode exceder 1 legitimamente (ingressos por programa especial, vagas remanescentes).
+    Medido em 2026-10-07: 544 de 31.687 linhas presenciais com vaga; 12 municípios.
+  - ⚠️ **O denominador mistura dois tipos de vaga muito diferentes** (presencial, 2026-10-07):
+    vagas novas, 3.336.503 com 1.415.110 ingressos (0,42); vagas remanescentes, 1.706.648 —
+    **33,6% do denominador** — com 235.964 ingressos (0,14). O 0,328 é a média das duas.
+  - ⚠️ **Depende fortemente da rede:** 0,59 na pública e 0,28 na privada. Comparar UFs sem fixar
+    a rede mostra sobretudo a fatia pública das vagas de cada uma.
+  - 60 municípios têm curso presencial e nenhuma vaga: a API devolve valor nulo, não zero.
   - Denominador zero é frequente no grain de curso — `NULLIF` obrigatório, e células sem vaga
     não são "razão zero", são não aplicáveis.
 - **Validação possível:** no presencial, 1.663.040 ÷ 5.075.146 = **0,328**; conferir que
@@ -657,7 +747,12 @@ um indicador **exclusivamente presencial**, e apresentá-la sobre o universo tot
     respostas do Analista IA.
   - Processos seletivos têm regras heterogêneas entre IES; a razão não é comparável entre
     instituições como se fosse seletividade.
-  - Não misturar as duas dimensões numa única razão.
+  - Não misturar as duas dimensões numa única razão. *(A API aceita uma única dimensão por
+    consulta e não oferece comparação por dimensão.)*
+  - ⚠️ **Depende fortemente da rede** (presencial, 2026-10-07): 5,28 na pública e 1,02 na
+    privada — efeito de sistemas de inscrição em vários cursos, não de "concorrência".
+  - No nível municipal há extremos com denominador pequeno (máximo de 49,2 inscrições por vaga;
+    11 municípios com 1 a 29 vagas).
 - **Validação possível:** presencial = 8.658.561 ÷ 5.075.146 = **1,706**; dimensão nacional de
   EAD = 7.060.934 ÷ 18.583.348 = 0,380; as duas nunca somadas.
 
@@ -792,6 +887,13 @@ percentual acima de 100%. O agregado (IND-R-08) permanece válido.
 abaixo. A sobreposição é explicável (cotista de escola pública *e* PPI), o resíduo não.
 O agregado (IND-R-09) permanece válido.
 
+## IND-Q-10 — Composição dos ingressos por tipo de seleção
+
+**Recusado pela auditoria da Fase 9 (2026-10-07).** Vestibular, Enem, avaliação seriada, seleção
+simplificada, egresso e outro tipo de seleção somam 4.646.792 contra 5.010.613 de `qt_ing` e
+divergem nos dois sentidos (40.050 linhas acima, 130.209 abaixo). Não é partição. A composição
+por **tipo de vaga** fecha e está descrita em IND-D-04.
+
 ---
 
 ## Pendências — "A confirmar"
@@ -799,15 +901,20 @@ O agregado (IND-R-09) permanece válido.
 Nenhuma delas bloqueia os indicadores liberados; todas bloqueiam uma extensão específica.
 
 - [ ] **Semântica oficial de `qt_curso`** (IND-D-02): o que distingue os 374 cursos com marcador
-  zero, que têm 61.053 matrículas e nenhum concluinte. Exige o dicionário de variáveis do INEP —
-  a informação não existe nesta base.
+  zero, que têm 61.053 matrículas e nenhum concluinte. Exige o dicionário de variáveis do INEP.
+  *(Atualizado em 2026-10-06, Fase 8: a base **identifica** esses cursos, ao contrário do que a
+  ficha afirmava — são exatamente os 374 de `co_cine_area_geral = 0`, "Programas básicos", com
+  rótulos CINE do tipo "ABI …" e grau "Não aplicável". O que continua **A confirmar** é a regra
+  oficial do INEP que os exclui da contagem de cursos.)*
 - [ ] **Semântica oficial de `qt_sit_*`** (IND-Q-02): por que as situações excedem `qt_mat` em
   267.780 linhas. Mesmo material.
 - [ ] **Correspondência das 5.571 unidades com a Divisão Territorial Brasileira** vigente na data
   do Censo (IND-R-02). Verificado nesta base: 5.571 = 5.570 + Fernando de Noronha, PE com 185
   unidades, DF com 1.
-- [ ] **Fechamento da decomposição por forma de ingresso** (`qt_ing_vestibular`, `qt_ing_enem`,
-  `qt_ing_egr`, …) — não auditada nesta fase; sem ela, IND-D-04 não admite essa composição.
+- [x] **Fechamento da decomposição por forma de ingresso** — auditado em 2026-10-07: o tipo de
+  seleção **não fecha** (IND-Q-10); o tipo de vaga **fecha** e é servido (ver IND-D-04).
+- [ ] **Ficha no Bloco B para a composição dos ingressos por tipo de vaga** e definição oficial
+  (INEP) de vaga nova, remanescente, de programa especial e "outra forma".
 - [ ] **Fechamento das famílias `qt_parfor`, `qt_apoio_social`, `qt_ativ_extracurricular`,
   `qt_mob_academica`** — não auditadas; nenhum indicador as usa hoje.
 - [ ] **Composição por turno** — **candidato futuro ainda não cadastrado**, deliberadamente sem id
@@ -816,6 +923,19 @@ Nenhuma delas bloqueia os indicadores liberados; todas bloqueiam uma extensão e
   próxima rodada. Até lá, turno é apenas a restrição transversal descrita acima, não um indicador.
 - [ ] **Piso de supressão** para células pequenas em IND-R-07 e IND-R-06 (risco de
   identificação em recortes municipais finos). Decisão de UX e ética, ainda não tomada.
+  *(2026-10-07, Fase 9: a pendência passa a cobrir também IND-R-08 e IND-R-09. Perfil,
+  financiamento e reserva estão **bloqueados no nível municipal** — 304 municípios têm de 1 a 9
+  matrículas e 792 têm de 1 a 9 concluintes. **Continua sendo bloqueio por nível, não piso:**
+  UF × categoria já tem células mínimas (CE/Especial = 1 matrícula) e
+  UF × categoria × organização × área × grau tem 378 células de 1 a 9 matrículas, todas
+  alcançáveis por filtro. A correção é um piso sobre o denominador em qualquer nível; falta o
+  autor definir o N.)*
+  *(2026-10-06, Fase 8: enquanto isso a API recusa recortes CINE no nível municipal. É bloqueio
+  provisório por nível, não piso: `uf=DF` equivale ao município de Brasília, e UF × rótulo CINE
+  tem 741 células de 1 a 9 matrículas. Município × grau, já servido, tem 2.242.)*
+- [ ] **Ficha para as composições por categoria administrativa e organização acadêmica**,
+  publicadas pela API desde a Fase 8 sem id no Bloco B. São partição exata por construção
+  (coluna categórica sem vazios, constante por IES), mas o percentual ainda não tem ficha.
 
 ## Consistência com a documentação existente
 

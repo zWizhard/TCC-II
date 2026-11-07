@@ -7,22 +7,38 @@ import { DataTable, type DataTableColumn } from "@/components/data/DataTable";
 import { Notes } from "@/components/data/Notes";
 import { RankingBarChart } from "@/components/data/RankingBarChart";
 import { SegmentedRadio } from "@/components/filters/SegmentedRadio";
+import type { Escopo } from "@/components/filters/search";
 import { Skeleton } from "@/components/ui/skeleton";
 import { resolverDimensoes } from "@/lib/api/dimensoes";
 import { indicadorQueryOptions } from "@/lib/api/queries";
-import type { Dimensao, IndicadorInfo, Linha, Rede, RespostaIndicador } from "@/lib/api/schemas";
+import type {
+  Categoria,
+  Dimensao,
+  IndicadorInfo,
+  Linha,
+  Organizacao,
+  Rede,
+  Regiao,
+  RespostaIndicador,
+} from "@/lib/api/schemas";
 import { formatarInteiro, rotuloRecorte } from "@/lib/format";
 
-import { NIVEL_DISTRIBUICAO_PADRAO, type NivelDistribuicao } from "./search";
+import {
+  detalheDoEscopo,
+  NIVEL_DISTRIBUICAO_PADRAO,
+  type NivelDetalhe,
+  type NivelDistribuicao,
+} from "./search";
 
 const OPCOES_NIVEL: ReadonlyArray<{ valor: NivelDistribuicao; rotulo: string }> = [
   { valor: "regiao", rotulo: "Região" },
   { valor: "uf", rotulo: "UF" },
 ];
 
-const TEXTO_NIVEL: Record<NivelDistribuicao, { por: string; unidades: string }> = {
-  regiao: { por: "por região", unidades: "Regiões com registro" },
-  uf: { por: "por UF", unidades: "UFs com registro" },
+const TEXTO_NIVEL: Record<NivelDetalhe, { por: string; unidades: string; coluna: string }> = {
+  regiao: { por: "por região", unidades: "Regiões com registro", coluna: "Região" },
+  uf: { por: "por UF", unidades: "UFs com registro", coluna: "Unidade da Federação" },
+  municipio: { por: "por município", unidades: "Municípios com registro", coluna: "Município" },
 };
 
 type DistribuicaoTerritorialProps = {
@@ -30,36 +46,62 @@ type DistribuicaoTerritorialProps = {
   catalogo: readonly [IndicadorInfo, ...IndicadorInfo[]];
   /** Slug vindo da URL; ausente ou desconhecido cai no primeiro do catálogo. */
   indicadorSlug: string | undefined;
+  /** Nível escolhido para o Brasil inteiro; ignorado quando há território selecionado. */
   nivel: NivelDistribuicao | undefined;
+  escopo: Escopo;
   dimensoes: readonly Dimensao[];
   rede: Rede | undefined;
+  categoria: Categoria | undefined;
+  organizacao: Organizacao | undefined;
   /** Rótulo literal de cada dimensão (metadados), para nomear o que foi excluído. */
   rotuloDimensao: (slug: Dimensao) => string;
   onChange: (alteracao: { indicador?: string; nivel?: NivelDistribuicao }) => void;
 };
 
-/** Um indicador distribuído por Região ou UF: gráfico de barras + tabela com os mesmos dados. */
+/**
+ * Um indicador distribuído pelo nível territorial abaixo do território selecionado:
+ * gráfico de barras + tabela com os mesmos dados.
+ */
 export function DistribuicaoTerritorial({
   catalogo,
   indicadorSlug,
   nivel: nivelUrl,
+  escopo,
   dimensoes,
   rede,
+  categoria,
+  organizacao,
   rotuloDimensao,
   onChange,
 }: DistribuicaoTerritorialProps) {
   const seletorId = useId();
-  const nivel = nivelUrl ?? NIVEL_DISTRIBUICAO_PADRAO;
   const encontrado = catalogo.find((i) => i.slug === indicadorSlug);
   const indicador = encontrado ?? catalogo[0];
   const slugDesconhecido = indicadorSlug !== undefined && !encontrado;
 
+  const detalhe = detalheDoEscopo(escopo, nivelUrl);
+  // No município não há consulta; o nível abaixo só mantém os hooks na mesma ordem.
+  const nivel = detalhe?.nivel ?? "municipio";
   const resolucao = resolverDimensoes(indicador, nivel, dimensoes);
-  const query = useQuery(indicadorQueryOptions(indicador, { nivel, dimensoes, rede }));
+  const query = useQuery({
+    ...indicadorQueryOptions(indicador, {
+      ...detalhe,
+      nivel,
+      dimensoes,
+      rede,
+      categoria,
+      organizacao,
+    }),
+    ...(detalhe === null ? { enabled: false } : {}),
+  });
 
   return (
     <ChartCard
-      title={`${indicador.nome} ${TEXTO_NIVEL[nivel].por}`}
+      title={
+        detalhe === null
+          ? `${indicador.nome} em ${escopo.nome}`
+          : `${indicador.nome} ${TEXTO_NIVEL[nivel].por}${escopo.nivel === "brasil" ? "" : ` — ${escopo.nome}`}`
+      }
       description={
         <>
           {indicador.codigo} · Recorte territorial:{" "}
@@ -88,12 +130,14 @@ export function DistribuicaoTerritorial({
               ))}
             </select>
           </div>
-          <SegmentedRadio<NivelDistribuicao>
-            legenda="Nível territorial"
-            opcoes={OPCOES_NIVEL}
-            valor={nivel}
-            onChange={(valor) => onChange({ nivel: valor })}
-          />
+          {escopo.nivel === "brasil" && (
+            <SegmentedRadio<NivelDistribuicao>
+              legenda="Nível territorial"
+              opcoes={OPCOES_NIVEL}
+              valor={nivelUrl ?? NIVEL_DISTRIBUICAO_PADRAO}
+              onChange={(valor) => onChange({ nivel: valor })}
+            />
+          )}
         </>
       }
     >
@@ -103,7 +147,7 @@ export function DistribuicaoTerritorial({
         </p>
       )}
 
-      {resolucao.excluidas.length > 0 && (
+      {detalhe !== null && resolucao.excluidas.length > 0 && (
         <div
           role="note"
           className="mb-4 rounded-md bg-demo px-3 py-2.5 text-xs leading-5 text-demo-foreground"
@@ -120,7 +164,13 @@ export function DistribuicaoTerritorial({
         </div>
       )}
 
-      {!resolucao.consultavel ? (
+      {detalhe === null ? (
+        <EmptyState>
+          O município é a menor unidade territorial da base: não há distribuição abaixo dele. Os
+          valores de {escopo.nome} estão nos cartões acima; para comparar municípios, selecione
+          apenas a UF.
+        </EmptyState>
+      ) : !resolucao.consultavel ? (
         <EmptyState>
           Nenhuma das dimensões de oferta selecionadas pode ser distribuída por território para{" "}
           {indicador.codigo}. Dimensões admitidas neste nível:{" "}
@@ -137,7 +187,7 @@ export function DistribuicaoTerritorial({
             </div>
           }
           isEmpty={(dados) => dados.linhas.length === 0}
-          empty="Nenhuma unidade territorial com registro para os filtros selecionados."
+          empty={`Nenhuma unidade territorial com registro em ${escopo.nome} para os filtros selecionados.`}
         >
           {(dados) => (
             <Resultado dados={dados} nivel={nivel} aplicaDimensao={resolucao.aplicavel} />
@@ -154,7 +204,7 @@ function Resultado({
   aplicaDimensao,
 }: {
   dados: RespostaIndicador;
-  nivel: NivelDistribuicao;
+  nivel: NivelDetalhe;
   aplicaDimensao: boolean;
 }) {
   const { indicador } = dados;
@@ -163,7 +213,7 @@ function Resultado({
   const colunas: Array<DataTableColumn<Linha>> = [
     {
       id: "nome",
-      header: nivel === "uf" ? "Unidade da Federação" : "Região",
+      header: texto.coluna,
       cell: (linha) => linha.nome,
       sortValue: (linha) => linha.nome,
       rowHeader: true,
@@ -203,7 +253,7 @@ function Resultado({
         </Fato>
         <Fato rotulo="Sem município identificado">
           {dados.valor_sem_territorio === null ? (
-            "não informado"
+            "não se aplica com território selecionado"
           ) : (
             <>
               <span className="font-display text-xl font-semibold tabular-nums text-foreground">
@@ -213,7 +263,13 @@ function Resultado({
             </>
           )}
         </Fato>
-        <Fato rotulo="Rede">{dados.filtros.rede ?? "Todas"}</Fato>
+        <Fato rotulo="Rede e instituição">
+          {[
+            `Rede: ${dados.filtros.rede ?? "Todas"}`,
+            ...(dados.filtros.categoria ? [dados.filtros.categoria] : []),
+            ...(dados.filtros.organizacao ? [dados.filtros.organizacao] : []),
+          ].join(" · ")}
+        </Fato>
       </dl>
 
       <div className="mt-3 text-xs leading-5 text-muted-foreground">
@@ -231,7 +287,8 @@ function Resultado({
 
       {dados.truncado && (
         <p role="note" className="mt-3 text-xs text-demo-foreground">
-          A lista foi truncada pelo limite da consulta; o total considera todas as unidades.
+          Exibindo as {formatarInteiro(dados.linhas.length)} unidades de maior valor entre{" "}
+          {formatarInteiro(dados.unidades)}; o total considera todas.
         </p>
       )}
       <Notes notas={dados.notas} className="mt-3" />

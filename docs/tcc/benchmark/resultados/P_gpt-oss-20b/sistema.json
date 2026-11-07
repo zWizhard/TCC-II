@@ -1,0 +1,122 @@
+[
+ {
+  "caso": "J1",
+  "categoria": "join",
+  "pergunta": "matrículas por 100 mil habitantes por UF",
+  "situacao_ideal": "nao_suportada",
+  "situacao": "nao_suportada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "J2",
+  "categoria": "join",
+  "pergunta": "Quantas matrículas presenciais e quantos docentes há por UF?",
+  "situacao_ideal": "nao_suportada",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": false
+ },
+ {
+  "caso": "J3",
+  "categoria": "join",
+  "pergunta": "docentes por matrícula por UF",
+  "situacao_ideal": "recusada",
+  "situacao": "recusada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "T1",
+  "categoria": "evolucao_temporal",
+  "pergunta": "crescimento das matrículas presenciais entre 2020 e 2024",
+  "situacao_ideal": "recusada",
+  "situacao": "recusada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "T2",
+  "categoria": "evolucao_temporal",
+  "pergunta": "matrículas presenciais em 2019",
+  "situacao_ideal": "recusada",
+  "situacao": "recusada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "T3",
+  "categoria": "evolucao_temporal",
+  "pergunta": "Como evoluíram as matrículas presenciais?",
+  "situacao_ideal": "recusada",
+  "situacao": "nao_mapeada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": false
+ },
+ {
+  "caso": "B1",
+  "categoria": "ambiguidade",
+  "pergunta": "Quantas universidades existem no Brasil?",
+  "situacao_ideal": "requer_esclarecimento",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "B2",
+  "categoria": "ambiguidade",
+  "pergunta": "Quantas IES públicas existem?",
+  "situacao_ideal": "requer_esclarecimento",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "B3",
+  "categoria": "ambiguidade",
+  "pergunta": "Quantas matrículas EAD existem?",
+  "situacao_ideal": "requer_esclarecimento",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "B4",
+  "categoria": "ambiguidade",
+  "pergunta": "matrículas presenciais em São Paulo",
+  "situacao_ideal": "requer_esclarecimento",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "B5",
+  "categoria": "ambiguidade",
+  "pergunta": "Quantas matrículas existem no Brasil?",
+  "situacao_ideal": "requer_esclarecimento",
+  "situacao": "requer_esclarecimento",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ },
+ {
+  "caso": "X1",
+  "categoria": "fora_de_escopo",
+  "pergunta": "taxa de evasão dos cursos presenciais",
+  "situacao_ideal": "recusada",
+  "situacao": "recusada",
+  "llm_chamado": false,
+  "abstencao_correta": true,
+  "situacao_exata": true
+ }
+]

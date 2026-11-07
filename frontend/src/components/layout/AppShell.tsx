@@ -35,6 +35,21 @@ export function AppShell({ children, footer }: AppShellProps) {
             <Link to="/painel" className={navLinkClass}>
               Visão Geral
             </Link>
+            <Link to="/instituicoes" className={navLinkClass}>
+              Instituições
+            </Link>
+            <Link to="/cursos" className={navLinkClass}>
+              Cursos
+            </Link>
+            <Link to="/matriculas" className={navLinkClass}>
+              Matrículas e Fluxo
+            </Link>
+            <Link to="/mapa" className={navLinkClass}>
+              Distribuição Territorial
+            </Link>
+            <Link to="/comparar" className={navLinkClass}>
+              Comparações
+            </Link>
           </nav>
           <p className="inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-soft px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[.13em] text-teal-dark">
             <span className="size-1.5 rounded-full bg-teal" aria-hidden="true" />

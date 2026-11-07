@@ -15,7 +15,15 @@
   "ano_censo": "2024",
   "recorte": "sede",
   "nivel": "uf",
-  "filtros": { "dimensoes": [], "rede": "Pública", "uf": null },
+  "filtros": {
+    "dimensoes": [],
+    "rede": "Pública",
+    "categoria": null,
+    "organizacao": null,
+    "regiao": null,
+    "uf": null,
+    "municipio": null
+  },
   "total": 317,
   "unidades": 27,
   "truncado": false,

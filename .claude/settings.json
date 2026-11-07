@@ -24,9 +24,7 @@
       "PowerShell(npm run test:*)",
       "PowerShell(npx tsc --noEmit:*)",
       "PowerShell(Get-ChildItem:*)",
-      "PowerShell(Test-Path:*)",
-      "PowerShell(ollama list)",
-      "PowerShell(ollama ps)"
+      "PowerShell(Test-Path:*)"
     ],
     "ask": [
       "PowerShell(git add:*)",
@@ -34,8 +32,7 @@
       "PowerShell(git push:*)",
       "PowerShell(pip install:*)",
       "PowerShell(uv add:*)",
-      "PowerShell(npm install:*)",
-      "PowerShell(ollama pull:*)"
+      "PowerShell(npm install:*)"
     ],
     "deny": [
       "Read(./.env)",

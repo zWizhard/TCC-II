@@ -1,0 +1,122 @@
+{
+ "rotulo": "_piloto_coder_gptoss",
+ "inicio": "2026-10-09T13:28:45+00:00",
+ "ambiente": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.6",
+  "cpu_e_ram_gb": [
+   "AMD Ryzen 7 5700X 8-Core Processor             ",
+   "32"
+  ],
+  "gpu": "NVIDIA GeForce RTX 2070 SUPER, 8192 MiB, 617.14",
+  "git_commit": "5706a386b12c3096c89003e60b857fd21690dd41",
+  "git_alteracoes_nao_commitadas": true
+ },
+ "ollama": "0.40.1",
+ "configuracao": {
+  "provedor": "ollama",
+  "temperatura": 0,
+  "opcoes_do_protocolo": {
+   "seed": 20241007
+  },
+  "max_tokens": 1024,
+  "timeout_s": 120.0,
+  "repeticoes": 1,
+  "semente_da_ordem": 20241007,
+  "casos_restritos_a": [
+   "A1",
+   "M1"
+  ],
+  "saida_estruturada": "format = JSON Schema do QueryPlan"
+ },
+ "prompt_de_sistema_sha256": "b0dd042db466655e714c630c7630953ff8be4b416580409d42efd95bb01186dc",
+ "schema_do_plano_sha256": "318a4d40b6f0de4039c46bda52b67eb6bc107f1b98cad801ca86ff891fcc0cf0",
+ "conjunto_sha256": "959bf1193c8e2d3ccc48a69744a747a6f7856bcb4c50cdd999c051e6721f6a2d",
+ "referencias_sha256": "eec08ba6a8541f208e13a1e2e909e6550f116687f0065e82ed4a5ab79cd926b3",
+ "prompt_de_exemplo_chars": 2670,
+ "casos": {
+  "modelo": 28,
+  "sistema": 12
+ },
+ "modelos": [
+  {
+   "modelo": "qwen2.5-coder:14b",
+   "instalado": {
+    "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "bytes": 8988124298,
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen2",
+    "families": [
+     "qwen2"
+    ],
+    "parameter_size": "14.8B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 5120,
+    "runner": "ggml"
+   },
+   "carga_s": 7.4,
+   "memoria": {
+    "bytes_em_memoria": 9953733507,
+    "bytes_em_vram": 6395128708,
+    "fracao_na_gpu": 0.642,
+    "janela_de_contexto": 4096
+   },
+   "aquecimento": "ok",
+   "aquecimento_s": 14.1,
+   "opcoes_enviadas": {
+    "temperature": 0,
+    "num_predict": 1024,
+    "seed": 20241007
+   },
+   "memoria_ao_final": {
+    "bytes_em_memoria": 9953733507,
+    "bytes_em_vram": 6395128708,
+    "fracao_na_gpu": 0.642,
+    "janela_de_contexto": 4096
+   },
+   "situacao": "medido"
+  },
+  {
+   "modelo": "gpt-oss:20b",
+   "instalado": {
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "bytes": 13793441244,
+    "parent_model": "",
+    "format": "gguf",
+    "family": "gptoss",
+    "families": [
+     "gptoss"
+    ],
+    "parameter_size": "20.9B",
+    "quantization_level": "MXFP4",
+    "context_length": 131072,
+    "embedding_length": 2880,
+    "runner": "ggml"
+   },
+   "carga_s": 30.8,
+   "memoria": {
+    "bytes_em_memoria": 14029485505,
+    "bytes_em_vram": 6208691896,
+    "fracao_na_gpu": 0.443,
+    "janela_de_contexto": 4096
+   },
+   "aquecimento": "ok",
+   "aquecimento_s": 41.4,
+   "opcoes_enviadas": {
+    "temperature": 0,
+    "num_predict": 1024,
+    "seed": 20241007
+   },
+   "memoria_ao_final": {
+    "bytes_em_memoria": 14029485505,
+    "bytes_em_vram": 6208691896,
+    "fracao_na_gpu": 0.443,
+    "janela_de_contexto": 4096
+   },
+   "situacao": "medido"
+  }
+ ],
+ "fim": "2026-10-09T13:32:07+00:00"
+}

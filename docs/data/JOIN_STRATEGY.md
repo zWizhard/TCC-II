@@ -66,7 +66,7 @@ Métrica de IES agrega-se **na tabela de IES**. Só desça ao grain de curso o q
 | Coluna | Em `ies` | Em `cursos` |
 |---|---|---|
 | município | `co_municipio_ies` = **sede da IES** | `co_municipio` = **local de oferta / polo** |
-| `tp_rede` | **código** `'1'`/`'2'` | **rótulo** `Pública`/`Privada` |
+| `tp_rede` | **código inteiro** `1`/`2` | **rótulo** `Pública`/`Privada` |
 | capital | `in_capital_ies` (`Sim`/`Não`) | `in_capital` (`Sim`/`Não`/`Cursos a distância`) |
 
 `tp_rede` **não pode ser comparado entre as duas tabelas sem normalização**. Prefira
@@ -170,6 +170,70 @@ JOIN ibge_populacao_estimada p ON p.cod_municipio::text       = m.codigo_municip
 | `cursos → ies` | `co_ies` | N:1 | **0** nos dois sentidos | 2026-09-05 |
 | `cursos → municipio` | `co_municipio = codigo_municipio_dv` | N:1 | **0** | 2026-09-05 |
 | `ies → municipio` | `co_municipio_ies = codigo_municipio_dv` | N:1 | **0** | 2026-09-05 |
-| `municipio → ibge_populacao_estimada` | `codigo_municipio = cod_municipio` | 1:N (por ano) | a confirmar | — |
+| `municipio → ibge_populacao_estimada` | `codigo_municipio = cod_municipio` **e `ano = '2024'`** | **1:1 com o ano fixado** (1:N sem ele) | **0** nos dois sentidos — ver abaixo | 2026-10-07 |
+| `municipio` ↔ malha IBGE (`data/reference/malha/municipios.geojson`) | `codigo_municipio_dv = properties.codarea` (texto, 7 díg.) | 1:1 | **0** nos dois sentidos — 5.571 e 5.571 | 2026-10-07 |
 | agregado de `cursos` por `co_municipio` → `municipio` (mapa da API, presencial + polo) | `codigo = codigo_municipio_dv` | N:1 pós-agregação | **0** — 3.551 linhas antes e depois, `SUM(qt_mat)` 10.224.686 preservada, 0 sentinelas | 2026-09-26 |
 | agregado de `ies` por `co_municipio_ies` → `municipio` (mapa da API) | `codigo = codigo_municipio_dv` | N:1 pós-agregação | **0** — 698 antes e depois, 2.561 IES / 374.501 docentes preservados | 2026-09-26 |
+| `ies` ← agregado de `cursos` por `co_ies` (tabela de IES da API, `/api/v1/instituicoes`) | `co_ies` | **1:1 pós-agregação** | **0** nos dois sentidos — ver abaixo | 2026-10-06 |
+
+### `cursos` pré-agregada → `municipio` → população e malha (Fase 10, 2026-10-07)
+
+É o JOIN do coroplético (IND-R-01, `api/mapas.py`). Auditado por
+`scripts/analise/auditar_mapas.py`; saída em `raw/diagnostics/2026-10-07_mapas.csv`.
+
+| Item | Medido |
+|---|---|
+| Grain A | `cursos` pré-agregada por `co_municipio` (7 dígitos, filtro `[0-9]{7}`): 1 linha por código |
+| Grain B | `municipio` sem as 28 sentinelas: 5.571 linhas, 5.571 códigos de 7 e 5.571 de 6 dígitos distintos |
+| Grain C | `ibge_populacao_estimada` com `ano = '2024'`: 5.571 linhas, 5.571 `cod_municipio` distintos, 0 nulos ou ≤ 0 |
+| Ponte | `codigo_municipio` (6 díg.) = prefixo de `codigo_municipio_dv` em 5.571 de 5.571 |
+| Órfãos | 0 unidades sem população, 0 populações sem unidade |
+| Antes → depois | 3.551 → 3.551 linhas com oferta; `SUM(qt_mat)` 10.224.686 → 10.224.686 |
+| Denominador | população 2024 = **212.583.750** nas 5.571 unidades (200.295.471 nas 3.551 com oferta) |
+| Malha | 5.571 feições, `codarea` texto de 7 dígitos, 0 órfãos nos dois sentidos; 27 UFs por `cd_uf` |
+
+Três cuidados que o resultado não denuncia:
+
+- **`ano` é texto no DuckDB** (`'2024'`). Sem o filtro de ano o JOIN é 1:N e mistura os 50 pares
+  divergentes de 2000–2020.
+- **O universo é `municipio`, não `cursos`.** O `LEFT JOIN` parte das 5.571 unidades: as 2.020 sem
+  linha de oferta saem com numerador **nulo** (ausência), e as 135 com linha e zero matrícula saem
+  com **zero**. A população das 2.020 continua no denominador de UF, região e Brasil.
+- **A malha é a v4 da API do IBGE.** A v3 (malha de 2022, 5.570 feições) não tem Boa Esperança do
+  Norte/MT (`5101837`), que existe em `municipio` e na população de 2024. O ano da edição v4 é
+  **A confirmar**; a versão usada é identificada pelo hash em `data/reference/malha/MANIFEST.json`.
+
+A coordenada de `municipio` cai **fora do próprio polígono em 62 das 5.571 unidades**
+(ponto-em-polígono; 7 delas são sede de IES, entre elas Salvador e Maceió): ponto e polígono vêm
+de fontes diferentes, e a malha é simplificada. Não altera número algum, mas os pontos não são
+sobrepostos ao coroplético municipal, e a legenda diz que o ponto é a coordenada de referência do
+município. (O teste por caixa envolvente acusava só 10 — aprova o ponto que cai no mar.)
+
+### `ies` ← `cursos` pré-agregada por IES (Fase 8, 2026-10-06)
+
+Único JOIN entre as duas tabelas do Censo em toda a API (`api/analises.py`, `listar_instituicoes`).
+Auditado com a skill `join-audit` sobre o DuckDB local.
+
+| Verificação | Resultado |
+|---|---|
+| Grain de `ies` | 2.561 linhas = 2.561 `co_ies` distintos (`SMALLINT`) |
+| Grain de `cursos` | 720.349 linhas, 2.561 `co_ies` (`INTEGER`), 46.150 `co_curso`, 1 ano |
+| Domínio das chaves (anti-join) | 0 `co_ies` de cursos sem IES · 0 IES sem cursos |
+| Um curso, uma IES | 0 `co_curso` com mais de um `co_ies` |
+| Linhas depois do JOIN | **2.561** (= antes), 2.561 `co_ies` distintos, 0 sem par |
+| Somas preservadas | cursos 45.776 · matrículas 10.227.266 · ingressantes 5.010.613 · concluintes 1.333.988 · docentes 374.501 · técnicos 350.752 |
+| JOIN ingênuo (sem pré-agregar) | 720.349 linhas e **410.207.378** "docentes" — 1.095× o valor real |
+| Atributos da IES repetidos em `cursos` | 0 divergências de categoria, organização e rede (`ds_rede` ↔ `tp_rede`) em 720.349 linhas |
+
+`SMALLINT` × `INTEGER` casam sem conversão no DuckDB. Armadilhas registradas:
+
+- **Com `tp_dimensao` filtrada, o LEFT JOIN introduz nulos**: IES com linha em cada dimensão —
+  presencial 2.444, EAD por polo 791, EAD "somente a nível Brasil" 793, exterior 27. A API devolve
+  **nulo** (ausência de oferta na dimensão), não zero, e ordena os nulos por último.
+- **Zero real existe**: 15 IES têm linhas de curso e `SUM(qt_mat) = 0`. Não confundir com o nulo acima.
+- **O JOIN muda o recorte das métricas de curso.** A lista é filtrada pela **sede** da IES; cursos e
+  matrículas são o total da instituição em qualquer local de oferta (inclusive polos fora do
+  território filtrado e linhas sem município). Não é um número territorial de oferta, e a resposta
+  o declara em `notas`.
+- Docentes e matrículas ficam lado a lado na mesma linha, mas **nenhuma razão é calculada**
+  (IND-Q-03 continua em quarentena).

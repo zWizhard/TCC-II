@@ -1,0 +1,25 @@
+{
+  "fonte": "IBGE — API de malhas v4 (servicodados.ibge.gov.br)",
+  "qualidade": "minima",
+  "chave": "properties.codarea (texto; 7 digitos no municipio, 2 na UF)",
+  "edicao_da_malha": "A confirmar — a API v4 nao declara o ano nem aceita 'periodo'",
+  "baixado_em": "2026-10-07T12:10:13+00:00",
+  "arquivos": [
+    {
+      "arquivo": "municipios.geojson",
+      "url": "https://servicodados.ibge.gov.br/api/v4/malhas/paises/BR?intrarregiao=municipio&formato=application/vnd.geo%2Bjson&qualidade=minima",
+      "feicoes": 5571,
+      "bytes": 3998504,
+      "bytes_gzip": 1101114,
+      "sha256": "5491bd548fe381cd388ba81c9edfbf4cf2749891e2fd32c1079ac71f7aba1c10"
+    },
+    {
+      "arquivo": "ufs.geojson",
+      "url": "https://servicodados.ibge.gov.br/api/v4/malhas/paises/BR?intrarregiao=UF&formato=application/vnd.geo%2Bjson&qualidade=minima",
+      "feicoes": 27,
+      "bytes": 105999,
+      "bytes_gzip": 32473,
+      "sha256": "79ba7a1be8cde8397a22384c7d5a1fb75789980a5fd9f9fac8de744122e0f14a"
+    }
+  ]
+}

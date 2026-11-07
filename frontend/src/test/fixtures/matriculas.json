@@ -1,0 +1,3249 @@
+{
+  "/api/v1/metadados": {
+    "ano_censo": "2024",
+    "fonte": "Censo da Educação Superior 2024 (INEP), cópia local do Big Data IESB",
+    "extraido_em": "2026-09-19T02:25:32",
+    "recortes": ["sede", "oferta"],
+    "niveis": ["brasil", "regiao", "uf", "municipio"],
+    "dimensoes_oferta": [
+      {
+        "slug": "presencial",
+        "rotulo": "Cursos presenciais ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Presencial"
+      },
+      {
+        "slug": "ead_polo",
+        "rotulo": "Cursos a distância ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_nacional",
+        "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_exterior",
+        "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      }
+    ],
+    "regioes": [
+      { "slug": "norte", "nome": "Norte" },
+      { "slug": "nordeste", "nome": "Nordeste" },
+      { "slug": "sudeste", "nome": "Sudeste" },
+      { "slug": "sul", "nome": "Sul" },
+      { "slug": "centro_oeste", "nome": "Centro-Oeste" }
+    ],
+    "ufs": [
+      { "sigla": "AC", "nome": "Acre", "regiao": "norte" },
+      { "sigla": "AM", "nome": "Amazonas", "regiao": "norte" },
+      { "sigla": "AP", "nome": "Amapá", "regiao": "norte" },
+      { "sigla": "PA", "nome": "Pará", "regiao": "norte" },
+      { "sigla": "RO", "nome": "Rondônia", "regiao": "norte" },
+      { "sigla": "RR", "nome": "Roraima", "regiao": "norte" },
+      { "sigla": "TO", "nome": "Tocantins", "regiao": "norte" },
+      { "sigla": "AL", "nome": "Alagoas", "regiao": "nordeste" },
+      { "sigla": "BA", "nome": "Bahia", "regiao": "nordeste" },
+      { "sigla": "CE", "nome": "Ceará", "regiao": "nordeste" },
+      { "sigla": "MA", "nome": "Maranhão", "regiao": "nordeste" },
+      { "sigla": "PB", "nome": "Paraíba", "regiao": "nordeste" },
+      { "sigla": "PE", "nome": "Pernambuco", "regiao": "nordeste" },
+      { "sigla": "PI", "nome": "Piauí", "regiao": "nordeste" },
+      { "sigla": "RN", "nome": "Rio Grande do Norte", "regiao": "nordeste" },
+      { "sigla": "SE", "nome": "Sergipe", "regiao": "nordeste" },
+      { "sigla": "ES", "nome": "Espírito Santo", "regiao": "sudeste" },
+      { "sigla": "MG", "nome": "Minas Gerais", "regiao": "sudeste" },
+      { "sigla": "RJ", "nome": "Rio de Janeiro", "regiao": "sudeste" },
+      { "sigla": "SP", "nome": "São Paulo", "regiao": "sudeste" },
+      { "sigla": "PR", "nome": "Paraná", "regiao": "sul" },
+      { "sigla": "RS", "nome": "Rio Grande do Sul", "regiao": "sul" },
+      { "sigla": "SC", "nome": "Santa Catarina", "regiao": "sul" },
+      { "sigla": "DF", "nome": "Distrito Federal", "regiao": "centro_oeste" },
+      { "sigla": "GO", "nome": "Goiás", "regiao": "centro_oeste" },
+      { "sigla": "MS", "nome": "Mato Grosso do Sul", "regiao": "centro_oeste" },
+      { "sigla": "MT", "nome": "Mato Grosso", "regiao": "centro_oeste" }
+    ],
+    "categorias": [
+      { "slug": "publica_federal", "rotulo": "Pública Federal", "rede": "publica" },
+      { "slug": "publica_estadual", "rotulo": "Pública Estadual", "rede": "publica" },
+      { "slug": "publica_municipal", "rotulo": "Pública Municipal", "rede": "publica" },
+      {
+        "slug": "privada_com_fins_lucrativos",
+        "rotulo": "Privada com fins lucrativos",
+        "rede": "privada"
+      },
+      {
+        "slug": "privada_sem_fins_lucrativos",
+        "rotulo": "Privada sem fins lucrativos",
+        "rede": "privada"
+      },
+      { "slug": "especial", "rotulo": "Especial", "rede": "publica" }
+    ],
+    "organizacoes": [
+      { "slug": "universidade", "rotulo": "Universidade" },
+      { "slug": "centro_universitario", "rotulo": "Centro Universitário" },
+      { "slug": "faculdade", "rotulo": "Faculdade" },
+      {
+        "slug": "instituto_federal",
+        "rotulo": "Instituto Federal de Educação, Ciência e Tecnologia"
+      },
+      { "slug": "cefet", "rotulo": "Centro Federal de Educação Tecnológica" }
+    ],
+    "areas_cine": [
+      { "slug": "programas_basicos", "codigo": 0, "nome": "Programas básicos" },
+      { "slug": "educacao", "codigo": 1, "nome": "Educação" },
+      { "slug": "artes_humanidades", "codigo": 2, "nome": "Artes e humanidades" },
+      {
+        "slug": "ciencias_sociais",
+        "codigo": 3,
+        "nome": "Ciências sociais, comunicação e informação"
+      },
+      { "slug": "negocios_direito", "codigo": 4, "nome": "Negócios, administração e direito" },
+      {
+        "slug": "ciencias_naturais",
+        "codigo": 5,
+        "nome": "Ciências naturais, matemática e estatística"
+      },
+      {
+        "slug": "computacao_tic",
+        "codigo": 6,
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)"
+      },
+      { "slug": "engenharia", "codigo": 7, "nome": "Engenharia, produção e construção" },
+      {
+        "slug": "agricultura_veterinaria",
+        "codigo": 8,
+        "nome": "Agricultura, silvicultura, pesca e veterinária"
+      },
+      { "slug": "saude", "codigo": 9, "nome": "Saúde e bem-estar" },
+      { "slug": "servicos", "codigo": 10, "nome": "Serviços" }
+    ],
+    "graus": [
+      { "slug": "bacharelado", "rotulo": "Bacharelado" },
+      { "slug": "licenciatura", "rotulo": "Licenciatura" },
+      { "slug": "tecnologico", "rotulo": "Tecnológico" },
+      { "slug": "nao_aplicavel", "rotulo": "Não aplicável" }
+    ],
+    "aviso": "Retrato transversal de um único ano: não há série temporal."
+  },
+  "/api/v1/indicadores": [
+    {
+      "slug": "ies",
+      "codigo": "IND-D-01",
+      "nome": "Instituições de ensino superior instaladas",
+      "unidade": "instituições",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+      ]
+    },
+    {
+      "slug": "cursos",
+      "codigo": "IND-D-02",
+      "nome": "Cursos contabilizados na oferta",
+      "unidade": "cursos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+        "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+      ]
+    },
+    {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    {
+      "slug": "docentes",
+      "codigo": "IND-D-08",
+      "nome": "Docentes em exercício",
+      "unidade": "docentes",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": [
+        "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+        "Agregado na tabela de IES; nunca após JOIN com cursos."
+      ]
+    },
+    {
+      "slug": "tecnicos",
+      "codigo": "IND-D-09",
+      "nome": "Técnicos administrativos",
+      "unidade": "funcionários",
+      "recorte": "sede",
+      "exige_dimensao": false,
+      "dimensoes_territoriais": [],
+      "limitacoes": ["Atribuído ao município de sede da IES, não aos campi nem aos polos."]
+    }
+  ],
+  "/api/v1/razoes": [
+    {
+      "slug": "financiamento",
+      "codigo": "IND-R-08",
+      "nome": "Participação de financiamento estudantil",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "Praticamente só existe na rede privada (37,5% das matrículas, contra 0,5% na pública): sem fixar a rede, a comparação mostra sobretudo a composição da oferta.",
+        "Não distingue bolsa integral de parcial nem mede valor financeiro.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    {
+      "slug": "reserva_vagas",
+      "codigo": "IND-R-09",
+      "nome": "Participação de reserva de vagas",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "A reserva concentra-se na rede pública: comparar territórios ou categorias sem controlar a rede confunde política de acesso com composição da oferta.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    {
+      "slug": "ingressantes_por_vaga",
+      "codigo": "IND-R-10",
+      "nome": "Ingressantes por vaga ofertada",
+      "unidade": "ingressos por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Exclusivamente presencial: em EAD, ingressos e vagas estão em dimensões diferentes da base.",
+        "Não é taxa de ocupação: a base não garante que os ingressos do ano venham das vagas do mesmo ano, nem que vaga não preenchida seja ociosidade.",
+        "Um terço das vagas do denominador (33,6%) são remanescentes, com razão muito menor (0,14) que a das vagas novas (0,42): o valor mistura as duas.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Pode exceder 1 (ingresso por programa especial ou vaga remanescente).",
+        "Sem vaga ofertada no recorte, a razão não se aplica — não é zero."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    }
+  ],
+  "/api/v1/territorios/municipios?uf=DF": {
+    "ano_censo": "2024",
+    "uf": "DF",
+    "municipios": [{ "codigo": "5300108", "nome": "Brasília", "sede": true, "oferta": true }]
+  },
+  "/api/v1/indicadores/matriculas?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "total": 10227266,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 2580,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 10227266,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "total": 5010613,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 1497,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 5010613,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/concluintes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "total": 1333988,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 473,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 1333988,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/vagas?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "total": 23665419,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 18590273,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 23665419,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/inscricoes?nivel=brasil&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "total": 15723085,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": 7064524,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "BR",
+        "nome": "Brasil",
+        "uf": null,
+        "valor": 15723085,
+        "latitude": null,
+        "longitude": null
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=sexo&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "sexo",
+    "eixo_nome": "Sexo",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 2,
+    "truncado": false,
+    "notas": ["Sexo é registrado como binário na base; a plataforma descreve o dado."],
+    "linhas": [
+      {
+        "codigo": "feminino",
+        "nome": "Feminino",
+        "grupo": null,
+        "valor": 6088602,
+        "participacao": 59.53303649284179
+      },
+      {
+        "codigo": "masculino",
+        "nome": "Masculino",
+        "grupo": null,
+        "valor": 4138664,
+        "participacao": 40.46696350715821
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=faixa_etaria&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "faixa_etaria",
+    "eixo_nome": "Faixa etária",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 8,
+    "truncado": false,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "0_17",
+        "nome": "Até 17 anos",
+        "grupo": null,
+        "valor": 6371,
+        "participacao": 0.062294263198004234
+      },
+      {
+        "codigo": "18_24",
+        "nome": "18 a 24 anos",
+        "grupo": null,
+        "valor": 4488399,
+        "participacao": 43.886596867628164
+      },
+      {
+        "codigo": "25_29",
+        "nome": "25 a 29 anos",
+        "grupo": null,
+        "valor": 1943251,
+        "participacao": 19.000688942675392
+      },
+      {
+        "codigo": "30_34",
+        "nome": "30 a 34 anos",
+        "grupo": null,
+        "valor": 1206896,
+        "participacao": 11.800768651172268
+      },
+      {
+        "codigo": "35_39",
+        "nome": "35 a 39 anos",
+        "grupo": null,
+        "valor": 971589,
+        "participacao": 9.499987582214056
+      },
+      {
+        "codigo": "40_49",
+        "nome": "40 a 49 anos",
+        "grupo": null,
+        "valor": 1195203,
+        "participacao": 11.686437020411907
+      },
+      {
+        "codigo": "50_59",
+        "nome": "50 a 59 anos",
+        "grupo": null,
+        "valor": 348180,
+        "participacao": 3.404428906024347
+      },
+      {
+        "codigo": "60_mais",
+        "nome": "60 anos ou mais",
+        "grupo": null,
+        "valor": 67377,
+        "participacao": 0.6587977666758643
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=cor_raca&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "cor_raca",
+    "eixo_nome": "Cor ou raça",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 6,
+    "truncado": false,
+    "notas": [
+      "'Não declarada/informada' é ausência de informação, não uma categoria residual: permanece no denominador e não pode ser somada a outra categoria."
+    ],
+    "linhas": [
+      {
+        "codigo": "branca",
+        "nome": "Branca",
+        "grupo": null,
+        "valor": 4554157,
+        "participacao": 44.52956440166903
+      },
+      {
+        "codigo": "preta",
+        "nome": "Preta",
+        "grupo": null,
+        "valor": 761075,
+        "participacao": 7.441627117159171
+      },
+      {
+        "codigo": "parda",
+        "nome": "Parda",
+        "grupo": null,
+        "valor": 3117858,
+        "participacao": 30.485742719510768
+      },
+      {
+        "codigo": "amarela",
+        "nome": "Amarela",
+        "grupo": null,
+        "valor": 139632,
+        "participacao": 1.365291564725118
+      },
+      {
+        "codigo": "indigena",
+        "nome": "Indígena",
+        "grupo": null,
+        "valor": 46410,
+        "participacao": 0.4537869651576482
+      },
+      {
+        "codigo": "nao_declarada",
+        "nome": "Não declarada",
+        "grupo": null,
+        "valor": 1608134,
+        "participacao": 15.723987231778269
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=procedencia_escolar&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "procedencia_escolar",
+    "eixo_nome": "Procedência escolar (ensino médio)",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 3,
+    "truncado": false,
+    "notas": [
+      "'Não declarada/informada' é ausência de informação, não uma categoria residual: permanece no denominador e não pode ser somada a outra categoria."
+    ],
+    "linhas": [
+      {
+        "codigo": "escola_publica",
+        "nome": "Escola pública",
+        "grupo": null,
+        "valor": 7517520,
+        "participacao": 73.50468834975055
+      },
+      {
+        "codigo": "escola_privada",
+        "nome": "Escola privada",
+        "grupo": null,
+        "valor": 2707291,
+        "participacao": 26.4713071900154
+      },
+      {
+        "codigo": "nao_informada",
+        "nome": "Não informada",
+        "grupo": null,
+        "valor": 2455,
+        "participacao": 0.024004460234044955
+      }
+    ]
+  },
+  "/api/v1/indicadores/matriculas/composicao?por=nacionalidade&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "eixo": "nacionalidade",
+    "eixo_nome": "Nacionalidade",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 10227266,
+    "categorias": 2,
+    "truncado": false,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "brasileira",
+        "nome": "Brasileira",
+        "grupo": null,
+        "valor": 10204237,
+        "participacao": 99.77482740744202
+      },
+      {
+        "codigo": "estrangeira",
+        "nome": "Estrangeira",
+        "grupo": null,
+        "valor": 23029,
+        "participacao": 0.225172592557972
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=sexo&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "sexo",
+    "eixo_nome": "Sexo",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 2,
+    "truncado": false,
+    "notas": ["Sexo é registrado como binário na base; a plataforma descreve o dado."],
+    "linhas": [
+      {
+        "codigo": "feminino",
+        "nome": "Feminino",
+        "grupo": null,
+        "valor": 2994997,
+        "participacao": 59.77306569076478
+      },
+      {
+        "codigo": "masculino",
+        "nome": "Masculino",
+        "grupo": null,
+        "valor": 2015616,
+        "participacao": 40.22693430923522
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=faixa_etaria&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "faixa_etaria",
+    "eixo_nome": "Faixa etária",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 8,
+    "truncado": false,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "0_17",
+        "nome": "Até 17 anos",
+        "grupo": null,
+        "valor": 7794,
+        "participacao": 0.15554982993098848
+      },
+      {
+        "codigo": "18_24",
+        "nome": "18 a 24 anos",
+        "grupo": null,
+        "valor": 2151322,
+        "participacao": 42.93530552050218
+      },
+      {
+        "codigo": "25_29",
+        "nome": "25 a 29 anos",
+        "grupo": null,
+        "valor": 870278,
+        "participacao": 17.368693211788656
+      },
+      {
+        "codigo": "30_34",
+        "nome": "30 a 34 anos",
+        "grupo": null,
+        "valor": 639008,
+        "participacao": 12.75309029054928
+      },
+      {
+        "codigo": "35_39",
+        "nome": "35 a 39 anos",
+        "grupo": null,
+        "valor": 512916,
+        "participacao": 10.236591810223619
+      },
+      {
+        "codigo": "40_49",
+        "nome": "40 a 49 anos",
+        "grupo": null,
+        "valor": 618058,
+        "participacao": 12.334977776172297
+      },
+      {
+        "codigo": "50_59",
+        "nome": "50 a 59 anos",
+        "grupo": null,
+        "valor": 176272,
+        "participacao": 3.517972751038646
+      },
+      {
+        "codigo": "60_mais",
+        "nome": "60 anos ou mais",
+        "grupo": null,
+        "valor": 34965,
+        "participacao": 0.6978188097943305
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=cor_raca&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "cor_raca",
+    "eixo_nome": "Cor ou raça",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 6,
+    "truncado": false,
+    "notas": [
+      "'Não declarada/informada' é ausência de informação, não uma categoria residual: permanece no denominador e não pode ser somada a outra categoria."
+    ],
+    "linhas": [
+      {
+        "codigo": "branca",
+        "nome": "Branca",
+        "grupo": null,
+        "valor": 2153870,
+        "participacao": 42.98615758191662
+      },
+      {
+        "codigo": "preta",
+        "nome": "Preta",
+        "grupo": null,
+        "valor": 357707,
+        "participacao": 7.138986786646664
+      },
+      {
+        "codigo": "parda",
+        "nome": "Parda",
+        "grupo": null,
+        "valor": 1426031,
+        "participacao": 28.460210357495182
+      },
+      {
+        "codigo": "amarela",
+        "nome": "Amarela",
+        "grupo": null,
+        "valor": 59421,
+        "participacao": 1.1859028027109657
+      },
+      {
+        "codigo": "indigena",
+        "nome": "Indígena",
+        "grupo": null,
+        "valor": 20860,
+        "participacao": 0.4163163269643854
+      },
+      {
+        "codigo": "nao_declarada",
+        "nome": "Não declarada",
+        "grupo": null,
+        "valor": 992724,
+        "participacao": 19.812426144266183
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=procedencia_escolar&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "procedencia_escolar",
+    "eixo_nome": "Procedência escolar (ensino médio)",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 3,
+    "truncado": false,
+    "notas": [
+      "'Não declarada/informada' é ausência de informação, não uma categoria residual: permanece no denominador e não pode ser somada a outra categoria."
+    ],
+    "linhas": [
+      {
+        "codigo": "escola_publica",
+        "nome": "Escola pública",
+        "grupo": null,
+        "valor": 3784946,
+        "participacao": 75.53858180625804
+      },
+      {
+        "codigo": "escola_privada",
+        "nome": "Escola privada",
+        "grupo": null,
+        "valor": 1225375,
+        "participacao": 24.45559056346998
+      },
+      {
+        "codigo": "nao_informada",
+        "nome": "Não informada",
+        "grupo": null,
+        "valor": 292,
+        "participacao": 0.005827630271984685
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=nacionalidade&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "nacionalidade",
+    "eixo_nome": "Nacionalidade",
+    "ficha": "IND-R-07",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 2,
+    "truncado": false,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "brasileira",
+        "nome": "Brasileira",
+        "grupo": null,
+        "valor": 5000616,
+        "participacao": 99.8004834937362
+      },
+      {
+        "codigo": "estrangeira",
+        "nome": "Estrangeira",
+        "grupo": null,
+        "valor": 9997,
+        "participacao": 0.19951650626380446
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes/composicao?por=tipo_ingresso&recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_nacional&dimensao=ead_exterior": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "eixo": "tipo_ingresso",
+    "eixo_nome": "Tipo de vaga do ingresso",
+    "ficha": null,
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null,
+      "area": null,
+      "grau": null
+    },
+    "total": 5010613,
+    "categorias": 4,
+    "truncado": false,
+    "notas": [
+      "Reparte os ingressos pelo tipo de vaga ocupada, não pelo tipo de processo seletivo (vestibular, Enem…): essas outras colunas não fecham com o total e não são publicadas.",
+      "A semântica oficial de cada tipo de vaga depende do dicionário do INEP (a confirmar)."
+    ],
+    "linhas": [
+      {
+        "codigo": "vaga_nova",
+        "nome": "Ingresso em vaga nova",
+        "grupo": null,
+        "valor": 4349243,
+        "participacao": 86.80061701033387
+      },
+      {
+        "codigo": "vaga_remanescente",
+        "nome": "Ingresso em vaga remanescente",
+        "grupo": null,
+        "valor": 645281,
+        "participacao": 12.878284553207362
+      },
+      {
+        "codigo": "programa_especial",
+        "nome": "Ingresso em vaga de programa especial",
+        "grupo": null,
+        "valor": 9877,
+        "participacao": 0.19712158971367374
+      },
+      {
+        "codigo": "outra_forma",
+        "nome": "Outras formas de ingresso",
+        "grupo": null,
+        "valor": 6212,
+        "participacao": 0.12397684674509886
+      }
+    ]
+  },
+  "/api/v1/razoes/financiamento?recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_exterior&base=matriculas&por=rede": {
+    "indicador": {
+      "slug": "financiamento",
+      "codigo": "IND-R-08",
+      "nome": "Participação de financiamento estudantil",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "Praticamente só existe na rede privada (37,5% das matrículas, contra 0,5% na pública): sem fixar a rede, a comparação mostra sobretudo a composição da oferta.",
+        "Não distingue bolsa integral de parcial nem mede valor financeiro.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "matriculas",
+    "numerador_nome": "Matrículas com financiamento ou auxílio declarado",
+    "denominador_nome": "Matrículas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 3071136, "denominador": 10227266, "valor": 30.028905085679792 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 3060738,
+        "denominador": 8162199,
+        "valor": 37.49893870512101,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 10398,
+        "denominador": 2065067,
+        "valor": 0.5035187720301569,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/reserva_vagas?recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_exterior&base=matriculas&por=rede": {
+    "indicador": {
+      "slug": "reserva_vagas",
+      "codigo": "IND-R-09",
+      "nome": "Participação de reserva de vagas",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "A reserva concentra-se na rede pública: comparar territórios ou categorias sem controlar a rede confunde política de acesso com composição da oferta.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "matriculas",
+    "numerador_nome": "Matrículas com reserva de vagas",
+    "denominador_nome": "Matrículas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 648225, "denominador": 10227266, "valor": 6.338204169129853 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 5665,
+        "denominador": 8162199,
+        "valor": 0.06940531589587562,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 642560,
+        "denominador": 2065067,
+        "valor": 31.115697456789537,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/ingressantes_por_vaga?recorte=oferta&dimensao=presencial&por=rede": {
+    "indicador": {
+      "slug": "ingressantes_por_vaga",
+      "codigo": "IND-R-10",
+      "nome": "Ingressantes por vaga ofertada",
+      "unidade": "ingressos por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Exclusivamente presencial: em EAD, ingressos e vagas estão em dimensões diferentes da base.",
+        "Não é taxa de ocupação: a base não garante que os ingressos do ano venham das vagas do mesmo ano, nem que vaga não preenchida seja ociosidade.",
+        "Um terço das vagas do denominador (33,6%) são remanescentes, com razão muito menor (0,14) que a das vagas novas (0,42): o valor mistura as duas.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Pode exceder 1 (ingresso por programa especial ou vaga remanescente).",
+        "Sem vaga ofertada no recorte, a razão não se aplica — não é zero."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Ingressantes",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 1663040, "denominador": 5075146, "valor": 0.32768318389264073 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 1177473,
+        "denominador": 4253711,
+        "valor": 0.27681076594061044,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 485567,
+        "denominador": 821435,
+        "valor": 0.5911204173184732,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/inscricoes_por_vaga?recorte=oferta&dimensao=presencial&por=rede": {
+    "indicador": {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Inscrições",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 8658561, "denominador": 5075146, "valor": 1.7060713130223248 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 4322592,
+        "denominador": 4253711,
+        "valor": 1.0161931546360343,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 4335969,
+        "denominador": 821435,
+        "valor": 5.278529646289725,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/inscricoes_por_vaga?recorte=oferta&dimensao=ead_nacional&por=rede": {
+    "indicador": {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Inscrições",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": ["Cursos a distância com dimensão de dados somente a nível Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 7060934, "denominador": 18583348, "valor": 0.3799602741120707 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 6781223,
+        "denominador": 18421765,
+        "valor": 0.36810929897325256,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 279711,
+        "denominador": 161583,
+        "valor": 1.731067005811255,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/financiamento?recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_exterior&base=ingressantes&por=rede": {
+    "indicador": {
+      "slug": "financiamento",
+      "codigo": "IND-R-08",
+      "nome": "Participação de financiamento estudantil",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "Praticamente só existe na rede privada (37,5% das matrículas, contra 0,5% na pública): sem fixar a rede, a comparação mostra sobretudo a composição da oferta.",
+        "Não distingue bolsa integral de parcial nem mede valor financeiro.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "ingressantes",
+    "numerador_nome": "Ingressantes com financiamento ou auxílio declarado",
+    "denominador_nome": "Ingressantes",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 1673188, "denominador": 5010613, "valor": 33.39288027233394 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 1670595,
+        "denominador": 4435283,
+        "valor": 37.6660294281109,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 2593,
+        "denominador": 575330,
+        "valor": 0.450697860358403,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/reserva_vagas?recorte=oferta&dimensao=presencial&dimensao=ead_polo&dimensao=ead_exterior&base=ingressantes&por=rede": {
+    "indicador": {
+      "slug": "reserva_vagas",
+      "codigo": "IND-R-09",
+      "nome": "Participação de reserva de vagas",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "A reserva concentra-se na rede pública: comparar territórios ou categorias sem controlar a rede confunde política de acesso com composição da oferta.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "ingressantes",
+    "numerador_nome": "Ingressantes com reserva de vagas",
+    "denominador_nome": "Ingressantes",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 171335, "denominador": 5010613, "valor": 3.419441892638685 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 1969,
+        "denominador": 4435283,
+        "valor": 0.044394010483660235,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 169366,
+        "denominador": 575330,
+        "valor": 29.438061634192554,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/financiamento?recorte=oferta&dimensao=presencial&dimensao=ead_polo&base=matriculas&por=uf": {
+    "indicador": {
+      "slug": "financiamento",
+      "codigo": "IND-R-08",
+      "nome": "Participação de financiamento estudantil",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "Praticamente só existe na rede privada (37,5% das matrículas, contra 0,5% na pública): sem fixar a rede, a comparação mostra sobretudo a composição da oferta.",
+        "Não distingue bolsa integral de parcial nem mede valor financeiro.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "matriculas",
+    "numerador_nome": "Matrículas com financiamento ou auxílio declarado",
+    "denominador_nome": "Matrículas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "por": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 3071089, "denominador": 10224727, "valor": 30.03590218105579 },
+    "unidades": 27,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo.",
+      "A comparação por território deixa de fora os registros de polo EAD sem município identificado; o valor do território selecionado os inclui.",
+      "Sem filtro de rede, as diferenças entre os grupos refletem em grande parte quanto da oferta de cada um é pública ou privada."
+    ],
+    "linhas": [
+      {
+        "numerador": 490069,
+        "denominador": 2441033,
+        "valor": 20.076295568310627,
+        "codigo": "35",
+        "nome": "São Paulo",
+        "uf": "SP"
+      },
+      {
+        "numerador": 281566,
+        "denominador": 950761,
+        "valor": 29.614803299672577,
+        "codigo": "31",
+        "nome": "Minas Gerais",
+        "uf": "MG"
+      },
+      {
+        "numerador": 372873,
+        "denominador": 944813,
+        "valor": 39.4652698470491,
+        "codigo": "33",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ"
+      },
+      {
+        "numerador": 122088,
+        "denominador": 711466,
+        "valor": 17.160061057028727,
+        "codigo": "41",
+        "nome": "Paraná",
+        "uf": "PR"
+      },
+      {
+        "numerador": 188838,
+        "denominador": 579186,
+        "valor": 32.60403393728439,
+        "codigo": "43",
+        "nome": "Rio Grande do Sul",
+        "uf": "RS"
+      },
+      {
+        "numerador": 177503,
+        "denominador": 501861,
+        "valor": 35.36895674300254,
+        "codigo": "29",
+        "nome": "Bahia",
+        "uf": "BA"
+      },
+      {
+        "numerador": 194774,
+        "denominador": 459509,
+        "valor": 42.387417874296254,
+        "codigo": "42",
+        "nome": "Santa Catarina",
+        "uf": "SC"
+      },
+      {
+        "numerador": 167135,
+        "denominador": 380358,
+        "valor": 43.94149722103913,
+        "codigo": "23",
+        "nome": "Ceará",
+        "uf": "CE"
+      },
+      {
+        "numerador": 128741,
+        "denominador": 371775,
+        "valor": 34.628740501647506,
+        "codigo": "26",
+        "nome": "Pernambuco",
+        "uf": "PE"
+      },
+      {
+        "numerador": 141071,
+        "denominador": 370821,
+        "valor": 38.042883223981384,
+        "codigo": "15",
+        "nome": "Pará",
+        "uf": "PA"
+      },
+      {
+        "numerador": 108532,
+        "denominador": 312645,
+        "valor": 34.7141326424539,
+        "codigo": "52",
+        "nome": "Goiás",
+        "uf": "GO"
+      },
+      {
+        "numerador": 76200,
+        "denominador": 248333,
+        "valor": 30.68460494577845,
+        "codigo": "53",
+        "nome": "Distrito Federal",
+        "uf": "DF"
+      },
+      {
+        "numerador": 83432,
+        "denominador": 231739,
+        "valor": 36.00257185885846,
+        "codigo": "21",
+        "nome": "Maranhão",
+        "uf": "MA"
+      },
+      {
+        "numerador": 85510,
+        "denominador": 196696,
+        "valor": 43.47317688209216,
+        "codigo": "13",
+        "nome": "Amazonas",
+        "uf": "AM"
+      },
+      {
+        "numerador": 60990,
+        "denominador": 189869,
+        "valor": 32.122147375295604,
+        "codigo": "51",
+        "nome": "Mato Grosso",
+        "uf": "MT"
+      },
+      {
+        "numerador": 44840,
+        "denominador": 188630,
+        "valor": 23.771404336531834,
+        "codigo": "25",
+        "nome": "Paraíba",
+        "uf": "PB"
+      },
+      {
+        "numerador": 55621,
+        "denominador": 182335,
+        "valor": 30.504839992321823,
+        "codigo": "32",
+        "nome": "Espírito Santo",
+        "uf": "ES"
+      },
+      {
+        "numerador": 45191,
+        "denominador": 154246,
+        "valor": 29.29800448634,
+        "codigo": "50",
+        "nome": "Mato Grosso do Sul",
+        "uf": "MS"
+      },
+      {
+        "numerador": 33856,
+        "denominador": 150753,
+        "valor": 22.457927868765466,
+        "codigo": "24",
+        "nome": "Rio Grande do Norte",
+        "uf": "RN"
+      },
+      {
+        "numerador": 46077,
+        "denominador": 148716,
+        "valor": 30.98321633180021,
+        "codigo": "22",
+        "nome": "Piauí",
+        "uf": "PI"
+      },
+      {
+        "numerador": 44074,
+        "denominador": 123043,
+        "valor": 35.819997886917584,
+        "codigo": "27",
+        "nome": "Alagoas",
+        "uf": "AL"
+      },
+      {
+        "numerador": 27563,
+        "denominador": 89646,
+        "valor": 30.746491756464316,
+        "codigo": "28",
+        "nome": "Sergipe",
+        "uf": "SE"
+      },
+      {
+        "numerador": 32817,
+        "denominador": 88648,
+        "valor": 37.01944770327587,
+        "codigo": "11",
+        "nome": "Rondônia",
+        "uf": "RO"
+      },
+      {
+        "numerador": 22147,
+        "denominador": 86744,
+        "valor": 25.531448861016326,
+        "codigo": "17",
+        "nome": "Tocantins",
+        "uf": "TO"
+      },
+      {
+        "numerador": 15915,
+        "denominador": 47793,
+        "valor": 33.299855627393136,
+        "codigo": "16",
+        "nome": "Amapá",
+        "uf": "AP"
+      },
+      {
+        "numerador": 12840,
+        "denominador": 39096,
+        "valor": 32.84223449969306,
+        "codigo": "12",
+        "nome": "Acre",
+        "uf": "AC"
+      },
+      {
+        "numerador": 10825,
+        "denominador": 34171,
+        "valor": 31.67890901641743,
+        "codigo": "14",
+        "nome": "Roraima",
+        "uf": "RR"
+      }
+    ]
+  },
+  "/api/v1/razoes/reserva_vagas?recorte=oferta&dimensao=presencial&dimensao=ead_polo&base=matriculas&por=uf": {
+    "indicador": {
+      "slug": "reserva_vagas",
+      "codigo": "IND-R-09",
+      "nome": "Participação de reserva de vagas",
+      "unidade": "%",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Só o agregado é publicado: os tipos se sobrepõem, não formam composição e não podem ser somados.",
+        "A reserva concentra-se na rede pública: comparar territórios ou categorias sem controlar a rede confunde política de acesso com composição da oferta.",
+        "Conta vínculos, não pessoas distintas."
+      ],
+      "usa_base": true,
+      "percentual": true,
+      "dimensoes": ["ead_exterior", "ead_polo", "presencial"],
+      "dimensao_unica": false,
+      "municipal": false
+    },
+    "base": "matriculas",
+    "numerador_nome": "Matrículas com reserva de vagas",
+    "denominador_nome": "Matrículas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "por": "uf",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 648223, "denominador": 10224727, "valor": 6.339758508955789 },
+    "unidades": 27,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo.",
+      "A comparação por território deixa de fora os registros de polo EAD sem município identificado; o valor do território selecionado os inclui.",
+      "Sem filtro de rede, as diferenças entre os grupos refletem em grande parte quanto da oferta de cada um é pública ou privada."
+    ],
+    "linhas": [
+      {
+        "numerador": 51975,
+        "denominador": 2441033,
+        "valor": 2.1292215221998227,
+        "codigo": "35",
+        "nome": "São Paulo",
+        "uf": "SP"
+      },
+      {
+        "numerador": 71832,
+        "denominador": 950761,
+        "valor": 7.555211036212045,
+        "codigo": "31",
+        "nome": "Minas Gerais",
+        "uf": "MG"
+      },
+      {
+        "numerador": 68025,
+        "denominador": 944813,
+        "valor": 7.199837428147157,
+        "codigo": "33",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ"
+      },
+      {
+        "numerador": 41967,
+        "denominador": 711466,
+        "valor": 5.898665572212868,
+        "codigo": "41",
+        "nome": "Paraná",
+        "uf": "PR"
+      },
+      {
+        "numerador": 40123,
+        "denominador": 579186,
+        "valor": 6.927480981929812,
+        "codigo": "43",
+        "nome": "Rio Grande do Sul",
+        "uf": "RS"
+      },
+      {
+        "numerador": 37654,
+        "denominador": 501861,
+        "valor": 7.50287430184852,
+        "codigo": "29",
+        "nome": "Bahia",
+        "uf": "BA"
+      },
+      {
+        "numerador": 16066,
+        "denominador": 459509,
+        "valor": 3.496340659268915,
+        "codigo": "42",
+        "nome": "Santa Catarina",
+        "uf": "SC"
+      },
+      {
+        "numerador": 26058,
+        "denominador": 380358,
+        "valor": 6.85091413878504,
+        "codigo": "23",
+        "nome": "Ceará",
+        "uf": "CE"
+      },
+      {
+        "numerador": 23542,
+        "denominador": 371775,
+        "valor": 6.33232465873176,
+        "codigo": "26",
+        "nome": "Pernambuco",
+        "uf": "PE"
+      },
+      {
+        "numerador": 46158,
+        "denominador": 370821,
+        "valor": 12.447515108367648,
+        "codigo": "15",
+        "nome": "Pará",
+        "uf": "PA"
+      },
+      {
+        "numerador": 16081,
+        "denominador": 312645,
+        "valor": 5.143533400502167,
+        "codigo": "52",
+        "nome": "Goiás",
+        "uf": "GO"
+      },
+      {
+        "numerador": 18381,
+        "denominador": 248333,
+        "valor": 7.401754901684432,
+        "codigo": "53",
+        "nome": "Distrito Federal",
+        "uf": "DF"
+      },
+      {
+        "numerador": 19994,
+        "denominador": 231739,
+        "valor": 8.627809734226867,
+        "codigo": "21",
+        "nome": "Maranhão",
+        "uf": "MA"
+      },
+      {
+        "numerador": 14819,
+        "denominador": 196696,
+        "valor": 7.533961036320007,
+        "codigo": "13",
+        "nome": "Amazonas",
+        "uf": "AM"
+      },
+      {
+        "numerador": 12771,
+        "denominador": 189869,
+        "valor": 6.726216496637155,
+        "codigo": "51",
+        "nome": "Mato Grosso",
+        "uf": "MT"
+      },
+      {
+        "numerador": 29689,
+        "denominador": 188630,
+        "valor": 15.739277951545352,
+        "codigo": "25",
+        "nome": "Paraíba",
+        "uf": "PB"
+      },
+      {
+        "numerador": 12706,
+        "denominador": 182335,
+        "valor": 6.96849206131571,
+        "codigo": "32",
+        "nome": "Espírito Santo",
+        "uf": "ES"
+      },
+      {
+        "numerador": 14506,
+        "denominador": 154246,
+        "valor": 9.404457814141047,
+        "codigo": "50",
+        "nome": "Mato Grosso do Sul",
+        "uf": "MS"
+      },
+      {
+        "numerador": 23977,
+        "denominador": 150753,
+        "valor": 15.904824447938019,
+        "codigo": "24",
+        "nome": "Rio Grande do Norte",
+        "uf": "RN"
+      },
+      {
+        "numerador": 17826,
+        "denominador": 148716,
+        "valor": 11.986605341725168,
+        "codigo": "22",
+        "nome": "Piauí",
+        "uf": "PI"
+      },
+      {
+        "numerador": 11880,
+        "denominador": 123043,
+        "valor": 9.655161203806799,
+        "codigo": "27",
+        "nome": "Alagoas",
+        "uf": "AL"
+      },
+      {
+        "numerador": 11185,
+        "denominador": 89646,
+        "valor": 12.476853401155656,
+        "codigo": "28",
+        "nome": "Sergipe",
+        "uf": "SE"
+      },
+      {
+        "numerador": 3918,
+        "denominador": 88648,
+        "valor": 4.419727461420449,
+        "codigo": "11",
+        "nome": "Rondônia",
+        "uf": "RO"
+      },
+      {
+        "numerador": 8584,
+        "denominador": 86744,
+        "valor": 9.895785299271418,
+        "codigo": "17",
+        "nome": "Tocantins",
+        "uf": "TO"
+      },
+      {
+        "numerador": 1343,
+        "denominador": 47793,
+        "valor": 2.810034942355575,
+        "codigo": "16",
+        "nome": "Amapá",
+        "uf": "AP"
+      },
+      {
+        "numerador": 3375,
+        "denominador": 39096,
+        "valor": 8.632596685082873,
+        "codigo": "12",
+        "nome": "Acre",
+        "uf": "AC"
+      },
+      {
+        "numerador": 3788,
+        "denominador": 34171,
+        "valor": 11.085423312165286,
+        "codigo": "14",
+        "nome": "Roraima",
+        "uf": "RR"
+      }
+    ]
+  },
+  "/api/v1/razoes/ingressantes_por_vaga?recorte=oferta&dimensao=presencial&por=uf": {
+    "indicador": {
+      "slug": "ingressantes_por_vaga",
+      "codigo": "IND-R-10",
+      "nome": "Ingressantes por vaga ofertada",
+      "unidade": "ingressos por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Exclusivamente presencial: em EAD, ingressos e vagas estão em dimensões diferentes da base.",
+        "Não é taxa de ocupação: a base não garante que os ingressos do ano venham das vagas do mesmo ano, nem que vaga não preenchida seja ociosidade.",
+        "Um terço das vagas do denominador (33,6%) são remanescentes, com razão muito menor (0,14) que a das vagas novas (0,42): o valor mistura as duas.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Pode exceder 1 (ingresso por programa especial ou vaga remanescente).",
+        "Sem vaga ofertada no recorte, a razão não se aplica — não é zero."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Ingressantes",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "por": "uf",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 1663040, "denominador": 5075146, "valor": 0.32768318389264073 },
+    "unidades": 27,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo.",
+      "Sem filtro de rede, as diferenças entre os grupos refletem em grande parte quanto da oferta de cada um é pública ou privada."
+    ],
+    "linhas": [
+      {
+        "numerador": 448489,
+        "denominador": 1246004,
+        "valor": 0.3599418621449048,
+        "codigo": "35",
+        "nome": "São Paulo",
+        "uf": "SP"
+      },
+      {
+        "numerador": 131111,
+        "denominador": 554841,
+        "valor": 0.23630373386249395,
+        "codigo": "33",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ"
+      },
+      {
+        "numerador": 141425,
+        "denominador": 428219,
+        "valor": 0.3302632531485058,
+        "codigo": "31",
+        "nome": "Minas Gerais",
+        "uf": "MG"
+      },
+      {
+        "numerador": 70259,
+        "denominador": 299936,
+        "valor": 0.23424663928304704,
+        "codigo": "26",
+        "nome": "Pernambuco",
+        "uf": "PE"
+      },
+      {
+        "numerador": 83282,
+        "denominador": 249757,
+        "valor": 0.33345211545622344,
+        "codigo": "29",
+        "nome": "Bahia",
+        "uf": "BA"
+      },
+      {
+        "numerador": 105516,
+        "denominador": 240344,
+        "valor": 0.439020736943714,
+        "codigo": "41",
+        "nome": "Paraná",
+        "uf": "PR"
+      },
+      {
+        "numerador": 61227,
+        "denominador": 239305,
+        "valor": 0.2558534088297361,
+        "codigo": "23",
+        "nome": "Ceará",
+        "uf": "CE"
+      },
+      {
+        "numerador": 76206,
+        "denominador": 224971,
+        "valor": 0.33873699276795677,
+        "codigo": "43",
+        "nome": "Rio Grande do Sul",
+        "uf": "RS"
+      },
+      {
+        "numerador": 62323,
+        "denominador": 182940,
+        "valor": 0.3406745380999235,
+        "codigo": "52",
+        "nome": "Goiás",
+        "uf": "GO"
+      },
+      {
+        "numerador": 46735,
+        "denominador": 170296,
+        "valor": 0.27443392680979,
+        "codigo": "15",
+        "nome": "Pará",
+        "uf": "PA"
+      },
+      {
+        "numerador": 65373,
+        "denominador": 156340,
+        "valor": 0.41814634770372267,
+        "codigo": "42",
+        "nome": "Santa Catarina",
+        "uf": "SC"
+      },
+      {
+        "numerador": 46729,
+        "denominador": 137663,
+        "valor": 0.33944487625578407,
+        "codigo": "53",
+        "nome": "Distrito Federal",
+        "uf": "DF"
+      },
+      {
+        "numerador": 36011,
+        "denominador": 133727,
+        "valor": 0.2692874288662723,
+        "codigo": "13",
+        "nome": "Amazonas",
+        "uf": "AM"
+      },
+      {
+        "numerador": 35382,
+        "denominador": 111963,
+        "valor": 0.31601511213525896,
+        "codigo": "21",
+        "nome": "Maranhão",
+        "uf": "MA"
+      },
+      {
+        "numerador": 37983,
+        "denominador": 94351,
+        "valor": 0.4025712499072612,
+        "codigo": "25",
+        "nome": "Paraíba",
+        "uf": "PB"
+      },
+      {
+        "numerador": 31558,
+        "denominador": 82215,
+        "valor": 0.3838472298242413,
+        "codigo": "51",
+        "nome": "Mato Grosso",
+        "uf": "MT"
+      },
+      {
+        "numerador": 27592,
+        "denominador": 80663,
+        "valor": 0.3420651351920955,
+        "codigo": "32",
+        "nome": "Espírito Santo",
+        "uf": "ES"
+      },
+      {
+        "numerador": 25314,
+        "denominador": 73500,
+        "valor": 0.3444081632653061,
+        "codigo": "22",
+        "nome": "Piauí",
+        "uf": "PI"
+      },
+      {
+        "numerador": 25268,
+        "denominador": 60594,
+        "valor": 0.41700498399181435,
+        "codigo": "24",
+        "nome": "Rio Grande do Norte",
+        "uf": "RN"
+      },
+      {
+        "numerador": 13916,
+        "denominador": 60563,
+        "valor": 0.22977725674091443,
+        "codigo": "11",
+        "nome": "Rondônia",
+        "uf": "RO"
+      },
+      {
+        "numerador": 20638,
+        "denominador": 53435,
+        "valor": 0.38622625619912043,
+        "codigo": "27",
+        "nome": "Alagoas",
+        "uf": "AL"
+      },
+      {
+        "numerador": 23412,
+        "denominador": 48599,
+        "valor": 0.48173830737257967,
+        "codigo": "50",
+        "nome": "Mato Grosso do Sul",
+        "uf": "MS"
+      },
+      {
+        "numerador": 16049,
+        "denominador": 45028,
+        "valor": 0.3564226703384561,
+        "codigo": "28",
+        "nome": "Sergipe",
+        "uf": "SE"
+      },
+      {
+        "numerador": 12743,
+        "denominador": 36404,
+        "valor": 0.35004395121415227,
+        "codigo": "17",
+        "nome": "Tocantins",
+        "uf": "TO"
+      },
+      {
+        "numerador": 7258,
+        "denominador": 22727,
+        "valor": 0.31935583226998726,
+        "codigo": "16",
+        "nome": "Amapá",
+        "uf": "AP"
+      },
+      {
+        "numerador": 5303,
+        "denominador": 21997,
+        "valor": 0.24107832886302677,
+        "codigo": "14",
+        "nome": "Roraima",
+        "uf": "RR"
+      },
+      {
+        "numerador": 5938,
+        "denominador": 18764,
+        "valor": 0.31645704540609676,
+        "codigo": "12",
+        "nome": "Acre",
+        "uf": "AC"
+      }
+    ]
+  },
+  "/api/v1/razoes/inscricoes_por_vaga?recorte=oferta&dimensao=presencial&por=uf": {
+    "indicador": {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Inscrições",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "uf",
+    "por": "uf",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 8658561, "denominador": 5075146, "valor": 1.7060713130223248 },
+    "unidades": 27,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo.",
+      "Sem filtro de rede, as diferenças entre os grupos refletem em grande parte quanto da oferta de cada um é pública ou privada."
+    ],
+    "linhas": [
+      {
+        "numerador": 2332412,
+        "denominador": 1246004,
+        "valor": 1.8719137338242895,
+        "codigo": "35",
+        "nome": "São Paulo",
+        "uf": "SP"
+      },
+      {
+        "numerador": 782273,
+        "denominador": 554841,
+        "valor": 1.4099048195789425,
+        "codigo": "33",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ"
+      },
+      {
+        "numerador": 772531,
+        "denominador": 428219,
+        "valor": 1.8040558686092865,
+        "codigo": "31",
+        "nome": "Minas Gerais",
+        "uf": "MG"
+      },
+      {
+        "numerador": 285927,
+        "denominador": 299936,
+        "valor": 0.9532933692521072,
+        "codigo": "26",
+        "nome": "Pernambuco",
+        "uf": "PE"
+      },
+      {
+        "numerador": 530448,
+        "denominador": 249757,
+        "valor": 2.1238563884095343,
+        "codigo": "29",
+        "nome": "Bahia",
+        "uf": "BA"
+      },
+      {
+        "numerador": 422169,
+        "denominador": 240344,
+        "valor": 1.7565198215890556,
+        "codigo": "41",
+        "nome": "Paraná",
+        "uf": "PR"
+      },
+      {
+        "numerador": 420370,
+        "denominador": 239305,
+        "valor": 1.7566285702346378,
+        "codigo": "23",
+        "nome": "Ceará",
+        "uf": "CE"
+      },
+      {
+        "numerador": 312414,
+        "denominador": 224971,
+        "valor": 1.3886856528174742,
+        "codigo": "43",
+        "nome": "Rio Grande do Sul",
+        "uf": "RS"
+      },
+      {
+        "numerador": 286259,
+        "denominador": 182940,
+        "valor": 1.5647698699027004,
+        "codigo": "52",
+        "nome": "Goiás",
+        "uf": "GO"
+      },
+      {
+        "numerador": 339452,
+        "denominador": 170296,
+        "valor": 1.9933057734767698,
+        "codigo": "15",
+        "nome": "Pará",
+        "uf": "PA"
+      },
+      {
+        "numerador": 246947,
+        "denominador": 156340,
+        "valor": 1.5795509786363056,
+        "codigo": "42",
+        "nome": "Santa Catarina",
+        "uf": "SC"
+      },
+      {
+        "numerador": 198624,
+        "denominador": 137663,
+        "valor": 1.4428277750739125,
+        "codigo": "53",
+        "nome": "Distrito Federal",
+        "uf": "DF"
+      },
+      {
+        "numerador": 166032,
+        "denominador": 133727,
+        "valor": 1.2415742520209083,
+        "codigo": "13",
+        "nome": "Amazonas",
+        "uf": "AM"
+      },
+      {
+        "numerador": 243367,
+        "denominador": 111963,
+        "valor": 2.1736377196037977,
+        "codigo": "21",
+        "nome": "Maranhão",
+        "uf": "MA"
+      },
+      {
+        "numerador": 166564,
+        "denominador": 94351,
+        "valor": 1.7653654969210713,
+        "codigo": "25",
+        "nome": "Paraíba",
+        "uf": "PB"
+      },
+      {
+        "numerador": 135247,
+        "denominador": 82215,
+        "valor": 1.6450404427415921,
+        "codigo": "51",
+        "nome": "Mato Grosso",
+        "uf": "MT"
+      },
+      {
+        "numerador": 150609,
+        "denominador": 80663,
+        "valor": 1.8671385889441257,
+        "codigo": "32",
+        "nome": "Espírito Santo",
+        "uf": "ES"
+      },
+      {
+        "numerador": 160884,
+        "denominador": 73500,
+        "valor": 2.1888979591836732,
+        "codigo": "22",
+        "nome": "Piauí",
+        "uf": "PI"
+      },
+      {
+        "numerador": 140713,
+        "denominador": 60594,
+        "valor": 2.3222266230979964,
+        "codigo": "24",
+        "nome": "Rio Grande do Norte",
+        "uf": "RN"
+      },
+      {
+        "numerador": 71684,
+        "denominador": 60563,
+        "valor": 1.183626966960025,
+        "codigo": "11",
+        "nome": "Rondônia",
+        "uf": "RO"
+      },
+      {
+        "numerador": 114996,
+        "denominador": 53435,
+        "valor": 2.1520726115841677,
+        "codigo": "27",
+        "nome": "Alagoas",
+        "uf": "AL"
+      },
+      {
+        "numerador": 135899,
+        "denominador": 48599,
+        "valor": 2.7963332578859648,
+        "codigo": "50",
+        "nome": "Mato Grosso do Sul",
+        "uf": "MS"
+      },
+      {
+        "numerador": 38003,
+        "denominador": 45028,
+        "valor": 0.843985964288887,
+        "codigo": "28",
+        "nome": "Sergipe",
+        "uf": "SE"
+      },
+      {
+        "numerador": 90999,
+        "denominador": 36404,
+        "valor": 2.499697835402703,
+        "codigo": "17",
+        "nome": "Tocantins",
+        "uf": "TO"
+      },
+      {
+        "numerador": 40634,
+        "denominador": 22727,
+        "valor": 1.78791745500946,
+        "codigo": "16",
+        "nome": "Amapá",
+        "uf": "AP"
+      },
+      {
+        "numerador": 26496,
+        "denominador": 21997,
+        "valor": 1.204527890166841,
+        "codigo": "14",
+        "nome": "Roraima",
+        "uf": "RR"
+      },
+      {
+        "numerador": 46608,
+        "denominador": 18764,
+        "valor": 2.4839053506714985,
+        "codigo": "12",
+        "nome": "Acre",
+        "uf": "AC"
+      }
+    ]
+  },
+  "/api/v1/razoes/inscricoes_por_vaga?recorte=oferta&dimensao=ead_nacional": {
+    "indicador": {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Inscrições",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "brasil",
+    "por": null,
+    "filtros": {
+      "dimensoes": ["Cursos a distância com dimensão de dados somente a nível Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": null,
+      "municipio": null
+    },
+    "geral": { "numerador": 7060934, "denominador": 18583348, "valor": 0.3799602741120707 },
+    "unidades": 0,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": []
+  },
+  "/api/v1/indicadores/matriculas?nivel=municipio&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "matriculas",
+      "codigo": "IND-D-03",
+      "nome": "Matrículas",
+      "unidade": "matrículas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Contadas no local de oferta; em EAD, no polo."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "total": 248333,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": null,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "5300108",
+        "nome": "Brasília",
+        "uf": "DF",
+        "valor": 248333,
+        "latitude": -15.794087,
+        "longitude": -47.887905
+      }
+    ]
+  },
+  "/api/v1/indicadores/ingressantes?nivel=municipio&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "ingressantes",
+      "codigo": "IND-D-04",
+      "nome": "Ingressantes",
+      "unidade": "ingressos",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": ["Conta vínculos, não pessoas distintas."]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "total": 122040,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": null,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "5300108",
+        "nome": "Brasília",
+        "uf": "DF",
+        "valor": 122040,
+        "latitude": -15.794087,
+        "longitude": -47.887905
+      }
+    ]
+  },
+  "/api/v1/indicadores/concluintes?nivel=municipio&recorte=oferta&dimensao=presencial&dimensao=ead_polo&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "concluintes",
+      "codigo": "IND-D-05",
+      "nome": "Concluintes",
+      "unidade": "concluintes",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["ead_polo", "presencial"],
+      "limitacoes": [
+        "Conta vínculos, não pessoas distintas.",
+        "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": [
+        "Cursos a distância ofertados no Brasil",
+        "Cursos presenciais ofertados no Brasil"
+      ],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "total": 34946,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": null,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "5300108",
+        "nome": "Brasília",
+        "uf": "DF",
+        "valor": 34946,
+        "latitude": -15.794087,
+        "longitude": -47.887905
+      }
+    ]
+  },
+  "/api/v1/indicadores/vagas?nivel=municipio&recorte=oferta&dimensao=presencial&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "vagas",
+      "codigo": "IND-D-06",
+      "nome": "Vagas ofertadas",
+      "unidade": "vagas",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Vaga só existe territorializada no presencial; 78,5% das vagas estão na dimensão EAD sem território."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "total": 137663,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": null,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "5300108",
+        "nome": "Brasília",
+        "uf": "DF",
+        "valor": 137663,
+        "latitude": -15.794087,
+        "longitude": -47.887905
+      }
+    ]
+  },
+  "/api/v1/indicadores/inscricoes?nivel=municipio&recorte=oferta&dimensao=presencial&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "inscricoes",
+      "codigo": "IND-D-07",
+      "nome": "Inscrições em processo seletivo",
+      "unidade": "inscrições",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são candidatos: uma pessoa pode inscrever-se em vários cursos.",
+        "Territorializável só no presencial."
+      ]
+    },
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "total": 198624,
+    "unidades": 1,
+    "truncado": false,
+    "valor_sem_territorio": null,
+    "notas": [],
+    "linhas": [
+      {
+        "codigo": "5300108",
+        "nome": "Brasília",
+        "uf": "DF",
+        "valor": 198624,
+        "latitude": -15.794087,
+        "longitude": -47.887905
+      }
+    ]
+  },
+  "/api/v1/razoes/ingressantes_por_vaga?recorte=oferta&dimensao=presencial&por=rede&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "ingressantes_por_vaga",
+      "codigo": "IND-R-10",
+      "nome": "Ingressantes por vaga ofertada",
+      "unidade": "ingressos por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Exclusivamente presencial: em EAD, ingressos e vagas estão em dimensões diferentes da base.",
+        "Não é taxa de ocupação: a base não garante que os ingressos do ano venham das vagas do mesmo ano, nem que vaga não preenchida seja ociosidade.",
+        "Um terço das vagas do denominador (33,6%) são remanescentes, com razão muito menor (0,14) que a das vagas novas (0,42): o valor mistura as duas.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Pode exceder 1 (ingresso por programa especial ou vaga remanescente).",
+        "Sem vaga ofertada no recorte, a razão não se aplica — não é zero."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Ingressantes",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "geral": { "numerador": 46729, "denominador": 137663, "valor": 0.33944487625578407 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 37176,
+        "denominador": 123975,
+        "valor": 0.2998669086509377,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 9553,
+        "denominador": 13688,
+        "valor": 0.6979105786090006,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  },
+  "/api/v1/razoes/inscricoes_por_vaga?recorte=oferta&dimensao=presencial&por=rede&uf=DF&municipio=5300108": {
+    "indicador": {
+      "slug": "inscricoes_por_vaga",
+      "codigo": "IND-R-11",
+      "nome": "Inscrições por vaga ofertada",
+      "unidade": "inscrições por vaga",
+      "recorte": "oferta",
+      "exige_dimensao": true,
+      "dimensoes_territoriais": ["presencial"],
+      "limitacoes": [
+        "Inscrições não são pessoas: uma pessoa pode inscrever-se em vários cursos e instituições. Não é 'candidatos por vaga'.",
+        "Processos seletivos têm regras diferentes entre IES: a razão não mede seletividade nem concorrência. Na rede pública (cerca de 5 inscrições por vaga, contra 1 na privada) reflete sistemas de inscrição em vários cursos.",
+        "As redes pública e privada têm valores muito diferentes neste indicador: comparar territórios, áreas ou graus sem fixar a rede mostra sobretudo a composição da oferta.",
+        "Por território, só no presencial; a dimensão EAD 'somente a nível Brasil' não tem município, UF nem região e nunca é somada à presencial."
+      ],
+      "usa_base": false,
+      "percentual": false,
+      "dimensoes": ["ead_nacional", "presencial"],
+      "dimensao_unica": true,
+      "municipal": true
+    },
+    "base": null,
+    "numerador_nome": "Inscrições",
+    "denominador_nome": "Vagas ofertadas",
+    "ano_censo": "2024",
+    "recorte": "oferta",
+    "nivel": "municipio",
+    "por": "rede",
+    "filtros": {
+      "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+      "rede": null,
+      "categoria": null,
+      "organizacao": null,
+      "regiao": null,
+      "uf": "DF",
+      "municipio": "5300108"
+    },
+    "geral": { "numerador": 198624, "denominador": 137663, "valor": 1.4428277750739125 },
+    "unidades": 2,
+    "truncado": false,
+    "notas": [
+      "Retrato de 2024: numerador e denominador são do mesmo ano e do mesmo conjunto de cursos; a razão não acompanha uma turma ao longo do tempo."
+    ],
+    "linhas": [
+      {
+        "numerador": 127016,
+        "denominador": 123975,
+        "valor": 1.0245291389393023,
+        "codigo": "privada",
+        "nome": "Privada",
+        "uf": null
+      },
+      {
+        "numerador": 71608,
+        "denominador": 13688,
+        "valor": 5.231443600233781,
+        "codigo": "publica",
+        "nome": "Pública",
+        "uf": null
+      }
+    ]
+  }
+}

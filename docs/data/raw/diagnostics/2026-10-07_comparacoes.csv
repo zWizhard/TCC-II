@@ -1,0 +1,21 @@
+bloco,teste,resultado,detalhe
+fechamento,cursos por regiao: grupos e somas contra o total territorializavel,FECHA,grupos=5 mat=10.224.686 ing=5.009.116 conc=1.333.515 cursos presenciais=34.479 mat privada=8.159.619 mat polo EAD=5.186.811
+fechamento,cursos por UF: grupos e somas contra o total territorializavel,FECHA,grupos=27 mat=10.224.686 ing=5.009.116 conc=1.333.515 cursos presenciais=34.479 mat privada=8.159.619 mat polo EAD=5.186.811
+fechamento,ies por regiao (sede): grupos e somas contra o total,FECHA,grupos=5 ies=2.561 docentes=374.501 doutores=198.519
+fechamento,ies por UF (sede): grupos e somas contra o total,FECHA,grupos=27 ies=2.561 docentes=374.501 doutores=198.519
+fechamento,populacao 2024 pela ponte `municipio`: 1 linha por unidade real,FECHA,linhas=5.571 codigos distintos=5.571 UFs=27 populacao=212.583.750
+fechamento,"codigo de UF e de regiao identicos em cursos, ies e municipio",IDENTICOS,UFs divergentes=0
+referencia,"Brasil, nas definicoes da comparacao (presencial + polo EAD, com municipio)","mat/100 mil hab=4.809,7 privada=79,80% EAD=50,73% doutores=53,01%",mat=10.224.686 privada=8.159.619 polo EAD=5.186.811 populacao=212.583.750 docentes=374.501 doutores=198.519
+porte,UF: razao entre a maior e a menor,"populacao 64,1x; matriculas 71,4x",populacao de 716.793 a 45.973.194; matriculas de 34.171 a 2.441.033
+porte,municipio com oferta: populacao,de 854 a 11.895.578 habitantes (13.929x); mediana 19.265,com menos de 10 mil habitantes=757
+ordem,UF: ordem por matriculas x ordem por matriculas por 100 mil habitantes,"correlacao de postos (Spearman) = 0,06",UFs que mudam 5 ou mais posicoes=15 de 27; maior deslocamento=22 posicoes; 1a em valor absoluto=SP (8a na razao); 1a na razao=DF (12a em valor absoluto)
+ordem,UF: amplitude da participacao da rede privada nas matriculas,"de 59,6% (RN) a 87,5% (RO)",
+ordem,UF: amplitude da participacao da EAD nas matriculas,"de 34,5% (PB) a 58,5% (SC)",
+municipio,unidades com oferta e sem sede de IES (IES = 0 real; docentes nao se aplicam),2.853 de 3.551,
+municipio,unidades com oferta e base pequena para proporcao de matriculas,0 matriculas=135; 1 a 9=304; 1 a 99=1.271,com 0 matriculas a proporcao nao se aplica (denominador zero)
+municipio,unidades com sede de IES e sem linha de oferta,0,
+municipio,unidades de sede com zero docente declarado (proporcao de doutores nao se aplica),0,
+rede,docentes com doutorado na rede Privada,"33,6%",doutores=62.873 docentes=187.165
+rede,docentes com doutorado na rede Pública,"72,4%",doutores=135.646 docentes=187.336
+rede,participacao da EAD nas matriculas da rede Privada,"60,9%",polo EAD=4.971.472 matriculas=8.159.619
+rede,participacao da EAD nas matriculas da rede Pública,"10,4%",polo EAD=215.339 matriculas=2.065.067

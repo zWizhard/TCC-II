@@ -1,0 +1,1504 @@
+{
+  "/api/v1/metadados": {
+    "ano_censo": "2024",
+    "fonte": "Censo da Educação Superior 2024 (INEP), cópia local do Big Data IESB",
+    "extraido_em": "2026-09-19T02:25:32",
+    "recortes": ["sede", "oferta"],
+    "niveis": ["brasil", "regiao", "uf", "municipio"],
+    "dimensoes_oferta": [
+      {
+        "slug": "presencial",
+        "rotulo": "Cursos presenciais ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Presencial"
+      },
+      {
+        "slug": "ead_polo",
+        "rotulo": "Cursos a distância ofertados no Brasil",
+        "territorializavel": true,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_nacional",
+        "rotulo": "Cursos a distância com dimensão de dados somente a nível Brasil",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      },
+      {
+        "slug": "ead_exterior",
+        "rotulo": "Cursos a distância ofertados por instituições brasileiras no exterior",
+        "territorializavel": false,
+        "modalidade": "Curso a distância"
+      }
+    ],
+    "regioes": [
+      { "slug": "norte", "nome": "Norte" },
+      { "slug": "nordeste", "nome": "Nordeste" },
+      { "slug": "sudeste", "nome": "Sudeste" },
+      { "slug": "sul", "nome": "Sul" },
+      { "slug": "centro_oeste", "nome": "Centro-Oeste" }
+    ],
+    "ufs": [
+      { "sigla": "AC", "nome": "Acre", "regiao": "norte" },
+      { "sigla": "AM", "nome": "Amazonas", "regiao": "norte" },
+      { "sigla": "AP", "nome": "Amapá", "regiao": "norte" },
+      { "sigla": "PA", "nome": "Pará", "regiao": "norte" },
+      { "sigla": "RO", "nome": "Rondônia", "regiao": "norte" },
+      { "sigla": "RR", "nome": "Roraima", "regiao": "norte" },
+      { "sigla": "TO", "nome": "Tocantins", "regiao": "norte" },
+      { "sigla": "AL", "nome": "Alagoas", "regiao": "nordeste" },
+      { "sigla": "BA", "nome": "Bahia", "regiao": "nordeste" },
+      { "sigla": "CE", "nome": "Ceará", "regiao": "nordeste" },
+      { "sigla": "MA", "nome": "Maranhão", "regiao": "nordeste" },
+      { "sigla": "PB", "nome": "Paraíba", "regiao": "nordeste" },
+      { "sigla": "PE", "nome": "Pernambuco", "regiao": "nordeste" },
+      { "sigla": "PI", "nome": "Piauí", "regiao": "nordeste" },
+      { "sigla": "RN", "nome": "Rio Grande do Norte", "regiao": "nordeste" },
+      { "sigla": "SE", "nome": "Sergipe", "regiao": "nordeste" },
+      { "sigla": "ES", "nome": "Espírito Santo", "regiao": "sudeste" },
+      { "sigla": "MG", "nome": "Minas Gerais", "regiao": "sudeste" },
+      { "sigla": "RJ", "nome": "Rio de Janeiro", "regiao": "sudeste" },
+      { "sigla": "SP", "nome": "São Paulo", "regiao": "sudeste" },
+      { "sigla": "PR", "nome": "Paraná", "regiao": "sul" },
+      { "sigla": "RS", "nome": "Rio Grande do Sul", "regiao": "sul" },
+      { "sigla": "SC", "nome": "Santa Catarina", "regiao": "sul" },
+      { "sigla": "DF", "nome": "Distrito Federal", "regiao": "centro_oeste" },
+      { "sigla": "GO", "nome": "Goiás", "regiao": "centro_oeste" },
+      { "sigla": "MS", "nome": "Mato Grosso do Sul", "regiao": "centro_oeste" },
+      { "sigla": "MT", "nome": "Mato Grosso", "regiao": "centro_oeste" }
+    ],
+    "categorias": [
+      { "slug": "publica_federal", "rotulo": "Pública Federal", "rede": "publica" },
+      { "slug": "publica_estadual", "rotulo": "Pública Estadual", "rede": "publica" },
+      { "slug": "publica_municipal", "rotulo": "Pública Municipal", "rede": "publica" },
+      {
+        "slug": "privada_com_fins_lucrativos",
+        "rotulo": "Privada com fins lucrativos",
+        "rede": "privada"
+      },
+      {
+        "slug": "privada_sem_fins_lucrativos",
+        "rotulo": "Privada sem fins lucrativos",
+        "rede": "privada"
+      },
+      { "slug": "especial", "rotulo": "Especial", "rede": "publica" }
+    ],
+    "organizacoes": [
+      { "slug": "universidade", "rotulo": "Universidade" },
+      { "slug": "centro_universitario", "rotulo": "Centro Universitário" },
+      { "slug": "faculdade", "rotulo": "Faculdade" },
+      {
+        "slug": "instituto_federal",
+        "rotulo": "Instituto Federal de Educação, Ciência e Tecnologia"
+      },
+      { "slug": "cefet", "rotulo": "Centro Federal de Educação Tecnológica" }
+    ],
+    "areas_cine": [
+      { "slug": "programas_basicos", "codigo": 0, "nome": "Programas básicos" },
+      { "slug": "educacao", "codigo": 1, "nome": "Educação" },
+      { "slug": "artes_humanidades", "codigo": 2, "nome": "Artes e humanidades" },
+      {
+        "slug": "ciencias_sociais",
+        "codigo": 3,
+        "nome": "Ciências sociais, comunicação e informação"
+      },
+      { "slug": "negocios_direito", "codigo": 4, "nome": "Negócios, administração e direito" },
+      {
+        "slug": "ciencias_naturais",
+        "codigo": 5,
+        "nome": "Ciências naturais, matemática e estatística"
+      },
+      {
+        "slug": "computacao_tic",
+        "codigo": 6,
+        "nome": "Computação e Tecnologias da Informação e Comunicação (TIC)"
+      },
+      { "slug": "engenharia", "codigo": 7, "nome": "Engenharia, produção e construção" },
+      {
+        "slug": "agricultura_veterinaria",
+        "codigo": 8,
+        "nome": "Agricultura, silvicultura, pesca e veterinária"
+      },
+      { "slug": "saude", "codigo": 9, "nome": "Saúde e bem-estar" },
+      { "slug": "servicos", "codigo": 10, "nome": "Serviços" }
+    ],
+    "graus": [
+      { "slug": "bacharelado", "rotulo": "Bacharelado" },
+      { "slug": "licenciatura", "rotulo": "Licenciatura" },
+      { "slug": "tecnologico", "rotulo": "Tecnológico" },
+      { "slug": "nao_aplicavel", "rotulo": "Não aplicável" }
+    ],
+    "aviso": "Retrato transversal de um único ano: não há série temporal."
+  },
+  "/api/v1/territorios/municipios?uf=DF": {
+    "ano_censo": "2024",
+    "uf": "DF",
+    "municipios": [{ "codigo": "5300108", "nome": "Brasília", "sede": true, "oferta": true }]
+  },
+  "/api/v1/comparacoes?nivel=regiao&unidade=norte&unidade=nordeste&unidade=sudeste&unidade=sul&unidade=centro_oeste": {
+    "ano_censo": "2024",
+    "ano_populacao": "2024",
+    "nivel": "regiao",
+    "rede": null,
+    "dimensoes": [
+      "Cursos presenciais ofertados no Brasil",
+      "Cursos a distância ofertados no Brasil"
+    ],
+    "unidades": [
+      { "codigo": "norte", "nome": "Norte", "uf": null, "populacao": 18669345 },
+      { "codigo": "nordeste", "nome": "Nordeste", "uf": null, "populacao": 57112096 },
+      { "codigo": "sudeste", "nome": "Sudeste", "uf": null, "populacao": 88617693 },
+      { "codigo": "sul", "nome": "Sul", "uf": null, "populacao": 31113021 },
+      { "codigo": "centro_oeste", "nome": "Centro-Oeste", "uf": null, "populacao": 17071595 }
+    ],
+    "referencia": { "codigo": "BR", "nome": "Brasil", "uf": null, "populacao": 212583750 },
+    "indicadores": [
+      {
+        "slug": "ies",
+        "codigo": "IND-D-01",
+        "nome": "Instituições de ensino superior instaladas",
+        "unidade": "instituições",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 196.0, "numerador": null, "denominador": null },
+          { "valor": 604.0, "numerador": null, "denominador": null },
+          { "valor": 1076.0, "numerador": null, "denominador": null },
+          { "valor": 389.0, "numerador": null, "denominador": null },
+          { "valor": 296.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 2561.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "docentes",
+        "codigo": "IND-D-08",
+        "nome": "Docentes em exercício",
+        "unidade": "docentes",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Agregado na tabela de IES; nunca após JOIN com cursos."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 27958.0, "numerador": null, "denominador": null },
+          { "valor": 89619.0, "numerador": null, "denominador": null },
+          { "valor": 150386.0, "numerador": null, "denominador": null },
+          { "valor": 68723.0, "numerador": null, "denominador": null },
+          { "valor": 37815.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 374501.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "cursos",
+        "codigo": "IND-D-02",
+        "nome": "Cursos contabilizados na oferta",
+        "unidade": "cursos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+          "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 2789.0, "numerador": null, "denominador": null },
+          { "valor": 7526.0, "numerador": null, "denominador": null },
+          { "valor": 14366.0, "numerador": null, "denominador": null },
+          { "valor": 6389.0, "numerador": null, "denominador": null },
+          { "valor": 3409.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 34479.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas",
+        "codigo": "IND-D-03",
+        "nome": "Matrículas",
+        "unidade": "matrículas",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Contadas no local de oferta; em EAD, no polo."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 863969.0, "numerador": null, "denominador": null },
+          { "valor": 2186521.0, "numerador": null, "denominador": null },
+          { "valor": 4518942.0, "numerador": null, "denominador": null },
+          { "valor": 1750161.0, "numerador": null, "denominador": null },
+          { "valor": 905093.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 10224686.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "ingressantes",
+        "codigo": "IND-D-04",
+        "nome": "Ingressantes",
+        "unidade": "ingressos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": ["Conta vínculos, não pessoas distintas."],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 384111.0, "numerador": null, "denominador": null },
+          { "valor": 944841.0, "numerador": null, "denominador": null },
+          { "valor": 2337201.0, "numerador": null, "denominador": null },
+          { "valor": 882203.0, "numerador": null, "denominador": null },
+          { "valor": 460760.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 5009116.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "concluintes",
+        "codigo": "IND-D-05",
+        "nome": "Concluintes",
+        "unidade": "concluintes",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 96860.0, "numerador": null, "denominador": null },
+          { "valor": 263345.0, "numerador": null, "denominador": null },
+          { "valor": 627003.0, "numerador": null, "denominador": null },
+          { "valor": 231226.0, "numerador": null, "denominador": null },
+          { "valor": 115081.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 1333515.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas_por_100_mil_habitantes",
+        "codigo": "IND-R-01",
+        "nome": "Matrículas por 100 mil habitantes",
+        "unidade": "matrículas por 100 mil habitantes",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas",
+        "denominador_nome": "População estimada (IBGE, 2024)",
+        "limitacoes": [
+          "A matrícula é contada no local de oferta e o habitante no local de residência: um município que atende a região inteira, ou um polo EAD, eleva a razão sem que a população local estude mais.",
+          "Não é taxa de escolarização: o denominador é a população total estimada pelo IBGE para 2024, não a população em idade de cursar o ensino superior.",
+          "Unidade territorial sem registro de oferta é ausência de dado, não zero.",
+          "Em município pequeno, poucas matrículas deslocam muito a razão.",
+          "Conta vínculos, não pessoas distintas."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 4627.7413588960935, "numerador": 863969, "denominador": 18669345 },
+          { "valor": 3828.472693420322, "numerador": 2186521, "denominador": 57112096 },
+          { "valor": 5099.36768496106, "numerador": 4518942, "denominador": 88617693 },
+          { "valor": 5625.172174698175, "numerador": 1750161, "denominador": 31113021 },
+          { "valor": 5301.748313499706, "numerador": 905093, "denominador": 17071595 }
+        ],
+        "referencia": {
+          "valor": 4809.721345116925,
+          "numerador": 10224686,
+          "denominador": 212583750
+        }
+      },
+      {
+        "slug": "participacao_privada",
+        "codigo": "IND-R-03",
+        "nome": "Participação da rede privada nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas na rede privada",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Descreve a rede da IES ofertante, não o financiamento do estudante.",
+          "O complemento é a rede Pública, que inclui as 28 IES de categoria Especial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 77.741562486617, "numerador": 671663, "denominador": 863969 },
+          { "valor": 73.5135861946901, "numerador": 1607390, "denominador": 2186521 },
+          { "valor": 82.36664688327488, "numerador": 3722101, "denominador": 4518942 },
+          { "valor": 83.03984604844926, "numerador": 1453331, "denominador": 1750161 },
+          { "valor": 77.90735316702262, "numerador": 705134, "denominador": 905093 }
+        ],
+        "referencia": { "valor": 79.80312549451396, "numerador": 8159619, "denominador": 10224686 }
+      },
+      {
+        "slug": "participacao_ead",
+        "codigo": "IND-R-04",
+        "nome": "Participação da educação a distância nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas em polo EAD",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Medida por tp_dimensao: matrículas em polo EAD sobre matrículas presenciais e em polo EAD. Ficam fora os registros sem município: no país, 2.539 matrículas de EAD no exterior e 41 de polo sem município identificado.",
+          "A matrícula EAD é contada no município do polo, não no de residência do estudante.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 51.21260137805871, "numerador": 442461, "denominador": 863969 },
+          { "valor": 43.967288674565665, "numerador": 961354, "denominador": 2186521 },
+          { "valor": 51.672648155254045, "numerador": 2335057, "denominador": 4518942 },
+          { "valor": 57.59064451784721, "numerador": 1007929, "denominador": 1750161 },
+          { "valor": 48.614893718104106, "numerador": 440010, "denominador": 905093 }
+        ],
+        "referencia": { "valor": 50.728315764415655, "numerador": 5186811, "denominador": 10224686 }
+      },
+      {
+        "slug": "docentes_doutorado",
+        "codigo": "IND-R-12",
+        "nome": "Docentes com doutorado",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": "Docentes com doutorado",
+        "denominador_nome": "Docentes em exercício",
+        "limitacoes": [
+          "Titulação descreve o corpo docente; não é medida de qualidade de ensino.",
+          "Docentes são atribuídos à sede da IES, não ao local de atuação.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 46.8810358394735, "numerador": 13107, "denominador": 27958 },
+          { "valor": 50.556243653689506, "numerador": 45308, "denominador": 89619 },
+          { "valor": 55.26511776362162, "numerador": 83111, "denominador": 150386 },
+          { "valor": 56.26500589322352, "numerador": 38667, "denominador": 68723 },
+          { "valor": 48.46225042972365, "numerador": 18326, "denominador": 37815 }
+        ],
+        "referencia": { "valor": 53.0089372258018, "numerador": 198519, "denominador": 374501 }
+      }
+    ],
+    "notas": [
+      "Retrato de 2024: todas as unidades são medidas no mesmo ano, com as mesmas definições e os mesmos filtros. Não há série temporal — a comparação é entre unidades, nunca entre anos.",
+      "A maior unidade selecionada tem 5 vezes a população da menor: os valores absolutos medem sobretudo o porte. Para comparar unidades de portes diferentes, leia os valores relativos.",
+      "Cada linha declara o seu recorte: instituições e docentes são atribuídos à sede da IES; cursos e matrículas, ao local de oferta (inclusive polos EAD). Compare as unidades dentro de uma mesma linha; linhas de recortes diferentes não se dividem uma pela outra.",
+      "Cursos e matrículas usam só as dimensões de oferta com município — presencial e polo EAD —, e a contagem de cursos existe apenas no presencial. Por isso o Brasil desta tabela é menor que o total nacional da base: sem filtro de rede, ficam fora 2.580 de 10.227.266 matrículas (EAD no exterior e polo sem município) e os cursos EAD (34.479 de 45.776 são presenciais).",
+      "Ingressantes e concluintes de 2024 são turmas diferentes observadas no mesmo ano: aparecem lado a lado como contagens e não se dividem um pelo outro."
+    ]
+  },
+  "/api/v1/comparacoes?nivel=regiao&unidade=norte&unidade=nordeste&unidade=sudeste&unidade=sul&unidade=centro_oeste&rede=publica": {
+    "ano_censo": "2024",
+    "ano_populacao": "2024",
+    "nivel": "regiao",
+    "rede": "Pública",
+    "dimensoes": [
+      "Cursos presenciais ofertados no Brasil",
+      "Cursos a distância ofertados no Brasil"
+    ],
+    "unidades": [
+      { "codigo": "norte", "nome": "Norte", "uf": null, "populacao": 18669345 },
+      { "codigo": "nordeste", "nome": "Nordeste", "uf": null, "populacao": 57112096 },
+      { "codigo": "sudeste", "nome": "Sudeste", "uf": null, "populacao": 88617693 },
+      { "codigo": "sul", "nome": "Sul", "uf": null, "populacao": 31113021 },
+      { "codigo": "centro_oeste", "nome": "Centro-Oeste", "uf": null, "populacao": 17071595 }
+    ],
+    "referencia": { "codigo": "BR", "nome": "Brasil", "uf": null, "populacao": 212583750 },
+    "indicadores": [
+      {
+        "slug": "ies",
+        "codigo": "IND-D-01",
+        "nome": "Instituições de ensino superior instaladas",
+        "unidade": "instituições",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 24.0, "numerador": null, "denominador": null },
+          { "valor": 66.0, "numerador": null, "denominador": null },
+          { "valor": 166.0, "numerador": null, "denominador": null },
+          { "valor": 34.0, "numerador": null, "denominador": null },
+          { "valor": 27.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 317.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "docentes",
+        "codigo": "IND-D-08",
+        "nome": "Docentes em exercício",
+        "unidade": "docentes",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Agregado na tabela de IES; nunca após JOIN com cursos."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 17116.0, "numerador": null, "denominador": null },
+          { "valor": 51371.0, "numerador": null, "denominador": null },
+          { "valor": 66912.0, "numerador": null, "denominador": null },
+          { "valor": 33265.0, "numerador": null, "denominador": null },
+          { "valor": 18672.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 187336.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "cursos",
+        "codigo": "IND-D-02",
+        "nome": "Cursos contabilizados na oferta",
+        "unidade": "cursos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+          "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 1287.0, "numerador": null, "denominador": null },
+          { "valor": 2953.0, "numerador": null, "denominador": null },
+          { "valor": 3373.0, "numerador": null, "denominador": null },
+          { "valor": 1932.0, "numerador": null, "denominador": null },
+          { "valor": 1238.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 10783.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas",
+        "codigo": "IND-D-03",
+        "nome": "Matrículas",
+        "unidade": "matrículas",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Contadas no local de oferta; em EAD, no polo."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 192306.0, "numerador": null, "denominador": null },
+          { "valor": 579131.0, "numerador": null, "denominador": null },
+          { "valor": 796841.0, "numerador": null, "denominador": null },
+          { "valor": 296830.0, "numerador": null, "denominador": null },
+          { "valor": 199959.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 2065067.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "ingressantes",
+        "codigo": "IND-D-04",
+        "nome": "Ingressantes",
+        "unidade": "ingressos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": ["Conta vínculos, não pessoas distintas."],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 43591.0, "numerador": null, "denominador": null },
+          { "valor": 147668.0, "numerador": null, "denominador": null },
+          { "valor": 234768.0, "numerador": null, "denominador": null },
+          { "valor": 89323.0, "numerador": null, "denominador": null },
+          { "valor": 59980.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 575330.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "concluintes",
+        "codigo": "IND-D-05",
+        "nome": "Concluintes",
+        "unidade": "concluintes",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 23186.0, "numerador": null, "denominador": null },
+          { "valor": 68095.0, "numerador": null, "denominador": null },
+          { "valor": 103021.0, "numerador": null, "denominador": null },
+          { "valor": 38274.0, "numerador": null, "denominador": null },
+          { "valor": 23931.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 256507.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas_por_100_mil_habitantes",
+        "codigo": "IND-R-01",
+        "nome": "Matrículas por 100 mil habitantes",
+        "unidade": "matrículas por 100 mil habitantes",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas",
+        "denominador_nome": "População estimada (IBGE, 2024)",
+        "limitacoes": [
+          "A matrícula é contada no local de oferta e o habitante no local de residência: um município que atende a região inteira, ou um polo EAD, eleva a razão sem que a população local estude mais.",
+          "Não é taxa de escolarização: o denominador é a população total estimada pelo IBGE para 2024, não a população em idade de cursar o ensino superior.",
+          "Unidade territorial sem registro de oferta é ausência de dado, não zero.",
+          "Em município pequeno, poucas matrículas deslocam muito a razão.",
+          "Conta vínculos, não pessoas distintas."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 1030.0629186508686, "numerador": 192306, "denominador": 18669345 },
+          { "valor": 1014.0251200025999, "numerador": 579131, "denominador": 57112096 },
+          { "valor": 899.1895106093543, "numerador": 796841, "denominador": 88617693 },
+          { "valor": 954.0378608686055, "numerador": 296830, "denominador": 31113021 },
+          { "valor": 1171.2965308748244, "numerador": 199959, "denominador": 17071595 }
+        ],
+        "referencia": { "valor": 971.4133841368401, "numerador": 2065067, "denominador": 212583750 }
+      },
+      {
+        "slug": "participacao_privada",
+        "codigo": "IND-R-03",
+        "nome": "Participação da rede privada nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas na rede privada",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Descreve a rede da IES ofertante, não o financiamento do estudante.",
+          "O complemento é a rede Pública, que inclui as 28 IES de categoria Especial."
+        ],
+        "nao_se_aplica": "Não se aplica com a rede fixada: a participação seria 0% ou 100%.",
+        "valores": [
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": null, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": null, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "participacao_ead",
+        "codigo": "IND-R-04",
+        "nome": "Participação da educação a distância nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas em polo EAD",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Medida por tp_dimensao: matrículas em polo EAD sobre matrículas presenciais e em polo EAD. Ficam fora os registros sem município: no país, 2.539 matrículas de EAD no exterior e 41 de polo sem município identificado.",
+          "A matrícula EAD é contada no município do polo, não no de residência do estudante.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 7.560346531049474, "numerador": 14539, "denominador": 192306 },
+          { "valor": 8.268595533653007, "numerador": 47886, "denominador": 579131 },
+          { "valor": 15.005377484341292, "numerador": 119569, "denominador": 796841 },
+          { "valor": 5.672270323080551, "numerador": 16837, "denominador": 296830 },
+          { "valor": 8.255692416945474, "numerador": 16508, "denominador": 199959 }
+        ],
+        "referencia": { "valor": 10.427700408751871, "numerador": 215339, "denominador": 2065067 }
+      },
+      {
+        "slug": "docentes_doutorado",
+        "codigo": "IND-R-12",
+        "nome": "Docentes com doutorado",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": "Docentes com doutorado",
+        "denominador_nome": "Docentes em exercício",
+        "limitacoes": [
+          "Titulação descreve o corpo docente; não é medida de qualidade de ensino.",
+          "Docentes são atribuídos à sede da IES, não ao local de atuação.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 61.60317831268988, "numerador": 10544, "denominador": 17116 },
+          { "valor": 67.6081836055362, "numerador": 34731, "denominador": 51371 },
+          { "valor": 75.86382113821138, "numerador": 50762, "denominador": 66912 },
+          { "valor": 79.87674733203066, "numerador": 26571, "denominador": 33265 },
+          { "valor": 69.82647814910025, "numerador": 13038, "denominador": 18672 }
+        ],
+        "referencia": { "valor": 72.40786608019815, "numerador": 135646, "denominador": 187336 }
+      }
+    ],
+    "notas": [
+      "Retrato de 2024: todas as unidades são medidas no mesmo ano, com as mesmas definições e os mesmos filtros. Não há série temporal — a comparação é entre unidades, nunca entre anos.",
+      "A maior unidade selecionada tem 5 vezes a população da menor: os valores absolutos medem sobretudo o porte. Para comparar unidades de portes diferentes, leia os valores relativos.",
+      "Cada linha declara o seu recorte: instituições e docentes são atribuídos à sede da IES; cursos e matrículas, ao local de oferta (inclusive polos EAD). Compare as unidades dentro de uma mesma linha; linhas de recortes diferentes não se dividem uma pela outra.",
+      "Cursos e matrículas usam só as dimensões de oferta com município — presencial e polo EAD —, e a contagem de cursos existe apenas no presencial. Por isso o Brasil desta tabela é menor que o total nacional da base: sem filtro de rede, ficam fora 2.580 de 10.227.266 matrículas (EAD no exterior e polo sem município) e os cursos EAD (34.479 de 45.776 são presenciais).",
+      "Ingressantes e concluintes de 2024 são turmas diferentes observadas no mesmo ano: aparecem lado a lado como contagens e não se dividem um pelo outro.",
+      "Com a rede fixada, os valores absolutos e os numeradores contam só as instituições e as matrículas dessa rede; a população, no denominador de matrículas por 100 mil habitantes, continua sendo a total.",
+      "A rede Pública inclui as 28 IES de categoria administrativa Especial; não é sinônimo de pública em sentido estrito."
+    ]
+  },
+  "/api/v1/comparacoes?nivel=uf&unidade=RR&unidade=SP&unidade=DF": {
+    "ano_censo": "2024",
+    "ano_populacao": "2024",
+    "nivel": "uf",
+    "rede": null,
+    "dimensoes": [
+      "Cursos presenciais ofertados no Brasil",
+      "Cursos a distância ofertados no Brasil"
+    ],
+    "unidades": [
+      { "codigo": "RR", "nome": "Roraima", "uf": "RR", "populacao": 716793 },
+      { "codigo": "SP", "nome": "São Paulo", "uf": "SP", "populacao": 45973194 },
+      { "codigo": "DF", "nome": "Distrito Federal", "uf": "DF", "populacao": 2982818 }
+    ],
+    "referencia": { "codigo": "BR", "nome": "Brasil", "uf": null, "populacao": 212583750 },
+    "indicadores": [
+      {
+        "slug": "ies",
+        "codigo": "IND-D-01",
+        "nome": "Instituições de ensino superior instaladas",
+        "unidade": "instituições",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 9.0, "numerador": null, "denominador": null },
+          { "valor": 580.0, "numerador": null, "denominador": null },
+          { "valor": 63.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 2561.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "docentes",
+        "codigo": "IND-D-08",
+        "nome": "Docentes em exercício",
+        "unidade": "docentes",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Agregado na tabela de IES; nunca após JOIN com cursos."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 1527.0, "numerador": null, "denominador": null },
+          { "valor": 73145.0, "numerador": null, "denominador": null },
+          { "valor": 9244.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 374501.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "cursos",
+        "codigo": "IND-D-02",
+        "nome": "Cursos contabilizados na oferta",
+        "unidade": "cursos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+          "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 134.0, "numerador": null, "denominador": null },
+          { "valor": 7864.0, "numerador": null, "denominador": null },
+          { "valor": 757.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 34479.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas",
+        "codigo": "IND-D-03",
+        "nome": "Matrículas",
+        "unidade": "matrículas",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Contadas no local de oferta; em EAD, no polo."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 34171.0, "numerador": null, "denominador": null },
+          { "valor": 2441033.0, "numerador": null, "denominador": null },
+          { "valor": 248333.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 10224686.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "ingressantes",
+        "codigo": "IND-D-04",
+        "nome": "Ingressantes",
+        "unidade": "ingressos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": ["Conta vínculos, não pessoas distintas."],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 16049.0, "numerador": null, "denominador": null },
+          { "valor": 1339535.0, "numerador": null, "denominador": null },
+          { "valor": 122040.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 5009116.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "concluintes",
+        "codigo": "IND-D-05",
+        "nome": "Concluintes",
+        "unidade": "concluintes",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 3267.0, "numerador": null, "denominador": null },
+          { "valor": 352714.0, "numerador": null, "denominador": null },
+          { "valor": 34946.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 1333515.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas_por_100_mil_habitantes",
+        "codigo": "IND-R-01",
+        "nome": "Matrículas por 100 mil habitantes",
+        "unidade": "matrículas por 100 mil habitantes",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas",
+        "denominador_nome": "População estimada (IBGE, 2024)",
+        "limitacoes": [
+          "A matrícula é contada no local de oferta e o habitante no local de residência: um município que atende a região inteira, ou um polo EAD, eleva a razão sem que a população local estude mais.",
+          "Não é taxa de escolarização: o denominador é a população total estimada pelo IBGE para 2024, não a população em idade de cursar o ensino superior.",
+          "Unidade territorial sem registro de oferta é ausência de dado, não zero.",
+          "Em município pequeno, poucas matrículas deslocam muito a razão.",
+          "Conta vínculos, não pessoas distintas."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 4767.206152961873, "numerador": 34171, "denominador": 716793 },
+          { "valor": 5309.687641019677, "numerador": 2441033, "denominador": 45973194 },
+          { "valor": 8325.449289899685, "numerador": 248333, "denominador": 2982818 }
+        ],
+        "referencia": {
+          "valor": 4809.721345116925,
+          "numerador": 10224686,
+          "denominador": 212583750
+        }
+      },
+      {
+        "slug": "participacao_privada",
+        "codigo": "IND-R-03",
+        "nome": "Participação da rede privada nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas na rede privada",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Descreve a rede da IES ofertante, não o financiamento do estudante.",
+          "O complemento é a rede Pública, que inclui as 28 IES de categoria Especial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 75.71039770565685, "numerador": 25871, "denominador": 34171 },
+          { "valor": 85.23125250662322, "numerador": 2080523, "denominador": 2441033 },
+          { "valor": 81.85581457156317, "numerador": 203275, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 79.80312549451396, "numerador": 8159619, "denominador": 10224686 }
+      },
+      {
+        "slug": "participacao_ead",
+        "codigo": "IND-R-04",
+        "nome": "Participação da educação a distância nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas em polo EAD",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Medida por tp_dimensao: matrículas em polo EAD sobre matrículas presenciais e em polo EAD. Ficam fora os registros sem município: no país, 2.539 matrículas de EAD no exterior e 41 de polo sem município identificado.",
+          "A matrícula EAD é contada no município do polo, não no de residência do estudante.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 57.18884434169325, "numerador": 19542, "denominador": 34171 },
+          { "valor": 51.9652950205917, "numerador": 1268490, "denominador": 2441033 },
+          { "valor": 45.61697398251541, "numerador": 113282, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 50.728315764415655, "numerador": 5186811, "denominador": 10224686 }
+      },
+      {
+        "slug": "docentes_doutorado",
+        "codigo": "IND-R-12",
+        "nome": "Docentes com doutorado",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": "Docentes com doutorado",
+        "denominador_nome": "Docentes em exercício",
+        "limitacoes": [
+          "Titulação descreve o corpo docente; não é medida de qualidade de ensino.",
+          "Docentes são atribuídos à sede da IES, não ao local de atuação.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 46.10347085789129, "numerador": 704, "denominador": 1527 },
+          { "valor": 52.94415202679609, "numerador": 38726, "denominador": 73145 },
+          { "valor": 49.66464733881437, "numerador": 4591, "denominador": 9244 }
+        ],
+        "referencia": { "valor": 53.0089372258018, "numerador": 198519, "denominador": 374501 }
+      }
+    ],
+    "notas": [
+      "Retrato de 2024: todas as unidades são medidas no mesmo ano, com as mesmas definições e os mesmos filtros. Não há série temporal — a comparação é entre unidades, nunca entre anos.",
+      "A maior unidade selecionada tem 64 vezes a população da menor: os valores absolutos medem sobretudo o porte. Para comparar unidades de portes diferentes, leia os valores relativos.",
+      "Cada linha declara o seu recorte: instituições e docentes são atribuídos à sede da IES; cursos e matrículas, ao local de oferta (inclusive polos EAD). Compare as unidades dentro de uma mesma linha; linhas de recortes diferentes não se dividem uma pela outra.",
+      "Cursos e matrículas usam só as dimensões de oferta com município — presencial e polo EAD —, e a contagem de cursos existe apenas no presencial. Por isso o Brasil desta tabela é menor que o total nacional da base: sem filtro de rede, ficam fora 2.580 de 10.227.266 matrículas (EAD no exterior e polo sem município) e os cursos EAD (34.479 de 45.776 são presenciais).",
+      "Ingressantes e concluintes de 2024 são turmas diferentes observadas no mesmo ano: aparecem lado a lado como contagens e não se dividem um pelo outro."
+    ]
+  },
+  "/api/v1/comparacoes?nivel=uf&unidade=SP&unidade=DF": {
+    "ano_censo": "2024",
+    "ano_populacao": "2024",
+    "nivel": "uf",
+    "rede": null,
+    "dimensoes": [
+      "Cursos presenciais ofertados no Brasil",
+      "Cursos a distância ofertados no Brasil"
+    ],
+    "unidades": [
+      { "codigo": "SP", "nome": "São Paulo", "uf": "SP", "populacao": 45973194 },
+      { "codigo": "DF", "nome": "Distrito Federal", "uf": "DF", "populacao": 2982818 }
+    ],
+    "referencia": { "codigo": "BR", "nome": "Brasil", "uf": null, "populacao": 212583750 },
+    "indicadores": [
+      {
+        "slug": "ies",
+        "codigo": "IND-D-01",
+        "nome": "Instituições de ensino superior instaladas",
+        "unidade": "instituições",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 580.0, "numerador": null, "denominador": null },
+          { "valor": 63.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 2561.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "docentes",
+        "codigo": "IND-D-08",
+        "nome": "Docentes em exercício",
+        "unidade": "docentes",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Agregado na tabela de IES; nunca após JOIN com cursos."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 73145.0, "numerador": null, "denominador": null },
+          { "valor": 9244.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 374501.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "cursos",
+        "codigo": "IND-D-02",
+        "nome": "Cursos contabilizados na oferta",
+        "unidade": "cursos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+          "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 7864.0, "numerador": null, "denominador": null },
+          { "valor": 757.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 34479.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas",
+        "codigo": "IND-D-03",
+        "nome": "Matrículas",
+        "unidade": "matrículas",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Contadas no local de oferta; em EAD, no polo."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 2441033.0, "numerador": null, "denominador": null },
+          { "valor": 248333.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 10224686.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "ingressantes",
+        "codigo": "IND-D-04",
+        "nome": "Ingressantes",
+        "unidade": "ingressos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": ["Conta vínculos, não pessoas distintas."],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 1339535.0, "numerador": null, "denominador": null },
+          { "valor": 122040.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 5009116.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "concluintes",
+        "codigo": "IND-D-05",
+        "nome": "Concluintes",
+        "unidade": "concluintes",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 352714.0, "numerador": null, "denominador": null },
+          { "valor": 34946.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 1333515.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas_por_100_mil_habitantes",
+        "codigo": "IND-R-01",
+        "nome": "Matrículas por 100 mil habitantes",
+        "unidade": "matrículas por 100 mil habitantes",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas",
+        "denominador_nome": "População estimada (IBGE, 2024)",
+        "limitacoes": [
+          "A matrícula é contada no local de oferta e o habitante no local de residência: um município que atende a região inteira, ou um polo EAD, eleva a razão sem que a população local estude mais.",
+          "Não é taxa de escolarização: o denominador é a população total estimada pelo IBGE para 2024, não a população em idade de cursar o ensino superior.",
+          "Unidade territorial sem registro de oferta é ausência de dado, não zero.",
+          "Em município pequeno, poucas matrículas deslocam muito a razão.",
+          "Conta vínculos, não pessoas distintas."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 5309.687641019677, "numerador": 2441033, "denominador": 45973194 },
+          { "valor": 8325.449289899685, "numerador": 248333, "denominador": 2982818 }
+        ],
+        "referencia": {
+          "valor": 4809.721345116925,
+          "numerador": 10224686,
+          "denominador": 212583750
+        }
+      },
+      {
+        "slug": "participacao_privada",
+        "codigo": "IND-R-03",
+        "nome": "Participação da rede privada nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas na rede privada",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Descreve a rede da IES ofertante, não o financiamento do estudante.",
+          "O complemento é a rede Pública, que inclui as 28 IES de categoria Especial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 85.23125250662322, "numerador": 2080523, "denominador": 2441033 },
+          { "valor": 81.85581457156317, "numerador": 203275, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 79.80312549451396, "numerador": 8159619, "denominador": 10224686 }
+      },
+      {
+        "slug": "participacao_ead",
+        "codigo": "IND-R-04",
+        "nome": "Participação da educação a distância nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas em polo EAD",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Medida por tp_dimensao: matrículas em polo EAD sobre matrículas presenciais e em polo EAD. Ficam fora os registros sem município: no país, 2.539 matrículas de EAD no exterior e 41 de polo sem município identificado.",
+          "A matrícula EAD é contada no município do polo, não no de residência do estudante.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 51.9652950205917, "numerador": 1268490, "denominador": 2441033 },
+          { "valor": 45.61697398251541, "numerador": 113282, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 50.728315764415655, "numerador": 5186811, "denominador": 10224686 }
+      },
+      {
+        "slug": "docentes_doutorado",
+        "codigo": "IND-R-12",
+        "nome": "Docentes com doutorado",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": "Docentes com doutorado",
+        "denominador_nome": "Docentes em exercício",
+        "limitacoes": [
+          "Titulação descreve o corpo docente; não é medida de qualidade de ensino.",
+          "Docentes são atribuídos à sede da IES, não ao local de atuação.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 52.94415202679609, "numerador": 38726, "denominador": 73145 },
+          { "valor": 49.66464733881437, "numerador": 4591, "denominador": 9244 }
+        ],
+        "referencia": { "valor": 53.0089372258018, "numerador": 198519, "denominador": 374501 }
+      }
+    ],
+    "notas": [
+      "Retrato de 2024: todas as unidades são medidas no mesmo ano, com as mesmas definições e os mesmos filtros. Não há série temporal — a comparação é entre unidades, nunca entre anos.",
+      "A maior unidade selecionada tem 15 vezes a população da menor: os valores absolutos medem sobretudo o porte. Para comparar unidades de portes diferentes, leia os valores relativos.",
+      "Cada linha declara o seu recorte: instituições e docentes são atribuídos à sede da IES; cursos e matrículas, ao local de oferta (inclusive polos EAD). Compare as unidades dentro de uma mesma linha; linhas de recortes diferentes não se dividem uma pela outra.",
+      "Cursos e matrículas usam só as dimensões de oferta com município — presencial e polo EAD —, e a contagem de cursos existe apenas no presencial. Por isso o Brasil desta tabela é menor que o total nacional da base: sem filtro de rede, ficam fora 2.580 de 10.227.266 matrículas (EAD no exterior e polo sem município) e os cursos EAD (34.479 de 45.776 são presenciais).",
+      "Ingressantes e concluintes de 2024 são turmas diferentes observadas no mesmo ano: aparecem lado a lado como contagens e não se dividem um pelo outro."
+    ]
+  },
+  "/api/v1/comparacoes?nivel=municipio&unidade=1100015&unidade=5300108": {
+    "ano_censo": "2024",
+    "ano_populacao": "2024",
+    "nivel": "municipio",
+    "rede": null,
+    "dimensoes": [
+      "Cursos presenciais ofertados no Brasil",
+      "Cursos a distância ofertados no Brasil"
+    ],
+    "unidades": [
+      { "codigo": "1100015", "nome": "Alta Floresta D'Oeste", "uf": "RO", "populacao": 22853 },
+      { "codigo": "5300108", "nome": "Brasília", "uf": "DF", "populacao": 2982818 }
+    ],
+    "referencia": { "codigo": "BR", "nome": "Brasil", "uf": null, "populacao": 212583750 },
+    "indicadores": [
+      {
+        "slug": "ies",
+        "codigo": "IND-D-01",
+        "nome": "Instituições de ensino superior instaladas",
+        "unidade": "instituições",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Não é contagem de campi nem de polos: uma IES com várias unidades conta 1."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 0.0, "numerador": null, "denominador": null },
+          { "valor": 63.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 2561.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "docentes",
+        "codigo": "IND-D-08",
+        "nome": "Docentes em exercício",
+        "unidade": "docentes",
+        "tipo": "absoluto",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Atribuído ao município de sede da IES, não aos campi nem aos polos.",
+          "Agregado na tabela de IES; nunca após JOIN com cursos."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": 9244.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 374501.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "cursos",
+        "codigo": "IND-D-02",
+        "nome": "Cursos contabilizados na oferta",
+        "unidade": "cursos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": ["Cursos presenciais ofertados no Brasil"],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "SUM(qt_curso) = 45.776 difere de COUNT(DISTINCT co_curso) = 46.150; o rótulo não promete 'todos os cursos'.",
+          "O marcador é zero em todo polo EAD: por território, só existe no presencial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": 757.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 34479.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas",
+        "codigo": "IND-D-03",
+        "nome": "Matrículas",
+        "unidade": "matrículas",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Contadas no local de oferta; em EAD, no polo."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 296.0, "numerador": null, "denominador": null },
+          { "valor": 248333.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 10224686.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "ingressantes",
+        "codigo": "IND-D-04",
+        "nome": "Ingressantes",
+        "unidade": "ingressos",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": ["Conta vínculos, não pessoas distintas."],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 141.0, "numerador": null, "denominador": null },
+          { "valor": 122040.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 5009116.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "concluintes",
+        "codigo": "IND-D-05",
+        "nome": "Concluintes",
+        "unidade": "concluintes",
+        "tipo": "absoluto",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": null,
+        "denominador_nome": null,
+        "limitacoes": [
+          "Conta vínculos, não pessoas distintas.",
+          "Não pode ser dividido por ingressantes ou matrículas como taxa de conclusão (IND-Q-01)."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 44.0, "numerador": null, "denominador": null },
+          { "valor": 34946.0, "numerador": null, "denominador": null }
+        ],
+        "referencia": { "valor": 1333515.0, "numerador": null, "denominador": null }
+      },
+      {
+        "slug": "matriculas_por_100_mil_habitantes",
+        "codigo": "IND-R-01",
+        "nome": "Matrículas por 100 mil habitantes",
+        "unidade": "matrículas por 100 mil habitantes",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas",
+        "denominador_nome": "População estimada (IBGE, 2024)",
+        "limitacoes": [
+          "A matrícula é contada no local de oferta e o habitante no local de residência: um município que atende a região inteira, ou um polo EAD, eleva a razão sem que a população local estude mais.",
+          "Não é taxa de escolarização: o denominador é a população total estimada pelo IBGE para 2024, não a população em idade de cursar o ensino superior.",
+          "Unidade territorial sem registro de oferta é ausência de dado, não zero.",
+          "Em município pequeno, poucas matrículas deslocam muito a razão.",
+          "Conta vínculos, não pessoas distintas."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 1295.2347613004856, "numerador": 296, "denominador": 22853 },
+          { "valor": 8325.449289899685, "numerador": 248333, "denominador": 2982818 }
+        ],
+        "referencia": {
+          "valor": 4809.721345116925,
+          "numerador": 10224686,
+          "denominador": 212583750
+        }
+      },
+      {
+        "slug": "participacao_privada",
+        "codigo": "IND-R-03",
+        "nome": "Participação da rede privada nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas na rede privada",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Descreve a rede da IES ofertante, não o financiamento do estudante.",
+          "O complemento é a rede Pública, que inclui as 28 IES de categoria Especial."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 100.0, "numerador": 296, "denominador": 296 },
+          { "valor": 81.85581457156317, "numerador": 203275, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 79.80312549451396, "numerador": 8159619, "denominador": 10224686 }
+      },
+      {
+        "slug": "participacao_ead",
+        "codigo": "IND-R-04",
+        "nome": "Participação da educação a distância nas matrículas",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "oferta",
+        "dimensoes": [
+          "Cursos presenciais ofertados no Brasil",
+          "Cursos a distância ofertados no Brasil"
+        ],
+        "numerador_nome": "Matrículas em polo EAD",
+        "denominador_nome": "Matrículas",
+        "limitacoes": [
+          "Medida por tp_dimensao: matrículas em polo EAD sobre matrículas presenciais e em polo EAD. Ficam fora os registros sem município: no país, 2.539 matrículas de EAD no exterior e 41 de polo sem município identificado.",
+          "A matrícula EAD é contada no município do polo, não no de residência do estudante.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": 100.0, "numerador": 296, "denominador": 296 },
+          { "valor": 45.61697398251541, "numerador": 113282, "denominador": 248333 }
+        ],
+        "referencia": { "valor": 50.728315764415655, "numerador": 5186811, "denominador": 10224686 }
+      },
+      {
+        "slug": "docentes_doutorado",
+        "codigo": "IND-R-12",
+        "nome": "Docentes com doutorado",
+        "unidade": "%",
+        "tipo": "relativo",
+        "recorte": "sede",
+        "dimensoes": [],
+        "numerador_nome": "Docentes com doutorado",
+        "denominador_nome": "Docentes em exercício",
+        "limitacoes": [
+          "Titulação descreve o corpo docente; não é medida de qualidade de ensino.",
+          "Docentes são atribuídos à sede da IES, não ao local de atuação.",
+          "Depende fortemente da rede: sem fixá-la, a diferença entre unidades reflete em grande parte quanto da oferta de cada uma é pública ou privada."
+        ],
+        "nao_se_aplica": null,
+        "valores": [
+          { "valor": null, "numerador": null, "denominador": null },
+          { "valor": 49.66464733881437, "numerador": 4591, "denominador": 9244 }
+        ],
+        "referencia": { "valor": 53.0089372258018, "numerador": 198519, "denominador": 374501 }
+      }
+    ],
+    "notas": [
+      "Retrato de 2024: todas as unidades são medidas no mesmo ano, com as mesmas definições e os mesmos filtros. Não há série temporal — a comparação é entre unidades, nunca entre anos.",
+      "A maior unidade selecionada tem 131 vezes a população da menor: os valores absolutos medem sobretudo o porte. Para comparar unidades de portes diferentes, leia os valores relativos.",
+      "Cada linha declara o seu recorte: instituições e docentes são atribuídos à sede da IES; cursos e matrículas, ao local de oferta (inclusive polos EAD). Compare as unidades dentro de uma mesma linha; linhas de recortes diferentes não se dividem uma pela outra.",
+      "Cursos e matrículas usam só as dimensões de oferta com município — presencial e polo EAD —, e a contagem de cursos existe apenas no presencial. Por isso o Brasil desta tabela é menor que o total nacional da base: sem filtro de rede, ficam fora 2.580 de 10.227.266 matrículas (EAD no exterior e polo sem município) e os cursos EAD (34.479 de 45.776 são presenciais).",
+      "Ingressantes e concluintes de 2024 são turmas diferentes observadas no mesmo ano: aparecem lado a lado como contagens e não se dividem um pelo outro.",
+      "Célula vazia não é zero: é unidade sem registro na base para aquela linha (sem curso presencial, sem oferta ou sem IES com sede no recorte) ou razão com denominador zero."
+    ]
+  }
+}

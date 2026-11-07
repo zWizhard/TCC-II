@@ -1,0 +1,5 @@
+{
+  "ano_censo": "2024",
+  "uf": "DF",
+  "municipios": [{ "codigo": "5300108", "nome": "Brasília", "sede": true, "oferta": true }]
+}

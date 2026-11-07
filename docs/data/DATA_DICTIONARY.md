@@ -200,15 +200,15 @@ e `cursos.tp_rede` tem exatamente os dois rótulos `Privada | Pública`. As duas
 **`ies.ds_rede` ↔ `cursos.tp_rede`**, sem tradução manual de código.
 
 > ⚠️ A ressalva permanece: `ds_rede = 'Pública'` inclui as 28 IES de categoria **Especial**,
-> exatamente como `tp_rede = '1'`. Para "pública" no sentido estrito, filtrar por
+> exatamente como `tp_rede = 1`. Para "pública" no sentido estrito, filtrar por
 > `tp_categoria_administrativa`.
 
 ### `in_comunitaria` e `in_confessional` — codificação diferente dos demais `in_*`
 
 | Coluna | Valores | Linhas |
 |---|---|---|
-| `in_comunitaria` | `'0'` / `'1'` | 2.475 / 86 |
-| `in_confessional` | `'0'` / `'1'` | 2.505 / 56 |
+| `in_comunitaria` | `0` / `1` (`smallint`) | 2.475 / 86 |
+| `in_confessional` | `0` / `1` (`smallint`) | 2.505 / 56 |
 | `in_capital_ies` | `'Sim'` / `'Não'` | 919 / 1.642 |
 
 ⚠️ Colunas do mesmo prefixo `in_` **não têm codificação uniforme**: umas são `0`/`1`, outra é
@@ -237,13 +237,14 @@ e `cursos.tp_rede` tem exatamente os dois rótulos `Privada | Pública`. As duas
 | Especial | 28 |
 | Pública Municipal | 28 |
 
-**`tp_rede`** — ⚠️ **neste arquivo vem como código, não rótulo:** `'1'` (317) e `'2'` (2.244).
+**`tp_rede`** — ⚠️ **nesta tabela é código inteiro, não rótulo:** `1` (317) e `2` (2.244).
+*(Corrigido em 2026-10-07: a coluna é `integer`; a grafia anterior `'1'`/`'2'` vinha da leitura do CSV.)*
 Cruzamento com `tp_categoria_administrativa` resolve o significado sem ambiguidade:
 
-- `'2'` = as duas categorias privadas (1.486 + 758 = **2.244** ✓)
-- `'1'` = Pública Federal + Estadual + Municipal + **Especial** (122+139+28+28 = **317** ✓)
+- `2` = as duas categorias privadas (1.486 + 758 = **2.244** ✓)
+- `1` = Pública Federal + Estadual + Municipal + **Especial** (122+139+28+28 = **317** ✓)
 
-> Atenção: `tp_rede = '1'` **não é sinônimo de "pública"** — inclui as 28 IES de categoria
+> Atenção: `tp_rede = 1` **não é sinônimo de "pública"** — inclui as 28 IES de categoria
 > *Especial*. Para "pública" no sentido estrito, filtrar por `tp_categoria_administrativa`.
 
 ### Métricas (somas de controle, 2024)
@@ -293,8 +294,8 @@ elas se resolvem ao acrescentar `tp_dimensao`. **A confirmar no banco** (script 
 | `co_cine_area_especifica` | 39 | |
 | `co_cine_area_detalhada` | 89 | |
 | `in_gratuito` | 2 | `'Não'` 701.299 · `'Sim'` 19.050 |
-| `in_comunitaria` | 2 | `'0'` 705.591 · `'1'` 14.758 — mesma codificação `0`/`1` da tabela de IES |
-| `in_confessional` | 2 | `'0'` 712.852 · `'1'` 7.497 |
+| `in_comunitaria` | 2 | `0` 705.591 · `1` 14.758 — `smallint`, mesma codificação `0`/`1` da tabela de IES |
+| `in_confessional` | 2 | `0` 712.852 · `1` 7.497 — `smallint` |
 
 `tp_categoria_administrativa` usa em cursos **os mesmos 6 rótulos** da tabela de IES — essa
 coluna é comparável entre as duas tabelas, ao contrário de `tp_rede`.
@@ -390,7 +391,7 @@ Somas de controle nacionais 2024: `qt_mat` = **10.227.266** · `qt_ing` = 5.010.
 | `tp_organizacao_academica` | `Centro Universitário` 370.724 · `Universidade` 323.102 · `Faculdade` 23.985 · IF 2.474 · CEFET 64 |
 | `tp_rede` | ⚠️ **rótulos** aqui: `Privada` 700.198 · `Pública` 20.151 |
 
-> ⚠️ **Inconsistência entre os dois arquivos:** `tp_rede` vem como **código** (`'1'`/`'2'`) em IES
+> ⚠️ **Inconsistência entre os dois arquivos:** `tp_rede` vem como **código inteiro** (`1`/`2`) em IES
 > e como **rótulo** (`Pública`/`Privada`) em cursos. Nunca comparar as duas colunas diretamente.
 
 ### Classificação CINE
@@ -590,4 +591,8 @@ Conexão direta via `scripts/db/run_sql.py` (sessão somente-leitura). Evidênci
 - [ ] Nos 50 pares duplicados de `ibge_populacao_estimada` (2000–2020), qual valor é o correto.
   Só bloqueia se o projeto usar série histórica de população — hoje fora de escopo.
 - [ ] Decodificar `v0001`…`v0007` de `IBGE_agregados_por_municipio_basico`, se forem usados.
-- [ ] Obter malha municipal IBGE (GeoJSON) para o coroplético — não há polígono no banco.
+- [x] ~~Obter malha municipal IBGE (GeoJSON) para o coroplético~~ — **feito em 2026-10-07**
+  (`scripts/etl/baixar_malha_ibge.py` → `data/reference/malha/`): API de malhas v4, qualidade
+  mínima, 5.571 feições casando 1:1 com `codigo_municipio_dv`. Ano da edição da malha: **A confirmar**.
+- [x] ~~Coordenada por IES~~ — **não existe** (2026-10-07): `ies` só tem `ds_endereco_ies` e
+  `nu_cep_ies`. O ponto de uma IES no mapa é o do município de sede (2.561 IES em 698 pontos).

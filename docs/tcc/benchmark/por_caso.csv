@@ -1,0 +1,85 @@
+condicao,modelo,caso,categoria,convencao_implicita,sucesso,desfechos,campos_divergentes,latencia_mediana_s
+P,gpt-oss:20b,M3,multiplos_filtros,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.8
+P,gpt-oss:20b,A1,agregacao,False,True,respondida respondida respondida,,22.1
+P,gpt-oss:20b,R1,ranking,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.8
+P,gpt-oss:20b,G1,group_by,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.4
+P,gpt-oss:20b,Z1,razao,False,True,respondida respondida respondida,,25.1
+P,gpt-oss:20b,F2,filtro_simples,False,False,respondida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.7
+P,gpt-oss:20b,H3,having,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida plano_invalido,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,40.1
+P,gpt-oss:20b,M4,multiplos_filtros,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.5
+P,gpt-oss:20b,R3,ranking,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.7
+P,gpt-oss:20b,F3,filtro_simples,False,True,respondida respondida respondida,,38.4
+P,gpt-oss:20b,A2,agregacao,False,True,respondida respondida respondida,,23.2
+P,gpt-oss:20b,H2,having,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.8
+P,gpt-oss:20b,C2,comparacao,False,False,plano_invalido plano_invalido plano_invalido,intent,32.9
+P,gpt-oss:20b,C1,comparacao,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.8
+P,gpt-oss:20b,G2,group_by,False,False,resposta_do_modelo_invalida respondida respondida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,20.0
+P,gpt-oss:20b,H1,having,False,False,respondida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.7
+P,gpt-oss:20b,H4,having,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.4
+P,gpt-oss:20b,G3,group_by,False,True,respondida respondida respondida,,33.7
+P,gpt-oss:20b,G4,group_by,True,False,plano_invalido resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.7
+P,gpt-oss:20b,F4,filtro_simples,True,False,plano_invalido plano_invalido plano_invalido,intent,24.5
+P,gpt-oss:20b,Z2,razao,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.8
+P,gpt-oss:20b,M1,multiplos_filtros,True,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.0
+P,gpt-oss:20b,R2,ranking,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,37.7
+P,gpt-oss:20b,C3,comparacao,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.1
+P,gpt-oss:20b,F1,filtro_simples,False,True,respondida respondida respondida,,21.7
+P,gpt-oss:20b,R4,ranking,False,False,respondida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,39.0
+P,gpt-oss:20b,A3,agregacao,False,True,respondida respondida respondida,,23.0
+P,gpt-oss:20b,M2,multiplos_filtros,True,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,38.2
+P,qwen2.5-coder:14b,M3,multiplos_filtros,False,False,plano_invalido plano_invalido plano_invalido,having limit,19.2
+P,qwen2.5-coder:14b,A1,agregacao,False,False,plano_invalido plano_invalido plano_invalido,limit,13.2
+P,qwen2.5-coder:14b,R1,ranking,False,True,respondida respondida respondida,,17.5
+P,qwen2.5-coder:14b,G1,group_by,False,False,plano_invalido plano_invalido plano_invalido,group_by limit,15.7
+P,qwen2.5-coder:14b,Z1,razao,False,False,plano_invalido plano_invalido plano_invalido,limit,15.8
+P,qwen2.5-coder:14b,F2,filtro_simples,False,False,plano_invalido plano_invalido plano_invalido,filters limit,14.9
+P,qwen2.5-coder:14b,H3,having,False,False,plano_invalido plano_invalido plano_invalido,group_by having limit,13.9
+P,qwen2.5-coder:14b,M4,multiplos_filtros,False,False,plano_invalido plano_invalido plano_invalido,limit,19.1
+P,qwen2.5-coder:14b,R3,ranking,False,False,plano_invalido plano_invalido plano_invalido,group_by,14.6
+P,qwen2.5-coder:14b,F3,filtro_simples,False,False,plano_invalido plano_invalido plano_invalido,limit,15.6
+P,qwen2.5-coder:14b,A2,agregacao,False,False,plano_invalido plano_invalido plano_invalido,limit,14.7
+P,qwen2.5-coder:14b,H2,having,False,False,plano_invalido plano_invalido plano_invalido,having limit,15.9
+P,qwen2.5-coder:14b,C2,comparacao,False,False,plano_invalido plano_invalido plano_invalido,limit,18.4
+P,qwen2.5-coder:14b,C1,comparacao,False,False,plano_invalido plano_invalido plano_invalido,group_by limit,16.7
+P,qwen2.5-coder:14b,G2,group_by,False,False,plano_invalido plano_invalido plano_invalido,limit,13.7
+P,qwen2.5-coder:14b,H1,having,False,False,plano_invalido plano_invalido plano_invalido,group_by having,13.7
+P,qwen2.5-coder:14b,H4,having,False,False,plano_invalido plano_invalido plano_invalido,group_by having limit,13.7
+P,qwen2.5-coder:14b,G3,group_by,False,False,plano_invalido plano_invalido plano_invalido,limit,15.8
+P,qwen2.5-coder:14b,G4,group_by,True,False,plano_invalido plano_invalido plano_invalido,dimensao_de_oferta group_by limit,14.8
+P,qwen2.5-coder:14b,F4,filtro_simples,True,False,plano_invalido plano_invalido plano_invalido,intent limit,16.8
+P,qwen2.5-coder:14b,Z2,razao,False,False,plano_invalido plano_invalido plano_invalido,limit,16.1
+P,qwen2.5-coder:14b,M1,multiplos_filtros,True,False,plano_invalido plano_invalido plano_invalido,intent limit,23.8
+P,qwen2.5-coder:14b,R2,ranking,False,False,plano_invalido plano_invalido plano_invalido,group_by,15.6
+P,qwen2.5-coder:14b,C3,comparacao,False,False,plano_invalido plano_invalido plano_invalido,limit,16.1
+P,qwen2.5-coder:14b,F1,filtro_simples,False,False,plano_invalido plano_invalido plano_invalido,limit,15.7
+P,qwen2.5-coder:14b,R4,ranking,False,True,respondida respondida respondida,,15.6
+P,qwen2.5-coder:14b,A3,agregacao,False,False,plano_invalido plano_invalido plano_invalido,limit,13.2
+P,qwen2.5-coder:14b,M2,multiplos_filtros,True,False,plano_invalido plano_invalido plano_invalido,filters intent limit,20.6
+P,qwen3:8b,M3,multiplos_filtros,False,False,plano_invalido plano_invalido plano_invalido,filters group_by having intent order_by,15.5
+P,qwen3:8b,A1,agregacao,False,True,respondida respondida respondida,,10.3
+P,qwen3:8b,R1,ranking,False,False,plano_invalido plano_invalido plano_invalido,filters group_by,14.3
+P,qwen3:8b,G1,group_by,False,False,resposta_do_modelo_invalida resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,19.6
+P,qwen3:8b,Z1,razao,False,False,plano_invalido plano_invalido plano_invalido,filters intent,12.2
+P,qwen3:8b,F2,filtro_simples,False,False,plano_invalido plano_invalido plano_invalido,filters,12.4
+P,qwen3:8b,H3,having,False,False,plano_invalido plano_invalido plano_invalido,filters group_by having intent limit order_by,12.9
+P,qwen3:8b,M4,multiplos_filtros,False,False,plano_invalido plano_invalido plano_invalido,group_by intent order_by,11.1
+P,qwen3:8b,R3,ranking,False,False,plano_invalido resposta_do_modelo_invalida resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,19.6
+P,qwen3:8b,F3,filtro_simples,False,False,plano_invalido respondida respondida,filters,11.2
+P,qwen3:8b,A2,agregacao,False,False,respondida plano_invalido plano_invalido,filters,14.9
+P,qwen3:8b,H2,having,False,False,plano_invalido plano_invalido resposta_do_modelo_invalida,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,14.7
+P,qwen3:8b,C2,comparacao,False,False,plano_invalido plano_invalido plano_invalido,intent metrics order_by,9.8
+P,qwen3:8b,C1,comparacao,False,False,plano_invalido plano_invalido plano_invalido,filters group_by,10.2
+P,qwen3:8b,G2,group_by,False,False,plano_invalido plano_invalido plano_invalido,filters,10.0
+P,qwen3:8b,H1,having,False,False,plano_invalido plano_invalido plano_invalido,filters group_by having intent order_by,14.1
+P,qwen3:8b,H4,having,False,False,plano_invalido plano_invalido plano_invalido,filters group_by having intent,11.8
+P,qwen3:8b,G3,group_by,False,False,plano_invalido plano_invalido plano_invalido,filters intent order_by,11.3
+P,qwen3:8b,G4,group_by,True,False,plano_invalido plano_invalido plano_invalido,filters intent,11.6
+P,qwen3:8b,F4,filtro_simples,True,False,plano_invalido plano_invalido plano_invalido,intent,12.0
+P,qwen3:8b,Z2,razao,False,False,plano_invalido plano_invalido plano_invalido,filters group_by intent order_by,16.1
+P,qwen3:8b,M1,multiplos_filtros,True,False,resposta_do_modelo_invalida resposta_do_modelo_invalida plano_invalido,dimensao_de_oferta entity filters group_by having intent limit metrics nivel_territorial order_by recorte,19.6
+P,qwen3:8b,R2,ranking,False,False,plano_invalido plano_invalido plano_invalido,filters group_by,12.1
+P,qwen3:8b,C3,comparacao,False,False,plano_invalido plano_invalido plano_invalido,filters intent,14.2
+P,qwen3:8b,F1,filtro_simples,False,True,respondida respondida respondida,,11.4
+P,qwen3:8b,R4,ranking,False,False,plano_invalido plano_invalido plano_invalido,filters,11.0
+P,qwen3:8b,A3,agregacao,False,True,respondida respondida respondida,,9.4
+P,qwen3:8b,M2,multiplos_filtros,True,False,plano_invalido plano_invalido plano_invalido,filters group_by intent,13.7

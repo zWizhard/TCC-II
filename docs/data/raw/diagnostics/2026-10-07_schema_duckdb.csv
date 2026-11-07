@@ -1,0 +1,319 @@
+tabela,coluna,posicao,tipo,n_distintos,n_nulos,n_vazios,familia,auditada,auditada_onde
+inep_educacao_superior_ies,nu_ano_censo,1,VARCHAR,1,0,0,particao_ano,sim,DATA_DICTIONARY.md: texto; Censo so 2024
+inep_educacao_superior_ies,no_regiao_ies,2,VARCHAR,5,0,0,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,co_regiao_ies,3,SMALLINT,5,0,n/a,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,no_uf_ies,4,VARCHAR,27,0,0,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,sg_uf_ies,5,VARCHAR,27,0,0,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,co_uf_ies,6,VARCHAR,27,0,0,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,no_municipio_ies,7,VARCHAR,695,0,0,territorio,sim,"DATA_DICTIONARY.md; api/indicadores.py (UF, regiao conferidas em teste)"
+inep_educacao_superior_ies,co_municipio_ies,8,VARCHAR,698,0,0,chave_municipal,sim,JOIN_STRATEGY.md (7 digitos; ponte de 6 digitos para a populacao)
+inep_educacao_superior_ies,in_capital_ies,9,VARCHAR,2,0,0,capital,parcial,DATA_DICTIONARY.md (dominio de in_capital*); coerencia entre as tres medida neste script
+inep_educacao_superior_ies,no_mesorregiao_ies,10,VARCHAR,131,0,0,territorio_meso_micro,sim_nao_fechou,INDICADORES.md IND-Q-05 (codigo local a UF)
+inep_educacao_superior_ies,co_mesorregiao_ies,11,SMALLINT,15,0,n/a,territorio_meso_micro,sim_nao_fechou,INDICADORES.md IND-Q-05 (codigo local a UF)
+inep_educacao_superior_ies,no_microrregiao_ies,12,VARCHAR,382,0,0,territorio_meso_micro,sim_nao_fechou,INDICADORES.md IND-Q-05 (codigo local a UF)
+inep_educacao_superior_ies,co_microrregiao_ies,13,SMALLINT,65,0,n/a,territorio_meso_micro,sim_nao_fechou,INDICADORES.md IND-Q-05 (codigo local a UF)
+inep_educacao_superior_ies,tp_organizacao_academica,14,VARCHAR,5,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_ies,tp_rede,15,INTEGER,2,0,n/a,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_ies,tp_categoria_administrativa,16,VARCHAR,6,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_ies,in_comunitaria,17,SMALLINT,2,0,n/a,atributo_institucional,parcial,DATA_DICTIONARY.md (dominio 0/1); sem indicador nem filtro na API
+inep_educacao_superior_ies,in_confessional,18,SMALLINT,2,0,n/a,atributo_institucional,parcial,DATA_DICTIONARY.md (dominio 0/1); sem indicador nem filtro na API
+inep_educacao_superior_ies,no_mantenedora,19,VARCHAR,1741,0,0,mantenedora,parcial,DATA_DICTIONARY.md (contagem de distintos)
+inep_educacao_superior_ies,co_mantenedora,20,SMALLINT,1755,0,n/a,mantenedora,parcial,DATA_DICTIONARY.md (contagem de distintos)
+inep_educacao_superior_ies,co_ies,21,SMALLINT,2561,0,n/a,chave_entidade,sim,DATA_GRAIN.md / JOIN_STRATEGY.md
+inep_educacao_superior_ies,no_ies,22,VARCHAR,2547,0,0,identificacao_textual_endereco,parcial,DATA_DICTIONARY.md (nao sao chave: homonimos e vazios medidos)
+inep_educacao_superior_ies,sg_ies,23,VARCHAR,1826,0,459,identificacao_textual_endereco,parcial,DATA_DICTIONARY.md (nao sao chave: homonimos e vazios medidos)
+inep_educacao_superior_ies,ds_endereco_ies,24,VARCHAR,2514,0,0,identificacao_textual_endereco,parcial,DATA_DICTIONARY.md (nao sao chave: homonimos e vazios medidos)
+inep_educacao_superior_ies,nu_cep_ies,25,VARCHAR,2255,0,26,identificacao_textual_endereco,parcial,DATA_DICTIONARY.md (nao sao chave: homonimos e vazios medidos)
+inep_educacao_superior_ies,qt_tec_total,26,INTEGER,465,0,n/a,tecnicos_total,sim,INDICADORES.md IND-D-09; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_ies,qt_tec_fundamental_incomp_fem,27,INTEGER,35,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_fundamental_incomp_masc,28,INTEGER,50,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_fundamental_comp_fem,29,INTEGER,43,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_fundamental_comp_masc,30,INTEGER,58,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_medio_fem,31,INTEGER,172,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_medio_masc,32,INTEGER,161,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_superior_fem,33,INTEGER,184,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_superior_masc,34,INTEGER,153,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_especializacao_fem,35,INTEGER,190,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_especializacao_masc,36,INTEGER,164,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_mestrado_fem,37,INTEGER,147,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_mestrado_masc,38,INTEGER,124,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_doutorado_fem,39,INTEGER,80,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,qt_tec_doutorado_masc,40,INTEGER,69,0,n/a,tecnicos_escolaridade_sexo,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata de qt_tec_total; sem indicador publicado
+inep_educacao_superior_ies,in_acesso_portal_capes,41,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_acesso_outras_bases,42,VARCHAR,1,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_assina_outra_base,43,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_repositorio_institucional,44,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_busca_integrada,45,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_servico_internet,46,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_participa_rede_social,47,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,in_catalogo_online,48,VARCHAR,2,0,0,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,qt_periodico_eletronico,49,INTEGER,693,0,n/a,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,qt_livro_eletronico,50,INTEGER,978,0,n/a,biblioteca,nao,nunca auditada (so citada como 'infraestrutura de biblioteca' no dicionario)
+inep_educacao_superior_ies,qt_doc_total,51,INTEGER,488,0,n/a,docentes_total,sim,INDICADORES.md IND-D-08; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py) (qt_doc_exe identica a qt_doc_total)
+inep_educacao_superior_ies,qt_doc_exe,52,INTEGER,488,0,n/a,docentes_total,sim,INDICADORES.md IND-D-08; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py) (qt_doc_exe identica a qt_doc_total)
+inep_educacao_superior_ies,qt_doc_ex_femi,53,INTEGER,349,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_masc,54,INTEGER,353,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_sem_grad,55,INTEGER,5,0,n/a,docentes_titulacao,sim,INDICADORES.md IND-R-12; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata
+inep_educacao_superior_ies,qt_doc_ex_grad,56,INTEGER,37,0,n/a,docentes_titulacao,sim,INDICADORES.md IND-R-12; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata
+inep_educacao_superior_ies,qt_doc_ex_esp,57,INTEGER,162,0,n/a,docentes_titulacao,sim,INDICADORES.md IND-R-12; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata
+inep_educacao_superior_ies,qt_doc_ex_mest,58,INTEGER,289,0,n/a,docentes_titulacao,sim,INDICADORES.md IND-R-12; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata
+inep_educacao_superior_ies,qt_doc_ex_dout,59,INTEGER,333,0,n/a,docentes_titulacao,sim,INDICADORES.md IND-R-12; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata
+inep_educacao_superior_ies,qt_doc_ex_int,60,INTEGER,330,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_int_de,61,INTEGER,181,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_int_sem_de,62,INTEGER,247,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_parc,63,INTEGER,249,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_hor,64,INTEGER,207,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_0_29,65,INTEGER,65,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_30_34,66,INTEGER,134,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_35_39,67,INTEGER,200,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_40_44,68,INTEGER,224,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_45_49,69,INTEGER,208,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_50_54,70,INTEGER,177,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_55_59,71,INTEGER,155,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_60_mais,72,INTEGER,180,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_branca,73,INTEGER,393,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_preta,74,INTEGER,85,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_parda,75,INTEGER,220,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_amarela,76,INTEGER,47,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_indigena,77,INTEGER,23,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_cor_nd,78,INTEGER,153,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_bra,79,INTEGER,491,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_est,80,INTEGER,56,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,qt_doc_ex_com_deficiencia,81,INTEGER,33,0,n/a,docentes_decomposicao,sim,"2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): sexo, regime, faixa etaria, cor/raca, nacionalidade (particoes exatas) e deficiencia (contida); sem indicador publicado"
+inep_educacao_superior_ies,ds_rede,82,VARCHAR,2,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_cursos,nu_ano_censo,1,VARCHAR,1,0,0,particao_ano,sim,DATA_DICTIONARY.md: texto; Censo so 2024
+inep_educacao_superior_cursos,no_regiao,2,VARCHAR,6,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,co_regiao,3,VARCHAR,6,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,no_uf,4,VARCHAR,28,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,sg_uf,5,VARCHAR,28,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,co_uf,6,VARCHAR,28,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,no_municipio,7,VARCHAR,3429,0,0,territorio,sim,DATA_DICTIONARY.md (contaminacao 'Cursos a distância' em 8 colunas)
+inep_educacao_superior_cursos,co_municipio,8,VARCHAR,3552,0,0,chave_municipal,sim,JOIN_STRATEGY.md (7 digitos; ponte de 6 digitos para a populacao)
+inep_educacao_superior_cursos,in_capital,9,VARCHAR,3,0,0,capital,parcial,DATA_DICTIONARY.md (dominio de in_capital*); coerencia entre as tres medida neste script
+inep_educacao_superior_cursos,tp_dimensao,10,VARCHAR,4,0,0,dimensao_oferta,sim,INDICADORES.md IND-R-04; api/indicadores.py
+inep_educacao_superior_cursos,tp_organizacao_academica,11,VARCHAR,5,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_cursos,tp_rede,12,VARCHAR,2,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_cursos,tp_categoria_administrativa,13,VARCHAR,6,0,0,atributo_institucional,sim,DATA_DICTIONARY.md; literais em api/indicadores.py conferidos em teste
+inep_educacao_superior_cursos,in_comunitaria,14,SMALLINT,2,0,n/a,atributo_institucional,parcial,DATA_DICTIONARY.md (dominio 0/1); sem indicador nem filtro na API
+inep_educacao_superior_cursos,in_confessional,15,SMALLINT,2,0,n/a,atributo_institucional,parcial,DATA_DICTIONARY.md (dominio 0/1); sem indicador nem filtro na API
+inep_educacao_superior_cursos,co_ies,16,INTEGER,2561,0,n/a,chave_entidade,sim,DATA_GRAIN.md / JOIN_STRATEGY.md
+inep_educacao_superior_cursos,no_curso,17,VARCHAR,1497,0,0,identificacao_textual_endereco,parcial,DATA_DICTIONARY.md (nao sao chave: homonimos e vazios medidos)
+inep_educacao_superior_cursos,co_curso,18,INTEGER,46150,0,n/a,chave_entidade,sim,DATA_GRAIN.md / JOIN_STRATEGY.md
+inep_educacao_superior_cursos,no_cine_rotulo,19,VARCHAR,353,0,0,classificacao_cine,sim,"INDICADORES.md IND-R-06; api/indicadores.py (11 areas 1:1, 353 rotulos)"
+inep_educacao_superior_cursos,co_cine_rotulo,20,VARCHAR,353,0,0,classificacao_cine,sim,"INDICADORES.md IND-R-06; api/indicadores.py (11 areas 1:1, 353 rotulos)"
+inep_educacao_superior_cursos,co_cine_area_geral,21,SMALLINT,11,0,n/a,classificacao_cine,sim,"INDICADORES.md IND-R-06; api/indicadores.py (11 areas 1:1, 353 rotulos)"
+inep_educacao_superior_cursos,no_cine_area_geral,22,VARCHAR,11,0,0,classificacao_cine,sim,"INDICADORES.md IND-R-06; api/indicadores.py (11 areas 1:1, 353 rotulos)"
+inep_educacao_superior_cursos,co_cine_area_especifica,23,SMALLINT,39,0,n/a,classificacao_cine,parcial,DATA_DICTIONARY.md (so contagem de distintos: 39 e 89)
+inep_educacao_superior_cursos,no_cine_area_especifica,24,VARCHAR,39,0,0,classificacao_cine,parcial,DATA_DICTIONARY.md (so contagem de distintos: 39 e 89)
+inep_educacao_superior_cursos,co_cine_area_detalhada,25,SMALLINT,89,0,n/a,classificacao_cine,parcial,DATA_DICTIONARY.md (so contagem de distintos: 39 e 89)
+inep_educacao_superior_cursos,no_cine_area_detalhada,26,VARCHAR,89,0,0,classificacao_cine,parcial,DATA_DICTIONARY.md (so contagem de distintos: 39 e 89)
+inep_educacao_superior_cursos,tp_grau_academico,27,VARCHAR,4,0,0,atributo_curso,sim,INDICADORES.md IND-R-05
+inep_educacao_superior_cursos,in_gratuito,28,VARCHAR,2,0,0,atributo_curso,parcial,DATA_DICTIONARY.md (dominio); sem indicador nem filtro na API
+inep_educacao_superior_cursos,tp_modalidade_ensino,29,VARCHAR,2,0,0,dimensao_oferta,sim,INDICADORES.md IND-R-04; api/indicadores.py
+inep_educacao_superior_cursos,tp_nivel_academico,30,VARCHAR,2,0,0,atributo_curso,parcial,DATA_DICTIONARY.md (dominio); sem indicador nem filtro na API
+inep_educacao_superior_cursos,qt_curso,31,SMALLINT,2,0,n/a,marcador_curso,sim,INDICADORES.md IND-D-02; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_total,32,INTEGER,2646,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_total_diurno,33,SMALLINT,640,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_total_noturno,34,SMALLINT,799,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_total_ead,35,INTEGER,2450,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_nova,36,INTEGER,1160,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_proc_seletivo,37,SMALLINT,1,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_remanesc,38,INTEGER,1524,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_vg_prog_especial,39,SMALLINT,105,0,n/a,vagas,sim,INDICADORES.md IND-D-06; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_inscrito_total,40,INTEGER,2789,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_inscrito_total_diurno,41,INTEGER,1719,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_inscrito_total_noturno,42,INTEGER,1345,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_inscrito_total_ead,43,INTEGER,1820,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_insc_vg_nova,44,INTEGER,2566,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_insc_proc_seletivo,45,SMALLINT,1,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_insc_vg_remanesc,46,INTEGER,990,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_insc_vg_prog_especial,47,SMALLINT,144,0,n/a,inscritos,sim,INDICADORES.md IND-D-07; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_ing,48,SMALLINT,747,0,n/a,metrica_total_fluxo,sim,INDICADORES.md IND-D-03/04/05
+inep_educacao_superior_cursos,qt_ing_fem,49,SMALLINT,573,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_masc,50,SMALLINT,441,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_diurno,51,SMALLINT,344,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_ing_noturno,52,SMALLINT,371,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_ing_vg_nova,53,SMALLINT,676,0,n/a,ingresso_tipo_vaga,sim,2026-10-07_fluxo.csv (auditar_fluxo.py): particao exata de qt_ing; definicao oficial de cada tipo A confirmar
+inep_educacao_superior_cursos,qt_ing_vestibular,54,SMALLINT,609,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_enem,55,SMALLINT,289,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_avaliacao_seriada,56,SMALLINT,65,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_selecao_simplifica,57,SMALLINT,301,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_egr,58,SMALLINT,41,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_outro_tipo_selecao,59,SMALLINT,1,0,n/a,ingresso_tipo_selecao,sim_nao_fechou,INDICADORES.md IND-Q-10
+inep_educacao_superior_cursos,qt_ing_proc_seletivo,60,SMALLINT,1,0,n/a,ingresso_tipo_vaga,sim,2026-10-07_fluxo.csv (auditar_fluxo.py): particao exata de qt_ing; definicao oficial de cada tipo A confirmar
+inep_educacao_superior_cursos,qt_ing_vg_remanesc,61,SMALLINT,287,0,n/a,ingresso_tipo_vaga,sim,2026-10-07_fluxo.csv (auditar_fluxo.py): particao exata de qt_ing; definicao oficial de cada tipo A confirmar
+inep_educacao_superior_cursos,qt_ing_vg_prog_especial,62,SMALLINT,76,0,n/a,ingresso_tipo_vaga,sim,2026-10-07_fluxo.csv (auditar_fluxo.py): particao exata de qt_ing; definicao oficial de cada tipo A confirmar
+inep_educacao_superior_cursos,qt_ing_outra_forma,63,SMALLINT,47,0,n/a,ingresso_tipo_vaga,sim,2026-10-07_fluxo.csv (auditar_fluxo.py): particao exata de qt_ing; definicao oficial de cada tipo A confirmar
+inep_educacao_superior_cursos,qt_ing_0_17,64,SMALLINT,29,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_18_24,65,SMALLINT,436,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_25_29,66,SMALLINT,253,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_30_34,67,SMALLINT,209,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_35_39,68,SMALLINT,178,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_40_49,69,SMALLINT,220,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_50_59,70,SMALLINT,99,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_60_mais,71,SMALLINT,37,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_branca,72,SMALLINT,436,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_preta,73,SMALLINT,156,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_parda,74,SMALLINT,358,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_amarela,75,SMALLINT,50,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_indigena,76,SMALLINT,52,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_cornd,77,SMALLINT,332,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat,78,INTEGER,1353,0,n/a,metrica_total_fluxo,sim,INDICADORES.md IND-D-03/04/05
+inep_educacao_superior_cursos,qt_mat_fem,79,INTEGER,1014,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_masc,80,SMALLINT,766,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_diurno,81,SMALLINT,914,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_mat_noturno,82,SMALLINT,788,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_mat_0_17,83,SMALLINT,29,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_18_24,84,SMALLINT,906,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_25_29,85,SMALLINT,437,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_30_34,86,SMALLINT,301,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_35_39,87,SMALLINT,265,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_40_49,88,SMALLINT,330,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_50_59,89,SMALLINT,156,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_60_mais,90,SMALLINT,59,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_branca,91,SMALLINT,899,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_preta,92,SMALLINT,282,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_parda,93,SMALLINT,672,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_amarela,94,SMALLINT,108,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_indigena,95,SMALLINT,92,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_cornd,96,SMALLINT,496,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc,97,SMALLINT,368,0,n/a,metrica_total_fluxo,sim,INDICADORES.md IND-D-03/04/05
+inep_educacao_superior_cursos,qt_conc_fem,98,SMALLINT,273,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_masc,99,SMALLINT,211,0,n/a,perfil_sexo,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_diurno,100,SMALLINT,245,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_conc_noturno,101,SMALLINT,213,0,n/a,turno,sim,2026-09-19_familias_metricas.csv (auditar_familias_metricas.py): particao exata so no presencial; sem indicador (candidato futuro)
+inep_educacao_superior_cursos,qt_conc_0_17,102,SMALLINT,2,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_18_24,103,SMALLINT,195,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_25_29,104,SMALLINT,164,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_30_34,105,SMALLINT,95,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_35_39,106,SMALLINT,86,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_40_49,107,SMALLINT,112,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_50_59,108,SMALLINT,55,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_60_mais,109,SMALLINT,24,0,n/a,perfil_faixa_etaria,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_branca,110,SMALLINT,253,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_preta,111,SMALLINT,77,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_parda,112,SMALLINT,181,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_amarela,113,SMALLINT,35,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_indigena,114,SMALLINT,25,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_cornd,115,SMALLINT,147,0,n/a,perfil_cor_raca,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_nacbras,116,SMALLINT,760,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_nacestrang,117,SMALLINT,36,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_nacbras,118,INTEGER,1348,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_nacestrang,119,SMALLINT,69,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_nacbras,120,SMALLINT,371,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_nacestrang,121,SMALLINT,21,0,n/a,perfil_nacionalidade,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_aluno_deficiente,122,SMALLINT,92,0,n/a,deficiencia,nao,nunca auditada em cursos (so a de docentes foi)
+inep_educacao_superior_cursos,qt_ing_deficiente,123,SMALLINT,35,0,n/a,deficiencia,nao,nunca auditada em cursos (so a de docentes foi)
+inep_educacao_superior_cursos,qt_mat_deficiente,124,SMALLINT,82,0,n/a,deficiencia,nao,nunca auditada em cursos (so a de docentes foi)
+inep_educacao_superior_cursos,qt_conc_deficiente,125,SMALLINT,23,0,n/a,deficiencia,nao,nunca auditada em cursos (so a de docentes foi)
+inep_educacao_superior_cursos,qt_ing_financ,126,SMALLINT,466,0,n/a,financiamento_agregado,sim,INDICADORES.md IND-R-08; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_ing_financ_reemb,127,SMALLINT,166,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_fies,128,SMALLINT,105,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_rpfies,129,SMALLINT,152,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_financ_reemb_outros,130,SMALLINT,60,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_financ_nreemb,131,SMALLINT,473,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_prounii,132,SMALLINT,96,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_prounip,133,SMALLINT,63,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_nrpfies,134,SMALLINT,466,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_financ_nreemb_outros,135,SMALLINT,132,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_financ,136,SMALLINT,797,0,n/a,financiamento_agregado,sim,INDICADORES.md IND-R-08; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_mat_financ_reemb,137,SMALLINT,301,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_fies,138,SMALLINT,258,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_rpfies,139,SMALLINT,159,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_financ_reemb_outros,140,SMALLINT,133,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_financ_nreemb,141,SMALLINT,761,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_prounii,142,SMALLINT,208,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_prounip,143,SMALLINT,127,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_nrpfies,144,SMALLINT,722,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_mat_financ_nreemb_outros,145,SMALLINT,242,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_financ,146,SMALLINT,195,0,n/a,financiamento_agregado,sim,INDICADORES.md IND-R-08; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_conc_financ_reemb,147,SMALLINT,93,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_fies,148,SMALLINT,80,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_rpfies,149,SMALLINT,56,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_financ_reemb_outros,150,SMALLINT,43,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_financ_nreemb,151,SMALLINT,186,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_prounii,152,SMALLINT,55,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_prounip,153,SMALLINT,43,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_nrpfies,154,SMALLINT,184,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_conc_financ_nreemb_outros,155,SMALLINT,61,0,n/a,financiamento_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-08 (subcolunas se sobrepoem)
+inep_educacao_superior_cursos,qt_ing_reserva_vaga,156,SMALLINT,164,0,n/a,reserva_vagas_agregado,sim,INDICADORES.md IND-R-09; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_ing_rvredepublica,157,SMALLINT,137,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvppi,158,SMALLINT,102,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvquilo,159,SMALLINT,20,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvrefu,160,SMALLINT,5,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvpovt,161,SMALLINT,18,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvpdef,162,SMALLINT,20,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvsocial_rf,163,SMALLINT,81,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvidoso,164,SMALLINT,2,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvintern,165,SMALLINT,20,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvmedal,166,SMALLINT,10,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvtrans,167,SMALLINT,6,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_ing_rvoutros,168,SMALLINT,54,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_reserva_vaga,169,SMALLINT,449,0,n/a,reserva_vagas_agregado,sim,INDICADORES.md IND-R-09; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_mat_rvredepublica,170,SMALLINT,399,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvppi,171,SMALLINT,283,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvquilo,172,SMALLINT,40,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvrefu,173,SMALLINT,10,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvpovt,174,SMALLINT,42,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvpdef,175,SMALLINT,51,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvsocial_rf,176,SMALLINT,252,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvidoso,177,SMALLINT,2,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvintern,178,SMALLINT,33,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvmedal,179,SMALLINT,19,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvtrans,180,SMALLINT,12,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_mat_rvoutros,181,SMALLINT,97,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_reserva_vaga,182,SMALLINT,101,0,n/a,reserva_vagas_agregado,sim,INDICADORES.md IND-R-09; 2026-09-19_familias_metricas.csv (auditar_familias_metricas.py)
+inep_educacao_superior_cursos,qt_conc_rvredepublica,183,SMALLINT,93,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvppi,184,SMALLINT,67,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvquilo,185,SMALLINT,7,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvrefu,186,SMALLINT,3,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvpovt,187,SMALLINT,11,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvpdef,188,SMALLINT,13,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvsocial_rf,189,SMALLINT,57,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvidoso,190,SMALLINT,1,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvintern,191,SMALLINT,13,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvmedal,192,SMALLINT,4,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvtrans,193,SMALLINT,2,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_conc_rvoutros,194,SMALLINT,24,0,n/a,reserva_vagas_subtipo,sim_nao_fechou,INDICADORES.md IND-Q-09
+inep_educacao_superior_cursos,qt_sit_trancada,195,SMALLINT,518,0,n/a,situacao,sim_nao_fechou,INDICADORES.md IND-Q-02
+inep_educacao_superior_cursos,qt_sit_desvinculado,196,SMALLINT,597,0,n/a,situacao,sim_nao_fechou,INDICADORES.md IND-Q-02
+inep_educacao_superior_cursos,qt_sit_transferido,197,SMALLINT,148,0,n/a,situacao,sim_nao_fechou,INDICADORES.md IND-Q-02
+inep_educacao_superior_cursos,qt_sit_falecido,198,SMALLINT,8,0,n/a,situacao,sim_nao_fechou,INDICADORES.md IND-Q-02
+inep_educacao_superior_cursos,qt_ing_procescpublica,199,SMALLINT,640,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_procescprivada,200,SMALLINT,387,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_ing_procnaoinformada,201,SMALLINT,6,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_procescpublica,202,INTEGER,1032,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_procescprivada,203,SMALLINT,812,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_mat_procnaoinformada,204,SMALLINT,25,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_procescpublica,205,SMALLINT,281,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_procescprivada,206,SMALLINT,234,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_conc_procnaoinformada,207,SMALLINT,7,0,n/a,perfil_procedencia_escolar,sim,INDICADORES.md IND-R-07; 2026-10-07_fluxo.csv (auditar_fluxo.py)
+inep_educacao_superior_cursos,qt_parfor,208,SMALLINT,100,0,n/a,parfor,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_ing_parfor,209,SMALLINT,51,0,n/a,parfor,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_mat_parfor,210,SMALLINT,87,0,n/a,parfor,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_conc_parfor,211,SMALLINT,32,0,n/a,parfor,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_apoio_social,212,SMALLINT,530,0,n/a,apoio_social,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_ing_apoio_social,213,SMALLINT,198,0,n/a,apoio_social,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_mat_apoio_social,214,SMALLINT,475,0,n/a,apoio_social,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_conc_apoio_social,215,SMALLINT,136,0,n/a,apoio_social,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_ativ_extracurricular,216,INTEGER,831,0,n/a,ativ_extracurricular,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_ing_ativ_extracurricular,217,SMALLINT,374,0,n/a,ativ_extracurricular,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_mat_ativ_extracurricular,218,INTEGER,750,0,n/a,ativ_extracurricular,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_conc_ativ_extracurricular,219,SMALLINT,248,0,n/a,ativ_extracurricular,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_mob_academica,220,SMALLINT,82,0,n/a,mob_academica,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_ing_mob_academica,221,SMALLINT,36,0,n/a,mob_academica,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_mat_mob_academica,222,SMALLINT,77,0,n/a,mob_academica,nao,"INDICADORES.md, pendencias"
+inep_educacao_superior_cursos,qt_conc_mob_academica,223,SMALLINT,30,0,n/a,mob_academica,nao,"INDICADORES.md, pendencias"
+municipio,codigo_municipio_dv,1,VARCHAR,5599,0,0,chave_municipal,sim,JOIN_STRATEGY.md (7 digitos; ponte de 6 digitos para a populacao)
+municipio,codigo_municipio,2,VARCHAR,5599,0,0,chave_municipal,sim,JOIN_STRATEGY.md (7 digitos; ponte de 6 digitos para a populacao)
+municipio,nome_municipio,3,VARCHAR,5326,0,0,territorio,parcial,DATA_DICTIONARY.md (listada); usada so como rotulo
+municipio,cd_uf,4,VARCHAR,28,0,0,territorio,sim,2026-10-07_comparacoes.csv (codigo de UF identico)
+municipio,municipio_capital,5,VARCHAR,3,0,0,capital,parcial,DATA_DICTIONARY.md (dominio de in_capital*); coerencia entre as tres medida neste script
+municipio,longitude,6,"DECIMAL(15,7)",5573,0,n/a,geometria,sim,2026-10-07_mapas.csv (auditar_mapas.py)
+municipio,latitude,7,"DECIMAL(15,7)",5573,0,n/a,geometria,sim,2026-10-07_mapas.csv (auditar_mapas.py)
+ibge_populacao_estimada,ano,1,VARCHAR,26,0,0,particao_ano,sim,DATA_DICTIONARY.md: texto; Censo so 2024
+ibge_populacao_estimada,uf,2,VARCHAR,27,0,0,territorio,parcial,DATA_DICTIONARY.md (listada); nao usada
+ibge_populacao_estimada,cod_uf,3,VARCHAR,27,0,0,territorio,parcial,DATA_DICTIONARY.md (listada); nao usada
+ibge_populacao_estimada,cod_municipio,4,VARCHAR,5571,0,0,chave_municipal,sim,JOIN_STRATEGY.md (7 digitos; ponte de 6 digitos para a populacao)
+ibge_populacao_estimada,nome_municipio,5,VARCHAR,5503,0,0,territorio,parcial,DATA_DICTIONARY.md (listada); nao usada
+ibge_populacao_estimada,populacao,6,"DECIMAL(9,0)",49892,0,n/a,populacao,sim,INDICADORES.md IND-R-01; 2026-10-07_comparacoes.csv

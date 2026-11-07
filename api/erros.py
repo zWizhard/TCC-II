@@ -39,9 +39,59 @@ class BaseAnaliticaIndisponivel(ErroApi):
     codigo = "base_analitica_indisponivel"
 
 
+class MalhaIndisponivel(ErroApi):
+    """Arquivo de geometria ausente (data/reference/malha): baixar com o script do ETL."""
+
+    status = 503
+    codigo = "malha_indisponivel"
+
+
 class ConsultaExcedeuTempo(ErroApi):
     status = 504
     codigo = "consulta_excedeu_tempo"
+
+
+class ModeloIndisponivel(ErroApi):
+    """O LLM nao respondeu: rede, tempo esgotado, erro do servico ou provedor nao implementado."""
+
+    status = 503
+    codigo = "modelo_indisponivel"
+
+
+class ModeloOcupado(ErroApi):
+    """O LLM atende uma pergunta por vez; outra chegou enquanto ele trabalhava."""
+
+    status = 503
+    codigo = "modelo_ocupado"
+
+
+class ConsultaFalhou(ErroApi):
+    """O motor recusou o SQL gerado pelo backend (defeito interno; o detalhe fica no log)."""
+
+    status = 500
+    codigo = "consulta_falhou"
+
+
+class RespostaDoModeloInvalida(ErroApi):
+    """O LLM respondeu, mas nao com um QueryPlan valido. Nao ha resgate por regex."""
+
+    status = 502
+    codigo = "resposta_do_modelo_invalida"
+
+
+class SqlRejeitado(ErroApi):
+    """O SQL gerado pelo backend foi barrado pelo validador AST: e defeito interno, nao do usuario.
+
+    O motivo tecnico fica em `motivo`/`detalhe` (log e testes); a mensagem publica e fixa.
+    """
+
+    status = 500
+    codigo = "sql_rejeitado"
+
+    def __init__(self, motivo: str, detalhe: str) -> None:
+        super().__init__("A consulta gerada foi barrada pela validação de segurança.")
+        self.motivo = motivo
+        self.detalhe = detalhe
 
 
 def _corpo(codigo: str, mensagem: str) -> dict[str, dict[str, str]]:

@@ -6,3 +6,5 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+# Geometria real do IBGE: compacta como veio (formatada, dobra de tamanho).
+src/test/fixtures/malha-*.json

@@ -12,10 +12,16 @@ version = "0.0.0"
 description = "Plataforma de exploracao dos dados do Censo da Educacao Superior brasileira"
 requires-python = ">=3.12"
 dependencies = [
+    # AWS Bedrock (ADR-0021/ADR-0022): credenciais so pelo perfil SSO do AWS CLI, nunca no .env.
+    "boto3>=1.40",
     "duckdb>=1.5.5",
     "fastapi>=0.115",
+    "httpx>=0.28.1",
     "psycopg[binary]>=3.3.5",
     "pydantic-settings>=2.6",
+    # Teto de versao: o validador AST do Analista IA depende dos nomes de classe do SQLGlot
+    # (api/analista/validador_sql.py falha na importacao se algum sumir). Subir so com os testes.
+    "sqlglot>=30.21.0,<31",
     "uvicorn>=0.32",
 ]
 
@@ -59,3 +65,8 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 disallow_untyped_defs = true
 exclude = ["^\\.claude/", "^docs/"]
+
+[[tool.mypy.overrides]]
+# boto3/botocore nao publicam tipos; os stubs de terceiros nao entram so por isso.
+module = ["boto3", "boto3.*", "botocore", "botocore.*"]
+ignore_missing_imports = true

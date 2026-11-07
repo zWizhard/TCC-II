@@ -175,7 +175,9 @@ def main() -> int:
         p.error("informe um arquivo .sql ou --query")
 
     if PROIBIDO.search(remover_comentarios_e_textos(sql_bruto)):
-        sys.exit("BLOQUEADO: o SQL contem comando de escrita ou DDL. Esta conexao e somente-leitura.")
+        sys.exit(
+            "BLOQUEADO: o SQL contem comando de escrita ou DDL. Esta conexao e somente-leitura."
+        )
 
     statements = dividir_statements(sql_bruto)
     env = carregar_env(RAIZ / ".env")

@@ -13,7 +13,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 
+from api.analista.rotas import router as router_analista
 from api.config import Settings, get_settings
 from api.db import BaseAnalitica
 from api.erros import BaseAnaliticaIndisponivel, registrar_tratadores
@@ -50,11 +52,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         lifespan=lifespan,
     )
     app.state.settings = settings
+    app.state.provedor_llm = None  # criado no primeiro uso (api/analista/rotas.py)
+    # A malha municipal tem 4,0 MB e o mapa municipal ~0,7 MB de JSON: com gzip, 1,1 MB e ~0,1 MB.
+    app.add_middleware(GZipMiddleware, minimum_size=1024)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
-        allow_methods=["GET"],
-        allow_headers=[],
+        # POST e Content-Type existem so para o Analista IA (corpo JSON com a pergunta); a origem
+        # continua restrita a lista configurada e nao ha credencial (cookies) em jogo.
+        allow_methods=["GET", "POST"],
+        allow_headers=["Content-Type"],
     )
 
     @app.middleware("http")
@@ -75,6 +82,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     registrar_tratadores(app)
     app.include_router(router)
+    app.include_router(router_analista)
     return app
 
 

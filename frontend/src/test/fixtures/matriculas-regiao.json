@@ -21,7 +21,11 @@
       "Cursos presenciais ofertados no Brasil"
     ],
     "rede": null,
-    "uf": null
+    "categoria": null,
+    "organizacao": null,
+    "regiao": null,
+    "uf": null,
+    "municipio": null
   },
   "total": 10224686,
   "unidades": 5,

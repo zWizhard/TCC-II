@@ -1,0 +1,46 @@
+bloco,teste,resultado,detalhe
+inventario,colunas por familia,"{'curso': 1, 'vg': 8, 'inscrito': 4, 'insc': 4, 'ing': 63, 'mat': 52, 'conc': 52, 'sit': 4}",223 colunas no total
+inventario,anos presentes,['2024'],
+perfil,qt_mat por sexo,PARTICAO EXATA,total=10.227.266 partes=10.227.266 linhas acima=0 abaixo=0
+perfil,qt_mat por cor_raca,PARTICAO EXATA,total=10.227.266 partes=10.227.266 linhas acima=0 abaixo=0
+perfil,qt_mat por faixa_etaria,PARTICAO EXATA,total=10.227.266 partes=10.227.266 linhas acima=0 abaixo=0
+perfil,qt_mat por nacionalidade,PARTICAO EXATA,total=10.227.266 partes=10.227.266 linhas acima=0 abaixo=0
+perfil,qt_mat por procedencia_escolar,PARTICAO EXATA,total=10.227.266 partes=10.227.266 linhas acima=0 abaixo=0
+perfil,qt_ing por sexo,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+perfil,qt_ing por cor_raca,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+perfil,qt_ing por faixa_etaria,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+perfil,qt_ing por nacionalidade,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+perfil,qt_ing por procedencia_escolar,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+perfil,qt_conc por sexo,PARTICAO EXATA,total=1.333.988 partes=1.333.988 linhas acima=0 abaixo=0
+perfil,qt_conc por cor_raca,PARTICAO EXATA,total=1.333.988 partes=1.333.988 linhas acima=0 abaixo=0
+perfil,qt_conc por faixa_etaria,PARTICAO EXATA,total=1.333.988 partes=1.333.988 linhas acima=0 abaixo=0
+perfil,qt_conc por nacionalidade,PARTICAO EXATA,total=1.333.988 partes=1.333.988 linhas acima=0 abaixo=0
+perfil,qt_conc por procedencia_escolar,PARTICAO EXATA,total=1.333.988 partes=1.333.988 linhas acima=0 abaixo=0
+contencao,qt_mat_financ <= qt_mat,0 violacoes,3.071.136 de 10.227.266 = 30.03%
+contencao,qt_mat_reserva_vaga <= qt_mat,0 violacoes,648.225 de 10.227.266 = 6.34%
+contencao,qt_ing_financ <= qt_ing,0 violacoes,1.673.188 de 5.010.613 = 33.39%
+contencao,qt_ing_reserva_vaga <= qt_ing,0 violacoes,171.335 de 5.010.613 = 3.42%
+contencao,qt_conc_financ <= qt_conc,0 violacoes,347.889 de 1.333.988 = 26.08%
+contencao,qt_conc_reserva_vaga <= qt_conc,0 violacoes,72.157 de 1.333.988 = 5.41%
+razao,IND-R-10 ingressos/vaga — presencial,1.663.040 / 5.075.146 = 0.3277,34.824 linhas; sem territorio=0; vaga=0 com numerador>0: 5 linhas somando 6 (0.00% do numerador); numerador>vaga em 544 de 31.687 linhas com vaga
+razao,IND-R-11 inscricoes/vaga — presencial,8.658.561 / 5.075.146 = 1.7061,34.824 linhas; sem territorio=0; vaga=0 com numerador>0: 0 linhas somando 0 (0.00% do numerador); numerador>vaga em 14.322 de 31.687 linhas com vaga
+razao,IND-R-11 — EAD somente a nivel Brasil,7.060.934 / 18.583.348 = 0.3800,qt_ing nessa dimensao = 0
+razao,"presencial, rede Privada",ing/vaga=0.2768 insc/vaga=1.0162,ing=1.177.473 vagas=4.253.711 inscricoes=4.322.592
+razao,"presencial, rede Pública",ing/vaga=0.5911 insc/vaga=5.2785,ing=485.567 vagas=821.435 inscricoes=4.335.969
+celulas,denominador qt_mat por uf (presencial + polo),27 unidades; minimo 34.171,zero=0 1-9=0 10-29=0
+celulas,denominador qt_ing por uf (presencial + polo),27 unidades; minimo 16.049,zero=0 1-9=0 10-29=0
+celulas,denominador qt_conc por uf (presencial + polo),27 unidades; minimo 3.267,zero=0 1-9=0 10-29=0
+celulas,vagas presenciais por uf,27 unidades,vaga=0: 0 (com ingresso: 0); vagas 1-29: 0; ingressos>vagas: 0
+celulas,denominador qt_mat por municipio (presencial + polo),3.551 unidades; minimo 0,zero=135 1-9=304 10-29=302
+celulas,denominador qt_ing por municipio (presencial + polo),3.551 unidades; minimo 0,zero=234 1-9=385 10-29=420
+celulas,denominador qt_conc por municipio (presencial + polo),3.551 unidades; minimo 0,zero=641 1-9=792 10-29=541
+celulas,vagas presenciais por municipio,1.121 unidades,vaga=0: 60 (com ingresso: 0); vagas 1-29: 11; ingressos>vagas: 12
+ingresso,qt_ing = tipo de vaga (vg_nova + vg_remanesc + vg_prog_especial),NAO FECHA,total=5.010.613 partes=5.004.401 linhas acima=0 abaixo=1.774
+ingresso,qt_ing = tipo de vaga + outra_forma,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+ingresso,qt_ing = proc_seletivo + outra_forma,NAO FECHA,total=5.010.613 partes=6.212 linhas acima=0 abaixo=487.849
+ingresso,qt_ing = tipo de vaga + proc_seletivo + outra_forma,PARTICAO EXATA,total=5.010.613 partes=5.010.613 linhas acima=0 abaixo=0
+ingresso,qt_ing = tipos de selecao (6 colunas) = qt_ing,NAO FECHA,total=5.010.613 partes=4.646.792 linhas acima=40.050 abaixo=130.209
+ingresso,qt_ing_vg_nova = tipos de selecao (6 colunas),NAO FECHA,total=4.349.243 partes=4.646.792 linhas acima=45.919 abaixo=0
+ingresso,qt_ing_proc_seletivo = tipos de selecao (6 colunas),NAO FECHA,total=0 partes=4.646.792 linhas acima=457.747 abaixo=0
+ingresso,somas nacionais,qt_ing=5.010.613; qt_ing_avaliacao_seriada=12.216; qt_ing_egr=1.991; qt_ing_enem=810.107; qt_ing_outra_forma=6.212; qt_ing_outro_tipo_selecao=0; qt_ing_proc_seletivo=0; qt_ing_selecao_simplifica=591.121; qt_ing_vestibular=3.231.357; qt_ing_vg_nova=4.349.243; qt_ing_vg_prog_especial=9.877; qt_ing_vg_remanesc=645.281,
+situacoes,soma de qt_sit_* contra qt_mat,5.492.084 contra 10.227.266; excede em 267.780 linhas,trancada=1.808.167 desvinculado=3.544.824 transferido=137.854 falecido=1.239

@@ -141,6 +141,145 @@ def test_filtros_de_rede_e_uf(cliente: TestClient) -> None:
     assert mat["total"] == 44_532
 
 
+# Particoes medidas direto no DuckDB em 2026-10-06 (GROUP BY na coluna, sem a API).
+IES_POR_CATEGORIA = {
+    "publica_federal": 122,
+    "publica_estadual": 139,
+    "publica_municipal": 28,
+    "privada_com_fins_lucrativos": 1_486,
+    "privada_sem_fins_lucrativos": 758,
+    "especial": 28,
+}
+MATRICULAS_POR_CATEGORIA = {
+    "publica_federal": 1_317_548,
+    "publica_estadual": 666_980,
+    "publica_municipal": 35_139,
+    "privada_com_fins_lucrativos": 6_372_474,
+    "privada_sem_fins_lucrativos": 1_789_725,
+    "especial": 45_400,
+}
+IES_POR_ORGANIZACAO = {
+    "universidade": 206,
+    "centro_universitario": 417,
+    "faculdade": 1_897,
+    "instituto_federal": 39,
+    "cefet": 2,
+}
+MATRICULAS_POR_ORGANIZACAO = {
+    "universidade": 5_420_049,
+    "centro_universitario": 3_447_461,
+    "faculdade": 1_124_240,
+    "instituto_federal": 221_327,
+    "cefet": 14_189,
+}
+IES_POR_REGIAO = {"norte": 196, "nordeste": 604, "sudeste": 1_076, "sul": 389, "centro_oeste": 296}
+MATRICULAS_POR_REGIAO = {
+    "norte": 863_969,
+    "nordeste": 2_186_521,
+    "sudeste": 4_518_942,
+    "sul": 1_750_161,
+    "centro_oeste": 905_093,
+}
+
+
+def test_filtros_institucionais_particionam_o_total(cliente: TestClient) -> None:
+    for parametro, ies, mat in (
+        ("categoria", IES_POR_CATEGORIA, MATRICULAS_POR_CATEGORIA),
+        ("organizacao", IES_POR_ORGANIZACAO, MATRICULAS_POR_ORGANIZACAO),
+    ):
+        assert sum(ies.values()) == 2_561
+        assert sum(mat.values()) == 10_227_266
+        for slug, esperado in ies.items():
+            corpo = _get(cliente, "ies", f"nivel=brasil&recorte=sede&{parametro}={slug}")
+            assert corpo["total"] == esperado
+            assert corpo["filtros"][parametro]  # rotulo literal aplicado, declarado na resposta
+        for slug, esperado in mat.items():
+            corpo = _get(
+                cliente, "matriculas", f"nivel=brasil&recorte=oferta&{TODAS}&{parametro}={slug}"
+            )
+            assert corpo["total"] == esperado
+    # A parcela sem municipio obedece aos mesmos filtros institucionais (regra 8).
+    sem = _get(
+        cliente,
+        "matriculas",
+        f"nivel=brasil&recorte=oferta&{TODAS}&categoria=privada_com_fins_lucrativos",
+    )
+    assert sem["valor_sem_territorio"] == 2_209
+    sem = _get(cliente, "vagas", f"nivel=brasil&recorte=oferta&{TODAS}&categoria=publica_federal")
+    assert sem["valor_sem_territorio"] == 54_581
+    # Categoria refina a rede: as tres publicas + Especial somam a rede Publica (regra 7).
+    publica = _get(cliente, "ies", "nivel=brasil&recorte=sede&rede=publica&categoria=especial")
+    assert publica["total"] == 28
+    # Filtros combinam por conjuncao: universidades federais.
+    assert (
+        _get(
+            cliente,
+            "ies",
+            "nivel=brasil&recorte=sede&categoria=publica_federal&organizacao=universidade",
+        )["total"]
+        == 69
+    )
+
+
+@pytest.mark.parametrize("regiao", list(IES_POR_REGIAO))
+def test_filtro_de_regiao_fecha_com_a_distribuicao(cliente: TestClient, regiao: str) -> None:
+    for slug, qs, esperado in (
+        ("ies", "recorte=sede", IES_POR_REGIAO[regiao]),
+        ("matriculas", f"recorte=oferta&{TERRITORIAIS}", MATRICULAS_POR_REGIAO[regiao]),
+    ):
+        uma = _get(cliente, slug, f"nivel=regiao&{qs}&regiao={regiao}")
+        assert (uma["unidades"], uma["total"]) == (1, esperado)
+        assert uma["valor_sem_territorio"] is None
+        # A regiao, as suas UFs e os seus municipios somam o mesmo valor.
+        ufs = _get(cliente, slug, f"nivel=uf&{qs}&regiao={regiao}")
+        municipios = _get(cliente, slug, f"nivel=municipio&{qs}&regiao={regiao}")
+        assert ufs["total"] == municipios["total"] == esperado
+        assert sum(li["valor"] for li in ufs["linhas"]) == esperado
+
+
+def test_filtros_de_uf_e_municipio(cliente: TestClient) -> None:
+    assert sum(IES_POR_REGIAO.values()) == 2_561
+    assert sum(MATRICULAS_POR_REGIAO.values()) == 10_224_686
+    sp = _get(cliente, "ies", "nivel=uf&recorte=sede&uf=SP")
+    assert (sp["unidades"], sp["total"], sp["linhas"][0]["uf"]) == (1, 580, "SP")
+    assert sp["filtros"]["uf"] == "SP"
+    mat_uf = _get(cliente, "matriculas", f"nivel=uf&recorte=oferta&{TERRITORIAIS}&uf=SP")
+    mat_mun = _get(cliente, "matriculas", f"nivel=municipio&recorte=oferta&{TERRITORIAIS}&uf=SP")
+    assert mat_uf["total"] == mat_mun["total"] == sum(li["valor"] for li in mat_mun["linhas"])
+    capital = _get(
+        cliente,
+        "matriculas",
+        f"nivel=municipio&recorte=oferta&{TERRITORIAIS}&municipio=3550308",
+    )
+    assert (capital["unidades"], capital["total"]) == (1, 470_626 + 388_400)
+    assert capital["filtros"]["municipio"] == "3550308"
+    assert capital["valor_sem_territorio"] is None
+    # Codigo de municipio de outra UF: vazio, nunca os numeros dele sob a UF errada.
+    trocado = _get(cliente, "ies", "nivel=municipio&recorte=sede&uf=SP&municipio=5300108")
+    assert (trocado["unidades"], trocado["linhas"]) == (0, [])
+    # Municipio sem sede de IES: nenhuma linha, e nao um zero inventado.
+    vazio = _get(cliente, "ies", "nivel=municipio&recorte=sede&municipio=9999999")
+    assert (vazio["unidades"], vazio["total"], vazio["linhas"]) == (0, 0, [])
+
+
+def test_lista_de_municipios_da_uf(cliente: TestClient) -> None:
+    df = cliente.get("/api/v1/territorios/municipios?uf=DF").json()
+    assert df["municipios"] == [
+        {"codigo": "5300108", "nome": "Brasília", "sede": True, "oferta": True}
+    ]
+    total, com_sede, com_oferta = 0, 0, 0
+    for uf in (u["sigla"] for u in cliente.get("/api/v1/metadados").json()["ufs"]):
+        municipios = cliente.get(f"/api/v1/territorios/municipios?uf={uf}").json()["municipios"]
+        assert len({m["codigo"] for m in municipios}) == len(municipios)
+        total += len(municipios)
+        com_sede += sum(m["sede"] for m in municipios)
+        com_oferta += sum(m["oferta"] for m in municipios)
+    # IND-D-10 = 698 e IND-D-11 = 3.551; nenhuma sede fora das unidades com oferta.
+    assert (total, com_sede, com_oferta) == (3_551, 698, 3_551)
+    assert cliente.get("/api/v1/territorios/municipios").status_code == 422
+    assert cliente.get("/api/v1/territorios/municipios?uf=XX").status_code == 422
+
+
 def test_limite_trunca_e_declara(cliente: TestClient) -> None:
     corpo = _get(cliente, "matriculas", f"nivel=municipio&recorte=oferta&{TERRITORIAIS}&limite=2")
     assert len(corpo["linhas"]) == 2
@@ -171,7 +310,17 @@ def test_vagas_ead_so_existem_no_nivel_brasil(cliente: TestClient) -> None:
         ("matriculas?nivel=uf&recorte=oferta&dimensao=ead_nacional", 422, "territorializ"),
         ("matriculas?nivel=municipio&recorte=oferta&dimensao=ead_exterior", 422, "territorializ"),
         # filtros fechados
-        ("ies?nivel=uf&recorte=sede&uf=DF", 422, "municipio"),
+        ("ies?nivel=brasil&recorte=sede&uf=DF", 422, "'uf'"),
+        ("ies?nivel=regiao&recorte=sede&uf=DF", 422, "'uf'"),
+        ("ies?nivel=brasil&recorte=sede&regiao=sul", 422, "'regiao'"),
+        ("ies?nivel=uf&recorte=sede&municipio=5300108", 422, "'municipio'"),
+        ("ies?nivel=municipio&recorte=sede&municipio=530010", 422, "municipio"),
+        ("ies?nivel=municipio&recorte=sede&municipio=5300108' OR 1=1 --", 422, "municipio"),
+        ("ies?nivel=uf&recorte=sede&uf=DF&regiao=sul", 422, "Centro-Oeste"),
+        ("ies?nivel=brasil&recorte=sede&rede=privada&categoria=publica_federal", 422, "rede"),
+        ("ies?nivel=brasil&recorte=sede&categoria=Pública Federal", 422, "categoria"),
+        ("ies?nivel=brasil&recorte=sede&organizacao=universidades", 422, "organizacao"),
+        ("ies?nivel=regiao&recorte=sede&regiao=Sul", 422, "regiao"),
         ("ies?nivel=municipio&recorte=sede&uf=df", 422, "uf"),
         ("ies?nivel=municipio&recorte=sede&uf=DF' OR 1=1 --", 422, "uf"),
         ("ies?nivel=municipio&recorte=sede&rede=Pública", 422, "rede"),
@@ -199,3 +348,10 @@ def test_catalogo_e_metadados(cliente: TestClient) -> None:
         "presencial",
         "ead_polo",
     }
+    assert {d["slug"] for d in meta["dimensoes_oferta"] if d["modalidade"] == "Presencial"} == {
+        "presencial"
+    }
+    assert len(meta["regioes"]) == 5
+    assert len(meta["ufs"]) == 27
+    assert len(meta["categorias"]) == 6
+    assert len(meta["organizacoes"]) == 5
